@@ -26,6 +26,7 @@
             height: 50px;
             text-align: right;
             position: fixed;
+            border-radius: 100px;
         }
 
         .icon {width: 30px;height: 50px;margin-right: 10px;transition-duration: 500ms;}
@@ -48,20 +49,20 @@
         @media (prefers-color-scheme: light) {
             /* https://coolors.co/palette/bee9e8-62b6cb-1b4965-cae9ff-5fa8d3 */
         body, html {
-            background: #cae9ff;
+            background: #BEE9E8;
             color: black;
         }
         .icon {filter: invert(0%);}
         }
-        .topbar {background: #bee9e8;}
+        .topbar {background: #62B6CB;}
     
         @media (prefers-color-scheme: dark) {
             /* https://coolors.co/palette/bee9e8-62b6cb-1b4965-cae9ff-5fa8d3 */
         body, html {
-            background: #0d1b2a;
+            background: #1b263b;
             color: white;
         }
-        .topbar {background: #1b263b;}
+        .topbar {background: #415a77;}
         .icon {filter: invert(100%);}
   
         }
@@ -69,6 +70,7 @@
         .content {
             padding-left: 10px;
             width: calc(100% - 20px);
+            height: 500%;
         }
         
     </style>
