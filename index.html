@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 {% for post in paginator.posts %}
         <div class="post_card" onclick="openpost('{{ post.url }}')" id="card_{{ post.url }}">
             <h2 class="posttitle" id="posttitle_{{ post.url }}">{{ post.title }}</h2>
@@ -53,7 +54,7 @@ layout: default
                 card = document.getElementById("card_" + url);
                 card.style.position = "";
                 card.style.width = "";
-                card.style.height = "200px";
+                card.style.height = "";
                 card.style.top = ""
                 card.style.marginTop = ""
                 card.style.marginLeft = ""
