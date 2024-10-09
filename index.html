@@ -127,7 +127,7 @@ layout: default
             <h2 class="posttitle" id="posttitle_{{ post.url }}">{{ post.title }}</h2>
 
             <p class="postexcerpt" id="postexcerpt_{{ post.url }}">{{ post.excerpt | strip_html | truncatewords: 100 }}</p>
-            <div class="x" id="x_{{ post.url }}">
+            <div class="x" id="x_{{ post.url }}" onclick="closepost('{{ post.url }}')">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="icon"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
             </div>
             <div class="embed" id="embed_{{ post.url }}">
@@ -154,6 +154,26 @@ layout: default
                 embed = document.getElementById('embed_'+url);
                 embed.innerHTML = "<embed src='" + url + "'>"
                 embed.style.display = "block";
+            }
+        }
+    }
+
+    function closepost(url) {
+        if (url.startsWith('/')) {
+            if (document.getElementById('posttitle_'+url).style.display == "none") {
+                card = document.getElementById("card_" + url);
+                card.style.position = "";
+                card.style.width = "";
+                card.style.height = "";
+                card.style.top = ""
+                document.getElementById('posttitle_'+url).style.color = "";
+                document.getElementById('postexcerpt_'+url).style.color = "";
+                document.getElementById('posttitle_'+url).style.display = "";
+                document.getElementById('postexcerpt_'+url).style.display = "";
+                document.getElementById('x_'+url).style.display = "";
+                embed = document.getElementById('embed_'+url);
+                embed.innerHTML = "<embed src='" + url + "'>"
+                embed.style.display = "";
             }
         }
     }
