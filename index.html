@@ -108,6 +108,8 @@ layout: default
             transition-duration: 500ms;
         }
         .post_card h2 {margin: 0px;}
+        .post_card:hover {width: calc(100% - 35px);margin-left: 7.5px;height: 205px;}
+        .post_card:active {width: calc(100% - 30px);margin-left: 5px;height: 210px;}
 
         .posttitle, .postexcerpt {transition-duration: 500ms;}
 
@@ -117,6 +119,7 @@ layout: default
         .icon:hover {width: 30px;}
         .icon:active {width: 35px;}
         .x {display:none;position: fixed;right: 25px;}
+
         
     </style>    
     </head>
@@ -145,6 +148,7 @@ layout: default
                 card.style.height = "calc(100% - 40px)";
                 card.style.top = "10px"
                 card.style.marginTop = "0px"
+                card.style.marginLeft = "10px"
                 document.getElementById('posttitle_'+url).style.color = "#00000000";
                 document.getElementById('postexcerpt_'+url).style.color = "#00000000";
                 document.getElementById('posttitle_'+url).style.display = "none";
@@ -168,6 +172,7 @@ layout: default
                 card.style.height = "";
                 card.style.top = ""
                 card.style.marginTop = ""
+                card.style.marginLeft = ""
                 document.getElementById('posttitle_'+url).style.color = "";
                 document.getElementById('postexcerpt_'+url).style.color = "";
                 document.getElementById('posttitle_'+url).style.display = "";
