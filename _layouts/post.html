@@ -11,8 +11,15 @@
 </div>
 {% if page.comments %}
 <div class="comment">
-    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
-    <div class="commonninja_component pid-4a329727-e4ca-485e-82b8-6e07c99c8730"></div>
+    <div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="6fd28193-a016-43bd-9fa7-5c4653eea65a"
+  data-page-id="{{ page.url }}"
+  data-page-url="{{ page.url }}"
+  data-page-title="{{ page.title }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
 </div>
 {% endif %}
 <head>
