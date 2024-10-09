@@ -44,6 +44,7 @@ layout: default
                 bgblur = document.getElementById('bgblur')
                 bgblur.style.visibility = "visible"
                 bgblur.setAttribute('onclick', 'closepost("'+url+'")');
+                window.location.href = '#'+url
             }
         }
     }
@@ -69,10 +70,19 @@ layout: default
                 bgblur = document.getElementById('bgblur')
                 bgblur.style.visibility = ""
                 bgblur.setAttribute('onclick', '');
+                window.location.href = '#'
                 setTimeout(function() {
                     card.setAttribute('onclick', 'openpost("'+url+'")');
                 }, 500);
             }
         }
     }
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        href = window.location.href
+        postid = href.split('#')[1]
+        console.log(postid)
+        openpost(postid)
+        });
 </script>
