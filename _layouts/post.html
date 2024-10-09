@@ -10,7 +10,7 @@
     {{page.content | markdownify}}
 </div>
 {% if page.comments %}
-<div id="graphcomment"></div>
+<div id="graphcomment" class="comment"></div>
 <script type="text/javascript">
 
   /* - - - CONFIGURATION VARIABLES - - - */
@@ -112,7 +112,9 @@
             background: white;
             margin-top: 30px;
             padding: 10px;
+            border-radius: 30px;
             transition-duration: 500ms;
+            width: auto;
         }
         
     </style>
