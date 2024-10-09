@@ -122,7 +122,6 @@ layout: default
     </style>    
     </head>
 {% for post in paginator.posts %}
-<div class="content">
         <div class="post_card" onclick="openpost('{{ post.url }}')" id="card_{{ post.url }}">
             <h2 class="posttitle" id="posttitle_{{ post.url }}">{{ post.title }}</h2>
 
@@ -134,7 +133,7 @@ layout: default
                 
             </div>
         </div>
-        </div>
+        
 {% endfor %}    
 
 <script>
