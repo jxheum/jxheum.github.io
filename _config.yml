@@ -1,0 +1,26 @@
+title: BJH
+description: BJH blog
+timezone: Asia/Seoul 
+
+repository: jxheum/jxheum.github.io
+
+permalink: /:year/:month/:day/:title/
+
+excerpt_separator: <!--more-->
+
+markdown: kramdown
+
+krandown:
+  input: GFM
+  highlighter: rouge
+
+plugins:
+  - jekyll-paginate
+
+paginate: 100
+paginate_path: '/page/:num/'
+
+exclude: [README.md]
+
+github_url:
+  username: jxheum
