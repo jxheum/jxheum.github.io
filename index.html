@@ -138,7 +138,7 @@ layout: default
 
 <script>
     function openpost(url) {
-        if (url.startsWith('https://jxheum.github.io')) {
+        if (url.startsWith('/')) {
             if (document.getElementById('posttitle_'+url).style.display !== "none") {
                 card = document.getElementById("card_" + url);
                 card.style.position = "fixed";
@@ -151,7 +151,7 @@ layout: default
                 document.getElementById('postexcerpt_'+url).style.display = "none";
                 document.getElementById('x_'+url).style.display = "block";
                 embed = document.getElementById('embed_'+url);
-                embed.innerHTML = "<embed src='_layouts/post.html'>"
+                embed.innerHTML = "<embed src='" + url + "'>"
                 embed.style.display = "block";
             }
         }
