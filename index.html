@@ -116,9 +116,9 @@ layout: default
         .icon {width: 25px;height: 50px;margin-right: 10px;transition-duration: 500ms;}
         .icon:hover {width: 30px;}
         .icon:active {width: 35px;}
-        .x {display:none;position: fixed;right: 40px;}
+        .x {display:none;position: fixed;right: 25px;}
         
-    </style>
+    </style>    
     </head>
 {% for post in paginator.posts %}
 <div class="content">
@@ -138,7 +138,7 @@ layout: default
 
 <script>
     function openpost(url) {
-        if (url.startsWith('{{')) {
+        if (url.startsWith('https://jxheum.github.io')) {
             if (document.getElementById('posttitle_'+url).style.display !== "none") {
                 card = document.getElementById("card_" + url);
                 card.style.position = "fixed";
