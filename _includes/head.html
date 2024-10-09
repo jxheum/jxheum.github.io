@@ -53,6 +53,9 @@
         }
         .github {filter: invert(100%);}
         }
+
+        .post_card {background-color:#BEE9E8; }
+        .icon {filter: invert(0%);}
     
         @media (prefers-color-scheme: dark) {
             /* https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd */
@@ -71,6 +74,8 @@
         }
         .github {filter: invert(0%);}
         .footer {color: black;background: #cae9ff;}
+        .post_card {background-color: #1b263b}
+        .icon {filter: invert(100%);}
   
         }
 
@@ -85,10 +90,34 @@
         }
     
         .content {
-            padding: 10px;
-            width: calc(100% - 20px);
-            height: calc(100% - 70px - 15px - 20px);
+            padding: 0px;
+            width: calc(100%);
         }
+
+        .post_card {
+            margin-top: 10px;
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 30px;
+            height: 200px;
+            float:left;
+            transition-duration: 500ms;
+            z-index: 999;
+        }
+        .post_card h2 {margin: 0px;}
+        .post_card:hover {width: calc(100% - 35px);margin-left: 7.5px;height: 205px;}
+        .post_card:active {width: calc(100% - 30px);margin-left: 5px;height: 210px;}
+
+        .posttitle, .postexcerpt {transition-duration: 500ms;}
+
+        .embed {width: 100%;height: 100%;display: hidden;}
+        embed {width: inherit;height: inherit;}
+        .icon {width: 25px;height: 50px;margin-right: 10px;transition-duration: 500ms;}
+        .icon:hover {width: 30px;}
+        .icon:active {width: 35px;}
+        .x {display:none;position: fixed;right: 25px;}
+        .bgblur {z-index: 0;background: #ffffff00;backdrop-filter: blur(10px);position: fixed;width: 100%;height: 100%;top:0px;left:0px;visibility: hidden;}
         
-    </style>
+    </style>    
     </head>

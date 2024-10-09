@@ -1,128 +1,6 @@
 ---
 layout: default
 ---
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
-        #header {
-            font-family: "Nanum Myeongjo", serif;
-            font-weight: 800;
-            font-style: normal;
-            font-size: 60px;
-            width: calc(100% - 20px);
-            padding: 10px;
-            transition-duration: 500ms;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    
-        #header:hover {
-            font-size: 65px;
-        }
-    
-        #header:active {
-            font-size: 70px;
-        }
-    
-        body, html {
-            width: 100%;
-            height: 100%;
-            margin: 0px;
-        }
-    
-    
-        @media (prefers-color-scheme: light) {
-            /* https://coolors.co/palette/bee9e8-62b6cb-1b4965-cae9ff-5fa8d3 */
-        body, html {
-            background: #cae9ff;
-            color: black;
-        }
-    
-        .header {
-            background: #bee9e8;
-            -webkit-text-stroke: 1px black;
-            color: #00000000;
-        }
-        .header:hover {
-          color: black;
-        }
-
-        .footer {
-            background: #1b4965;
-            color: white;
-        }
-        .github {filter: invert(100%);}
-        }
-
-        .post_card {background-color:#BEE9E8; }
-        .icon {filter: invert(0%);}
-    
-        @media (prefers-color-scheme: dark) {
-            /* https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd */
-        body, html {
-            background: #0d1b2a;
-            color: white;
-        }
-    
-        .header {
-            background: #1b263b ;
-            -webkit-text-stroke: 1px white;
-            color: #00000000;
-        }
-        .header:hover {
-          color: white;
-        }
-        .github {filter: invert(0%);}
-        .footer {color: black;background: #cae9ff;}
-        .post_card {background-color: #1b263b}
-        .icon {filter: invert(100%);}
-  
-        }
-
-        .footer {
-            height: 15px;
-            font-size: 10px;
-            padding: 10px;
-            width: calc(100% - 20px);
-            position:fixed;
-            bottom: 0px;
-            left: 0px;
-        }
-    
-        .content {
-            padding: 0px;
-            width: calc(100%);
-        }
-
-        .post_card {
-            margin-top: 10px;
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin-left: 10px;
-            border-radius: 30px;
-            height: 200px;
-            float:left;
-            transition-duration: 500ms;
-        }
-        .post_card h2 {margin: 0px;}
-        .post_card:hover {width: calc(100% - 35px);margin-left: 7.5px;height: 205px;}
-        .post_card:active {width: calc(100% - 30px);margin-left: 5px;height: 210px;}
-
-        .posttitle, .postexcerpt {transition-duration: 500ms;}
-
-        .embed {width: 100%;height: 100%;display: hidden;}
-        embed {width: inherit;height: inherit;}
-        .icon {width: 25px;height: 50px;margin-right: 10px;transition-duration: 500ms;}
-        .icon:hover {width: 30px;}
-        .icon:active {width: 35px;}
-        .x {display:none;position: fixed;right: 25px;}
-
-        
-    </style>    
-    </head>
 {% for post in paginator.posts %}
         <div class="post_card" onclick="openpost('{{ post.url }}')" id="card_{{ post.url }}">
             <h2 class="posttitle" id="posttitle_{{ post.url }}">{{ post.title }}</h2>
@@ -136,7 +14,8 @@ layout: default
             </div>
         </div>
         
-{% endfor %}    
+{% endfor %}  
+<div class="bgblur" onclick="" id="bgblur"></div>  
 
 <script>
     function openpost(url) {
@@ -144,21 +23,26 @@ layout: default
             if (document.getElementById('embed_'+url).style.display == "none") {
                 card = document.getElementById("card_" + url);
                 card.style.position = "fixed";
-                card.style.width = "calc(100% - 40px)";
-                card.style.height = "calc(100% - 40px)";
-                card.style.top = "10px"
+                card.style.width = "calc(100% - 60px)";
+                card.style.height = "calc(100% - 60px)";
+                card.style.top = "20px"
                 card.style.marginTop = "0px"
-                card.style.marginLeft = "10px"
-                document.getElementById('posttitle_'+url).style.color = "#00000000";
-                document.getElementById('postexcerpt_'+url).style.color = "#00000000";
-                document.getElementById('posttitle_'+url).style.display = "none";
-                document.getElementById('postexcerpt_'+url).style.display = "none";
+                card.style.marginLeft = "20px"
+                posttitle = document.getElementById('posttitle_'+url)
+                postexcerpt = document.getElementById('postexcerpt_'+url)
+                posttitle.style.color = "#00000000";
+                postexcerpt.style.color = "#00000000";
+                posttitle.style.display = "none";
+                postexcerpt.style.display = "none";
                 document.getElementById('x_'+url).style.display = "block";
                 embed = document.getElementById('embed_'+url);
                 embed.innerHTML = "<embed src='" + url + "'>"
                 embed.style.display = "block";
                 console.log('hi');
                 card.setAttribute('onclick', '');
+                bgblur = document.getElementById('bgblur')
+                bgblur.style.visibility = "visible"
+                bgblur.setAttribute('onclick', 'closepost("'+url+'")');
             }
         }
     }
@@ -181,6 +65,9 @@ layout: default
                 embed = document.getElementById('embed_'+url);
                 embed.style.display = "none";
                 console.log('bye');
+                bgblur = document.getElementById('bgblur')
+                bgblur.style.visibility = ""
+                bgblur.setAttribute('onclick', '');
                 setTimeout(function() {
                     card.setAttribute('onclick', 'openpost("'+url+'")');
                 }, 500);
