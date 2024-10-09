@@ -92,4 +92,13 @@
         function github() {
             window.open('https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) + '.md', "fullscreen=yes");
         }
+        function copy_link() {
+            temp = document.createElement("textarea");
+            document.body.appendChild(temp);
+            const url = document.location.pathname; // /2024/10/09/test2/
+            temp.value = 'https://jxheum.github.io/#' + url; // /2024/10/09/test2/
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+        }
     </script>
