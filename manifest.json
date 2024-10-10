@@ -1,0 +1,11 @@
+{
+  "name": "BJH",
+  "theme_color": "#1b263b",
+  "background_color": "#0d1b2a",
+  "short_name": "BJH",
+  "id": "bjhblog",
+  "description": "BJH blog",
+  "categories": [
+    "social"
+  ]
+}
