@@ -1,6 +1,17 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="algolia-site-verification"  content="168CB5416475109E" />
+    <theme id="theme">
+        <!-- Chrome, Firefox, Opera -->
+<meta content="#bee9e8" name="theme-color"/>
+<!-- Windows Phone -->
+<meta content="#bee9e8" name="msapplication-navbutton-color"/>
+<!-- iOS Safari -->
+<meta content="#bee9e8" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+    </theme>
+    <link rel="icon" type="image/png" href="icon.png" />
+
     <title>BJH</title>
 
     <style>
@@ -124,4 +135,9 @@
         .github:hover {width: 20px;height: 20px;}
         .github:active {width: 25px;height: 25px;}
     </style>    
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.getElementById('theme').innerHTML = '<meta content="#1b263b" name="theme-color"/><meta content="#1b263b" name="msapplication-navbutton-color"/><meta content="#1b263b" name="apple-mobile-web-app-status-bar-style"/><meta content="yes" name="apple-mobile-web-app-capable"/>'
+        }
+    </script>
     </head>
