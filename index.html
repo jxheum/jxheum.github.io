@@ -21,34 +21,78 @@ layout: default
 <div class="bgblur" onclick="" id="bgblur"></div>  
 
 <script>
+    function detectMobileDevice(agent) {
+        const mobileRegex = [
+            /Android/i,
+            /iPhone/i,
+            /iPad/i,
+            /iPod/i,
+            /BlackBerry/i,
+            /Windows Phone/i
+        ]
+        return mobileRegex.some(mobile => agent.match(mobile))
+    }
+
     function openpost(url) {
         if (url.startsWith('')) {
-            if (document.getElementById('embed_'+url).style.display == "none") {
-                card = document.getElementById("card_" + url);
-                card.style.position = "fixed";
-                card.style.width = "calc(100% - 100px)";
-                card.style.height = "calc(100% - 100px)";
-                card.style.top = "40px"
-                card.style.marginTop = "0px"
-                card.style.marginLeft = "40px"
-                posttitle = document.getElementById('posttitle_'+url)
-                postexcerpt = document.getElementById('postexcerpt_'+url)
-                clock = document.getElementById('clock_'+url)
-                posttitle.style.color = "#00000000";
-                postexcerpt.style.color = "#00000000";
-                posttitle.style.display = "none";
-                postexcerpt.style.display = "none";
-                clock.style.display = "none";
-                document.getElementById('x_'+url).style.display = "block";
-                console.log('hi');
-                card.setAttribute('onclick', '');
-                bgblur = document.getElementById('bgblur')
-                bgblur.style.visibility = "visible"
-                bgblur.setAttribute('onclick', 'closepost("'+url+'")');
-                window.location.href = '#'+url
-                embed = document.getElementById('embed_'+url);
-                embed.innerHTML = "<embed src='" + url + "'>"
-                embed.style.display = "block";
+            
+            if (detectMobileDevice(window.navigator.userAgent)) {
+                if (document.getElementById('embed_'+url).style.display == "none") {
+                    card = document.getElementById("card_" + url);
+                    card.style.position = "fixed";
+                    card.style.width = "100%";
+                    card.style.height = "100%";
+                    card.style.top = "0px"
+                    card.style.marginTop = "0px"
+                    card.style.marginLeft = "0px"
+                    posttitle = document.getElementById('posttitle_'+url)
+                    postexcerpt = document.getElementById('postexcerpt_'+url)
+                    clock = document.getElementById('clock_'+url)
+                    posttitle.style.color = "#00000000";
+                    postexcerpt.style.color = "#00000000";
+                    posttitle.style.display = "none";
+                    postexcerpt.style.display = "none";
+                    clock.style.display = "none";
+                    document.getElementById('x_'+url).style.display = "block";
+                    console.log('hi');
+                    card.setAttribute('onclick', '');
+                    bgblur = document.getElementById('bgblur')
+                    bgblur.style.visibility = "visible"
+                    bgblur.setAttribute('onclick', 'closepost("'+url+'")');
+                    window.location.href = '#'+url
+                    embed = document.getElementById('embed_'+url);
+                    embed.innerHTML = "<embed src='" + url + "'>"
+                    embed.style.display = "block";
+                }
+            }
+            else {
+                if (document.getElementById('embed_'+url).style.display == "none") {
+                    card = document.getElementById("card_" + url);
+                    card.style.position = "fixed";
+                    card.style.width = "calc(100% - 100px)";
+                    card.style.height = "calc(100% - 100px)";
+                    card.style.top = "40px"
+                    card.style.marginTop = "0px"
+                    card.style.marginLeft = "40px"
+                    posttitle = document.getElementById('posttitle_'+url)
+                    postexcerpt = document.getElementById('postexcerpt_'+url)
+                    clock = document.getElementById('clock_'+url)
+                    posttitle.style.color = "#00000000";
+                    postexcerpt.style.color = "#00000000";
+                    posttitle.style.display = "none";
+                    postexcerpt.style.display = "none";
+                    clock.style.display = "none";
+                    document.getElementById('x_'+url).style.display = "block";
+                    console.log('hi');
+                    card.setAttribute('onclick', '');
+                    bgblur = document.getElementById('bgblur')
+                    bgblur.style.visibility = "visible"
+                    bgblur.setAttribute('onclick', 'closepost("'+url+'")');
+                    window.location.href = '#'+url
+                    embed = document.getElementById('embed_'+url);
+                    embed.innerHTML = "<embed src='" + url + "'>"
+                    embed.style.display = "block";
+                }
             }
         }
     }
