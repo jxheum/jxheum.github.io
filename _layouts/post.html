@@ -126,7 +126,7 @@
         }
     </script>
     <script>
-        if (window.location.pathname != '/')
+        if (window.location.pathname.startsWith('/#/') == false)
         {
             window.location.href = 'https://jxheum.github.io/#' + window.location.pathname;
         } 
