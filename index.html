@@ -143,6 +143,12 @@ layout: default
             postid = window.location.hash
         postid = postid.split('#')[1]
         console.log(postid)
-        openpost(postid)
+        if (postid == '')
+        {
+            closepost();
+        }
+        else {
+            openpost(postid)
+        }
         })
 </script>
