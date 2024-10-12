@@ -40,15 +40,15 @@ layout: default
                 postexcerpt.style.display = "none";
                 clock.style.display = "none";
                 document.getElementById('x_'+url).style.display = "block";
-                embed = document.getElementById('embed_'+url);
-                embed.innerHTML = "<embed src='" + url + "'>"
-                embed.style.display = "block";
                 console.log('hi');
                 card.setAttribute('onclick', '');
                 bgblur = document.getElementById('bgblur')
                 bgblur.style.visibility = "visible"
                 bgblur.setAttribute('onclick', 'closepost("'+url+'")');
                 window.location.href = '#'+url
+                embed = document.getElementById('embed_'+url);
+                embed.innerHTML = "<embed src='" + url + "'>"
+                embed.style.display = "block";
             }
         }
     }
