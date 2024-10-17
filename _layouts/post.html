@@ -20,20 +20,21 @@
     <div id="infosec">
         {% for tag in page.tags %}
         <div class="tags">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon"
-            style="width: 15px;height: 15px;vertical-align:-3px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z"/></svg>{{ tag }}</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" style="width: 15px;height: 15px;vertical-align:-3px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z"/></svg>{{ tag }}</div>
         {% unless forloop.last %},{% endunless %}
         {% endfor %}
-        <div class="tags"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon"
-            style="width: 15px;height: 15px;vertical-align:-3px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-                d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+
+        <div class="tags"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" style="width: 15px;height: 15px;vertical-align:-3px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
         </svg>{{ page.date | date: '%Y-%m-%d %H:%M' }}</div>
+
+        <a href="#comments"><div class="tags"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" style="width: 15px;height: 15px;vertical-align:-5px;margin-right: 0px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c0 0 0 0 0 0s0 0 0 0s0 0 0 0c0 0 0 0 0 0l.3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"/></svg></div></a>
+
     </div><br>
     {{page.content | markdownify}}
 </div>
 {% if page.comments %}
-<div class="comment">
+<div class="comment" id="comments">
     <script src="https://utteranc.es/client.js" repo="jxheum/jxheum.github.io" issue-term="pathname" label="Comment"
         theme="preferred-color-scheme" crossorigin="anonymous" async>
         </script>
@@ -54,6 +55,7 @@
             height: 100%;
             margin: 0px;
             -ms-overflow-style: none;
+            scroll-behavior:smooth;
         }
 
         ::-webkit-scrollbar {
@@ -97,7 +99,7 @@ margin-right: 5px;}
         .icon {
             width: 30px;
             height: 50px;
-            margin-right: 10px;
+            margin-right: 5px;
             transition-duration: 500ms;
         }
 
@@ -165,7 +167,7 @@ margin-right: 5px;}
         .content {
             padding-left: 10px;
             width: calc(100% - 20px);
-            /* height: 200%; */
+            height: 200%;
         }
 
         .comment {
@@ -250,6 +252,6 @@ margin-right: 5px;}
     </script>
     <script>
         if (parent.location.href == window.location.href) {
-            window.location.href = 'https://jxheum.github.io/#' + window.location.pathname;
+            // window.location.href = 'https://jxheum.github.io/#' + window.location.pathname;
         } 
     </script>
