@@ -94,6 +94,7 @@ layout: default
                     embed = document.getElementById('embed_'+url);
                     embed.innerHTML = "<embed src='" + url + "'>"
                     embed.style.display = "block";
+                    history.pushState(null, null, document.URL);
                 }
             }
         }
@@ -127,6 +128,7 @@ layout: default
                 setTimeout(function() {
                     card.setAttribute('onclick', 'openpost("'+url+'")');
                 }, 500);
+                history.pushState(null, null, document.URL);
             }
         }
     }
@@ -138,7 +140,8 @@ layout: default
         console.log(postid)
         openpost(postid)
         });
-    
+        
+        history.pushState(null, null, document.URL);
         window.addEventListner('popstate', function() {
             postid = window.location.hash
             postid = postid.split('#')[1]
