@@ -139,16 +139,16 @@ layout: default
         openpost(postid)
         });
     
-        window.addEventListner('hashchange', function() {
+        window.addEventListner('popstate', function() {
             postid = window.location.hash
-        postid = postid.split('#')[1]
-        console.log(postid)
-        if (postid == '')
-        {
-            closepost();
-        }
-        else {
-            openpost(postid)
-        }
+            postid = postid.split('#')[1]
+            console.log(postid)
+            if (postid == '')
+            {
+                closepost();
+            }
+            else {
+                openpost(postid)
+            }
         })
 </script>
