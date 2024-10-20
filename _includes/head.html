@@ -40,7 +40,7 @@
         
             
     body, html { background-color: #11131d;color: #e2e1f0;}
-    .clock {filter:contrast(100%);}
+    .icon {filter: invert(87%) sepia(11%) saturate(4895%) hue-rotate(188deg) brightness(101%) contrast(101%);}
     .header {background: linear-gradient(to top, #00000000, #11131d);}
 
 }
@@ -49,6 +49,7 @@
     :root,:host{--md-sys-color-background:#fbf8ff;--md-sys-color-on-background:#1a1b25;--md-sys-color-surface:#fbf8ff;--md-sys-color-surface-dim:#dad8e8;--md-sys-color-surface-bright:#fbf8ff;--md-sys-color-surface-container-lowest:#ffffff;--md-sys-color-surface-container-low:#f4f2ff;--md-sys-color-surface-container:#eeecfc;--md-sys-color-surface-container-high:#e8e7f6;--md-sys-color-surface-container-highest:#e2e1f0;--md-sys-color-on-surface:#1a1b25;--md-sys-color-surface-variant:#e1e1f7;--md-sys-color-on-surface-variant:#444657;--md-sys-color-inverse-surface:#2f303b;--md-sys-color-inverse-on-surface:#f1efff;--md-sys-color-outline:#757689;--md-sys-color-outline-variant:#c4c5da;--md-sys-color-shadow:#000000;--md-sys-color-scrim:#000000;--md-sys-color-surface-tint:#2240ff;--md-sys-color-primary:#0023c7;--md-sys-color-on-primary:#ffffff;--md-sys-color-primary-container:#314bff;--md-sys-color-on-primary-container:#ffffff;--md-sys-color-inverse-primary:#bcc2ff;--md-sys-color-secondary:#4956b3;--md-sys-color-on-secondary:#ffffff;--md-sys-color-secondary-container:#9da8ff;--md-sys-color-on-secondary-container:#001076;--md-sys-color-tertiary:#70008a;--md-sys-color-on-tertiary:#ffffff;--md-sys-color-tertiary-container:#a223c2;--md-sys-color-on-tertiary-container:#ffffff;--md-sys-color-error:#ba1a1a;--md-sys-color-on-error:#ffffff;--md-sys-color-error-container:#ffdad6;--md-sys-color-on-error-container:#410002;}
 
     body, html { background-color: #fbf8ff;color: #1a1b25;}
+    .icon {filter: invert(10%) sepia(78%) saturate(6709%) hue-rotate(235deg) brightness(86%) contrast(113%);}
     .header {background: linear-gradient(to top, #00000000, #fbf8ff);}
 }
 
@@ -58,6 +59,8 @@
             font-size: 48px;
             padding-left: 10px;
             padding-bottom: 10px;
+            padding-top: 10px;
+            margin: 0px;
             position: fixed;
             top: 0px;
             left: 0px;
@@ -65,7 +68,12 @@
             width: 100%;
             backdrop-filter: blur(1px);
             transition-duration: 500ms;
+            user-select: none;
         }
+
+        .github {position: fixed;bottom: 10px;right: 10px;user-select: none;}
+        .mail {position:fixed;bottom: 76px;right: 10px;}
+        .icon {height: 24px;}
     </style>
     
 </head>
