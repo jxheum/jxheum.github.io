@@ -68,8 +68,7 @@ layout: default
                     target="_blank">
                   <div slot="headline">{{ post.title }}</div>
                   <div slot="supporting-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
-                  <div slot="supporting-text"><svg xmlns="http://www.w3.org/2000/svg" class="clock" viewBox="0 0 512 512" class="icon" style="width: 15px;height: 15px;vertical-align:-3px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg> 
-                    {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
+                  <div slot="supporting-text"><md-icon style="font-size: 18px;width: 20px;height: 20px;vertical-align: -4.5px;">calendar_month</md-icon> {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
                   <md-icon slot="end">arrow_forward_ios</md-icon>
                 </md-list-item>
                 <md-divider></md-divider>
