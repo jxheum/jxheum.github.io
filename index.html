@@ -1,143 +1,79 @@
 ---
 layout: default
 ---
-<title id="webtitle">BJH</title>
-{% for post in paginator.posts %}
-        <a href="{{ post.url }}"><div class="post_card" id="card_{{ post.url }}">
-            <h2 class="posttitle" id="posttitle_{{ post.url }}">{{ post.title }}</h2>
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="algolia-site-verification"  content="168CB5416475109E" />
+    <theme id="theme">
+        <!-- Chrome, Firefox, Opera -->
+<meta content="#002fff" name="theme-color"/>
+<!-- Windows Phone -->
+<meta content="#002fff" name="msapplication-navbutton-color"/>
+<!-- iOS Safari -->
+<meta content="#002fff" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+    </theme>
+    <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script type="module">
+    import '@material/web/all.js';
+    import '@material/web/icon/icon.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
 
-            <p class="postexcerpt" id="postexcerpt_{{ post.url }}">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-            <p id="clock_{{ post.url }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" style="width: 15px;height: 15px;vertical-align:-2px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>{{ post.date | date: '%Y-%m-%d %H:%M' }}</p>
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+
+    <title>BJH</title>
+
+    <style>
+        @media (prefers-color-scheme: dark) {
+  
+            :root,:host{--md-sys-color-background:#11131d;--md-sys-color-on-background:#e2e1f0;--md-sys-color-surface:#11131d;--md-sys-color-surface-dim:#11131d;--md-sys-color-surface-bright:#373844;--md-sys-color-surface-container-lowest:#0c0d18;--md-sys-color-surface-container-low:#1a1b25;--md-sys-color-surface-container:#1e1f2a;--md-sys-color-surface-container-high:#282934;--md-sys-color-surface-container-highest:#33343f;--md-sys-color-on-surface:#e2e1f0;--md-sys-color-surface-variant:#444657;--md-sys-color-on-surface-variant:#c4c5da;--md-sys-color-inverse-surface:#e2e1f0;--md-sys-color-inverse-on-surface:#2f303b;--md-sys-color-outline:#8e8fa3;--md-sys-color-outline-variant:#444657;--md-sys-color-shadow:#000000;--md-sys-color-scrim:#000000;--md-sys-color-surface-tint:#bcc2ff;--md-sys-color-primary:#bcc2ff;--md-sys-color-on-primary:#00189a;--md-sys-color-primary-container:#002ae7;--md-sys-color-on-primary-container:#e9e9ff;--md-sys-color-inverse-primary:#2240ff;--md-sys-color-secondary:#bcc2ff;--md-sys-color-on-secondary:#152383;--md-sys-color-secondary-container:#283592;--md-sys-color-on-secondary-container:#ced1ff;--md-sys-color-tertiary:#f4aeff;--md-sys-color-on-tertiary:#55006a;--md-sys-color-tertiary-container:#8300a1;--md-sys-color-on-tertiary-container:#ffe2ff;--md-sys-color-error:#ffb4ab;--md-sys-color-on-error:#690005;--md-sys-color-error-container:#93000a;--md-sys-color-on-error-container:#ffdad6;}
+        
+            
+    body, html { background-color: #11131d;}
+    .clock {filter:contrast(100%)};
+
+}
+@media (prefers-color-scheme: light) {
+  
+    :root,:host{--md-sys-color-background:#fbf8ff;--md-sys-color-on-background:#1a1b25;--md-sys-color-surface:#fbf8ff;--md-sys-color-surface-dim:#dad8e8;--md-sys-color-surface-bright:#fbf8ff;--md-sys-color-surface-container-lowest:#ffffff;--md-sys-color-surface-container-low:#f4f2ff;--md-sys-color-surface-container:#eeecfc;--md-sys-color-surface-container-high:#e8e7f6;--md-sys-color-surface-container-highest:#e2e1f0;--md-sys-color-on-surface:#1a1b25;--md-sys-color-surface-variant:#e1e1f7;--md-sys-color-on-surface-variant:#444657;--md-sys-color-inverse-surface:#2f303b;--md-sys-color-inverse-on-surface:#f1efff;--md-sys-color-outline:#757689;--md-sys-color-outline-variant:#c4c5da;--md-sys-color-shadow:#000000;--md-sys-color-scrim:#000000;--md-sys-color-surface-tint:#2240ff;--md-sys-color-primary:#0023c7;--md-sys-color-on-primary:#ffffff;--md-sys-color-primary-container:#314bff;--md-sys-color-on-primary-container:#ffffff;--md-sys-color-inverse-primary:#bcc2ff;--md-sys-color-secondary:#4956b3;--md-sys-color-on-secondary:#ffffff;--md-sys-color-secondary-container:#9da8ff;--md-sys-color-on-secondary-container:#001076;--md-sys-color-tertiary:#70008a;--md-sys-color-on-tertiary:#ffffff;--md-sys-color-tertiary-container:#a223c2;--md-sys-color-on-tertiary-container:#ffffff;--md-sys-color-error:#ba1a1a;--md-sys-color-on-error:#ffffff;--md-sys-color-error-container:#ffdad6;--md-sys-color-on-error-container:#410002;}
+
+    body, html { background-color: #fbf8ff;}
+}
+
+        body, html {width: 100%;height: 100%;margin: 0px;}
+        * {transition-duration: 100ms;}
+    </style>
+</head>
+<title id="webtitle">BJH</title>
+
+<md-list>
+{% for post in paginator.posts %}
+        
                 
-            <div class="x" id="x_{{ post.url }}" onclick="closepost('{{ post.url }}')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="icon"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
-            </div>
-            <div class="embed" id="embed_{{ post.url }}" style="display: none;">
-                
-            </div>
-        </div>
-    </a>
+                <md-list-item
+                    type="link"
+                    href="{{ post.url }}"
+                    target="_blank">
+                  <div slot="headline">{{ post.title }}</div>
+                  <div slot="supporting-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+                  <div slot="supporting-text"><svg xmlns="http://www.w3.org/2000/svg" class="clock" viewBox="0 0 512 512" class="icon" style="width: 15px;height: 15px;vertical-align:-3px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg> 
+                    {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
+                  <md-icon slot="end">arrow_forward_ios</md-icon>
+                </md-list-item>
+                <md-divider></md-divider>
+              
         
 {% endfor %}  
-<div class="bgblur" onclick="" id="bgblur"></div>  
-
-<script>
-    function detectMobileDevice(agent) {
-        const mobileRegex = [
-            /Android/i,
-            /iPhone/i,
-            /iPad/i,
-            /iPod/i,
-            /BlackBerry/i,
-            /Windows Phone/i
-        ]
-        return mobileRegex.some(mobile => agent.match(mobile))
-    }
-
-    function openpost(url) {
-        if (url.startsWith('')) {
-            
-            if (detectMobileDevice(window.navigator.userAgent)) {
-                if (document.getElementById('embed_'+url).style.display == "none") {
-                    card = document.getElementById("card_" + url);
-                    card.style.position = "fixed";
-                    card.style.width = "calc(100% - 20px)";
-                    card.style.height = "calc(100% - 20px)";
-                    card.style.top = "0px"
-                    card.style.marginTop = "0px"
-                    card.style.marginLeft = "0px"
-                    card.style.borderRadius = '0px'
-                    posttitle = document.getElementById('posttitle_'+url)
-                    postexcerpt = document.getElementById('postexcerpt_'+url)
-                    clock = document.getElementById('clock_'+url)
-                    posttitle.style.color = "#00000000";
-                    postexcerpt.style.color = "#00000000";
-                    posttitle.style.display = "none";
-                    postexcerpt.style.display = "none";
-                    clock.style.display = "none";
-                    document.getElementById('x_'+url).style.display = "block";
-                    document.getElementById('x_'+url).style.right = "15px";
-                    console.log('hi');
-                    card.setAttribute('onclick', '');
-                    bgblur = document.getElementById('bgblur')
-                    bgblur.style.visibility = "visible"
-                    bgblur.setAttribute('onclick', 'closepost("'+url+'")');
-                    window.location.href = '#'+url
-                    embed = document.getElementById('embed_'+url);
-                    embed.innerHTML = "<embed src='" + url + "'>"
-                    embed.style.display = "block";
-                }
-            }
-            else {
-                if (document.getElementById('embed_'+url).style.display == "none") {
-                    card = document.getElementById("card_" + url);
-                    card.style.position = "fixed";
-                    card.style.width = "calc(100% - 100px)";
-                    card.style.height = "calc(100% - 100px)";
-                    card.style.top = "40px"
-                    card.style.marginTop = "0px"
-                    card.style.marginLeft = "40px"
-                    posttitle = document.getElementById('posttitle_'+url)
-                    postexcerpt = document.getElementById('postexcerpt_'+url)
-                    clock = document.getElementById('clock_'+url)
-                    posttitle.style.color = "#00000000";
-                    postexcerpt.style.color = "#00000000";
-                    posttitle.style.display = "none";
-                    postexcerpt.style.display = "none";
-                    clock.style.display = "none";
-                    document.getElementById('x_'+url).style.display = "block";
-                    console.log('hi');
-                    card.setAttribute('onclick', '');
-                    bgblur = document.getElementById('bgblur')
-                    bgblur.style.visibility = "visible"
-                    bgblur.setAttribute('onclick', 'closepost("'+url+'")');
-                    window.location.href = '#'+url
-                    embed = document.getElementById('embed_'+url);
-                    embed.innerHTML = "<embed src='" + url + "'>"
-                    embed.style.display = "block";
-                }
-            }
-        }
-    }
-
-    function closepost(url) {
-        if (url.startsWith('')) {
-            if (document.getElementById('embed_'+url).style.display == "block") {
-                card = document.getElementById("card_" + url);
-                card.style.position = "";
-                card.style.width = "";
-                card.style.height = "";
-                card.style.top = ""
-                card.style.marginTop = ""
-                card.style.marginLeft = ""
-                card.style.borderRadius = '25px'
-                document.getElementById('posttitle_'+url).style.color = "";
-                document.getElementById('postexcerpt_'+url).style.color = "";
-                document.getElementById('posttitle_'+url).style.display = "";
-                document.getElementById('postexcerpt_'+url).style.display = "";
-                clock = document.getElementById('clock_'+url)
-                clock.style.display = ""
-                document.getElementById('x_'+url).style.display = "";
-                embed = document.getElementById('embed_'+url);
-                embed.style.display = "none";
-                console.log('bye');
-                bgblur = document.getElementById('bgblur')
-                bgblur.style.visibility = ""
-                bgblur.setAttribute('onclick', '');
-                window.location.href = '#'
-                setTimeout(function() {
-                    card.setAttribute('onclick', 'openpost("'+url+'")');
-                }, 500);
-            }
-        }
-    }
-</script>
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        postid = window.location.hash
-        postid = postid.split('#')[1]
-        console.log(postid)
-        openpost(postid)
-        });
-        
-</script>
+</md-list>
