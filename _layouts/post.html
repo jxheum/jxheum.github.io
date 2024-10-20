@@ -127,8 +127,6 @@ margin-right: 5px;}
 
 
 
-        @media (prefers-color-scheme: light) {
-
             /* https://coolors.co/palette/bee9e8-62b6cb-1b4965-cae9ff-5fa8d3 */
             body,
             html {
@@ -139,47 +137,13 @@ margin-right: 5px;}
             .icon {
                 filter: invert(0%);
             }
-        }
+        
 
         .topbar {
             background: #62b6cb7f;
         }
 
-        @media (prefers-color-scheme: dark) {
-
-            /* https://coolors.co/palette/bee9e8-62b6cb-1b4965-cae9ff-5fa8d3 */
-            body,
-            html {
-                background: #1b263b;
-                color: white;
-            }
-
-            .topbar {
-                background: #415a777f;
-            }
-
-            .icon {
-                filter: invert(100%);
-            }
-
-        }
-
-        .content {
-            padding-left: 10px;
-            width: calc(100% - 20px);
-            height: 200%;
-        }
-
-        .comment {
-            background: white;
-            margin-top: 30px;
-            padding: 10px;
-            padding-top: 0px;
-            border-radius: 25px;
-            transition-duration: 500ms;
-            width: auto;
-        }
-    </style>
+        
     <script>
         title = document.getElementById("title")
         blanks = document.getElementById('blanks')
