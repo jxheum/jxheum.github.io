@@ -3,7 +3,7 @@ layout: default
 ---
 <title id="webtitle">BJH</title>
 {% for post in paginator.posts %}
-        <div class="post_card" onclick="openpost('{{ post.url }}')" id="card_{{ post.url }}">
+        <a href="{{ post.url }}"><div class="post_card" id="card_{{ post.url }}">
             <h2 class="posttitle" id="posttitle_{{ post.url }}">{{ post.title }}</h2>
 
             <p class="postexcerpt" id="postexcerpt_{{ post.url }}">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
@@ -16,6 +16,7 @@ layout: default
                 
             </div>
         </div>
+    </a>
         
 {% endfor %}  
 <div class="bgblur" onclick="" id="bgblur"></div>  
