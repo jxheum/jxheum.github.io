@@ -1,9 +1,8 @@
 ---
 layout: default
 ---
-
 <title id="webtitle">BJH</title>
-
+<div style="height: 74px;"></div>
 <md-list>
 {% for post in paginator.posts %}
         
@@ -22,3 +21,18 @@ layout: default
         
 {% endfor %}  
 </md-list>
+<script>
+    header = document.getElementById('header');
+    window.addEventListener('scroll', () => { 
+        if (window.scrollY == 0) {
+            header.style.fontSize = "";
+            header.style.height = "";
+        } else if (window.scrollY <= 48) {
+            header.style.fontSize = 48 - scrollY/5;
+            header.style.height = 64 - scrollY/5;
+        } else {
+            header.style.fontSize = "20px"
+            header.style.height = "26.4";
+        }
+    });
+</script>
