@@ -9,8 +9,7 @@ layout: default
                 
                 <md-list-item
                     type="link"
-                    href="{{ post.url }}"
-                    target="_blank">
+                    href="{{ post.url }}">
                   <div slot="headline">{{ post.title }}</div>
                   <div slot="supporting-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
                   <div slot="supporting-text"><md-icon style="font-size: 18px;width: 20px;height: 20px;vertical-align: -4.5px;">calendar_month</md-icon> {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
