@@ -18,8 +18,8 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-paginate: 100
-paginate_path: '/page/:num/'
+paginate: 10
+paginate_path: '/:num/'
 
 exclude: [README.md]
 
