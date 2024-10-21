@@ -113,12 +113,19 @@
         {% endif %}
         {% for p in (first..last) %}
             {% if p == paginator.page %}
-                <li class="page-number active">{{ p }}</li>
+                <li class="page-number active">
+                    <md-filled-icon-button>
+                        {{ p }}
+                    </md-filled-icon-button></li>
                 {% elsif p == 1 %}
-                <li class="page-number"><a href="{{ site.baseurl }}/">{{ p }}</a></li>
+                <li class="page-number"><a href="{{ site.baseurl }}/"><md-outlined-icon-button>
+                    {{ p }}
+                  </md-outlined-icon-button></a></li>
             {% else %}
                 <li class="page-number"><a
-                            href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', p }}">{{ p }}</a></li>
+                            href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', p }}"><md-outlined-icon-button>
+                                {{ p }}
+                              </md-outlined-icon-button></a></li>
             {% endif %}
         {% endfor %}
         {% if paginator.next_page %}
