@@ -29,6 +29,7 @@
             {% if page.comments %}
             <md-assist-chip label="댓글" onclick="comments();"><md-icon slot="icon">comment</md-icon></md-assist-chip>
             {% endif %}
+            <md-assist-chip label="GitHub" onclick="github();"><img src="https://www.jxheum.site/github.svg" class="icon"></md-assist-chip>
             </md-chip-set>
         
         
@@ -48,9 +49,6 @@
     <md-icon slot="icon">share</md-icon>
   </md-fab>
 
-  <md-fab lowered aria-label="github" class="github2" onclick="github()">
-    <md-icon slot="icon"><img src="https://www.jxheum.site/github.svg" class="icon"></md-icon>
-  </md-fab>
   {% include footer.html %}
 
 
