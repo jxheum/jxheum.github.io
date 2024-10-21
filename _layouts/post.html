@@ -106,17 +106,14 @@
     window.addEventListener('scroll', () => { 
         if (window.scrollY == 0) {
             backbtn.style.transform = "rotate(0deg)";
-            backbtn.style.top = ""
             header.style.top = ""
             backbtn.style.transitionDuration = "";
             backbtn.setAttribute('onclick', 'history.back();')
         } else if (window.scrollY < 22) {
             backbtn.style.transform = "rotate(0deg)";
-            backbtn.style.top = 32 - scrollY;
             header.style.top = -58 + scrollY * 2.6363636364;
             backbtn.style.transitionDuration = "";
         } else {
-            backbtn.style.top = "10px"
             header.style.top = "0px"
             backbtn.style.transitionDuration = "500ms";
             backbtn.style.transform = "rotate(90deg)";
