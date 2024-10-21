@@ -77,38 +77,14 @@
           livere-comment {border-radius: 25px;}
           .backbtn {position:fixed;top: 27.75px;left: 10px;transition-duration: 0ms;z-index: 1000;}
         md-linear-progress {position:fixed;top:0;left:0;z-index: 1000;width:100%;}
-        #pagination {
-      margin: 0;
-      padding: 33px 0;
-      text-align: center;
-  }
+        
   
   #pagination > li {
-      list-style: none;
       display: inline-block;
-      height: 20px;
-      width: 20px;
-      font-size: 20px;
-      line-height: 18px; /* 18px = 20(height) - 2(border) */
       vertical-align: middle;
   }
   
-  /* pagination */
   
-  #pagination > li + li {
-      margin-left: 10px;
-  }
-  
-  
-  #pagination > li > a {
-      width: 100%;
-      height: 100%;
-      display:block;
-  }
-  
-  
-  
-  */
   
     </style>
     
@@ -130,10 +106,10 @@
             {% endif %}
         {% endif %}
         {% if paginator.previous_page %}
-            <li id="page-prev"><a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><md-icon-button><md-icon>arrow_back_ios</md-icon></md-icon-button></a>
+            <li id="page-prev"><a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><md-icon-button><md-icon>chevron_left</md-icon></md-icon-button></a>
             </li>
         {% else %}
-            <li id="page-prev" class="disabled"><md-icon-button disabled><md-icon>arrow_back_ios</md-icon></md-icon-button></li>
+            <li id="page-prev" class="disabled"><md-icon-button disabled><md-icon>chevron_left</md-icon></md-icon-button></li>
         {% endif %}
         {% for p in (first..last) %}
             {% if p == paginator.page %}
@@ -146,10 +122,10 @@
             {% endif %}
         {% endfor %}
         {% if paginator.next_page %}
-            <li id="page-next"><a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><md-icon-button><md-icon>arrow_forward_ios</md-icon></md-icon-button></a>
+            <li id="page-next"><a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><md-icon-button><md-icon>chevron_right</md-icon></md-icon-button></a>
             </li>
         {% else %}
-            <li id="page-next" class="disabled"><md-icon-button disabled><md-icon>arrow_forward_ios</md-icon></md-icon-button></li>
+            <li id="page-next" class="disabled"><md-icon-button disabled><md-icon>chevron_right</md-icon></md-icon-button></li>
         {% endif %}
     {% endif %}
 </ul>
