@@ -13,7 +13,7 @@
     </head>
     <md-linear-progress indeterminate id="loader"></md-linear-progress>
     <div class="header" id="header"></div>
-    <a href="/"><md-icon-button class="backbtn" id="backbtn">
+    <a href="/" id="backbtna"><md-icon-button class="backbtn" id="backbtn">
         <md-icon>arrow_back</md-icon>
       </md-icon-button></a>
 <h1 style="margin: 0px" id="title" class="title">{{ page.title }}</h1>
@@ -100,22 +100,25 @@
 </script>
 <script>
     backbtn = document.getElementById('backbtn');
+    backbtna = document.getElementById('backbtna');
     header = document.getElementById('header');
     window.addEventListener('scroll', () => { 
         if (window.scrollY == 0) {
             backbtn.style.transform = "rotate(0deg)";
             header.style.top = ""
             backbtn.style.transitionDuration = "";
-            backbtn.setAttribute('onclick', 'history.back();')
+            backbtna.setAttribute('href', '/');
         } else if (window.scrollY < 22) {
             backbtn.style.transform = "rotate(0deg)";
             header.style.top = -58 + scrollY * 2.6363636364;
             backbtn.style.transitionDuration = "";
+            backbtna.setAttribute('href', '/');
         } else {
             header.style.top = "0px"
             backbtn.style.transitionDuration = "500ms";
             backbtn.style.transform = "rotate(90deg)";
             backbtn.setAttribute('onclick', 'window.scrollTo(0,0);')
+            backbtna.setAttribute('href', '');
         }
     });
 
