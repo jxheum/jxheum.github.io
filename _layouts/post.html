@@ -24,7 +24,7 @@
             <md-assist-chip label="{{ page.date | date: '%Y-%m-%d %H:%M' }}"><md-icon slot="icon">calendar_month</md-icon></md-assist-chip>
             {% for tag in page.tags %}
             <md-assist-chip label="{{ tag }}"><md-icon slot="icon">tag</md-icon></md-assist-chip>
-            {% unless forloop.last %},{% endunless %}
+            {% unless forloop.last %}{% endunless %}
             {% endfor %}
             {% if page.comments %}
             <md-assist-chip label="댓글" onclick="comments();"><md-icon slot="icon">comment</md-icon></md-assist-chip>
