@@ -2,46 +2,7 @@
 <head>
   <meta name="algolia-site-verification"  content="F5A5C5BA13466546" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.24.0/dist/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.75.3/dist/instantsearch.production.min.js" integrity="sha256-il085kjmPLfiWyoKJh3GUDCPk8WAzBEjPjrupHuvvqM=" crossorigin="anonymous"></script>
-<script>
-  const searchClient = algoliasearch('Q6I5CMX5N4', '161c37b6a96239de28ee36fe5fe94ea4');
 
-const search = instantsearch({
-  indexName: 'bjh_blog_pages',
-  searchClient,
-});
-
-search.addWidgets([
-  searchBox({
-    container: "#searchbox"
-  }),
-  configure({
-    hitsPerPage: 5
-  }),
-  hits({
-    container: "#hits",
-    templates: {
-      item: (hit, { html, components }) => html`
-        <div>
-          <div class="hit-title">
-					  ${components.Highlight({ hit, attribute: "title" })}
-					</div>
-					<div class="hit-content">
-					  ${components.Highlight({ hit, attribute: "content" })}
-					</div>
-					<div class="hit-url">
-					  ${components.Highlight({ hit, attribute: "url" })}
-					</div>
-        </div>
-      `,
-    },
-  }),
-]);
-
-search.start();
-
-</script>
   <!-- <theme id="theme">
 <meta content="#002fff" name="theme-color"/>
 <meta content="#002fff" name="msapplication-navbutton-color"/>
@@ -131,9 +92,9 @@ search.start();
 
 .footer {padding: 10px;position:fixed;bottom:0px;left:0px;background:inherit;width:100%;}
 
-
   </style>
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/reset-min.css" integrity="sha256-KvFgFCzgqSErAPu6y9gz/AhZAvzK48VJASu3DpNLCEQ=" crossorigin="anonymous">
+
 </head>
 <!-- 헤더끝 -->
 
@@ -146,5 +107,47 @@ search.start();
       <div id="hits"></div>
     </div>
    </div>
-     
+
+   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.24.0/dist/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.75.3/dist/instantsearch.production.min.js" integrity="sha256-il085kjmPLfiWyoKJh3GUDCPk8WAzBEjPjrupHuvvqM=" crossorigin="anonymous"></script>
+<script>
+  const searchClient = algoliasearch('Q6I5CMX5N4', '161c37b6a96239de28ee36fe5fe94ea4');
+
+const search = instantsearch({
+  indexName: 'bjh_blog_pages',
+  searchClient,
+});
+
+search.addWidgets([
+  searchBox({
+    container: "#searchbox"
+  }),
+  configure({
+    hitsPerPage: 5
+  }),
+  hits({
+    container: "#hits",
+    templates: {
+      item: (hit, { html, components }) => html`
+        <div>
+          <div class="hit-title">
+					  ${components.Highlight({ hit, attribute: "title" })}
+					</div>
+					<div class="hit-content">
+					  ${components.Highlight({ hit, attribute: "content" })}
+					</div>
+					<div class="hit-url">
+					  ${components.Highlight({ hit, attribute: "url" })}
+					</div>
+        </div>
+      `,
+    },
+  }),
+]);
+
+
+search.start();
+
+</script>
+
  <!-- <헤더끝> -->
