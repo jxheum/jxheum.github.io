@@ -91,9 +91,79 @@
 }
 
 .footer {padding: 10px;position:fixed;bottom:0px;left:0px;background:inherit;width:100%;}
+.ais-SearchBox {
+  height: 30px;
+}
+.ais-SearchBox-input {
+  height: 30px;
+  background: none;
+  border: 3px solid #adb5f7;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: #e2e1f0;
+}
+.ais-SearchBox-reset {
+  height: 30px;
+  border-radius: 0px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: inline-block !important;
+  border: 3px solid #adb5f7;
+  background: #adb5f7;
+  vertical-align: -0.9px;
+}
+.ais-SearchBox-reset svg {filter:invert(100%);}
+.ais-SearchBox-submit {
+  display: none;
+}
+.ais-SearchBox-loadingIndicator svg {filter:invert(100%);display: hidden;}
 
+.ais-InstantSearch {
+  position :fixed;
+  top: 35px;
+  right: 20px;
+  overflow: hidden;
+  margin: 0 auto;
+  font-family: sans-serif;
+  text-align: right;
+}
+
+.ais-Hits-item {
+  margin-left: 0;
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+}
+.hit-content {
+  font-size: 13px;
+}
+.hit-url {
+  font-size: 10px;
+}
+.ais-Hits--empty {
+  font-size: 15px;
+}
+.ais-Hits-list {
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.ais-Hits-item img {
+  margin-right: 1em
+}
+
+
+input::-ms-clear,
+input::-ms-reveal{
+	display:none;width:0;height:0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+	display:none;
+}
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/reset-min.css" integrity="sha256-KvFgFCzgqSErAPu6y9gz/AhZAvzK48VJASu3DpNLCEQ=" crossorigin="anonymous">
 
 </head>
 <!-- 헤더끝 -->
@@ -119,13 +189,13 @@ const search = instantsearch({
 });
 
 search.addWidgets([
-  searchBox({
+instantsearch.widgets.searchBox({
     container: "#searchbox"
   }),
-  configure({
+  instantsearch.widgets.configure({
     hitsPerPage: 5
   }),
-  hits({
+  instantsearch.widgets.hits({
     container: "#hits",
     templates: {
       item: (hit, { html, components }) => html`
