@@ -20,7 +20,7 @@
 
 <div class="content">
     <div id="infosec">
-        <md-chip-set style="overflow-x: auto;">
+        <md-chip-set>
             <md-assist-chip label="{{ page.date | date: '%Y-%m-%d %H:%M' }}"><md-icon slot="icon">calendar_month</md-icon></md-assist-chip>
             {% for tag in page.tags %}
             <md-assist-chip label="{{ tag }}"><md-icon slot="icon">tag</md-icon></md-assist-chip>
