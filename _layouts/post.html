@@ -16,9 +16,79 @@
     <a href="/" id="backbtna"><md-icon-button class="backbtn" id="backbtn">
         <md-icon>arrow_back</md-icon>
       </md-icon-button></a>
+      <div id="postlist" style="width: 0px;float:left;width:fit-content;overflow-y:auto;">
+        {% include header.html %}
+    <div style="height: 84px;"></div>
+    <div class="content">
+        <md-list>
+            {% for post in paginator.posts %}
+                    
+                            
+            <a href="{{ post.url }}" style="text-decoration: none;">
+                            <md-list-item
+                                type="link">
+                              <div slot="headline">{{ post.title }}</div>
+                              <div slot="supporting-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+                              <div slot="supporting-text"><md-icon style="font-size: 18px;width: 20px;height: 20px;vertical-align: -4.5px;">calendar_month</md-icon> {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
+                              <md-icon slot="end">arrow_forward_ios</md-icon>
+                            </md-list-item>
+                            </a>
+                            <md-divider></md-divider>
+                          
+                    
+            {% endfor %}  
+            </md-list>
+    </div>
+    {% include pagination.html %}
+      
+  
+<script>
+  header = document.getElementById('header');
+  window.addEventListener('scroll', () => { 
+      if (window.scrollY == 0) {
+          header.style.fontSize = "";
+      } else if (window.scrollY <= 48) {
+          header.style.fontSize = 48 - scrollY/5;
+      } else {
+          header.style.fontSize = "20px"
+      }
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loader').style.opacity = 0;
+  
+  });
+</script>
+
+<script>
+  postlist = document.getElementById('postlist')
+
+  function resizeevent() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    if (width >= 1000) {
+      postlist.style.width = '500px'
+      postlist.style.height = 'calc(100vh)'
+      postlist.style.borderRight = '1px #44474e solid'
+    }
+    else {
+      postlist.style.width = ''
+      postlist.style.height = ''
+      postlist.style.borderRight = ''
+    }
+  }
+  window.addEventListener("resize", function() {
+    resizeevent();
+})
+window.onload = function() {
+resizeevent();
+}
+</script>
+      </div>
+<div id="content2">
 <h1 style="margin: 0px" id="title" class="title">{{ page.title }}</h1>
 
-<div class="content">
+<div class="content" id="content1">
     <div id="infosec">
         <md-chip-set>
             <md-assist-chip label="{{ page.date | date: '%Y-%m-%d %H:%M' }}"><md-icon slot="icon">calendar_month</md-icon></md-assist-chip>
@@ -36,7 +106,7 @@
     </div><br>
     {{page.content | markdownify}}
 </div>
-<md-divider></md-divider>
+<md-divider style="width: auto;"></md-divider>
 {% if page.comments %}
 <div class="comment" id="comments">
     <livere-comment client-id="lDpERBBIvMst48KinATk"></livere-comment>
@@ -44,6 +114,7 @@
 </div>
 
 {% endif %}
+</div>
 
 <md-fab lowered aria-label="Share" class="share" onclick="share()">
     <md-icon slot="icon">share</md-icon>
@@ -127,4 +198,43 @@
   
   });
 </script>
+
+<script>
+    postlist = document.getElementById('postlist')
+    contentdiv = document.getElementById('content2')
+    backbtna = document.getElementById('backbtna')
+    title = document.getElementById('title')
+    content1 = document.getElementById('content1')
+
+    function resizeevent() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      if (width >= 1000) {
+        postlist.style.width = '500px'
+        postlist.style.height = 'calc(100vh)'
+        postlist.style.borderRight = '1px #44474e solid'
+        contentdiv.style.width = 'calc(100% - 511px)'
+        contentdiv.style.paddingLeft = '511px'
+        backbtna.style.display = 'none'
+        title.style.paddingLeft = '0px'
+        content1.style.marginLeft = '0px'
+      }
+      else {
+        postlist.style.width = ''
+        postlist.style.height = ''
+        postlist.style.borderRight = ''
+        contentdiv.style.width = ''
+        contentdiv.style.paddingLeft = ''
+        backbtna.style.display = ''
+        title.style.paddingLeft = ''
+        content1.style.marginLeft = ''
+      }
+    }
+    window.addEventListener("resize", function() {
+      resizeevent();
+  })
+  window.onload = function() {
+  resizeevent();
+  }
+  </script>
 
