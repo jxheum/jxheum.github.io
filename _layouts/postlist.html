@@ -6,16 +6,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
     <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
   {% include head.html %}
-
   <title>Jxheum</title>
 </head>
-  <body id="postlist">
+  <body>
     {% include header.html %}
     <div style="height: 84px;"></div>
     <div class="content">
     {{ content }}
-    </div>
-    {% include pagination.html %}
+      </div>
+      {% include pagination.html %}
       
 <div style="height: 43px;"></div>
       {% include footer.html %}
@@ -36,31 +35,6 @@
     document.getElementById('loader').style.opacity = 0;
   
   });
-</script>
-
-<script>
-  postlist = document.getElementById('postlist')
-
-  function resizeevent() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    if (width >= 1000) {
-      postlist.style.width = '500px'
-      postlist.style.height = 'calc(100vh)'
-      postlist.style.borderRight = '1px #44474e solid'
-    }
-    else {
-      postlist.style.width = ''
-      postlist.style.height = ''
-      postlist.style.borderRight = ''
-    }
-  }
-  window.addEventListener("resize", function() {
-    resizeevent();
-})
-window.onload = function() {
-resizeevent();
-}
 </script>
     </body>
   
