@@ -4,113 +4,7 @@
 <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
 <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
 <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
-<!-- {% include head.html %} -->
-   <!-- 헤더 -->
-   <head>
-    <meta name="algolia-site-verification"  content="F5A5C5BA13466546" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-    <!-- <theme id="theme">
-  <meta content="#002fff" name="theme-color"/>
-  <meta content="#002fff" name="msapplication-navbutton-color"/>
-  <meta content="#002fff" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-    </theme> -->
-    <link rel="icon" type="image/png" href="https://jxheum.site/icon.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="https://www.jxheum.site/icon.ico" />
-  <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script type="module">
-    import '@material/web/all.js';
-    import '@material/web/icon/icon.js';
-    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-  
-    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-  </script>
-  
-    <title>BJH</title>
-  
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
-        @media (prefers-color-scheme: dark) {
-  
-          :root,:host{--md-sys-color-background:#121316;--md-sys-color-on-background:#e3e2e5;--md-sys-color-surface:#121316;--md-sys-color-surface-dim:#121316;--md-sys-color-surface-bright:#38393c;--md-sys-color-surface-container-lowest:#0d0e10;--md-sys-color-surface-container-low:#1b1b1e;--md-sys-color-surface-container:#1f2022;--md-sys-color-surface-container-high:#292a2c;--md-sys-color-surface-container-highest:#343537;--md-sys-color-on-surface:#e3e2e5;--md-sys-color-surface-variant:#44474e;--md-sys-color-on-surface-variant:#c4c6ce;--md-sys-color-inverse-surface:#e3e2e5;--md-sys-color-inverse-on-surface:#303033;--md-sys-color-outline:#8e9198;--md-sys-color-outline-variant:#44474e;--md-sys-color-shadow:#000000;--md-sys-color-scrim:#000000;--md-sys-color-surface-tint:#b2c8ee;--md-sys-color-primary:#f7f8ff;--md-sys-color-on-primary:#1a3150;--md-sys-color-primary-container:#b9cff6;--md-sys-color-on-primary-container:#263c5b;--md-sys-color-inverse-primary:#4a5f81;--md-sys-color-secondary:#bfc7d8;--md-sys-color-on-secondary:#29313e;--md-sys-color-secondary-container:#353d4b;--md-sys-color-on-secondary-container:#c9d0e2;--md-sys-color-tertiary:#fff6fa;--md-sys-color-on-tertiary:#422646;--md-sys-color-tertiary-container:#eac1ea;--md-sys-color-on-tertiary-container:#4e3151;--md-sys-color-error:#ffb4ab;--md-sys-color-on-error:#690005;--md-sys-color-error-container:#93000a;--md-sys-color-on-error-container:#ffdad6;}
-            
-    body, html { background-color: #121316;color: #c7c8d0;}
-    .icon {filter: invert(87%) sepia(11%) saturate(4895%) hue-rotate(188deg) brightness(101%) contrast(101%);}
-    .header {background: linear-gradient(to top, #00000000, #121316);}
-  
-  }
-  @media (prefers-color-scheme: light) {
-  
-    :root,:host{--md-sys-color-background:#faf9fc;--md-sys-color-on-background:#1b1b1e;--md-sys-color-surface:#faf9fc;--md-sys-color-surface-dim:#dbd9dc;--md-sys-color-surface-bright:#faf9fc;--md-sys-color-surface-container-lowest:#ffffff;--md-sys-color-surface-container-low:#f5f3f6;--md-sys-color-surface-container:#efedf0;--md-sys-color-surface-container-high:#e9e7eb;--md-sys-color-surface-container-highest:#e3e2e5;--md-sys-color-on-surface:#1b1b1e;--md-sys-color-surface-variant:#e0e2eb;--md-sys-color-on-surface-variant:#44474e;--md-sys-color-inverse-surface:#303033;--md-sys-color-inverse-on-surface:#f2f0f3;--md-sys-color-outline:#74777e;--md-sys-color-outline-variant:#c4c6ce;--md-sys-color-shadow:#000000;--md-sys-color-scrim:#000000;--md-sys-color-surface-tint:#4a5f81;--md-sys-color-primary:#4a5f81;--md-sys-color-on-primary:#ffffff;--md-sys-color-primary-container:#c4d9ff;--md-sys-color-on-primary-container:#2d4262;--md-sys-color-inverse-primary:#b2c8ee;--md-sys-color-secondary:#575f6d;--md-sys-color-on-secondary:#ffffff;--md-sys-color-secondary-container:#dce4f5;--md-sys-color-on-secondary-container:#414957;--md-sys-color-tertiary:#745376;--md-sys-color-on-tertiary:#ffffff;--md-sys-color-tertiary-container:#f4cbf4;--md-sys-color-on-tertiary-container:#553758;--md-sys-color-error:#ba1a1a;--md-sys-color-on-error:#ffffff;--md-sys-color-error-container:#ffdad6;--md-sys-color-on-error-container:#410002;}
-    body, html { background-color: #faf9fc;color: #41434a;}
-    .icon {filter: invert(10%) sepia(78%) saturate(6709%) hue-rotate(235deg) brightness(86%) contrast(113%);}
-    .header {background: linear-gradient(to top, #00000000, #faf9fc);}
-  }
-  
-        body, html {width: 100%;margin: 0px;font-family: "Noto Sans KR", sans-serif;}
-        * {transition-duration: 100ms;}
-        .header {
-            font-size: 48px;
-            padding-left: 10px;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            margin: 0px;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            z-index: 999;
-            width: 100%;
-            backdrop-filter: blur(1px);
-            transition-duration: 500ms;
-            user-select: none;
-        }
-  
-        .github {position: fixed;bottom: 10px;right: 10px;user-select: none;z-index: 1000;}
-        .mail {position:fixed;bottom: 76px;right: 10px;}
-        .share {position: fixed;bottom: 10px;right: 10px;user-select: none;z-index: 1000;}
-        .github2 {position:fixed;bottom: 76px;right: 10px;}
-        .icon {height: 24px;}
-          .content {margin: 10px;}
-          .comment {margin: 10px;border-radius: 25px;}
-          livere-comment {border-radius: 25px;}
-          .backbtn {position:fixed;top: 10px;left: 10px;transition-duration: 0ms;z-index: 1000;}
-        md-linear-progress {position:fixed;top:0;left:0;z-index: 1000;width:100%;}
-  
-        
-  #pagination {
-    width: 100%;
-    text-align: center;
-    padding: 0px;
-  }
-  
-  #pagination > li {
-      display: inline-block;
-      vertical-align: middle;
-  }
-  
-  .footer {padding: 10px;position:fixed;bottom:0px;left:0px;background:inherit;width:100%;}
-  .search {width: 100%;height: 100%;position: fixed;top: -100%;right: 0px;text-align: center;z-index: 10002;background: #00000000;backdrop-filter:blur(10px);}
-  .header2 {padding-bottom: 10px;
-            padding-top: 10px;
-            margin: 0px;
-            position: fixed;
-            left: 0px;
-            z-index: 999;
-            backdrop-filter: blur(1px);
-            transition-duration: 500ms;
-            user-select: none;font-size: 48px;}
-  </style>
-  
-  </head>
-  <!-- 헤더끝 -->
+{% include head.html %}
 <style>
     body, html {scroll-behavior: smooth;}
     .header {height: 38px;top:-58px;transition-duration: 0ms;}
@@ -123,15 +17,7 @@
         <md-icon>arrow_back</md-icon>
       </md-icon-button></a>
       <div id="postlist" style="width: 0px;float:left;width:fit-content;overflow-y:auto;">
-        <!-- {% include header.html %} -->
-         
-
-  <!-- <헤더>
-   --><div id="header2" class="header2" style="top:0px;width: 491px;padding-left: 10px;"><div style="width: calc(100% - 68px);">Jxheum</div>
-
-</div>
-
-<!-- <헤더끝> -->
+        {% include header.html %}
     <div style="height: 84px;"></div>
     <div class="content">
         <md-list>
@@ -156,6 +42,48 @@
     {% include pagination.html %}
       
   
+<script>
+  header = document.getElementById('header');
+  window.addEventListener('scroll', () => { 
+      if (window.scrollY == 0) {
+          header.style.fontSize = "";
+      } else if (window.scrollY <= 48) {
+          header.style.fontSize = 48 - scrollY/5;
+      } else {
+          header.style.fontSize = "20px"
+      }
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loader').style.opacity = 0;
+  
+  });
+</script>
+
+<script>
+  postlist = document.getElementById('postlist')
+
+  function resizeevent() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    if (width >= 1000) {
+      postlist.style.width = '500px'
+      postlist.style.height = 'calc(100vh)'
+      postlist.style.borderRight = '1px #44474e solid'
+    }
+    else {
+      postlist.style.width = ''
+      postlist.style.height = ''
+      postlist.style.borderRight = ''
+    }
+  }
+  window.addEventListener("resize", function() {
+    resizeevent();
+})
+window.onload = function() {
+resizeevent();
+}
+</script>
       </div>
 <div id="content2">
 <h1 style="margin: 0px" id="title" class="title">{{ page.title }}</h1>
@@ -277,14 +205,12 @@
     backbtna = document.getElementById('backbtna')
     title = document.getElementById('title')
     content1 = document.getElementById('content1')
-    header2 = document.getElementById('header2')
 
     function resizeevent() {
       const width = window.innerWidth;
       const height = window.innerHeight;
       if (width >= 1000) {
         postlist.style.width = '500px'
-        postlist.style.display = ''
         postlist.style.height = 'calc(100vh)'
         postlist.style.borderRight = '1px #44474e solid'
         contentdiv.style.width = 'calc(100% - 511px)'
@@ -292,10 +218,9 @@
         backbtna.style.display = 'none'
         title.style.paddingLeft = '0px'
         content1.style.marginLeft = '0px'
-        header2.style.display = ''
       }
       else {
-        postlist.style.display = 'none'
+        postlist.style.width = ''
         postlist.style.height = ''
         postlist.style.borderRight = ''
         contentdiv.style.width = ''
@@ -303,7 +228,6 @@
         backbtna.style.display = ''
         title.style.paddingLeft = ''
         content1.style.marginLeft = ''
-        header2.style.display = 'none'
       }
     }
     window.addEventListener("resize", function() {
@@ -313,15 +237,4 @@
   resizeevent();
   }
   </script>
-<script>
-    header2 = document.getElementById('header2');
-    window.addEventListener('scroll', () => { 
-        if (window.scrollY == 0) {
-            header2.style.fontSize = "";
-        } else if (window.scrollY <= 48) {
-            header2.style.fontSize = 48 - scrollY/5;
-        } else {
-            header2.style.fontSize = "20px"
-        }
-    });
-  </script>
+
