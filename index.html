@@ -2,7 +2,10 @@
 layout: postlist
 ---
 
-<md-list>
+
+
+
+<md-list id="postlist">
 {% for post in paginator.posts %}
         
                 
@@ -26,3 +29,25 @@ layout: postlist
   <a href="mailto:jxheum@jxheum.site" target="_blank"><md-fab lowered aria-label="Email" class="mail">
     <md-icon slot="icon">mail</md-icon>
   </md-fab></a>
+  <script>
+    postlist = document.getElementById('postlist')
+
+    function resizeevent() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      if (width >= 1000) {
+        postlist.style.width = '500px'
+        postlist.style.height = 'calc(100vh - 60px)'
+        postlist.style.borderRight = '1px #44474e solid'
+      }
+      else {
+        postlist.style.width = ''
+      }
+    }
+    window.addEventListener("resize", function() {
+      resizeevent();
+})
+window.onload = function() {
+resizeevent();
+}
+  </script>
