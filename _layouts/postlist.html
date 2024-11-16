@@ -63,7 +63,7 @@ if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
     
 })
 
-atag = document.querySelectorAll('a');
+atag = document.querySelectorAll('a, md-list-item');
 atag.forEach((link) => {
   link.addEventListener('mouseenter', (e) => {
     let cursor = document.querySelector('.cursor');
