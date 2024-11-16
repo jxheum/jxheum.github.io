@@ -125,6 +125,82 @@
     window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('loader').style.opacity = 0;
   
+if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+  document.getElementById('cursor').style.opacity = 0;
+}
   });
 </script>
 
+<div class="cursor" id="cursor"></div>
+
+<script>
+  mouseona = 0;
+  document.addEventListener('mousemove', (e) => {
+    let mouseX = e.pageX-10; // document의 x좌표값
+    let mouseY = e.pageY-10; // document의 y좌표값
+
+        let cursor = document.querySelector('.cursor');
+        if (mouseona == 0) {
+          cursor.style.left = mouseX + 'px';
+          cursor.style.top = mouseY + 'px';
+      }
+      else {
+        
+    cursor.style.left = mouseX - 15 + 'px';
+    cursor.style.top = mouseY - 15 + 'px';
+      }
+    
+})
+
+atag = document.querySelectorAll('a');
+atag.forEach((link) => {
+  link.addEventListener('mouseenter', (e) => {
+    let cursor = document.querySelector('.cursor');
+    cursor.style.width = '50px'
+    cursor.style.height = '50px'
+    mouseona = 1
+})
+link.addEventListener('mouseleave', (e) => {
+    let cursor = document.querySelector('.cursor');
+    mouseona = 0
+    cursor.style.width = ''
+    cursor.style.height = ''
+})
+
+
+link.addEventListener('mousedown', (e) => {
+        let cursor = document.querySelector('.cursor');
+        cursor.style.width = '45px'
+        cursor.style.height = '45px'
+        cursor.style.left = mouseX - 22.5 + 'px';
+        cursor.style.top = mouseY - 22.5 + 'px';
+})
+link.addEventListener('mouseup', (e) => {
+    let cursor = document.querySelector('.cursor');
+    cursor.style.width = '50px'
+    cursor.style.height = '50px'
+    cursor.style.left = mouseX - 25 + 'px';
+    cursor.style.top = mouseY - 25 + 'px';
+})
+});
+
+document.addEventListener('mousedown', (e) => {
+    if (mouseona == 0) {
+      let cursor = document.querySelector('.cursor');
+        cursor.style.width = '15px'
+        cursor.style.height = '15px'
+        cursor.style.left = mouseX - 7.5 + 'px';
+        cursor.style.top = mouseY - 7.5 + 'px';
+    }
+})
+
+document.addEventListener('mouseup', (e) => {
+    if (mouseona == 0) {
+      let cursor = document.querySelector('.cursor');
+        cursor.style.width = '20px'
+        cursor.style.height = '20px'
+        cursor.style.left = mouseX - 10 + 'px';
+        cursor.style.top = mouseY - 10 + 'px';
+    }
+})
+</script>
