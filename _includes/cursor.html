@@ -33,6 +33,7 @@ atag.forEach((link) => {
     cursor.style.height = link.offsetHeight + 'px'
     cursor.style.top = link.offsetTop + 'px'
     cursor.style.left = link.offsetLeft + 'px'
+    cursor.style.borderRadius = '8px'
     mouseona = 1
 })
 link.addEventListener('mouseleave', (e) => {
@@ -40,6 +41,7 @@ link.addEventListener('mouseleave', (e) => {
     mouseona = 0
     cursor.style.width = ''
     cursor.style.height = ''
+    cursor.style.borderRadius = ''
 })
 
 
