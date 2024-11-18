@@ -35,6 +35,8 @@ atag.forEach((link) => {
     cursor.style.left = link.offsetLeft + 'px'
     cursor.style.borderRadius = '8px'
     mouseona = 1
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'fixed';
 })
 link.addEventListener('mouseleave', (e) => {
     let cursor = document.querySelector('.cursor');
@@ -42,6 +44,8 @@ link.addEventListener('mouseleave', (e) => {
     cursor.style.width = ''
     cursor.style.height = ''
     cursor.style.borderRadius = ''
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'absolute';
 })
 
 
