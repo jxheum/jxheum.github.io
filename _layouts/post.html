@@ -41,8 +41,14 @@
 <md-divider></md-divider>
 {% if page.comments %}
 <div class="comment" id="comments">
-    <livere-comment client-id="lDpERBBIvMst48KinATk"></livere-comment>
-    <script type="module" src="https://www.livere.org/livere-widget.js"></script>
+    <script src="https://utteranc.es/client.js"
+        repo="jxheum/jxheum.github.io"
+        issue-term="pathname"
+        label="Comment"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
 </div>
 
 {% endif %}
