@@ -29,23 +29,23 @@ atag = document.querySelectorAll('a, md-assist-chip, md-icon-button, md-fab, but
 atag.forEach((link) => {
   link.addEventListener('mouseenter', (e) => {
     let cursor = document.querySelector('.cursor');
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'fixed';
     cursor.style.width = link.offsetWidth + 'px'
     cursor.style.height = link.offsetHeight + 'px'
     cursor.style.top = link.offsetTop + 'px'
     cursor.style.left = link.offsetLeft + 'px'
     cursor.style.borderRadius = '8px'
     mouseona = 1
-    if (link.style.position == 'fixed')
-        cursor.style.position = 'fixed';
 })
 link.addEventListener('mouseleave', (e) => {
     let cursor = document.querySelector('.cursor');
     mouseona = 0
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'absolute';
     cursor.style.width = ''
     cursor.style.height = ''
     cursor.style.borderRadius = ''
-    if (link.style.position == 'fixed')
-        cursor.style.position = 'absolute';
 })
 
 
