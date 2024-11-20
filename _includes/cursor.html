@@ -37,7 +37,7 @@ atag.forEach((link) => {
     cursor.style.height = link.offsetHeight + 'px'
     cursor.style.top = link.offsetTop + 'px'
     cursor.style.left = link.offsetLeft + 'px'
-    if (link.getAttribute('class') == 'postitm')
+    if (link.getAttribute('class').includes('postitm'))
       cursor.style.borderRadius = '30px'
     else if (link.getAttribute('id') == 'header')
       cursor.style.borderRadius = '0px', cursor.style.borderBottomLeftRadius = '30px', cursor.style.borderBottomRightRadius = '30px'

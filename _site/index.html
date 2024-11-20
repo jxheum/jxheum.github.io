@@ -9,6 +9,10 @@
   <meta name="algolia-site-verification"  content="F5A5C5BA13466546" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://kit.fontawesome.com/e1582c160b.js" crossorigin="anonymous"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <!-- <theme id="theme">
 <meta content="#002fff" name="theme-color"/>
 <meta content="#002fff" name="msapplication-navbutton-color"/>
@@ -57,7 +61,7 @@
     <div class="postlist">
 
         
-                <a href="/2024/10/18/test2/" class="postitma"><div class="postitm">
+                <a href="/2024/10/18/test2/" class="postitma"><div class="postitm animate__animated animate__fadeInUp">
                   <div class="posttitle">백지흠 아닌데요?</div>
                   <div class="postspt">테스테스트 바이바이 테스테스트 바이바이 테스테스트...</div>
                   <div class="postspt"><i class="fa-solid fa-calendar-days"></i> 2024-10-18 00:32</div>
@@ -67,7 +71,7 @@
         
 
         
-                <a href="/2024/10/18/post1/" class="postitma"><div class="postitm">
+                <a href="/2024/10/18/post1/" class="postitma"><div class="postitm animate__animated animate__fadeInUp">
                   <div class="posttitle">안녕하세요. 백지흠이라고 합니다.</div>
                   <div class="postspt">와! 졸려죽다!</div>
                   <div class="postspt"><i class="fa-solid fa-calendar-days"></i> 2024-10-18 00:32</div>
@@ -165,7 +169,7 @@ atag.forEach((link) => {
     cursor.style.height = link.offsetHeight + 'px'
     cursor.style.top = link.offsetTop + 'px'
     cursor.style.left = link.offsetLeft + 'px'
-    if (link.getAttribute('class') == 'postitm')
+    if (link.getAttribute('class').includes('postitm'))
       cursor.style.borderRadius = '30px'
     else if (link.getAttribute('id') == 'header')
       cursor.style.borderRadius = '0px', cursor.style.borderBottomLeftRadius = '30px', cursor.style.borderBottomRightRadius = '30px'

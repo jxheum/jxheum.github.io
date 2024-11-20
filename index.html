@@ -5,7 +5,7 @@ layout: postlist
 <div class="postlist">
 {% for post in paginator.posts %}
         
-                <a href="{{ post.url }}" class="postitma"><div class="postitm">
+                <a href="{{ post.url }}" class="postitma"><div class="postitm animate__animated animate__fadeInUp">
                   <div class="posttitle">{{ post.title }}</div>
                   <div class="postspt">{{ post.excerpt | strip_html | truncatewords: 5 }}</div>
                   <div class="postspt"><i class="fa-solid fa-calendar-days"></i> {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
