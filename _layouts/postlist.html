@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
     <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
     <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
   {% include head.html %}
+  <style>
+    .header {max-width: 600px;}
+  </style>
   <title>Jxheum</title>
 </head>
-  <body>
+  <body style="max-width: 600px;">
     {% include header.html %}
-    <div style="height: 84px;"></div>
+    <div style="height: 58px;"></div>
     <div class="content">
     {{ content }}
     

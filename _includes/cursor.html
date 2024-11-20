@@ -25,17 +25,24 @@ window.addEventListener('DOMContentLoaded', () => {
     
 })
 
-atag = document.querySelectorAll('a, md-assist-chip, md-icon-button, md-fab, button-element, text-editor, .btn-ghost');
+atag = document.querySelectorAll('#header, .postitm, .pagenow, .pagenp');
 atag.forEach((link) => {
   link.addEventListener('mouseenter', (e) => {
     let cursor = document.querySelector('.cursor');
     if (link.style.position == 'fixed')
         cursor.style.position = 'fixed';
+    if (link.getAttribute('id') != 'header')
+      cursor.style.zIndex = '998'
     cursor.style.width = link.offsetWidth + 'px'
     cursor.style.height = link.offsetHeight + 'px'
     cursor.style.top = link.offsetTop + 'px'
     cursor.style.left = link.offsetLeft + 'px'
-    cursor.style.borderRadius = '8px'
+    if (link.getAttribute('class') == 'postitm')
+      cursor.style.borderRadius = '30px'
+    else if (link.getAttribute('id') == 'header')
+      cursor.style.borderRadius = '0px', cursor.style.borderBottomLeftRadius = '30px', cursor.style.borderBottomRightRadius = '30px'
+    else if (link.getAttribute('class') == 'pagenow' || link.getAttribute('class') == 'pagenp')
+      cursor.style.borderRadius = '20px'
     mouseona = 1
 })
 link.addEventListener('mouseleave', (e) => {
@@ -46,6 +53,7 @@ link.addEventListener('mouseleave', (e) => {
     cursor.style.width = ''
     cursor.style.height = ''
     cursor.style.borderRadius = ''
+    cursor.style.zIndex = ''
 })
 
 

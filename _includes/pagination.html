@@ -14,33 +14,19 @@
             {% endif %}
         {% endif %}
         {% if paginator.previous_page %}
-            <li id="page-prev"><a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><md-icon-button><md-icon>chevron_left</md-icon></md-icon-button></a>
-            </li>
+            <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagenpa"><div class="pagenp"><i class="fa-solid fa-arrow-left"></i></div></a>
         {% else %}
-            <li id="page-prev" class="disabled"><md-icon-button disabled><md-icon>chevron_left</md-icon></md-icon-button></li>
+        <div class="pagenpdis" style="background: none;"><i class="fa-solid fa-arrow-left"></i></div>
         {% endif %}
         {% for p in (first..last) %}
             {% if p == paginator.page %}
-                <li class="page-number active">
-                    <md-filled-icon-button>
-                        {{ p }}
-                    </md-filled-icon-button></li>
-                {% elsif p == 1 %}
-                <li class="page-number"><a href="{{ site.baseurl }}/"><md-outlined-icon-button>
-                    {{ p }}
-                  </md-outlined-icon-button></a></li>
-            {% else %}
-                <li class="page-number"><a
-                            href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', p }}"><md-outlined-icon-button>
-                                {{ p }}
-                              </md-outlined-icon-button></a></li>
+            <div class="pagenow">{{p}}</div>
             {% endif %}
         {% endfor %}
         {% if paginator.next_page %}
-            <li id="page-next"><a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><md-icon-button><md-icon>chevron_right</md-icon></md-icon-button></a>
-            </li>
+            <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagenpa"><div class="pagenp"><i class="fa-solid fa-arrow-right"></i></div></a>
         {% else %}
-            <li id="page-next" class="disabled"><md-icon-button disabled><md-icon>chevron_right</md-icon></md-icon-button></li>
+        <div class="pagenpdis" style="background: none;"><i class="fa-solid fa-arrow-right"></i></div>
         {% endif %}
     {% endif %}
 </ul>

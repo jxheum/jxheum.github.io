@@ -1,0 +1,311 @@
+<head>
+<title>안녕하세요. 백지흠이라고 합니다.</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
+<link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
+<link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+<!-- 헤더 -->
+<head>
+  <meta name="algolia-site-verification"  content="F5A5C5BA13466546" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://kit.fontawesome.com/e1582c160b.js" crossorigin="anonymous"></script>
+  <!-- <theme id="theme">
+<meta content="#002fff" name="theme-color"/>
+<meta content="#002fff" name="msapplication-navbutton-color"/>
+<meta content="#002fff" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+  </theme> -->
+  <link rel="icon" type="image/png" href="https://jxheum.site/icon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.jxheum.site/icon.ico" />
+<script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "https://esm.run/@material/web/"
+    }
+  }
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script type="module">
+  import '@material/web/all.js';
+  import '@material/web/icon/icon.js';
+  import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+  document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+</script>
+
+  <title>BJH</title>
+
+  <link href="/style.css" rel="stylesheet">
+
+</head>
+<!-- 헤더끝 -->
+
+  
+<style>
+    body, html {scroll-behavior: smooth;}
+    .header {height: 38px;top:-58px;transition-duration: 0ms;}
+    .title {font-size: 24px;padding-top: 10px;padding-left: 58px;padding-bottom: 10px;font-weight: 900;}
+</style>
+    </head>
+    <md-linear-progress indeterminate id="loader"></md-linear-progress>
+    <div class="header" id="header"></div>
+    <md-icon-button class="backbtn" id="backbtn" href="/" style="position:fixed;">
+        <md-icon>arrow_back</md-icon>
+      </md-icon-button>
+<h1 style="margin: 0px" id="title" class="title">안녕하세요. 백지흠이라고 합니다.</h1>
+
+<div class="content">
+    <div id="infosec">
+        <md-chip-set>
+            <md-assist-chip label="2024-10-18 00:32"><md-icon slot="icon">calendar_month</md-icon></md-assist-chip>
+            
+            <md-assist-chip label="안"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕하"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕하세"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕하세요"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕하세요!"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕히가세요"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕히가세"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕히가"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕히"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안녕"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="안"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            <md-assist-chip label="녕"><md-icon slot="icon">tag</md-icon></md-assist-chip>
+            
+            
+            
+            <md-assist-chip label="댓글" onclick="comments();"><md-icon slot="icon">comment</md-icon></md-assist-chip>
+            
+            <md-assist-chip label="GitHub" onclick="github();"><img src="https://www.jxheum.site/github.svg" class="icon" slot="icon"></md-assist-chip>
+            </md-chip-set>
+        
+        
+    </div><br>
+    <h1 id="와-졸려죽다">와! 졸려죽다!</h1>
+<p><strong>안녕히가세요.</strong>
+하하하하하.</p>
+
+</div>
+<md-divider></md-divider>
+
+<div class="comment" id="comments">
+    <script src="https://utteranc.es/client.js"
+        repo="jxheum/jxheum.github.io"
+        issue-term="pathname"
+        label="Comment"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+
+
+<md-fab lowered aria-label="Share" class="share" onclick="share()" style="position:fixed;">
+    <md-icon slot="icon">share</md-icon>
+  </md-fab>
+<div style="height: 43px;"></div>
+  <div class="footer" id="footer">
+    ⓒBJH </div>
+
+
+
+
+  <script>
+    function textLengthOverCut(txt, len, lastTxt) {
+        if (len == "" || len == null) { // 기본값
+            len = 20;
+        }
+        if (lastTxt == "" || lastTxt == null) { // 기본값
+            lastTxt = "...";
+        }
+        if (txt.length > len) {
+            txt = txt.substr(0, len) + lastTxt;
+        }
+        return txt;
+    }
+    function github() {
+        window.open('https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) + '.md', "fullscreen=yes");
+    }
+
+    function share() {
+        shareData = {
+            title: '안녕하세요. 백지흠이라고 합니다.',
+            url: document.location.href
+        }
+        if (navigator.canShare(shareData)) {
+            navigator.share(shareData);
+        } else {
+            copy_link()
+        }
+    }
+
+    function copy_link() {
+        temp = document.createElement("textarea");
+        document.body.appendChild(temp);
+        const url = document.location.pathname; // /2024/10/09/test2/
+        temp.value = 'https://jxheum.site' + url; // /2024/10/09/test2/
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+    }
+
+    function comments() {
+        const scrollPosition = document.getElementById('comments').offsetTop;
+
+    //scroll을 offsetTop으로 이동시킨다.
+    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+    }
+</script>
+<script>
+    backbtn = document.getElementById('backbtn');
+    backbtna = backbtn
+    header = document.getElementById('header');
+    window.addEventListener('scroll', () => { 
+        if (window.scrollY == 0) {
+            backbtn.style.transform = "rotate(0deg)";
+            header.style.top = ""
+            backbtn.style.transitionDuration = "";
+            backbtna.setAttribute('href', '/');
+        } else if (window.scrollY < 22) {
+            backbtn.style.transform = "rotate(0deg)";
+            header.style.top = -58 + scrollY * 2.6363636364;
+            backbtn.style.transitionDuration = "";
+            backbtna.setAttribute('href', '/');
+        } else {
+            header.style.top = "0px"
+            backbtn.style.transitionDuration = "500ms";
+            backbtn.style.transform = "rotate(90deg)";
+            backbtn.setAttribute('onclick', 'window.scrollTo(0,0);')
+            backbtna.setAttribute('href', '#');
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loader').style.opacity = 0;
+  
+    
+  });
+</script>
+
+<!--커서시작-->
+<div class="cursor" id="cursor"></div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+  document.getElementById('cursor').style.opacity = 0;
+}
+  });
+
+  mouseona = 0;
+  document.addEventListener('mousemove', (e) => {
+    let mouseX = e.pageX-10; // document의 x좌표값
+    let mouseY = e.pageY-10; // document의 y좌표값
+
+        let cursor = document.querySelector('.cursor');
+        if (mouseona == 0) {
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+      }
+      else {
+        
+      }
+    
+})
+
+atag = document.querySelectorAll('#header, .postitm, .pagenow, .pagenp');
+atag.forEach((link) => {
+  link.addEventListener('mouseenter', (e) => {
+    let cursor = document.querySelector('.cursor');
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'fixed';
+    if (link.getAttribute('id') != 'header')
+      cursor.style.zIndex = '998'
+    cursor.style.width = link.offsetWidth + 'px'
+    cursor.style.height = link.offsetHeight + 'px'
+    cursor.style.top = link.offsetTop + 'px'
+    cursor.style.left = link.offsetLeft + 'px'
+    if (link.getAttribute('class') == 'postitm')
+      cursor.style.borderRadius = '30px'
+    else if (link.getAttribute('id') == 'header')
+      cursor.style.borderRadius = '0px', cursor.style.borderBottomLeftRadius = '30px', cursor.style.borderBottomRightRadius = '30px'
+    else if (link.getAttribute('class') == 'pagenow' || link.getAttribute('class') == 'pagenp')
+      cursor.style.borderRadius = '20px'
+    mouseona = 1
+})
+link.addEventListener('mouseleave', (e) => {
+    let cursor = document.querySelector('.cursor');
+    mouseona = 0
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'absolute';
+    cursor.style.width = ''
+    cursor.style.height = ''
+    cursor.style.borderRadius = ''
+    cursor.style.zIndex = ''
+})
+
+
+link.addEventListener('mousedown', (e) => {
+        let cursor = document.querySelector('.cursor');
+    cursor.style.width = link.offsetWidth - 5 + 'px'
+    cursor.style.height = link.offsetHeight - 5 + 'px'
+    cursor.style.top = link.offsetTop + 2.5 + 'px'
+    cursor.style.left = link.offsetLeft + 2.5 + 'px'
+})
+link.addEventListener('mouseup', (e) => {
+    let cursor = document.querySelector('.cursor');
+    cursor.style.width = link.offsetWidth + 'px'
+    cursor.style.height = link.offsetHeight + 'px'
+    cursor.style.top = link.offsetTop + 'px'
+    cursor.style.left = link.offsetLeft + 'px'
+})
+});
+
+document.addEventListener('mousedown', (e) => {
+    if (mouseona == 0) {
+      let cursor = document.querySelector('.cursor');
+        cursor.style.width = '15px'
+        cursor.style.height = '15px'
+        cursor.style.left = mouseX - 7.5 + 'px';
+        cursor.style.top = mouseY - 7.5 + 'px';
+    }
+})
+
+document.addEventListener('mouseup', (e) => {
+    if (mouseona == 0) {
+      let cursor = document.querySelector('.cursor');
+        cursor.style.width = '20px'
+        cursor.style.height = '20px'
+        cursor.style.left = mouseX - 10 + 'px';
+        cursor.style.top = mouseY - 10 + 'px';
+    }
+})
+</script>
+<!--커서끝-->
