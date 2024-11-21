@@ -1,16 +1,18 @@
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/e1582c160b.js" crossorigin="anonymous"></script>
         <style>
-            h1 {position:fixed;user-select: none;color: white;font-size: 50px;cursor: none;width: 90px;height: 70px;}
+            * {cursor: none;user-select: none;}
+            h1 {position:fixed;user-select: none;color: white;font-size: 50px;cursor: none;width: 90px;height: 70px;transition-duration: 100ms;}
             body, html {background: linear-gradient(141deg, #BDD3FA, #2e79fb);}
             .homebtn {cursor: none;user-select: none;font-size: 60px;text-decoration:double;position:fixed;top: calc(50% - 50px);left: calc(50% - 50px);width: 100px;height: 100px;border: none;border-radius: 100px;box-shadow: 5px 5px 5px #00000071;transition-duration: 500ms;border: 0.5px black solid;}
-            .homebtn:hover {font-size: 55px;top: calc(50% - 47.5px);left: calc(50% - 47.5px);width: 95px;height: 95px;box-shadow: 2.5px 2.5px 2.5px #00000071;}
+            .homebtn:hover {font-size: 70px;top: calc(50% - 52.5px);left: calc(50% - 52.5px);width: 105px;height: 105px;box-shadow: 7.5px 7.5px 7.5px #00000071;}
             .homebtn:active {font-size: 50px;top: calc(50% - 45px);left: calc(50% - 45px);width: 90px;height: 90px;box-shadow: 0px 0px 0px #00000071;}
         </style>
     </head>
     <body>
         <h1 align="center" id="h1">404</h1>
-        <a href="/"><button class="homebtn" id="homebtn"><b>/</b></button></a>
+        <a href="/"><button class="homebtn" id="homebtn"><i class="fa-solid fa-house"></i></button></a>
     <script>
         document.addEventListener('mousemove', (e) => {
     let mouseX = e.pageX-50; // document의 x좌표값

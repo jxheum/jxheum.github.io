@@ -5,12 +5,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
     <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
   {% include head.html %}
-  <style>
-    .header {max-width: 600px;}
-  </style>
   <title>Jxheum</title>
 </head>
-  <body style="max-width: 600px;">
+  <body>
     {% include header.html %}
     <div style="height: 58px;"></div>
     <div class="content">
@@ -42,8 +39,22 @@ if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
   document.getElementById('cursor').style.opacity = 0;
 }
   });
-</script>
 
+  window.onload = resizeeffect()
+
+  window.addEventListener("resize", function() {resizeeffect()})
+
+function resizeeffect() {
+  if (window.innerWidth >= 1000) {
+      header.style.width = '40%'
+      document.getElementsByTagName('body')[0].style.width = '40%'
+    }
+    else {
+      header.style.width = ''
+      document.getElementsByTagName('body')[0].style.width = ''
+    }
+}
+</script>
 
 {% include cursor.html %}
 
