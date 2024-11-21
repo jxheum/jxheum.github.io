@@ -1,18 +1,131 @@
 <script src="https://kit.fontawesome.com/e1582c160b.js" crossorigin="anonymous"></script>
-{{ content }}
-<div id="infodiv" style="background: #1E1E1E75;backdrop-filter: blur(3px);position:fixed;top:10px;right:10px;width:600px;height:300px;color:white;transition-duration: 500ms;">
-<a onclick="closeinfo();" id="clsbtn" style="height:100%;"><div style="display:inline-block;height:100%;width:30px;background:#37373775;text-align: center;font-size: 20px;"><div style="height: 140px;"></div><i class="fa-solid fa-caret-left" style="transition-duration: 500ms;transform:rotate(180deg)"></i></div></a>
-<div style="height:100%;width:max-content;display:inline-block;padding-top: 10px;"><h1>{{ page.title }}</h1></div>
-</div>
 <script>
-    function closeinfo() {
-        document.querySelector('#infodiv').style.right = -570;
-        document.querySelector('#clsbtn').setAttribute('onclick', 'openinfo();')
-        document.querySelector('.fa-caret-left').style.transform = 'rotate(0deg)'
-    }
-    function openinfo() {
-        document.querySelector('#infodiv').style.right = 10;
-        document.querySelector('#clsbtn').setAttribute('onclick', 'closeinfo();')
-        document.querySelector('.fa-caret-left').style.transform = 'rotate(180deg)'
+    function startgame() {
+        document.querySelector('#infodiv').style.top = '-100%';
+        startgamein();
     }
 </script>
+<style>
+    * {cursor:none}
+    body, html {margin:0px;padding:0px;}
+    .cursor {width: 20px;height: 20px;background:transparent;position:absolute;z-index:10000000000;border-radius: 10px;transition-duration: 100ms;backdrop-filter: invert(100%);pointer-events: none;}
+    .postlistsec {
+        height:100%;
+        width: 40%;
+        position:fixed;
+    }
+    .postlistif {
+        height: 100%;width:100%;
+    }
+</style>
+{{ content }}
+<!-- <div class="postlistsec" id="postlistsec">
+    <embed src="/#inpost" class="postlistif">
+</div> -->
+<div id="infodiv" style="text-align:center;background: #1E1E1E75;backdrop-filter: blur(3px);position:fixed;top:0px;right:0px;width:100%;height:100%;color:white;transition-duration: 500ms;">
+<h1>{{ page.title }}</h1>
+{% for tag in page.tags %}
+            #{{ tag }}
+            {% unless forloop.last %}{% endunless %}
+            {% endfor %}<br><br>
+<button style="width: 100px;height:50px;border-radius: 10px;box-shadow: none;border:none;" onclick="startgame();">Start!</button>
+{% if page.comments %}
+        <div class="commentsec" id="comments">
+            <script src="https://utteranc.es/client.js"
+        repo="jxheum/jxheum.github.io"
+        issue-term="pathname"
+        label="Comment"
+        theme="dark-blue"
+        crossorigin="anonymous"
+        async>
+</script>
+    </div>
+        {% endif %}
+</div>
+
+<!--커서시작-->
+<div class="cursor" id="cursor"></div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+  document.getElementById('cursor').style.opacity = 0;
+}
+  });
+
+  mouseona = 0;
+  document.addEventListener('mousemove', (e) => {
+    let mouseX = e.pageX-10; // document의 x좌표값
+    let mouseY = e.pageY-10; // document의 y좌표값
+
+        let cursor = document.querySelector('.cursor');
+        if (mouseona == 0) {
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+      }
+      else {
+        
+      }
+    
+})
+
+atag = document.querySelectorAll('button');
+atag.forEach((link) => {
+  link.addEventListener('mouseenter', (e) => {
+    let cursor = document.querySelector('.cursor');
+    cursor.style.top = link.offsetTop + 'px'
+    cursor.style.left = link.offsetLeft + 'px'
+    cursor.style.width = link.offsetWidth + 'px'
+    cursor.style.height = link.offsetHeight + 'px'
+    mouseona = 1
+})
+link.addEventListener('mouseleave', (e) => {
+    let cursor = document.querySelector('.cursor');
+    mouseona = 0
+    if (link.style.position == 'fixed')
+        cursor.style.position = 'absolute';
+    cursor.style.width = ''
+    cursor.style.height = ''
+    cursor.style.borderRadius = ''
+    cursor.style.zIndex = ''
+})
+
+
+link.addEventListener('mousedown', (e) => {
+        let cursor = document.querySelector('.cursor');
+    cursor.style.width = link.offsetWidth - 5 + 'px'
+    cursor.style.height = link.offsetHeight - 5 + 'px'
+    cursor.style.top = link.offsetTop + 2.5 + 'px'
+    cursor.style.left = link.offsetLeft + 2.5 + 'px'
+})
+link.addEventListener('mouseup', (e) => {
+    let cursor = document.querySelector('.cursor');
+    cursor.style.width = link.offsetWidth + 'px'
+    cursor.style.height = link.offsetHeight + 'px'
+    cursor.style.top = link.offsetTop + 'px'
+    cursor.style.left = link.offsetLeft + 'px'
+})
+});
+
+document.addEventListener('mousedown', (e) => {
+    if (mouseona == 0) {
+      let cursor = document.querySelector('.cursor');
+        cursor.style.width = '15px'
+        cursor.style.height = '15px'
+        cursor.style.left = mouseX - 7.5 + 'px';
+        cursor.style.top = mouseY - 7.5 + 'px';
+    }
+})
+
+document.addEventListener('mouseup', (e) => {
+    if (mouseona == 0) {
+      let cursor = document.querySelector('.cursor');
+        cursor.style.width = '20px'
+        cursor.style.height = '20px'
+        cursor.style.left = mouseX - 10 + 'px';
+        cursor.style.top = mouseY - 10 + 'px';
+    }
+})
+</script>
+<!--커서끝-->

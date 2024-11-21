@@ -40,7 +40,14 @@ if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
 }
   });
 
-  window.onload = resizeeffect()
+  window.onload = function() {
+    resizeeffect()
+    if (document.location.hash == '#inpost') {
+  document.querySelectorAll('.postitma').forEach((link) => {
+    link.setAttribute('href', '#');
+  })
+}
+  }
 
   window.addEventListener("resize", function() {resizeeffect()})
 

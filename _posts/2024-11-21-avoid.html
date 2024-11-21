@@ -3,6 +3,7 @@ layout: empty
 title: "장애물 피하기 게임"
 tag: ["장애물", "피하기", "게임"]
 date: 2024-11-21 16:32
+comments: true
 ---
 <!DOCTYPE html>
 <html lang="ko">
@@ -31,8 +32,8 @@ date: 2024-11-21 16:32
             font-size: 18px;
             padding: 10px 20px;
             border: none;
-            cursor: pointer;
             display: none;
+            border-radius: 10px;
         }
         #restartButton:hover {
             background-color: #45a049;
@@ -41,10 +42,11 @@ date: 2024-11-21 16:32
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
-    <button id="restartButton">다시 시작</button>
+    <button id="restartButton" onclick="startgamein();">다시 시작</button>
 
     <script>
-        // 게임 설정
+    function startgamein() {    // 게임 설정
+        document.getElementById('restartButton').style.display = 'none';
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -274,11 +276,6 @@ date: 2024-11-21 16:32
             document.getElementById('restartButton').style.display = 'block';
         }
 
-        // 게임 다시 시작
-        document.getElementById('restartButton').addEventListener('click', () => {
-            location.reload();
-        });
-
         // 주기적으로 장애물 생성
         function randomObstacleInterval() {
             setInterval(createObstacle, obstacleCreateInterval); // 더 짧은 간격으로 장애물 생성
@@ -287,6 +284,7 @@ date: 2024-11-21 16:32
         // 게임 시작
         randomObstacleInterval();
         gameLoop();
+    }
     </script>
 </body>
 </html>

@@ -1,47 +1,48 @@
 <head>
-<title>{{ page.title }}</title>
-<link rel="manifest" href="manifest.json" />
-<link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
-<link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
-<link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
-{% include head.html %}
-
-  
-<style>
-    body, html {scroll-behavior: smooth;}
-    .header {height: 38px;top:-58px;transition-duration: 0ms;}
-    .title {font-size: 24px;padding-top: 10px;padding-left: 58px;padding-bottom: 10px;font-weight: 900;}
-</style>
-    </head>
-    <md-linear-progress indeterminate id="loader"></md-linear-progress>
-    <div class="header" id="header"></div>
-    <md-icon-button class="backbtn" id="backbtn" href="/" style="position:fixed;">
-        <md-icon>arrow_back</md-icon>
-      </md-icon-button>
-<h1 style="margin: 0px" id="title" class="title">{{ page.title }}</h1>
-
-<div class="content">
-    <div id="infosec">
-        <md-chip-set>
-            <md-assist-chip label="{{ page.date | date: '%Y-%m-%d %H:%M' }}"><md-icon slot="icon">calendar_month</md-icon></md-assist-chip>
-            {% for tag in page.tags %}
-            <md-assist-chip label="{{ tag }}"><md-icon slot="icon">tag</md-icon></md-assist-chip>
-            {% unless forloop.last %}{% endunless %}
+    <title>{{ page.title }}</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
+    <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+    {% include head.html %}
+    
+      
+    <style>
+        body, html {scroll-behavior: smooth;}
+        .header {border-radius: 0;height:58px;text-align: left;}
+        .title {font-size: 24px;padding-top: 10px;padding-left: 58px;padding-bottom: 10px;font-weight: 900;}
+        #postlistsec {display:none;}
+    </style>
+    <style id="pcstyle">
+    </style>
+        </head>
+        <body>
+        <div class="postlistsec" id="postlistsec">
+            <embed src="/#inpost" class="postlistif">
+        </div>
+        <div class="postsec">
+        <div id="header" class="header">
+            <a href="/"><button class="topbtn ignz" id="homebtn"><i class="fa-solid fa-house"></i></button></a>
+            <button class="topbtn ignz" id="sharebtn" onclick="share();"><i class="fa-solid fa-share"></i></button>
+        </div>
+        <div style="height:58px" id="headerspace"></div>
+        <div class="infosect">
+            <div class="posttitle2">{{ page.title }}</div>
+            <div class="posttags">
+                <div class="chip first"><i class="fa-solid fa-calendar"></i> {{ page.date | date: '%Y-%m-%d %H:%M' }}</div>
+                {% if page.comments %}<a href="#comments"><div class="chip activechip"><i class="fa-solid fa-comments"></i> 댓글</div></a>{% endif %}
+                {% for tag in page.tags %}
+                <div class="chip">#{{ tag }}</div>
+                {% unless forloop.last %}{% endunless %}
             {% endfor %}
-            {% if page.comments %}
-            <md-assist-chip label="댓글" onclick="comments();"><md-icon slot="icon">comment</md-icon></md-assist-chip>
-            {% endif %}
-            <md-assist-chip label="GitHub" onclick="github();"><img src="https://www.jxheum.site/github.svg" class="icon" slot="icon"></md-assist-chip>
-            </md-chip-set>
+            <a onclick="github();"><div class="chip activechip"><i class="fa-brands fa-github"></i> Github</div></a>
+            </div>
+        </div>
+        <div class="contentsec">{{page.content | markdownify}}</div>
         
-        
-    </div><br>
-    {{page.content | markdownify}}
-</div>
-<md-divider></md-divider>
 {% if page.comments %}
-<div class="comment" id="comments">
-    <script src="https://utteranc.es/client.js"
+        <div class="commentsec" id="comments">
+            <script src="https://utteranc.es/client.js"
         repo="jxheum/jxheum.github.io"
         issue-term="pathname"
         label="Comment"
@@ -49,92 +50,85 @@
         crossorigin="anonymous"
         async>
 </script>
-</div>
-
-{% endif %}
-
-<md-fab lowered aria-label="Share" class="share" onclick="share()" style="position:fixed;">
-    <md-icon slot="icon">share</md-icon>
-  </md-fab>
-<div style="height: 43px;"></div>
-  {% include footer.html %}
-
-
-  <script>
-    function textLengthOverCut(txt, len, lastTxt) {
-        if (len == "" || len == null) { // 기본값
-            len = 20;
+    </div>
+        {% endif %}
+    </div>
+      <script>
+        function github() {
+            window.open('https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) + '.md', "fullscreen=yes");
         }
-        if (lastTxt == "" || lastTxt == null) { // 기본값
-            lastTxt = "...";
-        }
-        if (txt.length > len) {
-            txt = txt.substr(0, len) + lastTxt;
-        }
-        return txt;
-    }
-    function github() {
-        window.open('https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) + '.md', "fullscreen=yes");
-    }
-
-    function share() {
-        shareData = {
-            title: '{{ page.title }}',
-            url: document.location.href
-        }
-        if (navigator.canShare(shareData)) {
-            navigator.share(shareData);
-        } else {
-            copy_link()
-        }
-    }
-
-    function copy_link() {
-        temp = document.createElement("textarea");
-        document.body.appendChild(temp);
-        const url = document.location.pathname; // /2024/10/09/test2/
-        temp.value = 'https://jxheum.site' + url; // /2024/10/09/test2/
-        temp.select();
-        document.execCommand("copy");
-        document.body.removeChild(temp);
-    }
-
-    function comments() {
-        const scrollPosition = document.getElementById('comments').offsetTop;
-
-    //scroll을 offsetTop으로 이동시킨다.
-    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-    }
-</script>
-<script>
-    backbtn = document.getElementById('backbtn');
-    backbtna = backbtn
-    header = document.getElementById('header');
-    window.addEventListener('scroll', () => { 
-        if (window.scrollY == 0) {
-            backbtn.style.transform = "rotate(0deg)";
-            header.style.top = ""
-            backbtn.style.transitionDuration = "";
-            backbtna.setAttribute('href', '/');
-        } else if (window.scrollY < 22) {
-            backbtn.style.transform = "rotate(0deg)";
-            header.style.top = -58 + scrollY * 2.6363636364;
-            backbtn.style.transitionDuration = "";
-            backbtna.setAttribute('href', '/');
-        } else {
-            header.style.top = "0px"
-            backbtn.style.transitionDuration = "500ms";
-            backbtn.style.transform = "rotate(90deg)";
-            backbtn.setAttribute('onclick', 'window.scrollTo(0,0);')
-            backbtna.setAttribute('href', '#');
-        }
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('loader').style.opacity = 0;
-  
     
-  });
-</script>
+        function share() {
+            shareData = {
+                title: '{{ page.title }}',
+                url: document.location.href
+            }
+            if (navigator.canShare(shareData)) {
+                navigator.share(shareData);
+            } else {
+                copy_link()
+            }
+        }
+    
+        function copy_link() {
+            temp = document.createElement("textarea");
+            document.body.appendChild(temp);
+            const url = document.location.pathname; // /2024/10/09/test2/
+            temp.value = 'https://jxheum.site' + url; // /2024/10/09/test2/
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+        }
+    
+        function comments() {
+            const scrollPosition = document.getElementById('comments').offsetTop;
+    
+        //scroll을 offsetTop으로 이동시킨다.
+        window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+        }
+    </script>
+    
+    {% include cursor.html %}
+    <script>
+        tags = document.querySelectorAll('#comments, .postlistsec')
+        tags.forEach((link) => {
+            link.addEventListener('mouseenter', (e) => {
+                let cursor = document.querySelector('.cursor');
+                cursor.style.visibility = 'hidden'
+                console.log('ji')
+            })
 
-{% include cursor.html %}
+            link.addEventListener('mouseleave', (e) => {
+                let cursor = document.querySelector('.cursor');
+                cursor.style.visibility = 'visible'
+            })
+        })
+    </script>
+    <script>
+        function parentmove(link) {
+            document.location.hash = '';
+          document.location.pathname = link;
+        }
+        window.onload = function() {
+    resizeeffect()
+  }
+
+  window.addEventListener("resize", function() {resizeeffect()})
+
+function resizeeffect() {
+  if (window.innerWidth >= 1000) {
+      document.getElementById('pcstyle').innerHTML = `body,html {overflow-x:hidden;}
+.postlistsec {width:40%;display:inline-block !important;position:fixed;height:100vh;}
+.postlistif {border:none;width:100%;height:100%;}
+.postlistsec, .postsec {display:inline-block;}
+.postsec {width:calc(60% - 20px);float:right;}
+#headerspace {display:none;}
+.posttitle2 {font-size:50px;text-align: left;}
+.posttags, .contentsec, .commentsec {margin-left:0;}
+.header {display:none;}`
+    }
+    else {
+        document.getElementById('pcstyle').innerHTML = ``}
+    }
+      </script>
+</body>
