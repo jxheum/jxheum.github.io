@@ -1,0 +1,214 @@
+---
+layout: empty
+title: "장애물 피하기 게임 for Mobile"
+tag: ["장애물", "피하기", "게임", "Mobile"]
+date: 2024-11-22 21:12
+comments: true
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슈퍼마리오 스타일 게임</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #87CEEB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+        #controlPanel {
+            position: absolute;
+            bottom: 10%;
+            width: 200px;
+            height: 200px;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+        .controlButton {
+            width: 60px;
+            height: 60px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            color: white;
+        }
+        .controlButton:active {
+            background-color: #45a049;
+        }
+        #restartButton {
+            position: absolute;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            display: none;
+            border-radius: 10px;
+        }
+        #restartButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="controlPanel">
+        <div></div>
+        <button class="controlButton" id="upButton">↑</button>
+        <div></div>
+        <button class="controlButton" id="leftButton">←</button>
+        <div></div>
+        <button class="controlButton" id="rightButton">→</button>
+        <div></div>
+        <button class="controlButton" id="downButton">↓</button>
+        <div></div>
+    </div>
+    <button id="restartButton" onclick="startgamein();">다시 시작</button>
+
+    <script>
+    function startgamein() {
+        document.getElementById('restartButton').style.display = 'none';
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth / 1.5;
+            canvas.height = window.innerHeight / 1.5;
+        }
+
+        let gameOver = false;
+        let score = 0;
+        let obstacleSpeed = 8;
+        let obstacleCreateInterval = 300;
+
+        const player = {
+            x: 50,
+            y: canvas.height - 20,
+            radius: 10,
+            speed: 5,
+            dx: 0,
+            dy: 0,
+            color: 'red',
+        };
+
+        const obstacles = [];
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const leftButton = document.getElementById('leftButton');
+        const upButton = document.getElementById('upButton');
+        const rightButton = document.getElementById('rightButton');
+        const downButton = document.getElementById('downButton');
+
+        // 버튼 동작 설정
+        function addButtonControls(button, direction, value) {
+            button.addEventListener('mousedown', () => player[direction] = value);
+            button.addEventListener('mouseup', () => player[direction] = 0);
+            button.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // 터치 스크롤 방지
+                player[direction] = value;
+            });
+            button.addEventListener('touchend', () => player[direction] = 0);
+        }
+
+        addButtonControls(leftButton, 'dx', -player.speed);
+        addButtonControls(rightButton, 'dx', player.speed);
+        addButtonControls(upButton, 'dy', -player.speed);
+        addButtonControls(downButton, 'dy', player.speed);
+
+        function createObstacle() {
+            const x = canvas.width;
+            const y = Math.random() * (canvas.height - 50);
+            const width = Math.random() * 70 + 50;
+            const height = Math.random() * 70 + 50;
+            obstacles.push({ x, y, width, height });
+        }
+
+        function moveObstacles() {
+            obstacles.forEach((o, i) => {
+                o.x -= obstacleSpeed;
+                if (o.x + o.width < 0) {
+                    obstacles.splice(i, 1);
+                }
+            });
+        }
+
+        function checkCollisions() {
+            for (let o of obstacles) {
+                if (
+                    player.x < o.x + o.width &&
+                    player.x + player.radius * 2 > o.x &&
+                    player.y < o.y + o.height &&
+                    player.y + player.radius * 2 > o.y
+                ) {
+                    gameOver = true;
+                    document.getElementById('restartButton').style.display = 'block';
+                    return;
+                }
+            }
+        }
+
+        function drawPlayer() {
+            ctx.fillStyle = player.color;
+            ctx.beginPath();
+            ctx.arc(player.x + player.radius, player.y + player.radius, player.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawObstacles() {
+            ctx.fillStyle = 'green';
+            obstacles.forEach(o => {
+                ctx.fillRect(o.x, o.y, o.width, o.height);
+            });
+        }
+
+        function drawScore() {
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.fillText('점수: ' + score, 10, 30);
+        }
+
+        function gameLoop() {
+            if (gameOver) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            moveObstacles();
+            drawObstacles();
+            drawScore();
+            checkCollisions();
+
+            player.x += player.dx;
+            player.y += player.dy;
+
+            if (player.x < 0) player.x = 0;
+            if (player.x + player.radius * 2 > canvas.width) player.x = canvas.width - player.radius * 2;
+            if (player.y < 0) player.y = 0;
+            if (player.y + player.radius * 2 > canvas.height) player.y = canvas.height - player.radius * 2;
+
+            score++;
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        setInterval(createObstacle, obstacleCreateInterval);
+        gameLoop();
+    }
+    </script>
+</body>
+</html>
