@@ -10,44 +10,22 @@ comments: true
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>슈퍼마리오 스타일 게임</title>
+    <title>가로 모드 공 피하기 게임</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #87CEEB;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            flex-direction: column;
         }
         canvas {
             border: 1px solid black;
-        }
-        #controlPanel {
-            position: absolute;
-            bottom: 10%;
-            width: 200px;
-            height: 200px;
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
-            justify-content: center;
-            align-items: center;
-        }
-        .controlButton {
-            width: 60px;
-            height: 60px;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            color: white;
-        }
-        .controlButton:active {
-            background-color: #45a049;
+            margin-bottom: 10px;
         }
         #restartButton {
             position: absolute;
@@ -62,74 +40,109 @@ comments: true
         #restartButton:hover {
             background-color: #45a049;
         }
+        .controls {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .button {
+            width: 60px;
+            height: 60px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #rotateWarning {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 24px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
-    <div id="controlPanel">
-        <div></div>
-        <button class="controlButton" id="upButton">↑</button>
-        <div></div>
-        <button class="controlButton" id="leftButton">←</button>
-        <div></div>
-        <button class="controlButton" id="rightButton">→</button>
-        <div></div>
-        <button class="controlButton" id="downButton">↓</button>
-        <div></div>
+    <div id="rotateWarning">가로 모드에서만 작동합니다.<br>화면을 회전시켜 주세요.</div>
+    <button id="restartButton" onclick="startGame();">다시 시작</button>
+    <div class="controls">
+        <button class="button" id="upButton">▲</button>
+        <button class="button" id="downButton">▼</button>
     </div>
-    <button id="restartButton" onclick="startgamein();">다시 시작</button>
 
     <script>
-    function startgamein() {
+    let gameActive = false; // 게임 활성화 상태 확인
+
+    function startGame() {
+        // 가로 모드 확인
+        if (window.innerWidth < window.innerHeight) {
+            document.getElementById('rotateWarning').style.display = 'flex';
+            return;
+        }
+        document.getElementById('rotateWarning').style.display = 'none';
         document.getElementById('restartButton').style.display = 'none';
+        gameActive = true;
+
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth / 1.5;
-            canvas.height = window.innerHeight / 1.5;
-        }
+        // 캔버스 크기 설정
+        canvas.width = window.innerWidth * 0.8;
+        canvas.height = window.innerHeight * 0.8;
 
+        // 게임 상태 변수
         let gameOver = false;
         let score = 0;
+        const player = { x: 50, y: canvas.height / 2, radius: 10, speed: 5, dy: 0, color: 'red' };
+        const obstacles = [];
         let obstacleSpeed = 8;
         let obstacleCreateInterval = 300;
 
-        const player = {
-            x: 50,
-            y: canvas.height - 20,
-            radius: 10,
-            speed: 5,
-            dx: 0,
-            dy: 0,
-            color: 'red',
-        };
+        // 이벤트 리스너
+        function enableTouchControls() {
+            const upButton = document.getElementById('upButton');
+            const downButton = document.getElementById('downButton');
 
-        const obstacles = [];
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+            // Touch 이벤트
+            upButton.addEventListener('touchstart', () => { player.dy = -player.speed; });
+            downButton.addEventListener('touchstart', () => { player.dy = player.speed; });
+            upButton.addEventListener('touchend', () => { player.dy = 0; });
+            downButton.addEventListener('touchend', () => { player.dy = 0; });
 
-        const leftButton = document.getElementById('leftButton');
-        const upButton = document.getElementById('upButton');
-        const rightButton = document.getElementById('rightButton');
-        const downButton = document.getElementById('downButton');
-
-        // 버튼 동작 설정
-        function addButtonControls(button, direction, value) {
-            button.addEventListener('mousedown', () => player[direction] = value);
-            button.addEventListener('mouseup', () => player[direction] = 0);
-            button.addEventListener('touchstart', (e) => {
-                e.preventDefault(); // 터치 스크롤 방지
-                player[direction] = value;
-            });
-            button.addEventListener('touchend', () => player[direction] = 0);
+            // Mouse 이벤트도 같이 추가
+            upButton.addEventListener('mousedown', () => { player.dy = -player.speed; });
+            downButton.addEventListener('mousedown', () => { player.dy = player.speed; });
+            upButton.addEventListener('mouseup', () => { player.dy = 0; });
+            downButton.addEventListener('mouseup', () => { player.dy = 0; });
         }
 
-        addButtonControls(leftButton, 'dx', -player.speed);
-        addButtonControls(rightButton, 'dx', player.speed);
-        addButtonControls(upButton, 'dy', -player.speed);
-        addButtonControls(downButton, 'dy', player.speed);
+        enableTouchControls();
 
+        // 장애물 생성
         function createObstacle() {
             const x = canvas.width;
             const y = Math.random() * (canvas.height - 50);
@@ -138,70 +151,63 @@ comments: true
             obstacles.push({ x, y, width, height });
         }
 
+        // 장애물 이동
         function moveObstacles() {
-            obstacles.forEach((o, i) => {
-                o.x -= obstacleSpeed;
-                if (o.x + o.width < 0) {
-                    obstacles.splice(i, 1);
-                }
-            });
+            for (let i = 0; i < obstacles.length; i++) {
+                obstacles[i].x -= obstacleSpeed;
+                if (obstacles[i].x + obstacles[i].width < 0) obstacles.splice(i, 1);
+            }
         }
 
+        // 충돌 체크
         function checkCollisions() {
             for (let o of obstacles) {
-                if (
-                    player.x < o.x + o.width &&
-                    player.x + player.radius * 2 > o.x &&
-                    player.y < o.y + o.height &&
-                    player.y + player.radius * 2 > o.y
-                ) {
+                if (player.x < o.x + o.width && player.x + player.radius * 2 > o.x &&
+                    player.y < o.y + o.height && player.y + player.radius * 2 > o.y) {
                     gameOver = true;
-                    document.getElementById('restartButton').style.display = 'block';
+                    showRestartButton();
                     return;
                 }
             }
         }
 
-        function drawPlayer() {
+        // 다시 시작 버튼 보이기
+        function showRestartButton() {
+            document.getElementById('restartButton').style.display = 'block';
+            gameActive = false;
+        }
+
+        // 게임 루프
+        function gameLoop() {
+            if (gameOver || !gameActive) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 플레이어 그리기
             ctx.fillStyle = player.color;
             ctx.beginPath();
-            ctx.arc(player.x + player.radius, player.y + player.radius, player.radius, 0, Math.PI * 2);
+            ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
             ctx.fill();
-            ctx.closePath();
-        }
 
-        function drawObstacles() {
-            ctx.fillStyle = 'green';
+            // 장애물 처리
+            moveObstacles();
             obstacles.forEach(o => {
+                ctx.fillStyle = 'green';
                 ctx.fillRect(o.x, o.y, o.width, o.height);
             });
-        }
 
-        function drawScore() {
-            ctx.fillStyle = 'black';
-            ctx.font = '20px Arial';
-            ctx.fillText('점수: ' + score, 10, 30);
-        }
-
-        function gameLoop() {
-            if (gameOver) return;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawPlayer();
-            moveObstacles();
-            drawObstacles();
-            drawScore();
+            // 점수 및 충돌 체크
+            score++;
             checkCollisions();
 
-            player.x += player.dx;
+            // 플레이어 이동
             player.y += player.dy;
-
-            if (player.x < 0) player.x = 0;
-            if (player.x + player.radius * 2 > canvas.width) player.x = canvas.width - player.radius * 2;
             if (player.y < 0) player.y = 0;
             if (player.y + player.radius * 2 > canvas.height) player.y = canvas.height - player.radius * 2;
 
-            score++;
+            // 점수 표시
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.fillText('점수: ' + score, 10, 30);
 
             requestAnimationFrame(gameLoop);
         }
@@ -209,6 +215,13 @@ comments: true
         setInterval(createObstacle, obstacleCreateInterval);
         gameLoop();
     }
+
+    window.addEventListener('resize', () => {
+        if (!gameActive) startGame();
+    });
+
+    // 초기 실행
+    startGame();
     </script>
 </body>
 </html>
