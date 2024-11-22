@@ -63,7 +63,7 @@ comments: true
             align-items: center;
             cursor: pointer;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            user-select: none;
+            user-select:none;
         }
         .button:hover {
             background-color: #45a049;
@@ -91,8 +91,8 @@ comments: true
     <div id="rotateWarning">가로 모드에서만 작동합니다.<br>화면을 회전시켜 주세요.</div>
     <button id="restartButton" onclick="startGame();">다시 시작</button>
     <div class="controls">
-        <button class="button" id="upButton">▲</button>
-        <button class="button" id="downButton">▼</button>
+        <button class="button" id="upButton" style="user-select: none;">▲</button>
+        <button class="button" id="downButton" user-select: none;>▼</button>
     </div>
 
     <script>
