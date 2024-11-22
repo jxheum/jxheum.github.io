@@ -11,17 +11,35 @@
     .cursor {width: 20px;height: 20px;background:transparent;position:absolute;z-index:10000000000;border-radius: 10px;transition-duration: 100ms;backdrop-filter: invert(100%);pointer-events: none;}
     .postlistsec {
         height:100%;
-        width: 40%;
+        width: 100%;
         position:fixed;
+        top:0;
+        left:-100%;
+        backdrop-filter: blur(10px);
+        background:#00000000;
+        transition-duration: 500ms;
     }
     .postlistif {
-        height: 100%;width:100%;
+        height: 100%;width:40%;
+    }
+    .menubtn {
+        width:50px;height:50px;
+        font-size: 30px;
+        border-radius: 10px;
+        border:none;
+        position:fixed;
+        top:10px;
+        left:10px;
+        transition-duration: 500ms;
     }
 </style>
 {{ content }}
-<!-- <div class="postlistsec" id="postlistsec">
+<A onclick="menutoggle();">
+<div class="postlistsec" id="postlistsec">
     <embed src="/#inpost" class="postlistif">
-</div> -->
+</div>
+</A>
+<button class="menubtn" id="menubtn" onclick="menutoggle();"><i class="fa-solid fa-bars"></i></button>
 <div id="infodiv" style="text-align:center;background: #1E1E1E75;backdrop-filter: blur(3px);position:fixed;top:0px;right:0px;width:100%;height:100%;color:white;transition-duration: 500ms;">
 <h1>{{ page.title }}</h1>
 {% for tag in page.tags %}
@@ -127,5 +145,43 @@ document.addEventListener('mouseup', (e) => {
         cursor.style.top = mouseY - 10 + 'px';
     }
 })
+
+tags = document.querySelectorAll('#comments, .postlistif')
+        tags.forEach((link) => {
+            link.addEventListener('mouseenter', (e) => {
+                let cursor = document.querySelector('.cursor');
+                cursor.style.visibility = 'hidden'
+                console.log('ji')
+            })
+
+            link.addEventListener('mouseleave', (e) => {
+                let cursor = document.querySelector('.cursor');
+                cursor.style.visibility = 'visible'
+            })
+        })
+
+
+openmenu = 0;
+function menutoggle() {
+    if (openmenu == 0) {
+        document.getElementById('postlistsec').style.left = 0;
+        document.getElementById('menubtn').style.left = "calc(40% + 10px)"
+        document.getElementById('menubtn').style.transform = 'rotate(180deg)'
+        document.getElementById('menubtn').innerHTML = '<i class="fa-solid fa-xmark"></i>'
+        openmenu = 1
+    }
+    else if (openmenu == 1) {
+        document.getElementById('postlistsec').style.left = '';
+        document.getElementById('menubtn').style.left = ""
+        document.getElementById('menubtn').style.transform = ''
+        document.getElementById('menubtn').innerHTML = '<i class="fa-solid fa-bars"></i>'
+        openmenu =0
+    }
+}
+
+function parentmove(link) {
+            document.location.hash = '';
+          document.location.pathname = link;
+        }
 </script>
 <!--커서끝-->
