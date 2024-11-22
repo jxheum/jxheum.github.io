@@ -1,6 +1,5 @@
 <head>
     <title>{{ page.title }}</title>
-    <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
     <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
     <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
@@ -12,6 +11,7 @@
         .header {border-radius: 0;height:58px;text-align: left;}
         .title {font-size: 24px;padding-top: 10px;padding-left: 58px;padding-bottom: 10px;font-weight: 900;}
         #postlistsec {display:none;}
+        .sharechip {display:none;}
     </style>
     <style id="pcstyle">
     </style>
@@ -35,7 +35,8 @@
                 <div class="chip">#{{ tag }}</div>
                 {% unless forloop.last %}{% endunless %}
             {% endfor %}
-            <a onclick="github();"><div class="chip activechip"><i class="fa-brands fa-github"></i> Github</div></a>
+            <a onclick="github();" style="display: inline-block;"><div class="chip activechip"><i class="fa-brands fa-github"></i> Github</div></a>
+            <a onclick="share();" style="display: inline-block;"><div class="chip activechip sharechip"><i class="fa-solid fa-share"></i> 공유</div></a>
             </div>
         </div>
         <div class="contentsec">{{page.content | markdownify}}</div>
@@ -52,6 +53,8 @@
 </script>
     </div>
         {% endif %}
+        <div style="height: 43px;"></div>
+              {% include footer.html %}
     </div>
       <script>
         function github() {
@@ -125,7 +128,8 @@ function resizeeffect() {
 #headerspace {display:none;}
 .posttitle2 {font-size:50px;text-align: left;}
 .posttags, .contentsec, .commentsec {margin-left:0;}
-.header {display:none;}`
+.header {display:none;}
+.sharechip {display:block;}`
     }
     else {
         document.getElementById('pcstyle').innerHTML = ``}

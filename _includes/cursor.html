@@ -38,6 +38,9 @@ atag.forEach((link) => {
     cursor.style.width = link.offsetWidth + 'px'
     cursor.style.height = link.offsetHeight + 'px'
     cursor.style.borderRadius = '10px'
+    if (link.getAttribute('class').includes('activechip'))
+          cursor.style.borderRadius = '500px'
+    console.log(link.getAttribute('class'))
     if (document.location.pathname == "/") {
       if (link.getAttribute('class').includes('postitm'))
         cursor.style.borderRadius = '30px'

@@ -90,7 +90,7 @@ display: inline-block;
 vertical-align: middle;
 }
 
-.footer {padding: 10px;position:fixed;bottom:0px;left:0px;background:inherit;width:100%;z-index: 999;}
+.footer {padding: 10px;position:fixed;bottom:0px;left:0px;background:inherit;width:100%;z-index: 999;background:#00000000;backdrop-filter: blur(5px);}
 
 .cursor {width: 20px;height: 20px;background:transparent;position:absolute;z-index:10000000000;border-radius: 10px;transition-duration: 100ms;backdrop-filter: invert(100%);pointer-events: none;}
 :host {cursor:none;}

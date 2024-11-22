@@ -8,7 +8,8 @@
   <title>Jxheum</title>
 </head>
   <body>
-    {% include header.html %}
+    <a onclick="document.getElementById('header').style.fontSize = '40px'">
+    {% include header.html %}</a>
     <div style="height: 58px;"></div>
     <div class="content">
     {{ content }}
@@ -16,7 +17,7 @@
       </div>
       {% include pagination.html %}
       
-<div style="height: 43px;"></div>
+      <div style="height: 43px;"></div>
       {% include footer.html %}
       
   
@@ -25,8 +26,8 @@
   window.addEventListener('scroll', () => { 
       if (window.scrollY == 0) {
           header.style.fontSize = "";
-      } else if (window.scrollY <= 48) {
-          header.style.fontSize = 48 - scrollY/5;
+      } else if (window.scrollY <= 40) {
+          header.style.fontSize = 40 - scrollY/5 + 'px';
       } else {
           header.style.fontSize = "20px"
       }
