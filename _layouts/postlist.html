@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
-    <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
-  {% include head.html %}
-  <title>Jxheum</title>
+
+<head>
+	<link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
+	<link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+	{% include head.html %}
+	<title>Jxheum</title>
 </head>
-  <body style="opacity: 0;">
-    <a onclick="document.getElementById('header').style.fontSize = '40px'">
-    {% include header.html %}</a>
-    <div style="height: 58px;"></div>
-    <div class="content">
-    {{ content }}
-    
-      </div>
-      
-      <div style="height: 43px;"></div>
-      {% include footer.html %}
-      
-  
-<script>
-  header = document.getElementById('header');
-  window.addEventListener('scroll', () => { 
-      if (window.scrollY == 0) {
-          header.style.fontSize = "";
-      } else if (window.scrollY <= 40) {
-          header.style.fontSize = 40 - scrollY/5 + 'px';
-      } else {
-          header.style.fontSize = "20px"
-      }
-  });
 
-  window.addEventListener('DOMContentLoaded', () => {
-  // 모바일 장치인지 확인하기 -> 리다이렉트
-if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-  document.getElementById('cursor').style.opacity = 0;
-}
-  });
+<body style="opacity: 0;">
+	<a onclick="document.getElementById('header').style.fontSize = '40px'">
+		{% include header.html %}</a>
+	<div style="height: 58px;"></div>
+	<div class="content">
+		{{ content }}
 
-  window.onload = function() {
-    resizeeffect()
-    if (document.location.hash == '#inpost') {
-  document.querySelectorAll('.postitma').forEach((link) => {
-    link.removeAttribute('href');
-  })
-}
-  }
+	</div>
 
-  window.addEventListener("resize", function() {resizeeffect()})
-
-function resizeeffect() {
-  if (window.innerWidth >= 1000) {
-      header.style.width = '40%'
-      document.getElementsByTagName('body')[0].style.width = '40%'
-    }
-    else {
-      header.style.width = ''
-      document.getElementsByTagName('body')[0].style.width = ''
-    }
-  document.getElementsByTagName('body')[0].style.opacity = 1;
-}
-</script>
-
-{% include cursor.html %}
+	<div style="height: 43px;"></div>
+	{% include footer.html %}
 
 
-    </body>
-  
+	<script>
+		header = document.getElementById('header');
+		window.addEventListener('scroll', () => {
+			if (window.scrollY == 0) {
+				header.style.fontSize = "";
+			} else if (window.scrollY <= 40) {
+				header.style.fontSize = 40 - scrollY / 5 + 'px';
+			} else {
+				header.style.fontSize = "20px"
+			}
+		});
+
+		window.addEventListener('DOMContentLoaded', () => {
+			// 모바일 장치인지 확인하기 -> 리다이렉트
+			if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+				document.getElementById('cursor').style.opacity = 0;
+			}
+		});
+
+		window.onload = function () {
+			resizeeffect()
+			if (document.location.hash == '#inpost') {
+				document.querySelectorAll('.postitma').forEach((link) => {
+					link.removeAttribute('href');
+				})
+			}
+		}
+
+		window.addEventListener("resize", function () { resizeeffect() })
+
+		function resizeeffect() {
+			if (window.innerWidth >= 1000) {
+				header.style.width = '40%'
+				document.getElementsByTagName('body')[0].style.width = '40%'
+			}
+			else {
+				header.style.width = ''
+				document.getElementsByTagName('body')[0].style.width = ''
+			}
+			document.getElementsByTagName('body')[0].style.opacity = 1;
+		}
+	</script>
+
+	{% include cursor.html %}
+
+
+</body>
+
 </html>

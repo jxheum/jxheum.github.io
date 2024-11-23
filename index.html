@@ -3,17 +3,19 @@ layout: postlist
 ---
 
 <div class="postlist">
-{% for post in paginator.posts %}
-        
-                <a href="javascript:gotopage('{{ post.url }}')" class="postitma" onclick="parent.gotopage('{{ post.url }}');"><div class="postitm">
-                  <div class="posttitle">{{ post.title }}</div>
-                  <div class="postspt">{{ post.excerpt | strip_html | truncatewords: 5 }}</div>
-                  <div class="postspt"><i class="fa-solid fa-calendar-days"></i> {{ post.date | date: '%Y-%m-%d %H:%M' }}</div>
-                </div></a>
-                <div style="height:10px;"></div>
-              
-        
-{% endfor %}  
+	{% for post in paginator.posts %}
+
+	<a href="javascript:gotopage('{{ post.url }}')" class="postitma" onclick="parent.gotopage('{{ post.url }}');">
+		<div class="postitm">
+			<div class="posttitle">{{ post.title }}</div>
+			<div class="postspt">{{ post.excerpt | strip_html | truncatewords: 5 }}</div>
+			<div class="postspt"><i class="fa-solid fa-calendar-days"></i> {{ post.date | date: '%Y-%m-%d %H:%M' }}
+			</div>
+		</div>
+	</a>
+	<div style="height:10px;"></div>
+
+
+	{% endfor %}
 </div>
 {% include pagination.html %}
-          
