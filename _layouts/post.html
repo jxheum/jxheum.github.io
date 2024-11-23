@@ -11,6 +11,7 @@
         html {
             scroll-behavior: smooth;
         }
+        /* body{visibility:hidden;} */
 
         .header {
             border-radius: 0;
@@ -155,7 +156,11 @@
             }
             else {
                 document.getElementById('pcstyle').innerHTML = ``
+            document.getElementsByTagName('body')[0].style.opacity = 1;
             }
+        }
+
+        function ready() {
             document.getElementsByTagName('body')[0].style.opacity = 1;
         }
     </script>

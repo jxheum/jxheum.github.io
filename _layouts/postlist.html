@@ -61,8 +61,12 @@
 				header.style.width = ''
 				document.getElementsByTagName('body')[0].style.width = ''
 			}
-			document.getElementsByTagName('body')[0].style.opacity = 1;
 		}
+
+		document.addEventListener("DOMContentLoaded", () => {
+			document.getElementsByTagName('body')[0].style.opacity = 1;
+			parent.ready();
+  		});
 	</script>
 
 	{% include cursor.html %}

@@ -45,6 +45,11 @@
 <meta content="#D9D9D9" name="apple-mobile-web-app-status-bar-style"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>`
 		}
+		function gotopage(url) {
+		document.getElementsByTagName('body')[0].style.opacity = 0
+		setTimeout(() => document.location.href = url, 100);
+	}
+    
 	</script>
 </head>
 <!-- 헤더끝 -->

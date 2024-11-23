@@ -10,11 +10,11 @@
         cursor: none
     }
 
-    body,
-    html {
+    body, html {
         margin: 0px;
         padding: 0px;
     }
+    body {opacity: 0;transition-duration: 500ms;}
 
     .cursor {
         width: 20px;
@@ -199,9 +199,12 @@
         }
     }
 
-    function parentmove(link) {
-        document.location.hash = '';
-        document.location.pathname = link;
-    }
+    function gotopage(url) {
+		document.getElementsByTagName('body')[0].style.opacity = 0
+		setTimeout(() => document.location.href = url, 100);
+	}
+    document.addEventListener("DOMContentLoaded", () => {
+			document.getElementsByTagName('body')[0].style.opacity = 1;
+  		});
 </script>
 <!--커서끝-->
