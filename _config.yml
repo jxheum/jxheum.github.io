@@ -11,7 +11,7 @@ excerpt_separator: <!--more-->
 markdown: kramdown
 
 krandown:
-	input: GFM
+  input: GFM
   highlighter: rouge
 
 plugins:
