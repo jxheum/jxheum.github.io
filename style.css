@@ -40,8 +40,9 @@ body, html { background-color: #D9D9D9;color: #1E1E1E;}
 
 .cursor {visibility: hidden;}
 
+body {transition-duration: 250ms !important;}
 body, html {width: 100%;margin: 0px;font-family: "Noto Sans KR", sans-serif;min-height: 100vh;}
-* {transition-duration: 100ms;cursor:none;white-space: normal;word-wrap: break-word}
+* {cursor:none;white-space: normal;word-wrap: break-word}
 .icon-button, .container, :host, .overlay, a, .touch, button, #button, md-assist-chip, .primary, .action {cursor:none;}
 .header, .header2 {
     font-size: 40px;
@@ -127,4 +128,13 @@ vertical-align: middle;
   margin: 20px;
   border-radius: 30px;
   cursor:auto;
+}
+
+body.reveal {
+  opacity: 1;
+  overflow-y: auto
+}
+
+body.hidden {
+  opacity: 0
 }

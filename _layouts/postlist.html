@@ -7,7 +7,7 @@
   {% include head.html %}
   <title>Jxheum</title>
 </head>
-  <body>
+  <body style="opacity: 0;">
     <a onclick="document.getElementById('header').style.fontSize = '40px'">
     {% include header.html %}</a>
     <div style="height: 58px;"></div>
@@ -33,7 +33,6 @@
   });
 
   window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('loader').style.opacity = 0;
   // 모바일 장치인지 확인하기 -> 리다이렉트
 if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
   document.getElementById('cursor').style.opacity = 0;
@@ -44,7 +43,7 @@ if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
     resizeeffect()
     if (document.location.hash == '#inpost') {
   document.querySelectorAll('.postitma').forEach((link) => {
-    link.setAttribute('href', '#');
+    link.removeAttribute('href');
   })
 }
   }
@@ -60,6 +59,7 @@ function resizeeffect() {
       header.style.width = ''
       document.getElementsByTagName('body')[0].style.width = ''
     }
+  document.getElementsByTagName('body')[0].style.opacity = 1;
 }
 </script>
 

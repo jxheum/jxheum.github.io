@@ -16,14 +16,14 @@
     <style id="pcstyle">
     </style>
         </head>
-        <body>
+        <body style="opacity: 0;">
         <div class="postlistsec" id="postlistsec">
             <embed src="/#inpost" class="postlistif">
         </div>
         <div class="postsec">
         <div id="header" class="header">
-            <a href="/"><button class="topbtn ignz" id="homebtn"><i class="fa-solid fa-house"></i></button></a>
-            <button class="topbtn ignz" id="sharebtn" onclick="share();"><i class="fa-solid fa-share"></i></button>
+            <button class="topbtn ignz" id="homebtn" onclick="gotopage('/')" style="position:fixed;"><i class="fa-solid fa-house"></i></button>
+            <button class="topbtn ignz" id="sharebtn" onclick="share();" style="position:fixed;"><i class="fa-solid fa-share"></i></button>
         </div>
         <div style="height:58px" id="headerspace"></div>
         <div class="infosect">
@@ -108,10 +108,6 @@
         })
     </script>
     <script>
-        function parentmove(link) {
-            document.location.hash = '';
-          document.location.pathname = link;
-        }
         window.onload = function() {
     resizeeffect()
   }
@@ -133,6 +129,7 @@ function resizeeffect() {
     }
     else {
         document.getElementById('pcstyle').innerHTML = ``}
+        document.getElementsByTagName('body')[0].style.opacity = 1;
     }
       </script>
 </body>
