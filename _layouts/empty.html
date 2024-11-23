@@ -201,8 +201,9 @@
 
     function gotopage(url) {
 		document.getElementsByTagName('body')[0].style.opacity = 0
-		setTimeout(() => document.location.href = url, 100);
+		setTimeout(() => document.location.href = url, 200);
 	}
+    
     document.addEventListener("DOMContentLoaded", () => {
 			document.getElementsByTagName('body')[0].style.opacity = 1;
   		});
