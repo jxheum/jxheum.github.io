@@ -89,11 +89,11 @@
 }
 
 .cursor {
-	visibility: hidden;
+	visibility: visible;
 }
 
 body {
-	transition-duration: 250ms !important;
+	transition-duration: 100ms !important;
 }
 
 body,
