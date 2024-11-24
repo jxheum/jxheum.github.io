@@ -257,7 +257,8 @@ md-linear-progress {
 	position: absolute;
 	z-index: 10000000000;
 	border-radius: 10px;
-	transition-duration: 100ms;
+	transition-duration: 200ms;
+	transition-timing-function: cubic-bezier(.44,.9,.18,1.18);
 	backdrop-filter: invert(100%);
 	pointer-events: none;
 }

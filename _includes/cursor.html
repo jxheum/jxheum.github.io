@@ -31,8 +31,8 @@
 			let cursor = document.querySelector('.cursor');
 			if (link.style.position == 'fixed')
 				cursor.style.position = 'fixed';
-			if (link.getAttribute('id') != 'header' && link.getAttribute('class').includes('ignz') == false)
-				cursor.style.zIndex = '998'
+			// if (link.getAttribute('id') != 'header' && link.getAttribute('class').includes('ignz') == false)
+			// 	cursor.style.zIndex = '998'
 			cursor.style.top = link.offsetTop + 'px'
 			cursor.style.left = link.offsetLeft + 'px'
 			cursor.style.width = link.offsetWidth + 'px'
@@ -58,7 +58,7 @@
 				cursor.style.position = 'absolute';
 			cursor.style.width = ''
 			cursor.style.height = ''
-			cursor.style.borderRadius = ''
+			cursor.style.borderRadius = '10px'
 			cursor.style.zIndex = ''
 		})
 
