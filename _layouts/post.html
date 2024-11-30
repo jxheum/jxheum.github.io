@@ -29,6 +29,7 @@
 
         #postlistsec {
             display: none;
+            transition-duration: 50ms;
         }
 
         .sharechip {
@@ -163,6 +164,10 @@
 
         function ready() {
             document.getElementsByTagName('body')[0].style.opacity = 1;
+        }
+
+        function expandside() {
+            document.querySelector('.postlistsec').style.width = '100%'
         }
     </script>
 </body>

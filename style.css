@@ -90,6 +90,16 @@
 
 .cursor {
 	visibility:visible;
+	width: 100px;
+	height: 100px;
+	background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+	position: absolute;
+	z-index: 10000000000;
+	pointer-events: none;
+	border-radius: 100%;
+	filter:brightness(30%);
+	transition-duration: 100ms;
+	opacity: 0;
 }
 
 body {
@@ -105,24 +115,12 @@ html {
 }
 
 * {
-	cursor: none;
+	/* cursor: none; */
 	white-space: normal;
 	word-wrap: break-word
 }
 
-.icon-button,
-.container,
-:host,
-.overlay,
-a,
-.touch,
-button,
-#button,
-md-assist-chip,
-.primary,
-.action {
-	cursor: none;
-}
+
 
 .header,
 .header2 {
@@ -219,6 +217,10 @@ md-linear-progress {
 	padding: 20px;
 }
 
+
+
+.postitm, .pagenow, .pagenp, button, .activechip {transition-duration: 500ms;cursor:default;}
+
 .posttitle {
 	font-size: 20px;
 }
@@ -250,22 +252,8 @@ md-linear-progress {
 	backdrop-filter: blur(5px);
 }
 
-.cursor {
-	width: 20px;
-	height: 20px;
-	background: transparent;
-	position: absolute;
-	z-index: 10000000000;
-	border-radius: 10px;
-	transition-duration: 200ms;
-	transition-timing-function: cubic-bezier(.44,.9,.18,1.18);
-	backdrop-filter: invert(100%);
-	pointer-events: none;
-}
 
-:host {
-	cursor: none;
-}
+
 
 .pagenow {
 	width: 60px;
@@ -276,6 +264,7 @@ md-linear-progress {
 	padding-top: 5px;
 	display: inline-block;
 	margin: 0px;
+	cursor:default;
 }
 
 .pagenp,
@@ -338,6 +327,11 @@ md-linear-progress {
 	font-size: 14px;
 	display: inline-block;
 	margin-bottom: 5px;
+	cursor:default;
+}
+
+.activechip {
+	cursor:pointer;
 }
 
 .contentsec {

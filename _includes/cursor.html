@@ -2,7 +2,6 @@
 <div class="cursor" id="cursor"></div>
 
 <script>
-	mouseona = 0
 	window.addEventListener('DOMContentLoaded', () => {
 
 		if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
@@ -10,107 +9,58 @@
 		}
 	});
 
+	let cursor = document.querySelector('.cursor');
 	document.addEventListener('mousemove', (e) => {
-		let mouseX = e.pageX - 10; // document의 x좌표값
-		let mouseY = e.pageY - 10; // document의 y좌표값
+		let mouseX = e.pageX - 50; // document의 x좌표값
+		let mouseY = e.pageY - 50; // document의 y좌표값
 
 		let cursor = document.querySelector('.cursor');
-		if (mouseona == 0) {
-			cursor.style.left = mouseX + 'px';
-			cursor.style.top = mouseY + 'px';
-		}
-		else {
-
-		}
+		cursor.style.left = mouseX + 'px';
+		cursor.style.top = mouseY + 'px';
 
 	})
 
-	atag = document.querySelectorAll(' .postitm, .pagenow, .pagenp, button, .activechip');
+
+	atag = document.querySelectorAll('.postitm, .pagenow, .pagenp, button, .activechip');
 	atag.forEach((link) => {
-		link.addEventListener('mouseenter', (e) => {
-			let cursor = document.querySelector('.cursor');
-			if (link.style.position == 'fixed')
-				cursor.style.position = 'fixed';
-			// if (link.getAttribute('id') != 'header' && link.getAttribute('class').includes('ignz') == false)
-			// 	cursor.style.zIndex = '998'
-			cursor.style.top = link.offsetTop + 'px'
-			cursor.style.left = link.offsetLeft + 'px'
-			cursor.style.width = link.offsetWidth + 'px'
-			cursor.style.height = link.offsetHeight + 'px'
-			cursor.style.borderRadius = '10px'
-			if (link.getAttribute('class').includes('activechip'))
-				cursor.style.borderRadius = '500px'
-			console.log(link.getAttribute('class'))
-			if (document.location.pathname == "/") {
-				if (link.getAttribute('class').includes('postitm'))
-					cursor.style.borderRadius = '30px'
-				else if (link.getAttribute('id') == 'header')
-					cursor.style.borderRadius = '0px', cursor.style.borderBottomLeftRadius = '30px', cursor.style.borderBottomRightRadius = '30px'
-				else if (link.getAttribute('class') == 'pagenow' || link.getAttribute('class') == 'pagenp')
-					cursor.style.borderRadius = '20px'
-			}
-			mouseona = 1
+		link.addEventListener('mousemove', (e) => {
+			link.style.transform = `translateX(${1/10*(e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left)/2)}px) translateY(${1/10*(e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom))/2 - 10}px)`
 		})
 		link.addEventListener('mouseleave', (e) => {
-			let cursor = document.querySelector('.cursor');
-			mouseona = 0
-			if (link.style.position == 'fixed')
-				cursor.style.position = 'absolute';
-			cursor.style.width = ''
-			cursor.style.height = ''
-			cursor.style.borderRadius = '10px'
-			cursor.style.zIndex = ''
+			link.style.transform = ``
+			link.style.boxShadow = ''
+			cursor.style.opacity = ''
+		})
+		link.addEventListener('mouseenter', (e) => {
+			link.style.boxShadow = '0px 10px 10px #00000075'
+			cursor.style.opacity = '1'
 		})
 
 
 		link.addEventListener('mousedown', (e) => {
-			let cursor = document.querySelector('.cursor');
-			cursor.style.width = link.offsetWidth - 5 + 'px'
-			cursor.style.height = link.offsetHeight - 5 + 'px'
-			cursor.style.top = link.offsetTop + 2.5 + 'px'
-			cursor.style.left = link.offsetLeft + 2.5 + 'px'
+			link.style.transform = `translateX(${1/10*(e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left)/2)}px) translateY(${1/10*(e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom))/2 - 10}px) scaleX(0.95) scaleY(0.95)`
 		})
+
 		link.addEventListener('mouseup', (e) => {
-			let cursor = document.querySelector('.cursor');
-			cursor.style.width = link.offsetWidth + 'px'
-			cursor.style.height = link.offsetHeight + 'px'
-			cursor.style.top = link.offsetTop + 'px'
-			cursor.style.left = link.offsetLeft + 'px'
+			link.style.transform = `translateX(${1/10*(e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left)/2)}px) translateY(${1/10*(e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom))/2 - 10}px)`
+		})
+	});
+
+	postitm = document.querySelectorAll('.postitm')
+	postitm.forEach((link) => {
+		link.addEventListener('click', (e) => {
+			link.style.transform = `rotate3d(0, 1, 0, 0.5turn) scaleX(100) scaleY(100)`
+			parent.expandside()
 		})
 	});
 
 	document.addEventListener('mousedown', (e) => {
-		if (mouseona == 0) {
-			let cursor = document.querySelector('.cursor');
-			cursor.style.width = '15px'
-			cursor.style.height = '15px'
-			cursor.style.left = mouseX + 10 + 'px';
-			cursor.style.top = mouseY + 10 + 'px';
-		}
+		
 	})
 
 	document.addEventListener('mouseup', (e) => {
-		if (mouseona == 0) {
-			let cursor = document.querySelector('.cursor');
-			cursor.style.width = '20px'
-			cursor.style.height = '20px'
-			cursor.style.left = mouseX + 'px';
-			cursor.style.top = mouseY + 'px';
-		}
+		
 	})
-
-	if (document.location.hash == '#inpost') {
-		document.querySelector('.cursor').style.visibility = 'hidden'
-		document.addEventListener('mouseleave', (e) => {
-			let cursor = document.querySelector('.cursor');
-			cursor.style.visibility = 'hidden'
-		})
-
-		document.addEventListener('mouseenter', (e) => {
-			let cursor = document.querySelector('.cursor');
-			cursor.style.visibility = 'visible'
-		})
-	}
 
 	function gotopage(url) {
 		document.getElementsByTagName('body')[0].style.opacity = 0
