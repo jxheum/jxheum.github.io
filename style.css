@@ -5,11 +5,12 @@
 	html {
 		background-color: #1E1E1E;
 		color: #d9d9d9 !important;
+		scroll-behavior: smooth;
 	}
 
 	.header,
 	.header2 {
-		background: linear-gradient(to top, #37373775, #1E1E1E) !important;
+		background: linear-gradient(to top, #37373775, #1E1E1E);
 	}
 
 	.postitm {
@@ -54,7 +55,7 @@
 
 	.header,
 	.header2 {
-		background: linear-gradient(to top, #CBCBCB75, #D9D9D9) !important;
+		background: linear-gradient(to top, #CBCBCB75, #D9D9D9);
 	}
 
 	.postitm {
@@ -93,7 +94,7 @@
 	width: 100px;
 	height: 100px;
 	background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-	position: absolute;
+	position: fixed;
 	z-index: 10000000000;
 	pointer-events: none;
 	border-radius: 100%;
@@ -130,10 +131,10 @@ html {
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	transition-duration: 100ms;
 	z-index: 999;
 	width: 100%;
 	backdrop-filter: blur(1px);
-	transition-duration: 500ms;
 	user-select: none;
 	text-align: center;
 	font-weight: 900;
@@ -219,8 +220,14 @@ md-linear-progress {
 
 
 
-.postitm, .pagenow, .pagenp, button, .activechip {transition-duration: 500ms;cursor:default;}
-
+.activechip,
+.pagenow,
+.pagenp,
+.postitm,
+button {
+    transition-duration: 500ms;
+    cursor: default;
+}
 .posttitle {
 	font-size: 20px;
 }
@@ -252,8 +259,51 @@ md-linear-progress {
 	backdrop-filter: blur(5px);
 }
 
+.card {
+	width: 300px;
+	height: 485.4px;
+	background: #ffffff37;
+	border-radius: 70px;
+	position:absolute;
+	transition-duration: 500ms;
+}
 
+.card:first-child {
+	left: 20px;
+}
+.card:nth-child(2) {
+	left: 340px;
+}
+.card:nth-child(3) {
+	left: 660px;
+}
+.card:nth-child(4) {
+	left: 980px;
+}
+.card:nth-child(5) {
+	left: 1300px;
+}
+.card:nth-child(6) {
+	left: 1620px;
+}
 
+.cards {
+    overflow-x: visible;
+    text-align: center;
+    position: fixed;
+    left: 0;
+}
+.cardimg {
+    width: 300px;
+    height: 300px;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    text-align: center;
+}
+.cardimg img {
+    width: 50%;
+    height: 50%;
+}
 
 .pagenow {
 	width: 60px;

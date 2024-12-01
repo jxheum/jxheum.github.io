@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png"/>
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="https://jxheum.github.io/icon.ico"/>
+        <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+        {% include head.html %}
+        <title>Jxheum</title>
+        <style id="firststyle">
+            #header {
+                background: transparent;
+                text-align: left;
+                margin-left: 20px;
+                backdrop-filter: none;
+            }
+            body,
+            html {
+                background: linear-gradient(145deg, #05002d, #09043e);
+                color: #D9D9D9;
+                height: calc(320px * 5 + 100vh);
+            }
+        </style>
+        <style>
+            .content {
+                margin-top: 0;
+            }
+        </style>
+    </head>
+
+    <body style="opacity: 0;">
+        <a onclick="document.getElementById('header').style.fontSize = '40px'">
+            {% include header.html %}</a>
+        <button
+            style="    display: inline-block;
+    text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    border:none;border-radius: 100px;padding:10px;position:fixed;"
+            onclick="gotopage('/blog')">BLOG</button>
+        <div
+            style="height: calc(100vh - 50vh + 250px - 20px);padding-top: calc(50vh - 250px);">
+            <div class="cards">
+                <div class="card">
+                    <h1>준비중입니다</h1>
+                </div>
+                <a onclick="gotopage('/blog')" class="card whenclickexp">
+                    <div>
+                        <h2>BLOG</h2>
+                    </div>
+                </a>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+        </div>
+        {% include footer.html %}
+
+        <script>
+            now = 0
+            cards = document.querySelectorAll('.card')
+
+            window.addEventListener('scroll', (event) => {
+                cards.forEach((link) => {
+                    link.style.transform = `translateX(-${window.scrollY}px)`
+                });
+            });
+
+            atag = document.querySelectorAll('.card');
+            atag.forEach((link) => {
+                link.addEventListener('mousemove', (e) => {
+                    link.style.transform = `translateX(${ - window.scrollY + 1 / 10 * (
+                        e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left) / 2
+                    )}px) translateY(${ 1 / 10 * (
+                        e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom)
+                    ) / 2 - 50}px)`
+                })
+                link.addEventListener('mouseleave', (e) => {
+                    link.style.transform = `translateX(${ - window.scrollY}px)`
+                    link.style.boxShadow = ''
+                    cursor.style.opacity = ''
+                })
+                link.addEventListener('mouseenter', (e) => {
+                    link.style.boxShadow = '0px 10px 10px #ffffff11'
+                    cursor.style.opacity = '1'
+                })
+
+                link.addEventListener('mousedown', (e) => {
+                    link.style.transform = `translateX(${ - window.scrollY + 1 / 10 * (
+                        e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left) / 2
+                    )}px) translateY(${ 1 / 10 * (
+                        e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom)
+                    ) / 2 - 50}px) scaleX(0.95) scaleY(0.95)`
+                })
+
+                link.addEventListener('mouseup', (e) => {
+                    link.style.transform = `translateX(${ - window.scrollY + 1 / 10 * (
+                        e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left) / 2
+                    )}px) translateY(${ 1 / 10 * (
+                        e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom)
+                    ) / 2 - 50}px)`
+                })
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                // 모바일 장치인지 확인하기 -> 리다이렉트
+                if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+                    document
+                        .getElementById('cursor')
+                        .style
+                        .opacity = 0;
+                }
+            });
+
+            window.onload = function () {
+                resizeeffect()
+            }
+
+            window.addEventListener("resize", function () {
+                resizeeffect()
+            })
+
+            function resizeeffect() {
+                if (window.innerWidth >= 1000) {
+                    header.style.width = '40%'
+                    document
+                        .querySelector('.content')[0]
+                        .style
+                        .width = '40%'
+                } else {
+                    header.style.width = ''
+                    document
+                        .getElementsByTagName('.content')[0]
+                        .style
+                        .width = ''
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                document
+                    .getElementsByTagName('body')[0]
+                    .style
+                    .opacity = 1;
+                parent.ready();
+            });
+        </script>
+
+        {% include cursor.html %}
+
+    </body>
+
+</html>

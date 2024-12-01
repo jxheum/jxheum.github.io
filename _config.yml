@@ -1,5 +1,5 @@
-title: BJH
-description: BJH blog
+title: Jiheum
+description: Jiheum
 timezone: Asia/Seoul 
 
 repository: jxheum/jxheum.github.io
@@ -18,7 +18,7 @@ plugins:
   - jekyll-paginate
 
 paginate: 10
-paginate_path: '/:num/'
+paginate_path: 'blog/:num/'
 
 exclude: [README.md]
 
