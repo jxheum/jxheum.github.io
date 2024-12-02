@@ -265,14 +265,14 @@ button {
 	background: #ffffff37;
 	border-radius: 70px;
 	position:absolute;
-	transition-duration: 500ms;
+	transition-duration: 100ms;
 }
 
 .card h2 {
 	margin-top: calc(485.4px / 2 - 17.5px);
 }
 
-.card i {
+.card h2 i {
 	font-size: 40px;
 }
 
@@ -293,6 +293,12 @@ button {
 }
 .card:nth-child(6) {
 	left: 1620px;
+}
+.card:nth-child(7) {
+	left: calc(1620px + 320px);
+}
+.card:last-child {
+	width: calc(100vw - 40px - 320px);
 }
 
 .cards {
