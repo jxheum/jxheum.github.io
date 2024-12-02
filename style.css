@@ -268,6 +268,14 @@ button {
 	transition-duration: 500ms;
 }
 
+.card h2 {
+	margin-top: calc(485.4px / 2 - 17.5px);
+}
+
+.card i {
+	font-size: 40px;
+}
+
 .card:first-child {
 	left: 20px;
 }
@@ -293,17 +301,8 @@ button {
     position: fixed;
     left: 0;
 }
-.cardimg {
-    width: 300px;
-    height: 300px;
-    border-top-left-radius: 70px;
-    border-top-right-radius: 70px;
-    text-align: center;
-}
-.cardimg img {
-    width: 50%;
-    height: 50%;
-}
+
+.pointer {cursor:pointer;}
 
 .pagenow {
 	width: 60px;

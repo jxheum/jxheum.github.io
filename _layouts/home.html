@@ -2,6 +2,10 @@
 <html lang="ko">
 
     <head>
+        <meta content="#060130" name="theme-color" />
+        <meta content="#060130" name="msapplication-navbutton-color" />
+        <meta content="#060130" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
         <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png"/>
         <link
             rel="shortcut icon"
@@ -28,6 +32,14 @@
             .content {
                 margin-top: 0;
             }
+            .cardoverlay {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top:0px;left:0px;
+	pointer-events: none;
+	background: linear-gradient(90deg, rgba(6,1,47,1) 0%, rgba(7,2,48,0) 1.5%, rgba(22,17,68,0) 98.5%, rgba(8,3,57,1) 100%);
+}
         </style>
     </head>
 
@@ -41,24 +53,35 @@
     top: 10px;
     right: 20px;
     font-size: 20px;
-    border:none;border-radius: 100px;padding:10px;position:fixed;"
+    border:none;border-radius: 100px;padding:10px;position:fixed;
+    z-index: 100000;
+    "
             onclick="gotopage('/blog')">BLOG</button>
         <div
             style="height: calc(100vh - 50vh + 250px - 20px);padding-top: calc(50vh - 250px);">
             <div class="cards">
                 <div class="card">
-                    <h1>준비중입니다</h1>
+                    <h1 style="margin-top: calc(485.4px / 2 - 23px);">안녕하세요!</h1>
                 </div>
-                <a onclick="gotopage('/blog')" class="card whenclickexp">
+                <a onclick="gotopage('/blog')" class="card whenclickexp pointer">
                     <div>
                         <h2>BLOG</h2>
                     </div>
                 </a>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+                <a class="card pointer" href="https://github.com/jxheum" target="_blank"><div>
+                    <h2><i class="fab fa-github"></i></h2>
+                </div></a>
+                <a class="card pointer" href="mailto:jxheum@jxheum.site"><div>
+                    <h2><i class="fa-solid fa-envelope"></i></h2>
+                </div></a>
+                <a class="card pointer" href="https://www.instagram.com/jxheum/" target="_blank"><div>
+                    <h2><i class="fab fa-instagram"></i></h2>
+                </div></a>
+                <div class="card"><h2>Jiheum</h2></div>
             </div>
+
+        </div>
+        <div class="cardoverlay">
         </div>
         {% include footer.html %}
 
@@ -70,6 +93,54 @@
                 cards.forEach((link) => {
                     link.style.transform = `translateX(-${window.scrollY}px)`
                 });
+                if (window.scrollY <= 160) {
+                    document.querySelector('.card:first-child').style.background = 'linear-gradient(167deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
+                    document.querySelector('.card:first-child').style.color = 'black'
+                    document.querySelector('.card:nth-child(2)').style.background = ''
+                    document.querySelector('.card:nth-child(2)').style.color = ''
+                }
+                else if (window.scrollY <= 480) {
+                    document.querySelector('.card:first-child').style.background = ''
+                    document.querySelector('.card:first-child').style.color = ''
+                    document.querySelector('.card:nth-child(2)').style.background = 'linear-gradient(32deg, rgba(134,208,247,1) 0%, rgba(158,205,165,1) 100%)'
+                    document.querySelector('.card:nth-child(2)').style.color = 'black'
+                    document.querySelector('.card:nth-child(3)').style.background = ''
+                    document.querySelector('.card:nth-child(3)').style.color = ''
+                }
+                else if (scrollY <= 480 + 320) {
+                    document.querySelector('.card:nth-child(2)').style.background = ''
+                    document.querySelector('.card:nth-child(2)').style.color = ''
+                    document.querySelector('.card:nth-child(3)').style.background = 'linear-gradient(254deg, #ffffff 0%, #d1d9e0 100%)'
+                    document.querySelector('.card:nth-child(3)').style.color = 'black'
+                    document.querySelector('.card:nth-child(4)').style.background = ''
+                    document.querySelector('.card:nth-child(4)').style.color = ''
+                }
+                else if (scrollY <= 480 + 320 * 2) {
+                    document.querySelector('.card:nth-child(3)').style.background = ''
+                    document.querySelector('.card:nth-child(3)').style.color = ''
+                    document.querySelector('.card:nth-child(4)').style.background = 'radial-gradient(circle, rgba(61,129,242,1) 0%, rgba(147,220,247,1) 100%)'
+                    document.querySelector('.card:nth-child(4)').style.color = 'while'
+                    document.querySelector('.card:nth-child(5)').style.background = ''
+                    document.querySelector('.card:nth-child(5)').style.color = ''
+                }
+                else if (scrollY <= 480 + 320 * 3) {
+                    document.querySelector('.card:nth-child(4)').style.background = ''
+                    document.querySelector('.card:nth-child(4)').style.color = ''
+                    document.querySelector('.card:nth-child(5)').style.background = 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)'
+                    document.querySelector('.card:nth-child(5)').style.color = 'while'
+                    document.querySelector('.card:nth-child(6)').style.background = ''
+                    document.querySelector('.card:nth-child(6)').style.color = ''
+                    document.getElementById('header').style.opacity = ''
+                }
+                else if (scrollY <= 480 + 320 * 4) {
+                    document.querySelector('.card:nth-child(5)').style.background = ''
+                    document.querySelector('.card:nth-child(5)').style.color = ''
+                    document.querySelector('.card:nth-child(6)').style.background = 'linear-gradient(344deg, rgba(238,186,246,1) 0%, rgba(193,61,255,1) 100%)'
+                    document.querySelector('.card:nth-child(6)').style.color = 'black'
+                    document.querySelector('.card:nth-child(7)').style.background = ''
+                    document.querySelector('.card:nth-child(7)').style.color = ''
+                    document.getElementById('header').style.opacity = '0'
+                }
             });
 
             atag = document.querySelectorAll('.card');

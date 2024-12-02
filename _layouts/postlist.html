@@ -7,11 +7,27 @@
 	<link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
 	{% include head.html %}
 	<title>Jxheum Blog</title>
+	<style>
+		.jiheumtext {
+			transition-duration: 500ms;
+		}
+		.jiheumtext:hover {
+			font-size: 50px;
+		}
+		.jiheumtext:active {
+			font-size: 45px;
+		}
+
+		.blogtext {transition-duration: 500ms;}
+	</style>
 </head>
 
 <body style="opacity: 0;">
-	<a onclick="document.getElementById('header').style.fontSize = '40px'">
-		{% include header.html %}</a>
+	<!-- <헤더>
+	-->
+ <div id="header" class="header headermain" style="position:fixed;"><a onclick="parent.gotopage('/')"><span class="jiheumtext">Jiheum</span></a><span class="blogtext">BLOG</span></div>
+ 
+ <!-- <헤더끝> -->
 	<div style="height: 58px;"></div>
 	<div class="content">
 		{{ content }}
