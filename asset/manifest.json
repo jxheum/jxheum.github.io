@@ -6,6 +6,22 @@
   "id": "site.jxheum",
   "description": "Jiheum's Page",
   "start_url": "/",
+  "display": "fullscreen",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "orientation": "any",
+  "screenshots": [
+    {
+      "src": "/asset/screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/webp"
+    }
+  ], 
+  "dir": "ltr",
+  "lang": "ko-KR",
+  "prefer_related_applications": true,
+  "scope": "/",
   "shortcuts": [
     {
       "name": "Jiheum Blog",
