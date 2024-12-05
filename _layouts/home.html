@@ -14,6 +14,7 @@
                 padding-left: 20px;
                 backdrop-filter: blur(20px);
                 border-radius: 0;
+                max-width: 100vw !important;
             }
             body,
             html {
@@ -246,29 +247,6 @@ body, html {
                 }
             });
 
-            window.onload = function () {
-                resizeeffect()
-            }
-
-            window.addEventListener("resize", function () {
-                resizeeffect()
-            })
-
-            function resizeeffect() {
-                if (window.innerWidth >= 1000) {
-                    header.style.width = '40%'
-                    document
-                        .querySelector('.content')[0]
-                        .style
-                        .width = '40%'
-                } else {
-                    header.style.width = ''
-                    document
-                        .getElementsByTagName('.content')[0]
-                        .style
-                        .width = ''
-                }
-            }
 
             document.addEventListener("DOMContentLoaded", () => {
                 document
