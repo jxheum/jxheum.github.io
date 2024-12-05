@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
+	<link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+	<!-- 헤더 -->
+
+<head>
+	<link rel="icon" type="image/png" href="/icon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/icon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="manifest" href="/asset/manifest.json" />
+	<script src="https://kit.fontawesome.com/e1582c160b.js" crossorigin="anonymous"></script>
+	<theme id="theme">
+		<meta content="#1E1E1E" name="theme-color" media="(prefers-color-scheme: dark)" />
+		<meta content="#1E1E1E" name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" />
+		<meta content="#1E1E1E" name="apple-mobile-web-app-status-bar-style" media="(prefers-color-scheme: dark)" />
+		<meta content="#b0d5ff" name="theme-color" media="(prefers-color-scheme: light)" />
+		<meta content="#b0d5ff" name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" />
+		<meta content="#b0d5ff" name="apple-mobile-web-app-status-bar-style" media="(prefers-color-scheme: light)" />
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+	</theme>
+	<title>Jiheum</title>
+
+	<link href="/style.css" rel="stylesheet">
+	<script>
+		function reloadddi() {
+		document.getElementsByTagName('body')[0].style.opacity = 0
+		location.reload()
+    }
+
+    function gotopage(url) {
+		document.getElementsByTagName('body')[0].style.opacity = 0
+		setTimeout(() => document.location.href = url, 300);
+	}
+	</script>
+</head>
+<!-- 헤더끝 -->
+	<title>Jxheum Blog</title>
+	<style>
+		.jiheumtext {
+			transition-duration: 500ms;
+		}
+		.jiheumtext:hover {
+			font-size: 50px;
+		}
+		.jiheumtext:active {
+			font-size: 45px;
+		}
+
+		.blogtext {transition-duration: 500ms;}
+	</style>
+</head>
+
+<body style="opacity: 0;">
+	<!-- <헤더>
+	-->
+ <div id="header" class="header headermain" style="position:fixed;"><a onclick="parent.gotopage('/')"><span class="jiheumtext">Jiheum</span></a><span class="blogtext"></span></div>
+ 
+ <!-- <헤더끝> -->
+	<div style="height: 58px;"></div>
+	<div class="content">
+        <div class="offlinecontent">인터넷 연결이 없습니다.</div>
+        <hr>
+        <button onclick="reloadddi()" style="    display: inline-block;
+        text-align: right;
+        border:none;border-radius: 100px;padding:10px;
+        ">새로고침</button>
+        <button onclick="gotopage('/')" style="    display: inline-block;
+        text-align: right;
+        border:none;border-radius: 100px;padding:10px;
+        ">메인으로</button>
+	</div>
+
+	<div style="height: 43px;"></div>
+	<div class="footer" id="footer">
+        ⓒBJH </div>
+
+        <script>
+            window.ready = document.querySelector('body').style.opacity = '1'
+        </script>
+</body>
+
+</html>

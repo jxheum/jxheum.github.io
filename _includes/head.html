@@ -40,6 +40,9 @@
 		setTimeout(() => document.location.href = url, 300);
 	}
     
+if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('/asset/serviceworker.js')
+  }
 	</script>
 </head>
 <!-- 헤더끝 -->

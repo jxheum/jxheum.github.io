@@ -408,11 +408,6 @@ button {
 	cursor: auto;
 }
 
-body.reveal {
-	opacity: 1;
-	overflow-y: auto
-}
-
-body.hidden {
-	opacity: 0
+.offlinecontent {
+	font-size: 20px;
 }
