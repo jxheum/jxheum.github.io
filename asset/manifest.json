@@ -5,6 +5,7 @@
   "short_name": "Jiheum",
   "id": "site.jxheum",
   "description": "Jiheum's Page",
+  "start_url": "/",
   "shortcuts": [
     {
       "name": "Jiheum Blog",
