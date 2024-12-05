@@ -10,9 +10,9 @@
 		<meta content="#1E1E1E" name="theme-color" media="(prefers-color-scheme: dark)" />
 		<meta content="#1E1E1E" name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" />
 		<meta content="#1E1E1E" name="apple-mobile-web-app-status-bar-style" media="(prefers-color-scheme: dark)" />
-		<meta content="#D9D9D9" name="theme-color" media="(prefers-color-scheme: light)" />
-		<meta content="#D9D9D9" name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" />
-		<meta content="#D9D9D9" name="apple-mobile-web-app-status-bar-style" media="(prefers-color-scheme: light)" />
+		<meta content="#b0d5ff" name="theme-color" media="(prefers-color-scheme: light)" />
+		<meta content="#b0d5ff" name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" />
+		<meta content="#b0d5ff" name="apple-mobile-web-app-status-bar-style" media="(prefers-color-scheme: light)" />
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta content="yes" name="apple-mobile-web-app-capable" />
 	</theme>
@@ -35,14 +35,6 @@
 	<script
 		src="https://raw.githubusercontent.com/blivesta/animsition/refs/heads/master/dist/js/animsition.min.js"></script>
 	<script>
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-			document.getElementById('theme').innerHTML = `
-<meta content="#D9D9D9" name="theme-color"/>
-<meta content="#D9D9D9" name="msapplication-navbutton-color"/>
-<meta content="#D9D9D9" name="apple-mobile-web-app-status-bar-style"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
-<meta name="mobile-web-app-capable" content="yes">`
-		}
 		function gotopage(url) {
 		document.getElementsByTagName('body')[0].style.opacity = 0
 		setTimeout(() => document.location.href = url, 300);

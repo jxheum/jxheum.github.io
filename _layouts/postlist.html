@@ -40,15 +40,6 @@
 
 	<script>
 		header = document.getElementById('header');
-		window.addEventListener('scroll', () => {
-			if (window.scrollY == 0) {
-				header.style.fontSize = "";
-			} else if (window.scrollY <= 40) {
-				header.style.fontSize = 40 - scrollY / 5 + 'px';
-			} else {
-				header.style.fontSize = "20px"
-			}
-		});
 
 		window.addEventListener('DOMContentLoaded', () => {
 			// 모바일 장치인지 확인하기 -> 리다이렉트

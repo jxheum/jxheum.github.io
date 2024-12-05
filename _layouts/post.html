@@ -1,10 +1,12 @@
 <head>
     <title>{{ page.title }}</title>
-    <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
+    <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png"/>
+    <link
+        rel="shortcut icon"
+        type="image/x-icon"
+        href="https://jxheum.github.io/icon.ico"/>
     <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
     {% include head.html %}
-
 
     <style>
         body,
@@ -35,9 +37,56 @@
         .sharechip {
             display: none;
         }
+
+        @media all and (min-width:1000px) {
+            body,
+            html {
+                overflow-x: hidden;
+            }
+            .postlistsec {
+                width: 40%;
+                display: inline-block !important;
+                position: fixed;
+                height: 100vh;
+            }
+            .postlistif {
+                border: none;
+                width: 100%;
+                height: 100%;
+            }
+            .postlistsec,
+            .postsec {
+                display: inline-block;
+            }
+            .postsec {
+                width: calc(60% - 20px);
+                float: right;
+            }
+            #headerspace {
+                display: none;
+            }
+            .posttitle2 {
+                font-size: 40px;
+                text-align: left;
+                padding-left: 0;
+            }
+            .commentsec,
+            .contentsec,
+            .posttags {
+                margin-left: 0;
+            }
+            .header {
+                display: none;
+            }
+            .sharechip {
+                display: block;
+            }
+            .footer {
+                display: none;
+            }
+        }
     </style>
-    <style id="pcstyle">
-    </style>
+    <style id="pcstyle"></style>
 </head>
 
 <body style="opacity: 0;">
@@ -46,49 +95,78 @@
     </div>
     <div class="postsec">
         <div id="header" class="header">
-            <button class="topbtn ignz" id="homebtn" onclick="gotopage('/blog')" style="position:fixed;"><i
-                    class="fa-solid fa-house"></i></button>
-            <button class="topbtn ignz" id="sharebtn" onclick="share();" style="position:fixed;"><i
-                    class="fa-solid fa-share"></i></button>
+            <button
+                class="topbtn ignz"
+                id="homebtn"
+                onclick="gotopage(document.referrer)"
+                style="position:fixed;">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button
+                class="topbtn ignz"
+                id="sharebtn"
+                onclick="share();"
+                style="position:fixed;">
+                <i class="fa-solid fa-share"></i>
+            </button>
         </div>
         <div style="height:58px" id="headerspace"></div>
         <div class="infosect">
             <div class="posttitle2">{{ page.title }}</div>
             <div class="posttags">
-                <div class="chip first"><i class="fa-solid fa-calendar"></i> {{ page.date | date: '%Y-%m-%d %H:%M' }}
+                <div class="chip first">
+                    <i class="fa-solid fa-calendar"></i>
+                    {{ page.date | date: '%Y-%m-%d %H:%M' }}
                 </div>
-                {% if page.comments %}<a href="#comments">
-                    <div class="chip activechip"><i class="fa-solid fa-comments"></i> 댓글</div>
-                </a>{% endif %}
+                {% if page.comments %}
+                    <a href="#comments">
+                        <div class="chip activechip">
+                            <i class="fa-solid fa-comments"></i>
+                            댓글</div>
+                    </a>
+                {% endif %}
                 {% for tag in page.tags %}
-                <div class="chip">#{{ tag }}</div>
-                {% unless forloop.last %}{% endunless %}
+                    <div class="chip">#{{ tag }}</div>
+                    {% unless forloop.last %}{% endunless %}
                 {% endfor %}
                 <a onclick="github();" style="display: inline-block;">
-                    <div class="chip activechip"><i class="fa-brands fa-github"></i> Github</div>
+                    <div class="chip activechip">
+                        <i class="fa-brands fa-github"></i>
+                        Github</div>
                 </a>
                 <a onclick="share();" style="display: inline-block;">
-                    <div class="chip activechip sharechip"><i class="fa-solid fa-share"></i> 공유</div>
+                    <div class="chip activechip sharechip">
+                        <i class="fa-solid fa-share"></i>
+                        공유</div>
                 </a>
             </div>
         </div>
         <div class="contentsec">{{page.content | markdownify}}</div>
 
         {% if page.comments %}
-        <div class="commentsec" id="comments">
-            <script src="https://utteranc.es/client.js" repo="jxheum/jxheum.github.io" issue-term="pathname"
-                label="Comment" theme="preferred-color-scheme" crossorigin="anonymous" async>
-                </script>
-        </div>
+            <div class="commentsec" id="comments">
+                <script
+                    src="https://utteranc.es/client.js"
+                    repo="jxheum/jxheum.github.io"
+                    issue-term="pathname"
+                    label="Comment"
+                    theme="preferred-color-scheme"
+                    crossorigin="anonymous"
+                    async="async"></script>
+            </div>
         {% endif %}
         <div style="height: 43px;"></div>
         {% include footer.html %}
     </div>
     <script>
         function github() {
-            window.open('https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) + '.md', "fullscreen=yes");
+            window.open(
+                'https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) +
+                        '.md',
+                "fullscreen=yes"
+            );
         }
-        
+
         function share() {
             shareData = {
                 title: '{{ page.title }}',
@@ -103,19 +181,25 @@
 
         function copy_link() {
             temp = document.createElement("textarea");
-            document.body.appendChild(temp);
+            document
+                .body
+                .appendChild(temp);
             const url = document.location.pathname; // /2024/10/09/test2/
             temp.value = 'https://jxheum.site' + url; // /2024/10/09/test2/
             temp.select();
             document.execCommand("copy");
-            document.body.removeChild(temp);
+            document
+                .body
+                .removeChild(temp);
         }
 
         function comments() {
-            const scrollPosition = document.getElementById('comments').offsetTop;
+            const scrollPosition = document
+                .getElementById('comments')
+                .offsetTop;
 
             //scroll을 offsetTop으로 이동시킨다.
-            window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+            window.scrollTo({top: scrollPosition, behavior: 'smooth'});
         }
     </script>
 
@@ -140,34 +224,38 @@
             resizeeffect()
         }
 
-        window.addEventListener("resize", function () { resizeeffect() })
+        window.addEventListener("resize", function () {
+            resizeeffect()
+        })
 
         function resizeeffect() {
             if (window.innerWidth >= 1000) {
-                document.getElementById('pcstyle').innerHTML = `body,html {overflow-x:hidden;}
-.postlistsec {width:40%;display:inline-block !important;position:fixed;height:100vh;}
-.postlistif {border:none;width:100%;height:100%;}
-.postlistsec, .postsec {display:inline-block;}
-.postsec {width:calc(60% - 20px);float:right;}
-#headerspace {display:none;}
-.posttitle2 {font-size:50px;text-align: left;}
-.posttags, .contentsec, .commentsec {margin-left:0;}
-.header {display:none;}
-.sharechip {display:block;}
-.footer {display:none;}`
-            }
-            else {
-                document.getElementById('pcstyle').innerHTML = ``
-            document.getElementsByTagName('body')[0].style.opacity = 1;
+                document
+                    .getElementById('pcstyle')
+                    .innerHTML = ``
+            } else {
+                document
+                    .getElementById('pcstyle')
+                    .innerHTML = ``
+                document
+                    .getElementsByTagName('body')[0]
+                    .style
+                    .opacity = 1;
             }
         }
 
         function ready() {
-            document.getElementsByTagName('body')[0].style.opacity = 1;
+            document
+                .getElementsByTagName('body')[0]
+                .style
+                .opacity = 1;
         }
 
         function expandside() {
-            document.querySelector('.postlistsec').style.width = '100%'
+            document
+                .querySelector('.postlistsec')
+                .style
+                .width = '100%'
         }
     </script>
 </body>

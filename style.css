@@ -10,20 +10,20 @@
 
 	.header,
 	.header2 {
-		background: linear-gradient(to top, #37373775, #1E1E1E);
+		background: linear-gradient(to top, transparent, #1E1E1E);
 	}
 
 	.postitm {
-		background: #373737;
+		background: rgba(255, 255, 255, 0.1);
 	}
 
 	.pagenow,
 	.pagenp {
-		background: #373737;
+		background: rgba(255, 255, 255, 0.1);
 	}
 
 	.pagenpdis {
-		color: #373737;
+		color: rgba(255, 255, 255, 0.1);
 	}
 
 	*:focus-visible {
@@ -32,16 +32,16 @@
 	}
 
 	.topbtn {
-		background: #373737;
+		background: rgba(255, 255, 255, 0.1);
 		color: #D9D9D9;
 	}
 
 	.chip {
-		background: #373737;
+		background: rgba(255, 255, 255, 0.1);
 	}
 
 	.commentsec {
-		background: #373737;
+		background: rgba(255, 255, 255, 0.1);
 	}
 }
 
@@ -49,26 +49,26 @@
 
 	body,
 	html {
-		background-color: #D9D9D9;
+		background-color: #b0d5ff;
 		color: #1E1E1E;
 	}
 
 	.header,
 	.header2 {
-		background: linear-gradient(to top, #CBCBCB75, #D9D9D9);
+		background: linear-gradient(to top, transparent, #b0d5ff);
 	}
 
 	.postitm {
-		background: #CBCBCB
+		background: rgba(0,0,0,0.1);
 	}
 
 	.pagenow,
 	.pagenp {
-		background: #CBCBCB;
+		background: rgba(0,0,0,0.1);
 	}
 
 	.pagenpdis {
-		color: #CBCBCB;
+		color: rgba(0,0,0,0.1);
 	}
 
 	.postitm:focus {
@@ -76,16 +76,16 @@
 	}
 
 	.topbtn {
-		background: #ADADAD;
+		background: rgba(0,0,0,0.1);
 		color: #1E1E1E
 	}
 
 	.chip {
-		background: #D3D3D3;
+		background: rgba(0,0,0,0.1);
 	}
 
 	.commentsec {
-		background: #CBCBCB;
+		background: rgba(0,0,0,0.1);
 	}
 }
 
@@ -127,19 +127,18 @@ html {
 .header2 {
 	font-size: 40px;
 	margin: 0px;
-	padding: 0px !important;
+	padding: 0px;
 	position: fixed;
 	top: 0px;
 	left: 0px;
 	transition-duration: 100ms;
 	z-index: 999;
-	width: 100%;
-	backdrop-filter: blur(1px);
+	width: calc(100% - 20px);
+	backdrop-filter: blur(20px);
 	user-select: none;
-	text-align: center;
+	text-align: left;
 	font-weight: 900;
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	padding-left: 20px;
 }
 
 a {
@@ -186,6 +185,7 @@ a:link {
 
 .content {
 	margin: 20px;
+	margin-top:0px;
 }
 
 .comment {
@@ -259,6 +259,8 @@ button {
 	backdrop-filter: blur(5px);
 }
 
+.carddiv {height: calc(100vh - 50vh + 250px - 20px);padding-top: calc(50vh - 250px);}
+
 .card {
 	width: 300px;
 	height: 485.4px;
@@ -266,6 +268,10 @@ button {
 	border-radius: 70px;
 	position:absolute;
 	transition-duration: 100ms;
+}
+
+.card h1 {
+	margin-top: calc(485.4px / 2 - 23px);
 }
 
 .card h2 {
@@ -357,12 +363,12 @@ button {
 
 .infosect {
 	width: 100%;
-	margin-top: 10px;
 }
 
 
 .posttitle2 {
-	width: 100%;
+	padding: 0 20px;
+    width: calc(100% - 40px);
 	font-size: 40px;
 	text-align: center;
 	font-weight: 700;
@@ -391,8 +397,8 @@ button {
 
 .contentsec {
 	width: calc(100% - 40px);
-	margin-top: 15px;
 	margin: 0 20px;
+	margin-top: 15px;
 }
 
 .commentsec {
