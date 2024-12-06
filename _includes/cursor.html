@@ -21,7 +21,11 @@
                     link.style.boxShadow = ''
                 })
                 link.addEventListener('mouseenter', (e) => {
-                    link.style.boxShadow = '0px 10px 10px #00000075'
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        link.style.boxShadow = '0px 10px 10px #ffffff75'
+                    } else {
+                        link.style.boxShadow = '0px 10px 10px #00000075'
+                    }
                 })
 
                 link.addEventListener('mousedown', (e) => {
@@ -30,6 +34,11 @@
                     )}px) translateY(${ 1 / 10 * (
                         e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom)
                     ) / 2 - 10}px) scaleX(0.95) scaleY(0.95)`
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        link.style.boxShadow = '0px 5px 10px #ffffff75'
+                    } else {
+                        link.style.boxShadow = '0px 5px 10px #00000075'
+                    }
                 })
 
                 link.addEventListener('mouseup', (e) => {
@@ -38,6 +47,11 @@
                     )}px) translateY(${ 1 / 10 * (
                         e.offsetY - (link.getBoundingClientRect().top - link.getBoundingClientRect().bottom)
                     ) / 2 - 10}px)`
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        link.style.boxShadow = '0px 10px 10px #ffffff75'
+                    } else {
+                        link.style.boxShadow = '0px 10px 10px #00000075'
+                    }
                 })
             });
 

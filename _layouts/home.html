@@ -205,6 +205,7 @@ body, html {
                     }
                 })
                 link.addEventListener('mouseleave', (e) => {
+                    link.style.transitionDuration = ''
                     if (window.innerWidth >= 600) {
                         link.style.transform = `translateX(${ - window.scrollY}px)`
                         link.style.boxShadow = ''
@@ -212,6 +213,7 @@ body, html {
                     }
                 })
                 link.addEventListener('mouseenter', (e) => {
+                    link.style.transitionDuration = '500ms'
                     link.style.boxShadow = '0px 10px 10px #ffffff11'
                     cursor.style.opacity = '1'
                 })
