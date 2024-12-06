@@ -4,7 +4,7 @@
 	body,
 	html {
 		background-color: #1E1E1E;
-		color: #d9d9d9 !important;
+		color: #d9d9d9;
 		scroll-behavior: smooth;
 	}
 
@@ -43,6 +43,17 @@
 	.commentsec {
 		background: rgba(255, 255, 255, 0.1);
 	}
+
+	.contentsec a:hover {color:#b0d5ff;}
+
+	.contentsec code {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	code .nf, .n {color:#d2a8ff;}
+
+	code .sh, code .s {color:#a5d6ff;}
+
 }
 
 @media (prefers-color-scheme: light) {
@@ -87,6 +98,14 @@
 	.commentsec {
 		background: rgba(0,0,0,0.1);
 	}
+	.contentsec a:hover {color:#007aff;}
+	.contentsec code {
+		background: rgba(0,0,0,0.1);
+	}
+
+	code .nf, .n {color:#6639ba;}
+
+	code .sh, code .s {color:#0a3069;}
 }
 
 .cursor {
@@ -410,4 +429,21 @@ button {
 
 .offlinecontent {
 	font-size: 20px;
+}
+
+.contentsec a {
+	text-decoration: underline;
+}
+
+.contentsec code {
+	width: calc(100% - 40px);
+	display:block;
+	padding:20px;
+	white-space: pre-line;
+}
+
+.contentsec p code {
+	width: auto;
+	display:inline-block;
+	padding:0px;
 }
