@@ -9,18 +9,25 @@
         <title>Jxheum</title>
         <style id="firststyle">
             #header {
-                background: linear-gradient(0deg, transparent, #05002d);
                 text-align: left;
                 padding-left: 20px;
                 backdrop-filter: blur(20px);
                 border-radius: 0;
                 max-width: 100vw !important;
+                background: transparent;
+                backdrop-filter: none;
             }
+            .footer {background: transparent;backdrop-filter: none;}
             body,
             html {
-                background: #05002d;
+                background: #00000a;
                 color: #fff;
-                height: calc(320px * 5 + 100vh);
+                height: calc(320px * 4 + 100vh + 100vw - 40px - 300px);
+                -ms-overflow-style: none;
+            }
+            
+            ::-webkit-scrollbar{
+                display:none;
             }
         </style>
         <style>
@@ -33,7 +40,7 @@
 	position: fixed;
 	top:0px;left:0px;
 	pointer-events: none;
-	background: linear-gradient(90deg, #05002d 0%, rgba(7,2,48,0) 1.5%, rgba(22,17,68,0) 98.5%, #05002d 100%);
+	background: linear-gradient(90deg, #00000a 0%, rgba(7,2,48,0) 1.5%, rgba(22,17,68,0) 98.5%, #00000a 100%);
 }
 @media all and (max-width:600px) {
 	.card {
@@ -63,19 +70,33 @@
 	.carddiv {height: auto;padding-top: 0;
         margin-top: 58px;}
 
+
+        .card:first-child {
+	height: calc(100vh - 40px - 340px);
+	width: calc(100vw - 40px);
+}
+
+.card:first-child h1 {
+	padding-top: calc((100vh - 40px - 320px) / 2 - 13px)
+}
 	
 .card:last-child {
 	height: calc(100vh - 40px - 320px);
 	width: calc(100vw - 40px);
+    margin-bottom: 20px;
 }
 .card:last-child h1 {
-	padding-top: calc((100vh - 40px - 320px) / 2 - 23px)
+	padding-top: calc((100vh - 40px - 320px) / 2 - 23px);
 }
 
 body, html {
-	
-	height: calc(320px * 5 + 100vh - 20px) !important;
+	height:auto;
 }
+.header {
+    background: linear-gradient(0deg, transparent, #00000a) !important;
+    backdrop-filter: blur(10px) !important;
+}
+.footer {background: linear-gradient(180deg, transparent, #00000a) !important;backdrop-filter: blur(10px) !important;}
 }
         </style>
     </head>
@@ -92,13 +113,13 @@ body, html {
     border:none;border-radius: 100px;padding:10px;position:fixed;
     z-index: 100000;
     "
-            onclick="gotopage('/blog')">BLOG</button>
+            onclick="gotopage('/blog')"><a href="/blog">BLOG</a></button>
         <div class="carddiv">
             <div class="cards">
                 <div class="card">
                     <h1>안녕하세요!</h1>
                 </div>
-                <a onclick="gotopage('/blog')" class="card whenclickexp pointer">
+                <a onclick="gotopage('/blog')" class="card whenclickexp pointer" href="/blog">
                     <div>
                         <h2>BLOG</h2>
                     </div>
@@ -176,8 +197,9 @@ body, html {
                     document.querySelector('.card:nth-child(6)').style.background = ''
                     document.querySelector('.card:nth-child(6)').style.color = ''
                     document.getElementById('header').style.opacity = ''
+                    document.getElementById('footer').style.opacity = ''
                 }
-                else if (scrollY < 1600) {
+                else if (scrollY < 1590) {
                     document.querySelector('.card:nth-child(5)').style.background = ''
                     document.querySelector('.card:nth-child(5)').style.color = ''
                     document.querySelector('.card:nth-child(6)').style.background = 'linear-gradient(344deg, rgba(238,186,246,1) 0%, rgba(193,61,255,1) 100%)'
@@ -185,6 +207,7 @@ body, html {
                     document.querySelector('.card:nth-child(7)').style.background = ''
                     document.querySelector('.card:nth-child(7)').style.color = ''
                     document.getElementById('header').style.opacity = '0'
+                    document.getElementById('footer').style.opacity = '0'
                     console.log(scrollY)
                 }
                 else {
@@ -258,8 +281,6 @@ body, html {
                 parent.ready();
             });
         </script>
-
-        {% include cursor.html %}
 
     </body>
 

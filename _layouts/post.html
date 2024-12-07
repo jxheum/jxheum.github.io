@@ -1,11 +1,11 @@
 <head>
     <title>{{ page.title }}</title>
-    <link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png"/>
+    <link rel="icon" type="image/png" href="/asset/icon.png"/>
     <link
         rel="shortcut icon"
         type="image/x-icon"
-        href="https://jxheum.github.io/icon.ico"/>
-    <link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+        href="/asset/favicon.ico"/>
+    <link rel="apple-touch-icon" href="/asset/icon.png">
     {% include head.html %}
 
     <style>
@@ -84,6 +84,8 @@
             .footer {
                 display: none;
             }
+
+            .bottominfosec {margin-left:0px;}
         }
     </style>
     <style id="pcstyle"></style>
@@ -106,18 +108,18 @@
                 class="topbtn ignz"
                 id="sharebtn"
                 onclick="share();"
-                style="position:fixed;">
-                <i class="fa-solid fa-share"></i>
-            </button>
+                style="position:fixed;"><i class="fa-solid fa-share"></i></button>
         </div>
         <div style="height:58px" id="headerspace"></div>
         <div class="infosect">
             <div class="posttitle2">{{ page.title }}</div>
             <div class="posttags">
-                <div class="chip first">
+                {% if page.date %}
+                <div class="chip">
                     <i class="fa-solid fa-calendar"></i>
                     {{ page.date | date: '%Y-%m-%d %H:%M' }}
                 </div>
+                {% endif %}
                 {% if page.comments %}
                     <a href="#comments">
                         <div class="chip activechip">
@@ -129,11 +131,19 @@
                     <div class="chip">#{{ tag }}</div>
                     {% unless forloop.last %}{% endunless %}
                 {% endfor %}
+                {% if page.githublink == Null %}
                 <a onclick="github();" style="display: inline-block;">
                     <div class="chip activechip">
                         <i class="fa-brands fa-github"></i>
                         Github</div>
                 </a>
+                {% else %}
+                <a href="{{ page.githublink }}" target="_blank" style="display: inline-block;">
+                    <div class="chip activechip">
+                        <i class="fa-brands fa-github"></i>
+                        Github</div>
+                </a>
+                {% endif %}
                 <a onclick="share();" style="display: inline-block;">
                     <div class="chip activechip sharechip">
                         <i class="fa-solid fa-share"></i>
@@ -141,8 +151,25 @@
                 </a>
             </div>
         </div>
-        <div class="contentsec">{{page.content | markdownify}}</div>
-
+        <div class="contentsec">
+            {{page.content | markdownify}}
+        </div>
+        <hr style="width: calc(100% - 20px);margin-top:20px;">
+        <div class="bottominfosec">
+            <div style="float:left;"><img src="/asset/icon.png" height="60px"></div>
+            <div style="height:100%;margin-left: 70px;padding-top: calc(30px - 29px / 2);width:auto;">
+                <span>Jiheum Baek</span>
+                <a href="https://github.com/jxheum" target="_blank" class="a"><span style="margin-left:5px;">
+                    <i class="fab fa-github"></i>
+                </span></a>
+                <a href="https://www.instagram.com/jxheum/" class="a"><span style="margin-left:5px;">
+                    <i class="fab fa-instagram"></i>
+                </span></a>
+                <a href="mailto:jxheum@jxheum.site" class="a"><span style="margin-left:5px;">
+                    <i class="fa-solid fa-envelope"></i>
+                </span></a>
+            </div>
+        </div>
         {% if page.comments %}
             <div class="commentsec" id="comments">
                 <script
@@ -203,7 +230,6 @@
         }
     </script>
 
-    {% include cursor.html %}
     <script>
         tags = document.querySelectorAll('#comments, .postlistsec')
         tags.forEach((link) => {
@@ -229,14 +255,7 @@
         })
 
         function resizeeffect() {
-            if (window.innerWidth >= 1000) {
-                document
-                    .getElementById('pcstyle')
-                    .innerHTML = ``
-            } else {
-                document
-                    .getElementById('pcstyle')
-                    .innerHTML = ``
+            if (!(window.innerWidth >= 1000)) {
                 document
                     .getElementsByTagName('body')[0]
                     .style

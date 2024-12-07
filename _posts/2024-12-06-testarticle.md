@@ -52,7 +52,7 @@ cout << "C++ 코드";
 
 [링크](/)
 
-<img src="/icon.png" height="60px">
+<img src="/asset/icon.png" height="60px">
 
 ---
 

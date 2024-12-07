@@ -2,9 +2,9 @@
 <html lang="ko">
 
 <head>
-	<link rel="icon" type="image/png" href="https://jxheum.github.io/icon.png" />
-	<link rel="shortcut icon" type="image/x-icon" href="https://jxheum.github.io/icon.ico" />
-	<link rel="apple-touch-icon" href="https://jxheum.github.io/icon.png">
+	<link rel="icon" type="image/png" href="/asset/icon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/asset/favicon.ico" />
+	<link rel="apple-touch-icon" href="/asset/icon.png">
 	{% include head.html %}
 	<title>Jxheum Blog</title>
 	<style>
@@ -25,7 +25,7 @@
 <body style="opacity: 0;">
 	<!-- <헤더>
 	-->
- <div id="header" class="header headermain" style="position:fixed;"><a onclick="parent.gotopage('/')"><span class="jiheumtext">Jiheum</span></a><span class="blogtext">BLOG</span></div>
+ <div id="header" class="header headermain" style="position:fixed;"><a onclick="parent.gotopage('/')" href="/"><span class="jiheumtext">Jiheum</span></a><span class="blogtext">BLOG</span></div>
  
  <!-- <헤더끝> -->
 	<div style="height: 58px;"></div>
@@ -50,11 +50,11 @@
 
 		window.onload = function () {
 			resizeeffect()
-			if (document.location.hash == '#inpost') {
-				document.querySelectorAll('.postitma').forEach((link) => {
-					link.removeAttribute('href');
-				})
-			}
+			// if (document.location.hash == '#inpost') {
+			// 	document.querySelectorAll('.postitma').forEach((link) => {
+			// 		link.removeAttribute('href');
+			// 	})
+			// }
 		}
 
 		window.addEventListener("resize", function () { resizeeffect() })
@@ -74,9 +74,16 @@
 			document.getElementsByTagName('body')[0].style.opacity = 1;
 			parent.ready();
   		});
+
+		postitm = document.querySelectorAll('.postitm, .whenclickexp')
+		postitm.forEach((link) => {
+			link.addEventListener('click', (e) => {
+				link.style.transform = `rotate3d(0, 1, 0, 0.5turn) scaleX(100) scaleY(100)`
+				parent.expandside()
+			})
+		});
 	</script>
 
-	{% include cursor.html %}
 
 
 </body>
