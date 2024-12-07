@@ -46,11 +46,11 @@ githublink: "https://github.com/jxheum/jxheum.github.io/design/index.html"
 # 모양
 
 <div style="float:left;">
-<div style="width:200px;height:100px;border-radius: 200px;" class="bg clickevent"></div>
-<div style="width:200px;height:100px;border-radius: 30px;margin-top:10px;" class="bg clickevent"></div>
-<div style="width:200px;height:100px;border-radius: 20px;margin-top:10px;" class="bg clickevent"></div>
+<div style="width:150px;height:100px;border-radius: 200px;" class="bg clickevent"></div>
+<div style="width:150px;height:100px;border-radius: 30px;margin-top:10px;" class="bg clickevent"></div>
+<div style="width:150px;height:100px;border-radius: 20px;margin-top:10px;" class="bg clickevent"></div>
 </div>
-<div style="width:200px;height:320px;border-radius: 70px;margin-left: 210px;" class="bg clickevent"></div>
+<div style="width:150px;height:320px;border-radius: 70px;margin-left: 210px;" class="bg clickevent"></div>
 
 
 # 컴포넌트
