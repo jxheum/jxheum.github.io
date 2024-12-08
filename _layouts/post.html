@@ -38,6 +38,8 @@
             display: none;
         }
 
+        .lasthr {width: calc(100% - 20px);margin-top:20px;}
+
         @media all and (min-width:1000px) {
             body,
             html {
@@ -92,6 +94,7 @@
             #tocsec {position:static !important;border-radius: 30px !important;background: rgba(255, 255, 255, 0.1) !important;}
             #toc {display:block !important;opacity:1 !important;}
             #tocsec2 {display:none !important;}
+            .lasthr {width:100%;}
         }
     </style>
     <style id="pcstyle"></style>
@@ -172,7 +175,7 @@
             </div>
             {{page.content | markdownify}}
         </div>
-        <hr style="width: calc(100% - 20px);margin-top:20px;">
+        <hr class="lasthr">
         <div class="bottominfosec">
             <div style="float:left;"><img src="/asset/icon.png" height="60px"></div>
             <div style="height:100%;margin-left: 70px;padding-top: calc(30px - 29px / 2);width:auto;">

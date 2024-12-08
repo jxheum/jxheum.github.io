@@ -6,7 +6,7 @@
   "id": "site.jxheum",
   "description": "Jiheum's Page",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "launch_handler": {
     "client_mode": "focus-existing"
   },
