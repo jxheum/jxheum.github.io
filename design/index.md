@@ -5,6 +5,7 @@ excerpt: ""
 tag: ["Design"]
 comments: false
 githublink: "https://github.com/jxheum/jxheum.github.io/design/index.html"
+toc: true
 ---
 
 <script>
@@ -39,18 +40,19 @@ githublink: "https://github.com/jxheum/jxheum.github.io/design/index.html"
 
 # 폰트
 
-## <a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank"><span style="font-weight: 100;">N</span><span style="font-weight: 200;">o</span><span style="font-weight: 300;">t</span><span style="font-weight: 400;">o</span> <span style="font-weight: 500;">S</span><span style="font-weight: 600;">a</span><span style="font-weight: 700;">n</span><span style="font-weight: 800;">s</span> <span style="font-weight: 900;">KR</span></a>
+## <span style="font-weight: 100;">N</span><span style="font-weight: 200;">o</span><span style="font-weight: 300;">t</span><span style="font-weight: 400;">o</span> <span style="font-weight: 500;">S</span><span style="font-weight: 600;">a</span><span style="font-weight: 700;">n</span><span style="font-weight: 800;">s</span> <span style="font-weight: 900;">KR</span>
+<a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank">Google Fonts</a>
 
-## <a href="https://fontawesome.com/" target="_blank"><i class="fa-solid fa-font-awesome" style="vertical-align: 1px;"></i><i class="fa-solid fa-f" style="margin-left:5px;"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-n"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-w"></i><i class="fa-solid fa-e"></i><i class="fa-solid fa-s"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-m"></i><i class="fa-solid fa-e"></i></a>
+## <i class="fa-solid fa-font-awesome" style="vertical-align: 1px;"></i><i class="fa-solid fa-f" style="margin-left:5px;"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-n"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-w"></i><i class="fa-solid fa-e"></i><i class="fa-solid fa-s"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-m"></i><i class="fa-solid fa-e"></i>
+<a href="https://fontawesome.com/" target="_blank">Font Awesome</a>
 
 # 모양
 
 <div style="float:left;">
-<div style="width:150px;height:100px;border-radius: 200px;" class="bg clickevent"></div>
-<div style="width:150px;height:100px;border-radius: 30px;margin-top:10px;" class="bg clickevent"></div>
-<div style="width:150px;height:100px;border-radius: 20px;margin-top:10px;" class="bg clickevent"></div>
+<div style="width:150px;height:50px;border-radius: 200px;" class="bg clickevent"></div>
+<div style="width:150px;height:260px;border-radius: 30px;margin-top:10px;" class="bg clickevent"></div>
 </div>
-<div style="width:150px;height:320px;border-radius: 70px;margin-left: 210px;" class="bg clickevent"></div>
+<div style="width:150px;height:320px;border-radius: 70px;margin-left: 160px;" class="bg clickevent"></div>
 
 
 # 컴포넌트

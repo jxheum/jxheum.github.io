@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@media all and (display-mode: standalone) {
+	.footer {
+		padding-bottom: 35px;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
 
 	body,
@@ -9,11 +16,12 @@
 	}
 
 	.header,
-	.header2 {
-		background: linear-gradient(to top, transparent, #1E1E1E);
+	.header2,
+	.fixedtoc {
+		background: linear-gradient(to top, transparent, #1E1E1E) !important;
 	}
 
-	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr {
+	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr, .tocsec {
 		background: rgba(255, 255, 255, 0.1);
 	}
 
@@ -55,11 +63,12 @@
 	}
 
 	.header,
-	.header2 {
-		background: linear-gradient(to top, transparent, #b0d5ff);
+	.header2,
+	.fixedtoc {
+		background: linear-gradient(to top, transparent, #b0d5ff) !important;
 	}
 
-	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg {
+	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr .tocsec {
 		background: rgba(0,0,0,0.1);
 	}
 
@@ -115,12 +124,14 @@ html {
 	margin: 0px;
 	font-family: "Noto Sans KR", sans-serif;
 	min-height: 100vh;
+	font-size: 16px;
 }
 
 * {
 	/* cursor: none; */
 	white-space: normal;
-	word-wrap: break-word
+	word-wrap: break-word;
+	font-family: "Noto Sans KR", sans-serif;
 }
 
 
@@ -192,11 +203,7 @@ a:link {
 
 .comment {
 	margin: 10px;
-	border-radius: 25px;
-}
-
-livere-comment {
-	border-radius: 25px;
+	border-radius: 30px;
 }
 
 .backbtn {
@@ -310,7 +317,7 @@ md-linear-progress {
 .pagenow {
 	width: 60px;
 	height: 55px;
-	border-radius: 20px;
+	border-radius: 30px;
 	font-size: 30px;
 	font-weight: 100;
 	padding-top: 5px;
@@ -323,7 +330,7 @@ md-linear-progress {
 .pagenpdis {
 	width: 30px;
 	height: 27.5px;
-	border-radius: 20px;
+	border-radius: 30px;
 	display: inline-block;
 	font-size: 12;
 	padding-top: 2.5px;
@@ -332,23 +339,16 @@ md-linear-progress {
 	margin-right: 10px;
 }
 
-
-.topbtn {
-	width: 30px;
-	height: 30px !important;
-	border-radius: 100%;
-	border: none;
-	position: fixed;
-	z-index: 1001;
-}
-
 .iconbtn {
-	width: 30px;
-	height: 30px !important;
-	border-radius: 100%;
-	border: none;
-	padding: 7px;
+	width: 35px;
+    height: 35px !important;
+    border-radius: 100%;
+    border: none;
+    padding: 9px;
+	text-align: center;
 }
+
+/* .iconbtn i {width:17px;height:17px;} */
 
 
 
@@ -516,9 +516,13 @@ button i {
   } */
 
 ul {
-	padding-left: 10px;
+	padding-left: 20px;
 }
 
 hr {
 	border:0px;height:5px;margin:0px;border-radius: 10px;
 }
+
+.tocsec {width:calc(100% - 40px);padding: 20px;border-radius: 30px;}
+
+ul {margin:0;}

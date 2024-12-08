@@ -87,6 +87,12 @@
 
             .bottominfosec {margin-left:0px;}
         }
+
+        @media all and (max-width:1000px) {
+            #tocsec {position:static !important;border-radius: 30px !important;}
+            #toc {display:block !important;opacity:1 !important;}
+            #tocsec2 {display:none !important;}
+        }
     </style>
     <style id="pcstyle"></style>
 </head>
@@ -98,14 +104,14 @@
     <div class="postsec">
         <div id="header" class="header">
             <button
-                class="topbtn ignz"
+                class="iconbtn ignz"
                 id="homebtn"
                 onclick="gotopage(document.referrer)"
                 style="position:fixed;">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
             <button
-                class="topbtn ignz"
+                class="iconbtn ignz"
                 id="sharebtn"
                 onclick="share();"
                 style="position:fixed;"><i class="fa-solid fa-share"></i></button>
@@ -152,6 +158,18 @@
             </div>
         </div>
         <div class="contentsec">
+            <div class="tocsec" id="tocsec" style="transition: 500ms cubic-bezier(.34,1.56,.68,1.06);">
+                <b style="cursor:default;">목차</b>
+                <div id="toc" style="opacity:0;display: none;">
+                    {% include toc.html html=content %}
+                </div>
+            </div>
+            <div class="tocsec" id="tocsec2" style="transition: 500ms cubic-bezier(.34,1.56,.68,1.06);display:none;visibility: hidden;">
+                <b style="cursor:default;">목차</b>
+                <div id="toc2" style="opacity:0;display: none;">
+                    {% include toc.html html=content %}
+                </div>
+            </div>
             {{page.content | markdownify}}
         </div>
         <hr style="width: calc(100% - 20px);margin-top:20px;">
@@ -276,5 +294,47 @@
                 .style
                 .width = '100%'
         }
+    </script>
+    <script>
+        tocsec = document.querySelector('#tocsec')
+        toc = document.querySelector('#toc')
+        tocsecofsety = tocsec.offsetTop
+        faketoc = document.querySelector('#tocsec2')
+        faketoc2 = document.querySelector('#toc2')
+
+        tocsec.addEventListener('mouseenter', (e) => {
+            toc.style.display = 'block'
+            toc.style.opacity = '1'
+            faketoc2.style.display='block'
+        })
+
+        tocsec.addEventListener('mouseleave', (e) => {
+            toc.style.opacity = '0'
+            toc.style.display = 'none'
+            faketoc2.style.display='none'
+        })
+
+        document.addEventListener('scroll', (e) => {
+            if (scrollY >= tocsecofsety) {
+                tocsec.style.position = 'fixed'
+                tocsec.style.top = 0
+                tocsec.style.zIndex = 999
+                faketoc.style.display = 'block'
+                tocsec.style.borderRadius = '0px'
+                tocsec.style.backdropFilter = 'blur(10px)'
+                tocsec.style.left = '40%'
+                tocsec.setAttribute('class', 'tocsec fixedtoc')
+            }
+            else {
+                tocsec.style.position = ''
+                tocsec.style.top = ''
+                tocsec.style.zIndex = ''
+                faketoc.style.display = 'none'
+                tocsec.style.borderRadius = ''
+                tocsec.style.backdropFilter = ''
+                tocsec.style.left = ''
+                tocsec.setAttribute('class', 'tocsec')
+            }
+        })
     </script>
 </body>
