@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
-@media all and (display-mode: standalone) {
-	.footer {
-		padding-bottom: 35px !important;
-	}
-}
-
 @media (prefers-color-scheme: dark) {
 
 	body,
@@ -245,7 +239,9 @@ md-linear-progress {
 }
 
 .footer {
-	padding: 10px;
+	padding: calc(10px);
+	padding-bottom: calc(10px + env(safe-area-inset-bottom));
+	padding-left: calc(10px + env(safe-area-inset-left));
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
