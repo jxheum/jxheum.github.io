@@ -114,9 +114,7 @@
 	opacity: 0;
 }
 
-body {
-	transition-duration: 250ms !important;
-}
+
 
 body,
 html {
@@ -144,7 +142,6 @@ html {
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	transition-duration: 100ms;
 	z-index: 999;
 	width: calc(100% - 20px);
 	backdrop-filter: blur(20px);

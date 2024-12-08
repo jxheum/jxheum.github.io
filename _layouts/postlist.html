@@ -19,10 +19,15 @@
 		}
 
 		.blogtext {transition-duration: 500ms;}
+
+		@media all and (min-width:1000px) {
+			#header {width: 40%;}
+			body {width: 40%;}
+		}
 	</style>
 </head>
 
-<body style="opacity: 0;">
+<body>
 	<!-- <헤더>
 	-->
  <div id="header" class="header headermain" style="position:fixed;"><a onclick="parent.gotopage('/')" href="/"><span class="jiheumtext">Jiheum</span></a><span class="blogtext">BLOG</span></div>
@@ -47,28 +52,6 @@
 				document.getElementById('cursor').style.opacity = 0;
 			}
 		});
-
-		window.onload = function () {
-			resizeeffect()
-			// if (document.location.hash == '#inpost') {
-			// 	document.querySelectorAll('.postitma').forEach((link) => {
-			// 		link.removeAttribute('href');
-			// 	})
-			// }
-		}
-
-		window.addEventListener("resize", function () { resizeeffect() })
-
-		function resizeeffect() {
-			if (window.innerWidth >= 1000) {
-				header.style.width = '40%'
-				document.getElementsByTagName('body')[0].style.width = '40%'
-			}
-			else {
-				header.style.width = ''
-				document.getElementsByTagName('body')[0].style.width = ''
-			}
-		}
 
 		document.addEventListener("DOMContentLoaded", () => {
 			document.getElementsByTagName('body')[0].style.opacity = 1;

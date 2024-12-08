@@ -34,9 +34,9 @@ toc: true
 
 # 트랜지션
 
-<img src="/asset/transition_ease.png" style="background:white;border-radius:30px;transition: translate 1s cubic-bezier(.34,1.56,.68,1.06), transform 0.6s cubic-bezier(.34,1.56,.68,1.06), box-shadow 0.6s cubic-bezier(.34,1.56,.68,1.06);" onclick="if (ismoved != 1) {document.querySelector('#transimg').style.translate = 'calc(100vw / 3)', ismoved = 1} else {document.querySelector('#transimg').style.translate = '', ismoved = 0}" id="transimg" class="clickevent">
+<img src="/asset/transition_ease.png" style="background:white;border-radius:30px;transition: translate 0.6s cubic-bezier(.34,1.56,.68,1.06), transform 0.6s cubic-bezier(.34,1.56,.68,1.06), box-shadow 0.6s cubic-bezier(.34,1.56,.68,1.06);" onclick="if (ismoved != 1) {document.querySelector('#transimg').style.translate = 'calc(100vw / 3)', ismoved = 1} else {document.querySelector('#transimg').style.translate = '', ismoved = 0}" id="transimg" class="clickevent">
 
-<a href="https://cubic-bezier.com/#.34,1.56,.68,1.06" target="_blank">**cubic-bezier(.34,1.56,.68,1.06)**</a>
+0.6s <a href="https://cubic-bezier.com/#.34,1.56,.68,1.06" target="_blank">**cubic-bezier(.34,1.56,.68,1.06)**</a>
 
 # 폰트
 

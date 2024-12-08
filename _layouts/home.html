@@ -101,10 +101,10 @@ body, html {
         </style>
     </head>
 
-    <body style="opacity: 0;">
+    <body>
         
             {% include header.html %}
-        <button
+            <a href="/blog"><button
             style="    display: inline-block;
     text-align: right;
     top: 10px;
@@ -112,14 +112,13 @@ body, html {
     font-size: 20px;
     border:none;border-radius: 100px;padding:10px;position:fixed;
     z-index: 100000;
-    "
-            onclick="gotopage('/blog')"><a href="/blog">BLOG</a></button>
+    ">BLOG</button></a>
         <div class="carddiv">
             <div class="cards">
                 <div class="card">
                     <h1>안녕하세요!</h1>
                 </div>
-                <a onclick="gotopage('/blog')" class="card whenclickexp pointer" href="/blog">
+                <a class="card whenclickexp pointer" href="/blog">
                     <div>
                         <h2>BLOG</h2>
                     </div>
