@@ -91,3 +91,28 @@ toc: true
 <div class="postspt"><i class="fa-solid fa-font-awesome"></i> 아이콘이 포함된 태그
 </div>
 </div>
+
+# 브라우저 상태
+
+<div id="browser"></div>
+
+<script>
+  function getPWADisplayMode() {
+  if (document.referrer.startsWith('android-app://'))
+    return 'twa';
+  if (window.matchMedia('(display-mode: browser)').matches)
+    return 'browser';
+  if (window.matchMedia('(display-mode: standalone)').matches)
+    return 'standalone';
+  if (window.matchMedia('(display-mode: minimal-ui)').matches)
+    return 'minimal-ui';
+  if (window.matchMedia('(display-mode: fullscreen)').matches)
+    return 'fullscreen';
+  if (window.matchMedia('(display-mode: window-controls-overlay)').matches)
+    return 'window-controls-overlay';
+
+  return 'unknown';
+}
+
+document.querySelector('#browser').innerHTML = getPWADisplayMode()
+</script>
