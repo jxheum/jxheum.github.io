@@ -148,16 +148,15 @@ body, html {
             cards = document.querySelectorAll('.card')
 
             window.addEventListener('scroll', (event) => {
-                if (window.innerWidth >= 600) {
-                    cards.forEach((link) => {
+                cards.forEach((link) => {
+                    link.style.transitionDuration = ''
+                    if (window.innerWidth >= 600) {
                         link.style.transform = `translateX(-${window.scrollY}px)`
-                    });
-                }
-                else {
-                    cards.forEach((link) => {
+                    }
+                    else {
                         link.style.transform = `translateX(0px)`
-                    });
-                }
+                    }
+                })
                 if (window.scrollY <= 160) {
                     document.querySelector('.card:first-child').style.background = 'linear-gradient(167deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
                     document.querySelector('.card:first-child').style.color = 'black'
@@ -231,13 +230,11 @@ body, html {
                     if (window.innerWidth >= 600) {
                         link.style.transform = `translateX(${ - window.scrollY}px)`
                         link.style.boxShadow = ''
-                        cursor.style.opacity = ''
                     }
                 })
                 link.addEventListener('mouseenter', (e) => {
                     link.style.transitionDuration = '500ms'
                     link.style.boxShadow = '0px 10px 10px #ffffff11'
-                    cursor.style.opacity = '1'
                 })
 
                 link.addEventListener('mousedown', (e) => {
@@ -261,24 +258,8 @@ body, html {
                 })
             });
 
-            window.addEventListener('DOMContentLoaded', () => {
-                // 모바일 장치인지 확인하기 -> 리다이렉트
-                if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-                    document
-                        .getElementById('cursor')
-                        .style
-                        .opacity = 0;
-                }
-            });
 
-
-            document.addEventListener("DOMContentLoaded", () => {
-                document
-                    .getElementsByTagName('body')[0]
-                    .style
-                    .opacity = 1;
-                parent.ready();
-            });
+            
         </script>
 
     </body>

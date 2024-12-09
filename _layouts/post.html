@@ -50,19 +50,17 @@
                 display: inline-block !important;
                 position: fixed;
                 height: 100vh;
+                max-width: 999px;
             }
             .postlistif {
                 border: none;
                 width: 100%;
                 height: 100%;
             }
-            .postlistsec,
-            .postsec {
-                display: inline-block;
-            }
             .postsec {
                 width: calc(60% - 20px);
                 float: right;
+                min-width: calc(100% - 999px);
             }
             #headerspace {
                 display: none;
@@ -251,21 +249,7 @@
         }
     </script>
 
-    <script>
-        tags = document.querySelectorAll('#comments, .postlistsec')
-        tags.forEach((link) => {
-            link.addEventListener('mouseenter', (e) => {
-                let cursor = document.querySelector('.cursor');
-                cursor.style.visibility = 'hidden'
-                console.log('ji')
-            })
-
-            link.addEventListener('mouseleave', (e) => {
-                let cursor = document.querySelector('.cursor');
-                cursor.style.visibility = 'visible'
-            })
-        })
-    </script>
+    
     <script>
         window.onload = function () {
             resizeeffect()
@@ -275,21 +259,9 @@
             resizeeffect()
         })
 
-        function resizeeffect() {
-            if (!(window.innerWidth >= 1000)) {
-                document
-                    .getElementsByTagName('body')[0]
-                    .style
-                    .opacity = 1;
-            }
-        }
+        
 
-        function ready() {
-            document
-                .getElementsByTagName('body')[0]
-                .style
-                .opacity = 1;
-        }
+        
 
         function expandside() {
             document

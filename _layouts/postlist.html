@@ -46,17 +46,9 @@
 	<script>
 		header = document.getElementById('header');
 
-		window.addEventListener('DOMContentLoaded', () => {
-			// 모바일 장치인지 확인하기 -> 리다이렉트
-			if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-				document.getElementById('cursor').style.opacity = 0;
-			}
-		});
+		
 
-		document.addEventListener("DOMContentLoaded", () => {
-			document.getElementsByTagName('body')[0].style.opacity = 1;
-			parent.ready();
-  		});
+		
 
 		postitm = document.querySelectorAll('.postitm, .whenclickexp')
 		postitm.forEach((link) => {
