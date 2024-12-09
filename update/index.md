@@ -26,6 +26,8 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 `postitm` 클래스를 클릭했을때 확대되던 효과를 iOS 환경에서의 문제로 인해 제거 (2)
 
+아이폰 안전 영역 지원(블로그 메인) (3)
+ 
 #### 24.12.08.
 
 목차 기능 추가 (1)

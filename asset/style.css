@@ -191,6 +191,7 @@ a:link {
 .content {
 	margin: 20px;
 	margin-top:0px;
+	margin-left: env(safe-area-inset-left, 20px);
 }
 
 .comment {
