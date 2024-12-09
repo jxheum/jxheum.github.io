@@ -4,7 +4,7 @@ title: "jxheum.site 업데이트 노트"
 excerpt: ""
 tag: ["Update"]
 comments: false
-githublink: "https://github.com/jxheum/jxheum.github.io/update/index.html"
+githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.md"
 ---
 
 # 개요
@@ -23,6 +23,8 @@ githublink: "https://github.com/jxheum/jxheum.github.io/update/index.html"
 `post.html` 파일에서 웹페이지를 최소로 축소했을 때 레이아웃이 깨지는 문제 해결 (1)
 
 [업데이트 로그](/update) 추가 (1)
+
+`postitm` 클래스를 클릭했을때 확대되던 효과를 iOS 환경에서의 문제로 인해 제거 (2)
 
 #### 24.12.08.
 

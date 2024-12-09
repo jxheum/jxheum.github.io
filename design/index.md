@@ -4,7 +4,7 @@ title: "jxheum.site 디자인 가이드"
 excerpt: ""
 tag: ["Design"]
 comments: false
-githublink: "https://github.com/jxheum/jxheum.github.io/design/index.html"
+githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/design/index.md"
 toc: true
 ---
 

@@ -43,23 +43,6 @@
 	{% include footer.html %}
 
 
-	<script>
-		header = document.getElementById('header');
-
-		
-
-		
-
-		postitm = document.querySelectorAll('.postitm, .whenclickexp')
-		postitm.forEach((link) => {
-			link.addEventListener('click', (e) => {
-				link.style.transform = `rotate3d(0, 1, 0, 0.5turn) scaleX(100) scaleY(100)`
-				parent.expandside()
-			})
-		});
-	</script>
-
-
 
 </body>
 
