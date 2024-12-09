@@ -3,3 +3,16 @@
     <a href="/design" onclick="parent.gotopage('/design')" class="a">Design</a> |
     <a href="/update" onclick="parent.gotopage('/update')" class="a">24.12.09.(6)</a>
 </div>
+
+<div class="dynamicisland">앙기모찌</div>
+<script>
+    dynamicisland = document.querySelector('.dynamicisland')
+    document.addEventListener('DOMContentLoaded', (e) => {
+        if (window.matchMedia('(orientation: landscape)').matches && 'standalone' in window.navigator) {
+            dynamicisland.style.display = 'block'
+        }
+        else {
+            dynamicisland.style.display = 'none'
+        }
+    })
+</script>
