@@ -25,7 +25,7 @@
 
     function share() {
             shareData = {
-                url: 'https://jxheum.site'
+                url: document.location.href
             }
             if (navigator.canShare(shareData)) {
                 navigator.share(shareData);
