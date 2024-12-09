@@ -403,6 +403,7 @@ md-linear-progress {
 	margin: 20px;
 	border-radius: 30px;
 	cursor: auto;
+	margin-left: calc(env(safe-area-inset-left) + 20px);
 }
 
 .bottominfosec {
@@ -412,6 +413,7 @@ md-linear-progress {
 	cursor: auto;
 	padding: 4px;
     height: 60px;
+	margin-left: calc(env(safe-area-inset-left) + 20px)
 }
 
 .offlinecontent {
