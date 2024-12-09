@@ -36,15 +36,15 @@
 
     const installApp = document.getElementById('installbtn');
     installApp.addEventListener('click', async () => {
-        if (deferredPrompt !== null) {
+        if (['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+            alert("'홈 화면에 추가'를 선택해주세요.")
+            share()
+        } else if (deferredPrompt !== null) {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
             if (outcome === 'accepted') {
                 deferredPrompt = null;
-            }
-        } else if (['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
-            alert("'홈 화면에 추가'를 선택해주세요.")
-            share()
+            } 
         } else {
             alert('이 브라우저는 지원하지 않습니다.')
         }
