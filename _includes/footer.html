@@ -1,7 +1,8 @@
 <div class="footer" id="footer">
     ⓒJiheum | 
     <a href="/design" onclick="parent.gotopage('/design')" class="a">Design</a> |
-    <a href="/update" onclick="parent.gotopage('/update')" class="a">24.12.09.(6)</a>
+    <a href="/update" onclick="parent.gotopage('/update')" class="a">24.12.09.(7)</a> |
+    <a class="a" id="installbtn" style="cursor:pointer;"><b>Install</b></a>
 </div>
 
 <div class="dynamicisland"></div>
@@ -15,4 +16,37 @@
             dynamicisland.style.display = 'none'
         }
     })
+
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+
+    function share() {
+            shareData = {
+                url: 'https://jxheum.site'
+            }
+            if (navigator.canShare(shareData)) {
+                navigator.share(shareData);
+            } else {
+                copy_link()
+            }
+        }
+
+    const installApp = document.getElementById('installbtn');
+    installApp.addEventListener('click', async () => {
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredPrompt = null;
+            }
+        } else if (['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+            alert("'홈 화면에 추가'를 선택해주세요.")
+            share()
+        } else {
+            alert('이 브라우저는 지원하지 않습니다.')
+        }
+    });
 </script>
