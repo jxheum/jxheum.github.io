@@ -191,7 +191,7 @@ a:link {
 .content {
 	margin: 20px;
 	margin-top:0px;
-	margin-left: env(safe-area-inset-left, 20px);
+	margin-left: calc(env(safe-area-inset-left) + 20px);
 }
 
 .comment {
@@ -395,7 +395,7 @@ md-linear-progress {
 	width: calc(100% - 40px - env(safe-area-inset-left));
 	margin: 0 20px;
 	margin-top: 15px;
-	margin-left: env(safe-area-inset-left, 20px);
+	margin-left: calc(env(safe-area-inset-left) + 20px);
 }
 
 .commentsec {

@@ -30,6 +30,8 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 아이폰 안전 영역 지원(블로그 포스트 페이지) (4)
 
+레이아웃 빠개지는 문제 해결 (5)
+
 #### 24.12.08.
 
 목차 기능 추가 (1)
