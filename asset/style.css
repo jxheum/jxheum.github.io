@@ -357,7 +357,8 @@ md-linear-progress {
 }
 
 .infosect {
-	width: 100%;
+	width: calc(100% - env(safe-area-inset-left));
+	margin-left: env(safe-area-inset-left);
 }
 
 
@@ -372,8 +373,7 @@ md-linear-progress {
 .posttags {
 	margin: 0px 20px;
 	overflow-x: auto;
-	width: calc(100% - 40px - env(safe-area-inset-left));
-	margin-left: calc(env(safe-area-inset-left) + 20px);
+	width: calc(100% - 40px);
 }
 
 .chip {
