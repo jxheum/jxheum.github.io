@@ -32,6 +32,8 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 레이아웃 빠개지는 문제 해결 (5)
 
+작동 안하던 문제 해결, 모든 페이지?지원 (6)
+
 #### 24.12.08.
 
 목차 기능 추가 (1)

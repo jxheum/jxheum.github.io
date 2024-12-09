@@ -117,7 +117,7 @@ html {
 	font-family: "Noto Sans KR", sans-serif;
 	min-height: 100vh;
 	font-size: 16px;
-	/* padding-bottom: env(safe-area-inset-bottom); */
+	padding-bottom: env(safe-area-inset-bottom);
 }
 
 * {
