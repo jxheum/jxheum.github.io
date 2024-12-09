@@ -372,7 +372,8 @@ md-linear-progress {
 .posttags {
 	margin: 0px 20px;
 	overflow-x: auto;
-	width: calc(100% - 20px);
+	width: calc(100% - 20px - env(safe-area-inset-left));
+	margin-left: env(safe-area-inset-left, 20px);
 }
 
 .chip {
@@ -391,9 +392,10 @@ md-linear-progress {
 }
 
 .contentsec {
-	width: calc(100% - 40px);
+	width: calc(100% - 40px - env(safe-area-inset-left));
 	margin: 0 20px;
 	margin-top: 15px;
+	margin-left: env(safe-area-inset-left, 20px);
 }
 
 .commentsec {
