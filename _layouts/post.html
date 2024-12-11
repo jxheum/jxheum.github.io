@@ -1,11 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <title>{{ page.title }}</title>
-    <link rel="icon" type="image/png" href="/asset/icon.png"/>
+    <link rel="icon" type="image/webp" href="/asset/icon.webp"/>
     <link
         rel="shortcut icon"
         type="image/x-icon"
         href="/asset/favicon.ico"/>
-    <link rel="apple-touch-icon" href="/asset/icon.png">
+    <link rel="apple-touch-icon" href="/asset/icon.webp">
+    <meta name="description" content="{{page.excerpt}}">
     {% include head.html %}
 
     <style>
@@ -108,14 +111,14 @@
                 class="iconbtn ignz"
                 id="homebtn"
                 onclick="history.back()"
-                style="position:fixed;">
+                style="position:fixed;" aria-label="뒤로가기">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
             <button
                 class="iconbtn ignz"
                 id="sharebtn"
                 onclick="share();"
-                style="position:fixed;"><i class="fa-solid fa-share"></i></button>
+                style="position:fixed;"><i class="fa-solid fa-share" aria-label="공유하기"></i></button>
         </div>
         <div style="height:58px" id="headerspace"></div>
         <div class="infosect">
@@ -128,7 +131,7 @@
                 </div>
                 {% endif %}
                 {% if page.comments %}
-                    <a href="#comments">
+                    <a href="#comments" aria-label="댓글로 이동">
                         <div class="chip activechip">
                             <i class="fa-solid fa-comments"></i>
                             댓글</div>
@@ -139,19 +142,19 @@
                     {% unless forloop.last %}{% endunless %}
                 {% endfor %}
                 {% if page.githublink == Null %}
-                <a onclick="github();" style="display: inline-block;">
+                <a onclick="github();" style="display: inline-block;" aria-label="깃허브에서 읽기">
                     <div class="chip activechip">
                         <i class="fa-brands fa-github"></i>
                         Github</div>
                 </a>
                 {% else %}
-                <a href="{{ page.githublink }}" target="_blank" style="display: inline-block;">
+                <a href="{{ page.githublink }}" target="_blank" style="display: inline-block;" aria-label="깃허브에서 읽기">
                     <div class="chip activechip">
                         <i class="fa-brands fa-github"></i>
                         Github</div>
                 </a>
                 {% endif %}
-                <a onclick="share();" style="display: inline-block;">
+                <a onclick="share();" style="display: inline-block;" aria-label="공유하기">
                     <div class="chip activechip sharechip">
                         <i class="fa-solid fa-share"></i>
                         공유</div>
@@ -175,16 +178,16 @@
         </div>
         <hr class="lasthr">
         <div class="bottominfosec">
-            <div style="float:left;"><img src="/asset/icon.png" height="60px"></div>
+            <div style="float:left;"><img src="/asset/icon.webp" height="60px" alt="Jiheum Baek"></div>
             <div style="height:100%;margin-left: 70px;padding-top: calc(30px - 29px / 2);width:auto;">
                 <span>Jiheum Baek</span>
-                <a href="https://github.com/jxheum" target="_blank" class="a"><span style="margin-left:5px;">
+                <a href="https://github.com/jxheum" target="_blank" class="a"><span style="margin-left:5px;" aria-label="깃허브">
                     <i class="fab fa-github"></i>
                 </span></a>
-                <a href="https://www.instagram.com/jxheum/" class="a"><span style="margin-left:5px;">
+                <a href="https://www.instagram.com/jxheum/" class="a"><span style="margin-left:5px;" aria-label="인스타그램">
                     <i class="fab fa-instagram"></i>
                 </span></a>
-                <a href="mailto:jxheum@jxheum.site" class="a"><span style="margin-left:5px;">
+                <a href="mailto:jxheum@jxheum.site" class="a"><span style="margin-left:5px;" aria-label="이메일">
                     <i class="fa-solid fa-envelope"></i>
                 </span></a>
             </div>
@@ -251,13 +254,7 @@
 
     
     <script>
-        window.onload = function () {
-            resizeeffect()
-        }
-
-        window.addEventListener("resize", function () {
-            resizeeffect()
-        })
+        
 
         
 
@@ -318,3 +315,4 @@
         }
     </script>
 </body>
+</html>

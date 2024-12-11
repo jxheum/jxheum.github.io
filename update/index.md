@@ -16,6 +16,10 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 ### 12월
 
+#### 24.12.11.
+
+최적화 작업 (1)
+
 #### 24.12.09.
 
 쓸데없는 코드 제거 (1)

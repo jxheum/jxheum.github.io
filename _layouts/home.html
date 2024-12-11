@@ -2,6 +2,7 @@
 <html lang="ko">
 
     <head>
+        <meta name="description" content="My Page.">
         <meta content="#00000a" name="theme-color" />
 		<meta content="#00000a" name="msapplication-navbutton-color" />
 		<meta content="#00000a" name="apple-mobile-web-app-status-bar-style" />
@@ -104,7 +105,7 @@ body, html {
     <body>
         
             {% include header.html %}
-            <a href="/blog"><button
+            <a href="/blog" aria-label="블로그"><button
             style="    display: inline-block;
     text-align: right;
     top: 10px;
@@ -112,28 +113,28 @@ body, html {
     font-size: 20px;
     border:none;border-radius: 100px;padding:10px;position:fixed;
     z-index: 100000;
-    ">BLOG</button></a>
+    " aria-label="BLOG">BLOG</button></a>
         <div class="carddiv">
             <div class="cards">
                 <div class="card">
                     <h1>안녕하세요!</h1>
                 </div>
-                <a class="card pointer" href="/blog">
+                <a class="card pointer" href="/blog" aria-label="블로그">
                     <div>
                         <h2>BLOG</h2>
                     </div>
                 </a>
-                <a class="card pointer" href="https://github.com/jxheum" target="_blank"><div>
+                <a class="card pointer" href="https://github.com/jxheum" target="_blank" aria-label="깃허브"><div>
                     <h2><i class="fab fa-github"></i></h2>
                 </div></a>
-                <a class="card pointer" href="mailto:jxheum@jxheum.site"><div>
+                <a class="card pointer" href="mailto:jxheum@jxheum.site" aria-label="이메일 보내기"><div>
                     <h2><i class="fa-solid fa-envelope"></i></h2>
                 </div></a>
-                <a class="card pointer" href="https://www.instagram.com/jxheum/" target="_blank"><div>
+                <a class="card pointer" href="https://www.instagram.com/jxheum/" target="_blank" aria-label="인스타그램"><div>
                     <h2><i class="fab fa-instagram"></i></h2>
                 </div></a>
                 <div class="card"><h2>Jiheum</h2></div>
-                <a class="card pointer" href="#"><div>
+                <a class="card pointer" href="#" aria-label="맨 위로"><div>
                     <h1><i class="fa-solid fa-rotate-right"></i> 처음으로</h1>
                 </div></a>
             </div>

@@ -36,15 +36,15 @@ toc: true
 
 <img src="/asset/transition_ease.png" style="background:white;border-radius:30px;transition: translate 0.6s cubic-bezier(.34,1.56,.68,1.06), transform 0.6s cubic-bezier(.34,1.56,.68,1.06), box-shadow 0.6s cubic-bezier(.34,1.56,.68,1.06);" onclick="if (ismoved != 1) {document.querySelector('#transimg').style.translate = 'calc(100vw / 3)', ismoved = 1} else {document.querySelector('#transimg').style.translate = '', ismoved = 0}" id="transimg" class="clickevent">
 
-0.6s <a href="https://cubic-bezier.com/#.34,1.56,.68,1.06" target="_blank">**cubic-bezier(.34,1.56,.68,1.06)**</a>
+0.6s <a href="https://cubic-bezier.com/#.34,1.56,.68,1.06" target="_blank" aria-label="자세히 보기">**cubic-bezier(.34,1.56,.68,1.06)**</a>
 
 # 폰트
 
 ## <span style="font-weight: 100;">N</span><span style="font-weight: 200;">o</span><span style="font-weight: 300;">t</span><span style="font-weight: 400;">o</span> <span style="font-weight: 500;">S</span><span style="font-weight: 600;">a</span><span style="font-weight: 700;">n</span><span style="font-weight: 800;">s</span> <span style="font-weight: 900;">KR</span>
-<a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank">Google Fonts</a>
+<a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank" aria-label="구글 폰트에서 보기">Google Fonts</a>
 
 ## <i class="fa-solid fa-font-awesome" style="vertical-align: 1px;"></i><i class="fa-solid fa-f" style="margin-left:5px;"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-n"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-w"></i><i class="fa-solid fa-e"></i><i class="fa-solid fa-s"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-m"></i><i class="fa-solid fa-e"></i>
-<a href="https://fontawesome.com/" target="_blank">Font Awesome</a>
+<a href="https://fontawesome.com/" target="_blank" aria-label="홈페이지로 이동">Font Awesome</a>
 
 # 모양
 
@@ -59,9 +59,9 @@ toc: true
 
 ## 버튼
 
-<button>버튼</button>
-<button><i class="fa-solid fa-font-awesome"></i> 아이콘버튼</button>
-<button><i class="fa-solid fa-font-awesome"></i></button> 아이콘버튼 2
+<button aria-label="버튼">버튼</button>
+<button aria-label="아이콘버튼"><i class="fa-solid fa-font-awesome"></i> 아이콘버튼</button>
+<button aria-label="아이콘버튼2"><i class="fa-solid fa-font-awesome"></i></button> 아이콘버튼 2
 
 ## 링크
 

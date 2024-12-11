@@ -5,7 +5,7 @@ layout: postlist
 <div class="postlist">
 	{% for post in paginator.posts %}
 
-	<a href="{{ post.url }}" class="postitma" onclick="parent.gotopage('{{ post.url }}');">
+	<a href="{{ post.url }}" class="postitma" onclick="parent.gotopage('{{ post.url }}');" aria-label="{{ post.title }} 읽기">
 		<div class="postitm">
 			<div class="posttitle">{{ post.title }}</div>
 			<div class="postspt">{{ post.excerpt | strip_html | truncatewords: 5 }}</div>
