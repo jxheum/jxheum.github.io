@@ -40,11 +40,13 @@ toc: true
 
 # 폰트
 
-## <span style="font-weight: 100;">N</span><span style="font-weight: 200;">o</span><span style="font-weight: 300;">t</span><span style="font-weight: 400;">o</span> <span style="font-weight: 500;">S</span><span style="font-weight: 600;">a</span><span style="font-weight: 700;">n</span><span style="font-weight: 800;">s</span> <span style="font-weight: 900;">KR</span>
-<a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank" aria-label="구글 폰트에서 보기">Google Fonts</a>
+## Google Noto Sans
+<a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank" aria-label="구글 폰트에서 보기"><i class="fa-brands fa-google"></i> Fonts</a>
 
-## <i class="fa-solid fa-font-awesome" style="vertical-align: 1px;"></i><i class="fa-solid fa-f" style="margin-left:5px;"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-n"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-w"></i><i class="fa-solid fa-e"></i><i class="fa-solid fa-s"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-m"></i><i class="fa-solid fa-e"></i>
-<a href="https://fontawesome.com/" target="_blank" aria-label="홈페이지로 이동">Font Awesome</a>
+<a href="https://fonts.adobe.com/fonts/noto-sans" target="_blank" aria-label="어도비 폰트에서 보기"><i class="fa-solid fa-italic"></i> Adobe Fonts</a>
+
+## Font Awesome
+<a href="https://fontawesome.com/" target="_blank" aria-label="홈페이지로 이동"><i class="fa-solid fa-font-awesome" style="vertical-align: 1px;"></i> Font Awesome</a>
 
 # 모양
 

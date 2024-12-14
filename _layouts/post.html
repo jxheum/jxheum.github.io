@@ -92,7 +92,7 @@
         }
 
         @media all and (max-width:1000px) {
-            #tocsec {position:static !important;border-radius: 30px !important;background: rgba(255, 255, 255, 0.1) !important;}
+            #tocsec {position:static !important;border-radius: 30px !important;}
             #toc {display:block !important;opacity:1 !important;}
             #tocsec2 {display:none !important;}
             .lasthr {width:100%;}
@@ -162,13 +162,13 @@
             </div>
         </div>
         <div class="contentsec">
-            <div class="tocsec" id="tocsec" style="transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);">
+            <div class="tocsec bg" id="tocsec" style="transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);">
                 <b style="cursor:default;">목차</b>
                 <div id="toc" style="opacity:0;display: none;">
                     {% include toc.html html=content %}
                 </div>
             </div>
-            <div class="tocsec" id="tocsec2" style="transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);display:none;visibility: hidden;">
+            <div class="tocsec bg" id="tocsec2" style="transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);display:none;visibility: hidden;">
                 <b style="cursor:default;">목차</b>
                 <div id="toc2" style="opacity:0;display: none;">
                     {% include toc.html html=content %}
@@ -305,7 +305,7 @@
                 tocsec.style.borderRadius = ''
                 tocsec.style.backdropFilter = ''
                 tocsec.style.left = ''
-                tocsec.setAttribute('class', 'tocsec')
+                tocsec.setAttribute('class', 'tocsec bg')
             }
         })
     </script>
