@@ -31,8 +31,7 @@
     iosfooter = document.querySelector('#iosfooter')
     path = document.location.pathname
     document.addEventListener('DOMContentLoaded', (e) => {
-        if (window.matchMedia('(orientation: landscape)').matches && 'standalone' in window.navigator) {
-            dynamicisland.style.display = 'block'
+        if ('standalone' in window.navigator && iOS()) {
             iosfooter.style.display = 'block'
             document.getElementById('iosfooterdiv').style.display = 'block'
         }
@@ -54,6 +53,19 @@
             btnid = 'updatebtn'
         document.getElementById(btnid).classList.add('selectedmenu')
     })
+
+    function iOS() {
+        return [
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(navigator.platform)
+        // iPad on iOS 13 detection
+        || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    }
 
     let deferredPrompt;
 
