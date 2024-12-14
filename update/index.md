@@ -16,6 +16,12 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 ### 12월
 
+#### 24.12.14
+
+PWA에서 Install 버튼이 표시되던 문제 해결 (1)
+
+iOS에서 PWA로 들어갔을 때 애플 휴먼 인터페이스 가이드를 참고한 하단 바 표시 (1)
+
 #### 24.12.12.
 
 나님의 생일
