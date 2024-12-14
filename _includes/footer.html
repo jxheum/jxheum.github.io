@@ -31,12 +31,9 @@
     iosfooter = document.querySelector('#iosfooter')
     path = document.location.pathname
     document.addEventListener('DOMContentLoaded', (e) => {
-        if ('standalone' in window.navigator && iOS()) {
+        if (getPWADisplayMode() == 'standalone' && iOS()) {
             iosfooter.style.display = 'block'
             document.getElementById('iosfooterdiv').style.display = 'block'
-        }
-        else {
-            dynamicisland.style.display = 'none'
         }
 
         if (getPWADisplayMode() == 'twa' || getPWADisplayMode() == 'standalone') {
