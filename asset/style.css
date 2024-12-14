@@ -533,7 +533,7 @@ ul {margin:0;}
 
 .bottombar {
     width: 100%;
-    height: 83px;
+	padding-bottom: env(safe-area-inset-bottom);
     position: fixed;
     bottom: 0px;
     left: 0px;

@@ -34,6 +34,7 @@
         if (getPWADisplayMode() == 'standalone' && iOS()) {
             iosfooter.style.display = 'block'
             document.getElementById('iosfooterdiv').style.display = 'block'
+            document.querySelector('#footer').style.display = 'none'
         }
 
         if (getPWADisplayMode() == 'twa' || getPWADisplayMode() == 'standalone') {
