@@ -571,10 +571,10 @@ ul {margin:0;}
 
 .a {cursor:pointer;}
 
-#donatebtn {
+/* #donatebtn {
     position: fixed;
     height: calc(20vw - 14px);
     bottom: -40px;
     border-radius: 100%;
     padding-top: 10px;
-}
+} */
