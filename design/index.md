@@ -10,6 +10,7 @@ toc: true
 
 <script>
     ismoved = 0;
+    ismoved2 = 0;
 </script>
 
 # 컬러
@@ -37,6 +38,10 @@ toc: true
 <img src="/asset/transition_ease.png" style="background:white;border-radius:30px;transition: translate 0.6s cubic-bezier(.34,1.56,.68,1.06), transform 0.6s cubic-bezier(.34,1.56,.68,1.06), box-shadow 0.6s cubic-bezier(.34,1.56,.68,1.06);" onclick="if (ismoved != 1) {document.querySelector('#transimg').style.translate = 'calc(100vw / 3)', ismoved = 1} else {document.querySelector('#transimg').style.translate = '', ismoved = 0}" id="transimg" class="clickevent">
 
 0.6s <a href="https://cubic-bezier.com/#.34,1.56,.68,1.06" target="_blank" aria-label="자세히 보기">**cubic-bezier(.34,1.56,.68,1.06)**</a>
+
+<img src="/asset/ease2.png" style="background:white;border-radius:30px;transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);" onclick="if (ismoved2 != 1) {document.querySelector('#transimg2').style.translate = 'calc(100vw / 3)', ismoved2 = 1} else {document.querySelector('#transimg2').style.translate = '', ismoved2 = 0}" id="transimg2" class="clickevent">
+
+0.6s <a href="https://cubic-bezier.com/#.22,1,.36,1" target="_blank" aria-label="자세히 보기">**cubic-bezier(0.22, 1, 0.36, 1)**</a>
 
 # 폰트
 
