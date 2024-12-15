@@ -1,13 +1,9 @@
-<div class="donatediv">
-    <a class="a" onclick="donatetoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
-<embed src="https://buymeacoffee.com/69kfw8nf5xp" class="donateframe" id="donateframe"></embed>
-</div>
 <div class="fullmenu" id="fullmenu">
     <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
     <i class="fa-solid fa-copyright"></i> Jiheum<hR>
     <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jxheum.site 디자인 가이드"><i class="fa-solid fa-pen-ruler"></i> Design</a></span><hR>
     <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a></span><hR>
-    <span><a onclick="donatetoggle()" class="a" aria-label="후원하기"><i class="fa-solid fa-circle-dollar-to-slot"></i> Donate</a></span><hR>
+    <span><a href="https://buymeacoffee.com/69kfw8nf5xp" class="a" aria-label="후원하기"><i class="fa-solid fa-circle-dollar-to-slot"></i> Donate</a></span><hR>
     <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
 </div>
 
@@ -33,7 +29,7 @@
         <a class="menuicons" href="/update" id="updatebtn"><div>
             <span><i class="fa-solid fa-wrench"></i></span><br>업데이트
         </div></a>
-        <a class="menuicons" onclick="donatetoggle()" id="donatebtn"><div>
+        <a class="menuicons" href="https://buymeacoffee.com/69kfw8nf5xp" id="donatebtn"><div>
             <span><i class="fa-solid fa-circle-dollar-to-slot"></i></span><br>후원하기
         </div></a>
     </div>
@@ -127,14 +123,5 @@
             menupage.style.top = 0, menuopen = 1;
         else
             menupage.style.top = 'calc(100vh)', menuopen = 0;
-    }
-
-    donateopen = 0
-    donatepage = document.querySelector('.donatediv')
-    function donatetoggle() {
-        if (donateopen == 0)
-            donatepage.style.top = 0, donateopen = 1;
-        else
-            donatepage.style.top = 'calc(100vh)', donateopen = 0;
     }
 </script>
