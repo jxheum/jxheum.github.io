@@ -1,11 +1,18 @@
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="69kfw8nf5xp" data-description="Support me on Buy me a coffee!" data-message="" data-color="#b0d5ff" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+<div class="donatediv">
+    <a class="a" onclick="donatetoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
+<iframe src="https://buymeacoffee.com/69kfw8nf5xp" class="donateframe" id="donateframe"></iframe>
+</div>
+<div class="fullmenu" id="fullmenu">
+    <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
+    <i class="fa-solid fa-copyright"></i> Jiheum<hR>
+    <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jxheum.site 디자인 가이드"><i class="fa-solid fa-pen-ruler"></i> Design</a></span><hR>
+    <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a></span><hR>
+    <span><a onclick="donatetoggle()" class="a" aria-label="후원하기"><i class="fa-solid fa-circle-dollar-to-slot"></i> Donate</a></span><hR>
+    <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
+</div>
 
-<div class="footer" id="footer" style="display:block;">
-    <i class="fa-solid fa-copyright"></i> Jiheum | 
-    <a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jxheum.site 디자인 가이드"><i class="fa-solid fa-pen-ruler"></i> Design</a> |
-    <a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a> | 
-    <a onclick="donatetoggle()" class="a" aria-label="후원하기"><i class="fa-solid fa-credit-card"></i> Donate</a>
-    <span id="installbtn">| <a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
+<div class="footer" id="footer">
+    <a class="a" style="text-decoration: none;" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</a>
 </div>
 
 <div id="installoniOS" style="display:block;background:rgba(217, 217, 217, 0.1);width:calc(100% - 40px);bottom: 43px;right:-100%;position:fixed;padding:20px;transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);backdrop-filter: blur(10px);">
@@ -27,7 +34,7 @@
             <span><i class="fa-solid fa-wrench"></i></span><br>업데이트
         </div></a>
         <a class="menuicons" onclick="donatetoggle()" id="donatebtn"><div>
-            <span><i class="fa-solid fa-credit-card"></i></span><br>후원하기
+            <span><i class="fa-solid fa-circle-dollar-to-slot"></i></span><br>후원하기
         </div></a>
     </div>
 </div>
@@ -113,7 +120,21 @@
     return 'unknown';
     }
 
+    menuopen = 0
+    menupage = document.getElementById('fullmenu')
+    function menutoggle() {
+        if (menuopen == 0)
+            menupage.style.top = 0, menuopen = 1;
+        else
+            menupage.style.top = 'calc(100vh)', menuopen = 0;
+    }
+
+    donateopen = 0
+    donatepage = document.querySelector('.donatediv')
     function donatetoggle() {
-        document.getElementById('bmc-wbtn').click()
+        if (donateopen == 0)
+            donatepage.style.top = 0, donateopen = 1;
+        else
+            donatepage.style.top = 'calc(100vh)', donateopen = 0;
     }
 </script>

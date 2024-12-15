@@ -252,7 +252,7 @@ md-linear-progress {
 	bottom: 0px;
 	left: 0px;
 	width: 100%;
-	z-index: 999;
+	z-index: 9999;
 	backdrop-filter: blur(5px);
 }
 
@@ -556,19 +556,6 @@ ul {margin:0;}
     font-size: 18px;
 }
 
-#bmc-wbtn {display:none !important;}
-
-#bmc-iframe {
-    left: 110px !important;
-    bottom: 40px !important;
-}
-
-@media all and (max-width:540px) {
-	#bmc-iframe {
-		left: unset !important;
-	}
-}
-
 .a {cursor:pointer;}
 
 /* #donatebtn {
@@ -578,3 +565,60 @@ ul {margin:0;}
     border-radius: 100%;
     padding-top: 10px;
 } */
+
+.fullmenu, .donatediv {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+	z-index: 999990;
+    top: calc(100vh);
+	background:transparent;
+	backdrop-filter: blur(10px);
+	text-align: center;
+	font-size: 25px;
+	transition: top 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.donatediv {
+	z-index:9999999999;
+	padding-top:0;
+}
+
+.fullmenu hr {
+	margin: 20px 0px;
+	height:1px;
+}
+
+.fullmenu span {
+	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
+}
+
+.fullmenu span:hover {
+	font-size:30px;
+}
+
+.fullmenu span:active {
+	font-size: 25px;
+}
+
+.donateframe {
+	position: fixed;
+    margin: 0px;
+    border: 0px;
+	bottom:0;
+	left:0;
+	width: 100vw;
+	height:calc(100vh - 40px);
+    opacity: 1;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: rgba(13, 12, 34, 0.1) -6px 0px 30px;
+    background: url(https://cdn.buymeacoffee.com/assets/img/widget/loader.svg) center center / 64px no-repeat rgb(255, 255, 255);
+    z-index: 999999;
+    transition: 0.25s;
+    transform-origin: right bottom;
+    transform: scale(1);
+    user-select: none;
+}
+
