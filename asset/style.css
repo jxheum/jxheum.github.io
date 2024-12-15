@@ -547,11 +547,34 @@ ul {margin:0;}
 .menuicons {
     display:inline-block;
     text-align: center;
-    width:calc(25% - 4px);
+    width:calc(20% - 4px);
     font-weight: 600;
     font-size: 10px;
     cursor:pointer;
 }
 .menuicons span {
     font-size: 18px;
+}
+
+#bmc-wbtn {display:none !important;}
+
+#bmc-iframe {
+    left: 110px !important;
+    bottom: 40px !important;
+}
+
+@media all and (max-width:540px) {
+	#bmc-iframe {
+		left: calc(50% - 210px) !important;
+	}
+}
+
+.a {cursor:pointer;}
+
+#donatebtn {
+    position: fixed;
+    height: calc(20vw - 14px);
+    bottom: -40px;
+    border-radius: 100%;
+    padding-top: 10px;
 }

@@ -22,6 +22,8 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 Meta 태그 업데이트 (2)
 
+후원기능 추가 (3)
+
 #### 24.12.14
 
 PWA에서 Install 버튼이 표시되던 문제 해결 (1)

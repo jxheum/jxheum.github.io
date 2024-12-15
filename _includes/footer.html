@@ -1,7 +1,10 @@
-<div class="footer" id="footer">
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="69kfw8nf5xp" data-description="Support me on Buy me a coffee!" data-message="" data-color="#b0d5ff" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+<div class="footer" id="footer" style="display:none;">
     <i class="fa-solid fa-copyright"></i> Jiheum | 
     <a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jxheum.site 디자인 가이드"><i class="fa-solid fa-pen-ruler"></i> Design</a> |
-    <a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a>
+    <a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a> | 
+    <a onclick="donatetoggle()" class="a" aria-label="후원하기"><i class="fa-solid fa-credit-card"></i> Donate</a>
     <span id="installbtn">| <a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
 </div>
 
@@ -9,7 +12,7 @@
     <img src="/asset/share.svg" style="vertical-align: -3px;" alt="iPhone 공유 버튼"> 누르고 홈 화면에 추가하기
 </div>
 
-<div class="bottombar" id="iosfooter" style="display:none;">
+<div class="bottombar" id="iosfooter" style="display:block;">
     <div class="bottommenus">
         <a href="/"><div class="menuicons selected" id="homebtn">
             <span><i class="fa-solid fa-house"></i></span><br>홈
@@ -22,6 +25,9 @@
         </div></a>
         <a class="menuicons" href="/update" id="updatebtn"><div>
             <span><i class="fa-solid fa-wrench"></i></span><br>업데이트
+        </div></a>
+        <a class="menuicons donationbtn bg" onclick="donatetoggle()" id="donatebtn"><div>
+            <span><i class="fa-solid fa-credit-card"></i></span><br>후원하기
         </div></a>
     </div>
 </div>
@@ -105,5 +111,9 @@
         return 'window-controls-overlay';
 
     return 'unknown';
+    }
+
+    function donatetoggle() {
+        document.getElementById('bmc-wbtn').click()
     }
 </script>
