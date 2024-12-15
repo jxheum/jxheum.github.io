@@ -559,7 +559,7 @@ ul {margin:0;}
 #bmc-wbtn {display:none !important;}
 
 #bmc-iframe {
-    left: 110px !important;
+	left: unset !important;
     bottom: 40px !important;
 }
 
