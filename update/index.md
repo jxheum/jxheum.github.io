@@ -22,6 +22,10 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 후원 기능 업그레이드 (1)
 
+하단 패딩 개선 (2)
+
+메뉴기능 변경 (2)
+
 ### 24.12.15
 
 이메일주소 변경 (1)
