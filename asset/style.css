@@ -572,7 +572,7 @@ ul {margin:0;}
     left: 0;
 	z-index: 999990;
     bottom: calc(-500px);
-	background:transparent;
+	/* background:transparent; */
 	backdrop-filter: blur(10px);
 	text-align: center;
 	font-size: 25px;
@@ -622,4 +622,17 @@ ul {margin:0;}
 	border-radius: 100px;
 	background:transparent;
 	backdrop-filter: blur(10px);
+}
+
+#bodydiv {
+	transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#fmoverlay {
+	width:100vw;
+	height:100vh;
+	position:fixed;
+	display:none;
+	top:0;
+	left:0;
 }

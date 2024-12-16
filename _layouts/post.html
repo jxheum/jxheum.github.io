@@ -101,6 +101,7 @@
 </head>
 
 <body>
+    <div id="bodydiv">
     {% for tag in page.tags %}
         <meta name="Keywords" content="{{ tag }}" />
         {% unless forloop.last %}{% endunless %}
@@ -180,7 +181,9 @@
                     {% include toc.html html=content %}
                 </div>
             </div>
+            <article>
             {{page.content | markdownify}}
+        </article>
         </div>
         <hr class="lasthr">
         <!-- <div class="bottominfosec">
@@ -210,8 +213,9 @@
                     async="async"></script>
             </div>
         {% endif %}
-        {% include footer.html %}
     </div>
+</div>
+        {% include footer.html %}
     <script>
         function github() {
             window.open(

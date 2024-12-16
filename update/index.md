@@ -26,6 +26,8 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 메뉴기능 변경 (2)
 
+메뉴 기능 개선 (3)
+
 ### 24.12.15
 
 이메일주소 변경 (1)

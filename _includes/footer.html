@@ -1,11 +1,13 @@
-<div class="fullmenu" id="fullmenu">
+<div class="fullmenu bg" id="fullmenu">
     <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
     <i class="fa-solid fa-copyright"></i> Jiheum<hR>
+    <span><a href="/" onclick="parent.gotopage('/')" class="a" aria-label="홈"><i class="fa-solid fa-home"></i> Main</a></span><hR>
     <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jxheum.site 디자인 가이드"><i class="fa-solid fa-pen-ruler"></i> Design</a></span><hR>
     <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a></span><hR>
     <span><a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank" class="a" aria-label="Buy Me a Coffee">Buy Me a <i class="fa-solid fa-mug-saucer"></i></a> <span class="bgtxt">|</span> <a href="https://github.com/sponsors/jxheum" target="_blank" class="a" aria-label="Github Sponsors"><i class="fa-brands fa-github"></i> Sponsors</a></span><hR>
-    <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
+    <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
 </div>
+<div id="fmoverlay"></div>
 
 <div class="footer" id="footer">
     <a class="a" style="text-decoration: none;" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</a>
@@ -87,7 +89,7 @@
     });
 
     const installApp = document.getElementById('installbtn');
-    installApp.addEventListener('click', async () => {
+    function installpwa() {
         if (['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
             document.getElementById('installoniOS').style.bottom = '0px'
             setTimeout(() => {
@@ -95,14 +97,14 @@
             }, 5000)
         } else if (deferredPrompt !== null) {
             deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
+            const { outcome } = deferredPrompt.userChoice;
             if (outcome === 'accepted') {
                 deferredPrompt = null;
             }
         } else {
             alert()
         }
-    });
+    }
 
     
     function getPWADisplayMode() {
@@ -124,12 +126,19 @@
 
     menuopen = 0
     menupage = document.getElementById('fullmenu')
+    body = document.querySelector('body')
+    bodydiv = document.getElementById('bodydiv')
+    fmoverlay = document.getElementById('fmoverlay')
     function menutoggle() {
         if (menuopen == 0)
-            menupage.style.bottom = 0, menuopen = 1, document.querySelector('body').style.overflow = 'hidden';
+            menupage.style.bottom = 0, menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', fmoverlay.style.display = 'block';
         else
-            menupage.style.bottom = 'calc(-500px)', menuopen = 0, document.querySelector('body').style.overflow = 'auto';
+            menupage.style.bottom = 'calc(-500px)', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '';
     }
+
+    fmoverlay.addEventListener('click', (e) => {
+        menutoggle()
+    })
 
     donateopen = 0
     donatediv = document.getElementById('donatediv')

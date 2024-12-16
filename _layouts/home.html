@@ -34,6 +34,10 @@
             }
         </style>
         <style>
+
+            .bg {
+                background:rgba(255, 255, 255, 0.1);
+            }
             .content {
                 margin-top: 0;
             }
@@ -45,7 +49,12 @@
 	pointer-events: none;
 	background: linear-gradient(90deg, #00000a 0%, rgba(7,2,48,0) 1.5%, rgba(22,17,68,0) 98.5%, #00000a 100%);
 }
-@media all and (max-width:600px) {
+
+@media all and (min-width: 1000px) {
+    .fullmenu {width:40vw;}
+}
+
+@media all and (max-width:1000px) {
 	.card {
 		width: calc(100vw - 40px);
 		height: 300px;
@@ -107,6 +116,7 @@ body, html {
     </head>
 
     <body>
+        <div id="bodydiv">
         
             {% include header.html %}
             <a href="/blog" aria-label="블로그"><button
@@ -146,6 +156,7 @@ body, html {
         </div>
         <div class="cardoverlay">
         </div>
+    </div>
         {% include footer.html %}
 
         <script>
@@ -155,7 +166,7 @@ body, html {
             window.addEventListener('scroll', (event) => {
                 cards.forEach((link) => {
                     link.style.transitionDuration = ''
-                    if (window.innerWidth >= 600) {
+                    if (window.innerWidth >= 1000) {
                         link.style.transform = `translateX(-${window.scrollY}px)`
                     }
                     else {
@@ -222,7 +233,7 @@ body, html {
             atag = document.querySelectorAll('.card');
             atag.forEach((link) => {
                 link.addEventListener('mousemove', (e) => {
-                    if (window.innerWidth >= 600) {
+                    if (window.innerWidth >= 1000) {
                         link.style.transform = `translateX(${ - window.scrollY + 1 / 10 * (
                             e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left) / 2
                         )}px) translateY(${ 1 / 10 * (
@@ -232,7 +243,7 @@ body, html {
                 })
                 link.addEventListener('mouseleave', (e) => {
                     link.style.transitionDuration = ''
-                    if (window.innerWidth >= 600) {
+                    if (window.innerWidth >= 1000) {
                         link.style.transform = `translateX(${ - window.scrollY}px)`
                         link.style.boxShadow = ''
                     }
@@ -243,7 +254,7 @@ body, html {
                 })
 
                 link.addEventListener('mousedown', (e) => {
-                    if (window.innerWidth >= 600) {
+                    if (window.innerWidth >= 1000) {
                         link.style.transform = `translateX(${ - window.scrollY + 1 / 10 * (
                             e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left) / 2
                         )}px) translateY(${ 1 / 10 * (
@@ -253,7 +264,7 @@ body, html {
                 })
 
                 link.addEventListener('mouseup', (e) => {
-                    if (window.innerWidth >= 600) {
+                    if (window.innerWidth >= 1000) {
                         link.style.transform = `translateX(${ - window.scrollY + 1 / 10 * (
                             e.offsetX - (link.getBoundingClientRect().right - link.getBoundingClientRect().left) / 2
                         )}px) translateY(${ 1 / 10 * (
