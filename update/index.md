@@ -18,6 +18,10 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 ## 12월
 
+### 24.12.26
+
+jxheum.site -> jiheum.me 도메인 변경
+
 ### 24.12.16
 
 후원 기능 업그레이드 (1)
