@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "jxheum.site 업데이트 노트"
+title: "jiheum.me 업데이트 노트"
 excerpt: ""
 tag: ["Update"]
 comments: false
@@ -8,7 +8,7 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 ---
 
 # 개요
-[jxheum.site](/)의 업데이트 노트입니다.
+[jiheum.me](/)의 업데이트 노트입니다.
 
 # To do
 

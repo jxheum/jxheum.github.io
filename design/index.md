@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "jxheum.site 디자인 가이드"
+title: "jiheum.me 디자인 가이드"
 excerpt: ""
 tag: ["Design"]
 comments: false
