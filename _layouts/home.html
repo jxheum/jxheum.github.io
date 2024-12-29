@@ -54,6 +54,10 @@
 	background: linear-gradient(90deg, #00000a 0%, rgba(7,2,48,0) 1.5%, rgba(22,17,68,0) 98.5%, #00000a 100%);
 }
 
+#marginforfooter {
+    display:none;
+}
+
 @media all and (min-width: 1000px) {
     .fullmenu {width:40vw;}
 }
@@ -88,25 +92,25 @@
 
 
         .card:first-child {
-	height: calc(100vh - 40px - 340px);
+	height: calc(100vh - 58px - 47px);
 	width: calc(100vw - 40px);
 }
+        .card:first-child h1 {
+            padding-top: calc((100vh - 58px - 47px) / 2 - 23px);
+        }
 
-.card:first-child h1 {
-	padding-top: calc((100vh - 40px - 320px) / 2 - 13px)
-}
-	
-.card:last-child {
-	height: calc(100vh - 40px - 320px);
-	width: calc(100vw - 40px);
-    margin-bottom: 20px;
-}
-.card:last-child h1 {
-	padding-top: calc((100vh - 40px - 320px) / 2 - 23px);
-}
+    .card:last-child {
+        height: calc(100vh - 40px);
+	    width: calc(100vw - 40px);
+    }
+
+    .card:last-child h1 {
+        padding-top: calc((100vh - 40px) / 2 - 23px);
+    }
 
 body, html {
 	height:auto;
+    margin-bottom: 10px;
 }
 .header {
     background: linear-gradient(0deg, transparent, #00000a) !important;

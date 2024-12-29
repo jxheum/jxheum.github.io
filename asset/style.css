@@ -580,6 +580,8 @@ ul {margin:0;}
 	padding-bottom: 20px;
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
+	max-height: calc(100vh - 20px);
+    overflow-y: auto;
 }
 
 .fullmenu hr {
