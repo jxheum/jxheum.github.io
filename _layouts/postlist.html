@@ -14,41 +14,20 @@
     <meta property="og:url" content="/">
 	{% include head.html %}
 	<title>Jxheum Blog</title>
-	<style>
-		.jiheumtext {
-			transition-duration: 500ms;
-		}
-		.jiheumtext:hover {
-			font-size: 50px;
-		}
-		.jiheumtext:active {
-			font-size: 45px;
-		}
-
-		.blogtext {transition-duration: 500ms;}
-
-		@media all and (min-width:1000px) {
-			#header {width: 40vw;}
-			body {width: 40%;}
-			.fullmenu {width:40vw;}
-		}
-	</style>
 </head>
 
 <body>
-	<div id="bodydiv">
-	<!-- <헤더>
-	-->
- <div id="header" class="header headermain" style="position:fixed;"><a onclick="parent.gotopage('/')" href="/" aria-label="메인으로 이동"><span class="jiheumtext">Jiheum</span></a><span class="blogtext">BLOG</span></div>
- 
- <!-- <헤더끝> -->
-	<div style="height: 58px;"></div>
+	<div id="#bodydiv">
+	{% include header.html %}
+	<div style="height: 67.5px;"></div>
 	<div class="content">
 		{{ content }}
 
 	</div>
 </div>
+</div>
 	{% include footer.html %}
+	
 
 
 

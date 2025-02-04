@@ -1,19 +1,20 @@
+
+<div id="fmoverlay"></div>
 <div class="fullmenu bg" id="fullmenu">
     <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
-    <i class="fa-solid fa-copyright"></i> Jiheum<hR>
-    <span><a href="/" onclick="parent.gotopage('/')" class="a" aria-label="홈"><i class="fa-solid fa-home"></i> Main</a></span><hR>
-    <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jiheum.me 디자인 가이드"><i class="fa-solid fa-pen-ruler"></i> Design</a></span><hR>
-    <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트"><i class="fa-solid fa-wrench"></i> Update</a></span><hR>
-    <span><a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank" class="a" aria-label="Buy Me a Coffee">Buy Me a <i class="fa-solid fa-mug-saucer"></i></a> <span class="bgtxt">|</span> <a href="https://github.com/sponsors/jxheum" target="_blank" class="a" aria-label="Github Sponsors"><i class="fa-brands fa-github"></i> Sponsors</a></span><hR id="installhr">
-    <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span>
+    <hR style="margin-top: 0px;background: #00000000;"><span>Jiheum</span><hR>
+    <span><a href="/" onclick="parent.gotopage('/')" class="a" aria-label="홈">Home</a></span><hR>
+        <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트">Update</a></span><hR>
+    <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jiheum.me 디자인 가이드">Design</a></span><hR>
+    <span><a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank" class="a" aria-label="Buy Me a Coffee">Buy Me a Coffee</a></span><hR id="installhr">
+    <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span><hR id="installhr" style="margin-bottom: 0;">
 </div>
-<div id="fmoverlay"></div>
 
 <div class="footer" id="footer">
     <a class="a" style="text-decoration: none;" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</a>
 </div>
 
-<div id="installoniOS" style="display:block;background:transparent;width:calc(100% - 40px);bottom: -100px;right:0;position:fixed;padding: 26.5px 20px;transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);backdrop-filter: blur(10px);z-index:99999999999999999999999999;">
+<div id="installoniOS" style="display:block;background:transparent;width:calc(100% - 40px);bottom: -100%;right:0;position:fixed;padding: 26.5px 20px;transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);backdrop-filter: blur(10px);z-index:99999999999999999999999999;">
     <img src="/asset/share.svg" style="vertical-align: -3px;" alt="iPhone 공유 버튼"> 누르고 홈 화면에 추가하기
 </div>
 
@@ -31,21 +32,15 @@
         <a class="menuicons" href="/update" id="updatebtn"><div>
             <span><i class="fa-solid fa-wrench"></i></span><br>업데이트
         </div></a>
-        <a class="menuicons" onclick="toggledonatefordesktop()" id="donatebtn"><div>
+        <a class="menuicons" href="https://buymeacoffee.com/69kfw8nf5xp" id="donatebtn"><div>
             <span><i class="fa-solid fa-heart fa-beat-fade"></i></span><br>후원하기
         </div></a>
     </div>
 </div>
 
-<div id="donatediv">
-    <span><a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank" class="a" aria-label="Buy Me a Coffee">Buy Me a <i class="fa-solid fa-mug-saucer"></i></a> <span class="bgtxt"><br></span> <a href="https://github.com/sponsors/jxheum" target="_blank" class="a" aria-label="Github Sponsors"><i class="fa-brands fa-github"></i> Sponsors</a></span>
-</div>
-
 <div style="height:calc(env(safe-area-inset-bottom) + 47px);" id="marginforfooter"></div>
 
-<div class="dynamicisland"></div>
 <script>
-    dynamicisland = document.querySelector('.dynamicisland')
     iosfooter = document.querySelector('#iosfooter')
     path = document.location.pathname
     document.addEventListener('DOMContentLoaded', (e) => {
@@ -68,6 +63,16 @@
         else if (path == '/update/')
             btnid = 'updatebtn'
         document.getElementById(btnid).classList.add('selectedmenu')
+
+        menuopen = 0
+    menupage = document.getElementById('fullmenu')
+    body = document.querySelector('body')
+    bodydiv = document.querySelector('#bodydiv')
+    fmoverlay = document.querySelector('#fmoverlay')
+
+fmoverlay.addEventListener('click', (e) => {
+    menutoggle()
+})
     })
 
     function iOS() {
@@ -125,28 +130,11 @@
     return 'unknown';
     }
 
-    menuopen = 0
-    menupage = document.getElementById('fullmenu')
-    body = document.querySelector('body')
-    bodydiv = document.getElementById('bodydiv')
-    fmoverlay = document.getElementById('fmoverlay')
+    
     function menutoggle() {
         if (menuopen == 0)
             menupage.style.bottom = 0, menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', fmoverlay.style.display = 'block';
         else
             menupage.style.bottom = 'calc(-500px)', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '';
-    }
-
-    fmoverlay.addEventListener('click', (e) => {
-        menutoggle()
-    })
-
-    donateopen = 0
-    donatediv = document.getElementById('donatediv')
-    function toggledonatefordesktop() {
-        if (donateopen == 0)
-            donatediv.style.right = '20px', donateopen=1, document.getElementById('donatebtn').classList.add('selectedmenu');
-        else
-            donatediv.style.right = '-300px', donateopen=0, document.getElementById('donatebtn').classList.remove('selectedmenu');
     }
 </script>

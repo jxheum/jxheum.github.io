@@ -17,8 +17,8 @@ toc: true
 
 ## 라이트모드
 <div style="background:#fff;padding:20px;color:#000;">
-<input style="background: #b0d5ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <b>#b0d5ff</b><br>
-<input style="background: #1e1e1e;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <i>#1e1e1e</i><br>
+<input style="background: #eff6ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <b>#eff6ff</b><br>
+<input style="background: #101010;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <i>#101010</i><br>
 <input style="background: #0000001a;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <u>#0000001a</u><br>
 <input style="background: #007aff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #007aff<br>
 <input style="background: #00000a;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #00000a<br>
@@ -26,10 +26,10 @@ toc: true
 
 ## 다크모드
 <div style="background:#000;padding:20px;color:#fff;">
-<input style="background: #1e1e1e;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <b>#1e1e1e</b><br>
-<input style="background: #d9d9d9;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <i>#d9d9d9</i><br>
+<input style="background: #101010;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <b>#101010</b><br>
+<input style="background: #eff6ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <i>#eff6ff</i><br>
 <input style="background: #ffffff1a;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <u>#ffffff1a</u><br>
-<input style="background: #b0d5ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #b0d5ff<br>
+<input style="background: #eff6ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #eff6ff<br>
 <input style="background: #00000a;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #00000a<br>
 </div>
 
