@@ -29,7 +29,7 @@ toc: true
 <input style="background: #101010;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <b>#101010</b><br>
 <input style="background: #eff6ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <i>#eff6ff</i><br>
 <input style="background: #ffffff1a;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> <u>#ffffff1a</u><br>
-<input style="background: #eff6ff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #eff6ff<br>
+<input style="background: #007aff;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #007aff<br>
 <input style="background: #00000a;padding: 0px;vertical-align: 2px;height: 16px;width: 16px;border:none;" disabled> #00000a<br>
 </div>
 
