@@ -1,6 +1,7 @@
 <!-- 헤더 -->
 
 <head>
+    <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/webp" href="/asset/icon.webp"/>
     <link rel="shortcut icon" type="image/x-icon" href="/asset/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /> 
@@ -43,6 +44,7 @@
 
         <title>Jiheum</title>
 
+        <script src="https://unpkg.com/@barba/core"></script>
         <link href="/asset/style.css" rel="stylesheet">
             <script>
                 if ('serviceWorker' in navigator) {
@@ -56,6 +58,18 @@
                             );
                         });
                 };
+
+                barba.init({
+                transitions: [{
+                    name: 'default-transition',
+                    leave() {
+                    // create your stunning leave animation here
+                    },
+                    enter() {
+                    
+                    }
+                }]
+                });
             </script>
         </head>
         <!-- 헤더끝 -->

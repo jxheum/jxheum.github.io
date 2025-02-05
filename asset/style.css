@@ -17,6 +17,7 @@
 
 	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr, .tocsec {
 		background: #eff6ff1a;
+		border: 0.01px solid #f0f6ff26;
 	}
 
 	.pagenpdis, .bgtxt {
@@ -40,7 +41,7 @@
 
 	.footer {background: linear-gradient(180deg, transparent, #101010);}
 	.bottombar {background: #101010bf;}
-	.selectedmenu {color: #eff6ff;}
+	.selectedmenu {color: #007aff;}
 }
 
 @media (prefers-color-scheme: light) {
@@ -59,6 +60,7 @@
 
 	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr .tocsec {
 		background: #1010101a;
+		border: 0.01px solid #10101026;
 	}
 
 	.checkboxc input:checked ~ .checkmark {
@@ -93,6 +95,7 @@
 }
 
 
+
 body,
 html {
 	width: 100%;
@@ -106,7 +109,6 @@ html {
 	/* cursor: none; */
 	white-space: normal;
 	word-wrap: break-word;
-	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 
@@ -121,7 +123,7 @@ html {
 	left: 0px;
 	z-index: 999;
 	width: calc(100% - 20px);
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(3px);
 	user-select: none;
 	text-align: left;
 	font-weight: 900;
@@ -229,8 +231,8 @@ md-linear-progress {
 	left: 0px;
 	width: 100%;
 	z-index: 9999;
-	backdrop-filter: blur(5px);
-	height:27px;
+	backdrop-filter: blur(3px);
+	height:19px;
 }
 
 .carddiv {height: calc(100vh - 50vh + 250px - 20px);padding-top: calc(50vh - 250px);}
@@ -346,8 +348,7 @@ md-linear-progress {
 .posttitle2 {
 	padding: 0 20px;
     width: calc(100% - 40px);
-	font-size: 40px;
-	text-align: center;
+	font-size: 30px;
 	font-weight: 700;
 }
 
@@ -360,7 +361,7 @@ md-linear-progress {
 
 .chip {
 	width: fit-content;
-	margin-right: 10px;
+	margin-right: 5px;
 	border-radius: 500px;
 	padding: 5px 10px;
 	font-size: 14px;
@@ -378,14 +379,15 @@ md-linear-progress {
 	margin: 0 20px;
 	margin-top: 10px;
 	margin-left: calc(env(safe-area-inset-left) + 20px);
+	margin-bottom: 10px;
 }
 
 .commentsec {
 	text-align: center;
-	margin: 20px;
-	border-radius: 30px;
-	cursor: auto;
-	margin-left: calc(env(safe-area-inset-left) + 20px);
+    border-radius: 6px;
+    cursor: auto;
+    margin: 0 20px;
+    margin-left: calc(env(safe-area-inset-left) + 20px);
 }
 
 .bottominfosec {
@@ -411,6 +413,7 @@ md-linear-progress {
 	display:block;
 	padding:20px;
 	white-space: pre-line;
+	font-family: D2Coding, 'D2 coding', monospace;
 }
 
 .contentsec p code {
@@ -503,7 +506,7 @@ hr {
 	border:0px;height:5px;margin:0px;border-radius: 10px;
 }
 
-.tocsec {width:calc(100% - 40px);padding: 20px;border-radius: 30px;}
+.tocsec {width:calc(100% - 40px);padding: 24.25px;border-radius: 30px;}
 
 ul {margin:0;}
 
@@ -513,7 +516,7 @@ ul {margin:0;}
     position: fixed;
     bottom: 0px;
     left: 0px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
 }
 .bottommenus {
     width:100%;
@@ -523,7 +526,7 @@ ul {margin:0;}
 .menuicons {
     display:inline-block;
     text-align: center;
-    width:calc(100% / 5 - 4px);
+    width:calc(100% / 4 - 3.1px);
     font-weight: 600;
     font-size: 10px;
     cursor:pointer;
@@ -544,20 +547,19 @@ ul {margin:0;}
 
 .fullmenu {
     position: fixed;
-    width: 100vw;
+    width: calc(100vw - 4px);
     left: 0;
-	z-index: 999990;
+    z-index: 999990;
     bottom: calc(-500px);
-	/* background:transparent; */
-	backdrop-filter: blur(10px);
-	text-align: center;
-	font-size: 25px;
-	transition: bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	padding-bottom: 10px;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
-	max-height: calc(100vh - 20px);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    font-size: 25px;
+    transition: bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    max-height: calc(100vh - 20px);
     overflow-y: auto;
+    border: 2px solid #eff6ff1a;
 }
 
 .fullmenu hr {
@@ -599,7 +601,7 @@ ul {margin:0;}
 	transition: right 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	border-radius: 100px;
 	background:transparent;
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(3px);
 }
 
 #bodydiv {
@@ -613,4 +615,12 @@ ul {margin:0;}
 	display:none;
 	top:0;
 	left:0;
+}
+
+.contentsec ul {
+	margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }

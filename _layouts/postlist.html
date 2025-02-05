@@ -17,13 +17,14 @@
 </head>
 
 <body>
-	<div id="#bodydiv">
+	<div id="bodydiv" data-barba="wrapper">
 	{% include header.html %}
-	<div style="height: 67.5px;"></div>
+	<main data-barba="container" data-barba-namespace="home">
 	<div class="content">
 		{{ content }}
 
 	</div>
+	</main>
 </div>
 </div>
 	{% include footer.html %}

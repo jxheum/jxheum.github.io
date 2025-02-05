@@ -1,8 +1,8 @@
 
 <div id="fmoverlay"></div>
-<div class="fullmenu bg" id="fullmenu">
+<div class="fullmenu" id="fullmenu">
     <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
-    <hR style="margin-top: 0px;background: #00000000;"><span>Jiheum</span><hR>
+    <span>Jiheum</span><hR>
     <span><a href="/" onclick="parent.gotopage('/')" class="a" aria-label="홈">Home</a></span><hR>
         <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트">Update</a></span><hR>
     <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jiheum.me 디자인 가이드">Design</a></span><hR>
@@ -10,21 +10,18 @@
     <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span><hR id="installhr" style="margin-bottom: 0;">
 </div>
 
-<div class="footer" id="footer">
+<div class="footer" id="footer" style="display:none;">
     <a class="a" style="text-decoration: none;" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</a>
 </div>
 
-<div id="installoniOS" style="display:block;background:transparent;width:calc(100% - 40px);bottom: -100%;right:0;position:fixed;padding: 26.5px 20px;transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);backdrop-filter: blur(10px);z-index:99999999999999999999999999;">
+<div id="installoniOS" style="display:block;background:transparent;width:calc(100% - 40px);bottom: -100%;right:0;position:fixed;padding: 26.5px 20px;transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);backdrop-filter: blur(3px);z-index:99999999999999999999999999;">
     <img src="/asset/share.svg" style="vertical-align: -3px;" alt="iPhone 공유 버튼"> 누르고 홈 화면에 추가하기
 </div>
 
-<div class="bottombar" id="iosfooter" style="display:none;">
+<div class="bottombar" id="iosfooter">
     <div class="bottommenus">
         <a href="/"><div class="menuicons selected" id="homebtn">
             <span><i class="fa-solid fa-house"></i></span><br>홈
-        </div></a>
-        <a href="/blog"class="menuicons" id="blogbtn"><div >
-            <span><i class="fa-solid fa-file-pen"></i></span><br>블로그
         </div></a>
         <a class="menuicons" href="/design" id="designbtn"><div>
             <span><i class="fa-solid fa-pen-ruler"></i></span><br>디자인
@@ -53,26 +50,7 @@
             document.getElementById('installbtn').style.display = 'none';
             document.getElementById('installhr').style.display = 'none'
         }
-
-        if (path == '/')
-            btnid = 'homebtn'
-        else if (path == '/blog/' || path.includes('20'))
-            btnid = 'blogbtn'
-        else if (path == '/design/')
-            btnid = 'designbtn'
-        else if (path == '/update/')
-            btnid = 'updatebtn'
-        document.getElementById(btnid).classList.add('selectedmenu')
-
-        menuopen = 0
-    menupage = document.getElementById('fullmenu')
-    body = document.querySelector('body')
-    bodydiv = document.querySelector('#bodydiv')
-    fmoverlay = document.querySelector('#fmoverlay')
-
-fmoverlay.addEventListener('click', (e) => {
-    menutoggle()
-})
+        menuupdate();
     })
 
     function iOS() {
@@ -128,13 +106,37 @@ fmoverlay.addEventListener('click', (e) => {
         return 'window-controls-overlay';
 
     return 'unknown';
+    menuupdate()
     }
 
     
+    menuopen = 0
+    menupage = document.getElementById('fullmenu')
+    body = document.querySelector('body')
+    bodydiv = document.querySelector('#bodydiv')
+    fmoverlay = document.querySelector('#fmoverlay')
+
+fmoverlay.addEventListener('click', (e) => {
+    menutoggle()
+})
+
     function menutoggle() {
         if (menuopen == 0)
-            menupage.style.bottom = 0, menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', fmoverlay.style.display = 'block';
+            menupage.style.bottom = 0, menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.8)', bodydiv.style.height = '50vh', fmoverlay.style.display = 'block';
         else
-            menupage.style.bottom = 'calc(-500px)', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '';
+            menupage.style.bottom = 'calc(-500px)', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '';
+    }
+
+    function menuupdate() {
+        if (path == '/')
+            btnid = 'homebtn'
+        else if (path == '/blog/' || path.includes('20'))
+            btnid = 'blogbtn'
+        else if (path == '/design/')
+            btnid = 'designbtn'
+        else if (path == '/update/')
+            btnid = 'updatebtn'
+        document.getElementById(btnid).classList.add('selectedmenu')
+        
     }
 </script>
