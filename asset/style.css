@@ -116,17 +116,18 @@ html {
 .header,
 .header2 {
 	font-size: 40px;
-	margin: 0px;
+    margin: 0px;
     padding: 10px 20px;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	z-index: 999;
-	width: calc(100% - 20px);
-	backdrop-filter: blur(3px);
-	user-select: none;
-	text-align: left;
-	font-weight: 900;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    width: calc(100% - 20px);
+    backdrop-filter: blur(3px);
+    user-select: none;
+    text-align: left;
+    font-weight: 900;
+    transition: top 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 a {
@@ -172,9 +173,11 @@ a:link {
 }
 
 .content {
-	margin: 20px;
-	margin-top:0px;
-	margin-left: calc(env(safe-area-inset-left) + 20px);
+    margin: 20px;
+    margin-left: calc(env(safe-area-inset-left) + 20px);
+    min-height: calc(100vh - env(safe-area-inset-bottom) - 47px - 68px);
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .comment {
@@ -623,4 +626,55 @@ ul {margin:0;}
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
+}
+
+.mycardsec {
+	width: 100vw;
+    height: calc(100vh);
+	vertical-align: middle;
+    display: table-cell;
+}
+
+@media (min-width: 1000px) {
+	body {
+		/* background: gold; */
+	}
+}
+
+/* .mycardsec tr:first-child, .mycardsec tr:last-child {
+	height: 135px;
+} */
+
+.mycardsec th:first-child, .mycardsec th:last-child {
+	width: 20px;
+}
+
+th {
+	padding:0px;
+}
+
+.mycard {
+    border-radius: 20px;
+    vertical-align: top;
+    padding: 20px;
+    margin: 0px 20px;
+}
+
+.mycard .myname {
+    text-align: left;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.mycard .mysns {
+    text-align: left;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.mycard .myinfo {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 25px;
 }

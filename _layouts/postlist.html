@@ -13,14 +13,32 @@
     <meta property="og:image" content="/asset/descimg.png">
     <meta property="og:url" content="/">
 	{% include head.html %}
-	<title>Jxheum Blog</title>
+	<title>Jxheum</title>
+	<style>
+		.headermargin{display:none;}
+		.header {top: -100px;}
+	</style>
 </head>
 
 <body>
 	<div id="bodydiv" data-barba="wrapper">
 	{% include header.html %}
 	<main data-barba="container" data-barba-namespace="home">
-	<div class="content">
+	<div class="mycardsec">
+		<div class="bg mycard">
+			<div class="myname"><i class="fa-solid fa-face-smile"></i> Jiheum Baek</div>
+			<div class="myinfo">
+				<i class="fa-solid fa-cake-candles"></i> 2009.12.12.<br>
+				<i class="fa-solid fa-location-dot"></i> Suwon, Korea
+			</div>
+			<div class="mysns">
+				<a href="https://github.com/jxheum" target="_blank"><i class="fa-brands fa-github"></i> jxheum<br></a>
+				<a href="https://instagram.com/jxheum" target="_blank"><i class="fa-brands fa-instagram"></i> jxheum<br></a>
+				<a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank"><i class="fa-solid fa-mug-saucer"></i> Buy Me a Coffee</a>
+			</div>
+		</div>
+	</div>
+	<div class="content" id="blog">
 		{{ content }}
 
 	</div>
@@ -31,7 +49,17 @@
 	
 
 
-
+<script>
+	contentsec = document.querySelector('#blog')
+	header = document.querySelector('#header')
+	window.addEventListener('scroll', () => { 
+		if (window.scrollY >= (window.scrollY + contentsec.getBoundingClientRect().top) / 2) {
+			header.style.top = '0px';
+		} else {
+			header.style.top = '-100px';
+		}
+	});
+</script>
 </body>
 
 </html>
