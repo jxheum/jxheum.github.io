@@ -227,15 +227,27 @@ md-linear-progress {
 }
 
 .footer {
-	padding: calc(10px);
-	padding-bottom: calc(10px + env(safe-area-inset-bottom));
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	width: 100%;
-	z-index: 9999;
-	backdrop-filter: blur(3px);
-	height:19px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+    height: 37px;
+}
+
+.footer .menubtn {
+    width: fit-content;
+    padding: 10px;
+    border-radius: 500px;
+    margin-left: 8px;
+}
+
+.menubtn {
+    width: fit-content;
+    border-radius: 500px;
+    padding: 10px;
 }
 
 .carddiv {height: calc(100vh - 50vh + 250px - 20px);padding-top: calc(50vh - 250px);}
@@ -425,7 +437,7 @@ md-linear-progress {
 	padding:0px;
 }
 
-.postitm, .pagenow, .pagenp, button, .activechip, .clickevent {
+.postitm, .pagenow, .pagenp, button, .activechip, .clickevent, .footer a {
 	transition: transform 0.6s cubic-bezier(.34,1.56,.68,1.06), box-shadow 0.6s cubic-bezier(.34,1.56,.68,1.06);
 	cursor:pointer;
 }
@@ -636,8 +648,8 @@ ul {margin:0;}
 }
 
 @media (min-width: 1000px) {
-	body {
-		/* background: gold; */
+	.posttitle2 {
+		font-size: 60px;
 	}
 }
 
@@ -658,12 +670,14 @@ th {
     vertical-align: top;
     padding: 20px;
     margin: 0px 20px;
+	transform-style: preserve-3d
 }
 
 .mycard .myname {
     text-align: left;
     font-weight: 900;
     font-size: 40px;
+	transition: transform 0.3s cubic-bezier(.34,1.56,.68,1.06);
 }
 
 .mycard .mysns {
@@ -671,10 +685,22 @@ th {
     margin-top: 20px;
     font-weight: 500;
     font-size: 20px;
+	transition: transform 0.3s cubic-bezier(.34,1.56,.68,1.06);
 }
 
 .mycard .myinfo {
     text-align: left;
     margin-top: 20px;
     font-size: 25px;
+	transition: transform 0.3s cubic-bezier(.34,1.56,.68,1.06);
+}
+
+.mycard:hover .mysns, .mycard:hover .myname, .mycard:hover .myinfo {
+	transform: translateZ(20px);
+	text-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mycard:active .mysns, .mycard:active .myname, .mycard:active .myinfo {
+	transform: translateZ(0px);
+	text-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
 }

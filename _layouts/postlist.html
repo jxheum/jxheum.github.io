@@ -11,12 +11,19 @@
 	<meta property="og:title" content="Jiheum Blog">
     <meta property="og:description" content="My Blog">
     <meta property="og:image" content="/asset/descimg.png">
+	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <meta property="og:url" content="/">
 	{% include head.html %}
 	<title>Jxheum</title>
 	<style>
 		.headermargin{display:none;}
 		.header {top: -100px;}
+		@media (min-width: 1000px) {
+			main {
+				max-width: 40vw;
+				margin-left: calc(50vw - 20vw);
+			}
+		}
 	</style>
 </head>
 
@@ -25,7 +32,7 @@
 	{% include header.html %}
 	<main data-barba="container" data-barba-namespace="home">
 	<div class="mycardsec">
-		<div class="bg mycard">
+		<div class="bg mycard" id="mycard" data-tilt>
 			<div class="myname"><i class="fa-solid fa-face-smile"></i> Jiheum Baek</div>
 			<div class="myinfo">
 				<i class="fa-solid fa-cake-candles"></i> 2009.12.12.<br>
@@ -59,6 +66,26 @@
 			header.style.top = '-100px';
 		}
 	});
+
+	card = document.getElementById('mycard')
+
+	document.addEventListener("mousemove", function (e) {
+		Xmove = document.body.clientWidth / 2 - e.pageX
+		Ymove = document.documentElement.clientHeight / 2 - e.pageY
+		// console.log(Xmove, Ymove)
+		card.style.transform = 'rotate3d(' + -Ymove / 100 + 'deg, ' + -Xmove / 100 + 'deg)'
+	})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js" crossorigin="anonymous"></script>
+<script>
+	$('#mycard').tilt({
+		glare: true,
+		maxGlare: .01,
+		scale: 1.025,
+		maxTilt: 10,
+		speed: 300,
+		easing: "cubic-bezier(.34,1.56,.68,1.06)"
+	})
 </script>
 </body>
 

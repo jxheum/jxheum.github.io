@@ -28,11 +28,11 @@
             <div class="infosect">
                 <div class="posttitle2">{{ page.title }}</div>
                 <div class="posttags">
-                    {% if page.date %}
                     {% for tag in page.tags %}
                         <div class="chip">#{{ tag }}</div>
                         {% unless forloop.last %}{% endunless %}
                     {% endfor %}<br>
+                    {% if page.date %}
                     <div class="chip">
                         <i class="fa-solid fa-calendar"></i>
                         {{ page.date | date: '%Y-%m-%d %H:%M' }}

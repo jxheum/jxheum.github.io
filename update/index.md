@@ -14,6 +14,14 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 ~~후원 기능 업그레이드~~
 
+# 2025년
+
+## 2월
+
+### 25.02.07
+
+사이트 약간 리뉴얼
+
 # 2024년
 
 ## 12월
