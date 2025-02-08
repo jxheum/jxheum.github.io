@@ -4,6 +4,23 @@
         --color-border-default: #f0f6ff26;
     }
 
+    * {color:#eff6ff}
+
+    .btn {
+        background: #eff6ff1a;
+        border: 0.01px solid #f0f6ff26;
+        color: #eff6ff;
+        transition: 0.6s cubic-bezier(.34,1.56,.68,1.06) !important;
+    }
+    
+    .btn:hover {
+        transform: scale(1.025);
+        box-shadow: 0 0 10px -2px rgba(255, 255, 255, 0.2);
+        background: #eff6ff1a;
+        border: 0.01px solid #f0f6ff26;
+        color: #eff6ff;
+    }
+
     .btn-primary {
         background: #eff6ff1a;
         border: 0.01px solid #f0f6ff26;
@@ -20,8 +37,14 @@
     }
 
     .btn-primary:disabled {
-        background: #eff6ff00;
-        color: #eff6ff1a;
+        background: #eff6ff00 !important;
+        color: #eff6ff1a !important;
+        box-shadow: 0px 0px 0px !important;
+        cursor:default;
+    }
+
+    .color-box-border-info {
+        border: 0.01px solid #f0f6ff26;
     }
 }
 
@@ -31,6 +54,27 @@
         --color-border-default: #10101026;
     }
 
+    * {color:#101010}
+
+    .btn {
+        background: #1010101a;
+        border: 0.01px solid #10101026;
+        color: #101010;
+        transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);
+    }
+
+    .color-box-border-info {
+        border: 0.01px solid #10101026;
+    }
+    
+    .btn:hover {
+        background: #1010101a;
+        border: 0.01px solid #10101026;
+        color: #101010;
+        transform: scale(1.025);
+        box-shadow: 0 0 10px -2px rgba(255, 255, 255, 0.2);
+    }
+
     .btn-primary {
         background: #1010101a;
         border: 0.01px solid #10101026;
@@ -47,7 +91,130 @@
     }
 
     .btn-primary:disabled {
-        background: #10101000;
-        color: #1010101a;
+        background: #10101000 !important;
+        color: #1010101a !important;
+        box-shadow: 0px 0px 0px !important;
+        cursor:default;
     }
+}
+
+.gsc-comment-box:not(.gsc-comment-box-is-reply) {
+    border-radius: 30px;
+    border-width: 0;
+}
+
+#__next .rounded-t {
+    border-start-end-radius: 20px;
+    border-start-start-radius: 20px;
+}
+
+.gsc-comment-box-main {
+    margin: 0;
+}
+
+.gsc-comment-box-textarea {
+    border-radius: 0;
+    border-width: 0.1px;
+    max-height: 500px;
+    border-top: 0;
+    min-height: 100px;
+    padding: 20px;
+    width: 100%;
+}
+
+.gsc-comment-box-tabs {
+    align-items: center;
+    border-width: 0.1px;
+    border-start-end-radius: 30px;
+    border-start-start-radius: 30px;
+    display: flex
+;
+    justify-content: space-between;
+}
+
+#__next .border {
+    border-width: 0.1px;
+}
+
+.gsc-comment-box-tabs {
+    align-items: center;
+    border-width: 0.1px;
+    border-start-end-radius: 30px;
+    border-start-start-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gsc-comment-box-textarea-extras {
+    border-end-end-radius: 30px;
+    border-end-start-radius: 30px;
+    border-width: 0.1px;
+    display: flex;
+    border-top: 0.1px;
+    justify-content: flex-end;
+    padding-inline-end: .625rem;
+    padding-bottom: 7px;
+    padding-inline-start: .625rem;
+    padding-top: 7px;
+}
+
+.gsc-comment-box-bottom {border: 0;}
+
+.gsc-comment {}
+
+#__next .rounded {
+    border-radius: 100px;
+}
+
+.gsc-comment .gsc-comment-box-tabs {
+    border-radius: 0;
+    border-top-width: 1px;
+    border-start-end-radius: 30px;
+    border-start-start-radius: 30px;
+}
+
+.color-border-primary {
+    border: 0.01px solid #f0f6ff26;
+}
+
+
+
+.gsc-comment-box-is-reply {
+    border: 0;
+    margin: 20px;
+    width: calc(100% - 40px)
+}
+
+#__next .rounded-md {
+    border-radius: 30px;
+}
+
+.gsc-comment-box-preview {
+    border-end-end-radius: 30px;
+    border-end-start-radius: 30px;
+}
+
+.gsc-comment-header {
+    padding-inline-end: 20px;
+    padding-inline-start: 20px;
+    padding-top: 20px;
+}
+
+.gsc-replies {
+    border-end-end-radius: 0;
+    border-end-start-radius: 0;
+    border-top-width: 0.1px;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: 20px;
+}
+
+.gsc-reply {
+    padding: 0px 20px;
+    position: relative;
+}
+
+button.form-control.color-text-secondary.color-border-primary.w-full.cursor-text.rounded.border.px-2.py-1.text-left.focus\:border-transparent {
+    padding: 10px !important;
 }

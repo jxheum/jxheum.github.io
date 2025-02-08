@@ -396,8 +396,8 @@ md-linear-progress {
 }
 
 .commentsec {
-	text-align: center;
-    border-radius: 6px;
+    text-align: center;
+    border-radius: 30px;
     cursor: auto;
     margin: 0 20px;
     margin-left: calc(env(safe-area-inset-left) + 20px);
