@@ -37,7 +37,7 @@
 
 	code .nf, .n {color:#d2a8ff;}
 
-	code .sh, code .s {color:#a5d6ff;}
+	code .sh, code .s, .dl, .s2 {color:#a5d6ff;}
 
 	.footer {background: linear-gradient(180deg, transparent, #101010);}
 	.bottombar {background: #101010bf;}
@@ -86,7 +86,7 @@
 
 	code .nf, .n {color:#6639ba;}
 
-	code .sh, code .s {color:#0a3069;}
+	code .sh, code .s, .dl, .s2 {color:#0a3069;}
 
 	.footer {background: linear-gradient(180deg, transparent, #eff6ff);}
 
@@ -391,10 +391,8 @@ md-linear-progress {
 
 .contentsec {
 	width: calc(100% - 40px - env(safe-area-inset-left));
-	margin: 0 20px;
-	margin-top: 10px;
+	margin: 20px;
 	margin-left: calc(env(safe-area-inset-left) + 20px);
-	margin-bottom: 10px;
 }
 
 .commentsec {
@@ -455,7 +453,8 @@ md-linear-progress {
 button {
 	display: inline-block;
     text-align: right;
-    border:none;border-radius: 100px;padding:10px;
+    border-radius: 100px;
+	padding:10px;
 }
 button i {
 	vertical-align: 0.5px;
@@ -574,7 +573,7 @@ ul {margin:0;}
     border-top-right-radius: 20px;
     max-height: calc(100vh - 20px);
     overflow-y: auto;
-    border: 2px solid #eff6ff1a;
+    border: 1px solid #eff6ff1a;
 }
 
 .fullmenu hr {
@@ -651,6 +650,15 @@ ul {margin:0;}
 	.posttitle2 {
 		font-size: 60px;
 	}
+
+	.commentsec {
+        width: 70vw;
+        margin-left: calc(15vw);
+    }
+
+	.fullmenu {
+		width: 40vw;
+	}
 }
 
 /* .mycardsec tr:first-child, .mycardsec tr:last-child {
@@ -670,7 +678,8 @@ th {
     vertical-align: top;
     padding: 20px;
     margin: 0px 20px;
-	transform-style: preserve-3d
+    transform-style: preserve-3d;
+    cursor: none;
 }
 
 .mycard .myname {
@@ -703,4 +712,12 @@ th {
 .mycard:active .mysns, .mycard:active .myname, .mycard:active .myinfo {
 	transform: translateZ(0px);
 	text-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+article h1 {
+	font-size: 30px;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+	margin: 20px 0px;
 }

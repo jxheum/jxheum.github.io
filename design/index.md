@@ -45,22 +45,9 @@ toc: true
 
 # 폰트
 
-## Google Noto Sans
-<a href="https://fonts.google.com/noto/specimen/Noto+Sans+KR" target="_blank" aria-label="구글 폰트에서 보기"><i class="fa-brands fa-google"></i> Fonts</a>
+## [<span style="font-weight: 100;">P</span><span style="font-weight: 200;">r</span><span style="font-weight: 300;">e</span><span style="font-weight: 400;">t</span><span style="font-weight: 500;">e</span><span style="font-weight: 600;">n</span><span style="font-weight: 700;">d</span><span style="font-weight: 800;">a</span><span style="font-weight: 900;">rd</span>](https://github.com/orioncactus/pretendard)
 
-<a href="https://fonts.adobe.com/fonts/noto-sans" target="_blank" aria-label="어도비 폰트에서 보기"><i class="fa-solid fa-italic"></i> Adobe Fonts</a>
-
-## Font Awesome
-<a href="https://fontawesome.com/" target="_blank" aria-label="홈페이지로 이동"><i class="fa-solid fa-font-awesome" style="vertical-align: 1px;"></i> Font Awesome</a>
-
-# 모양
-
-<div style="float:left;">
-<div style="width:150px;height:50px;border-radius: 200px;" class="bg clickevent"></div>
-<div style="width:150px;height:260px;border-radius: 30px;margin-top:10px;" class="bg clickevent"></div>
-</div>
-<div style="width:150px;height:320px;border-radius: 70px;margin-left: 160px;" class="bg clickevent"></div>
-
+## [Font Awesome](https://fontawesome.com/)
 
 # 컴포넌트
 
