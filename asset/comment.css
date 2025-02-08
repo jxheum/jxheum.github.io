@@ -1,7 +1,7 @@
 @media (prefers-color-scheme: dark) {
-    *, :after, :before {
-        border: 0.01px solid #f0f6ff26;
-        box-sizing: border-box;
+
+    :root {
+        --color-border-default: #f0f6ff26;
     }
 
     .btn-primary {
@@ -26,9 +26,9 @@
 }
 
 @media (prefers-color-scheme: light) {
-    *, :after, :before {
-        border: 0.01px solid #10101026;
-        box-sizing: border-box;
+
+    :root {
+        --color-border-default: #10101026;
     }
 
     .btn-primary {
