@@ -42,6 +42,11 @@
 	.footer {background: linear-gradient(180deg, transparent, #101010);}
 	.bottombar {background: #101010bf;}
 	.selectedmenu {color: #007aff;}
+
+	body::-webkit-scrollbar-thumb {
+		background: #eff6ff1a;
+		border: 0.01px solid #f0f6ff26;
+	}
 }
 
 @media (prefers-color-scheme: light) {
@@ -92,6 +97,11 @@
 
 	.bottombar {background: #eff6ffbf;}
 	.selectedmenu {color: #007aff;}
+
+	body::-webkit-scrollbar-thumb {
+		background: #1010101a;
+		border: 0.01px solid #10101026;
+	}
 }
 
 
@@ -725,4 +735,29 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 .giscus {
     margin: 20px;
     width: calc(100% - 40px);
+}
+
+body::-webkit-scrollbar {
+	background: #00000000;
+	width:10px;
+}
+	
+body::-webkit-scrollbar-thumb {
+	border-radius: 30px;
+}
+
+.gotoblog {
+	position:absolute;
+	bottom:calc(10px + env(safe-area-inset-bottom));
+	z-index: 10000;
+	text-align: center;
+	left:calc(50% - 50px);
+	font-size: 15px;
+	width: 100px;
+	background: none;
+	border: 0;
+	transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gotoblog i {
+	font-size: 20px;
 }

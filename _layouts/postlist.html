@@ -46,6 +46,7 @@
 			</div>
 		</div>
 	</div>
+	<button class="gotoblog" id="gotoblog"><a href="#blog"><i class="fa-solid fa-chevron-down"></i><br>Blog</a></button>
 	<div class="content" id="blog">
 		{{ content }}
 
@@ -60,22 +61,16 @@
 <script>
 	contentsec = document.querySelector('#blog')
 	header = document.querySelector('#header')
+	gotoblog = document.querySelector('#gotoblog')
 	window.addEventListener('scroll', () => { 
 		if (window.scrollY >= (window.scrollY + contentsec.getBoundingClientRect().top) / 2) {
 			header.style.top = '0px';
+			gotoblog.style.bottom = '68px'
 		} else {
 			header.style.top = '-100px';
+			gotoblog.style.bottom = 'calc(10px + env(safe-area-inset-bottom))'
 		}
 	});
-
-	card = document.getElementById('mycard')
-
-	document.addEventListener("mousemove", function (e) {
-		Xmove = document.body.clientWidth / 2 - e.pageX
-		Ymove = document.documentElement.clientHeight / 2 - e.pageY
-		// console.log(Xmove, Ymove)
-		card.style.transform = 'rotate3d(' + -Ymove / 100 + 'deg, ' + -Xmove / 100 + 'deg)'
-	})
 </script>
 <script src="/asset/vanilla-tilt.min.js" crossorigin="anonymous"></script>
 <!-- <script>
