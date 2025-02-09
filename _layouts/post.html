@@ -9,12 +9,12 @@
         href="/asset/favicon.ico"/>
     <link rel="apple-touch-icon" href="/asset/icon.webp">
     {% include head.html %}
-</head>
+    </head>
 
 <body data-barba="wrapper">
         <div id="bodydiv">
             {% include header.html %}
-            <main data-barba="container" data-barba-namespace="{{ page.title }}">
+<main data-barba="container" data-barba-namespace="post">
             {% for tag in page.tags %}
         <meta name="Keywords" content="{{ tag }}" />
         {% unless forloop.last %}{% endunless %}
@@ -81,11 +81,10 @@
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
-        data-emit-metadata="0"
+        data-emit-metadata="1"
         data-input-position="top"
         data-theme="https://www.jiheum.me/asset/comment.css"
         data-lang="ko"
-        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>
@@ -141,49 +140,24 @@
     
     
     <script>
-        tocsec = document.querySelector('#tocsec')
-        toc = document.querySelector('#toc')
-        tocsecofsety = tocsec.offsetTop
-        faketoc = document.querySelector('#tocsec2')
-        faketoc2 = document.querySelector('#toc2')
-        header = document.querySelector("#header")
 
-        tocsec.addEventListener('mouseenter', (e) => {
-            toc.style.display = 'block'
-            toc.style.opacity = '1'
-            faketoc2.style.display='block'
-        })
+        // function handleMessage(event : MessageEvent) {
+        //     if (event.origin !== 'https://giscus.app') 
+        //         return;
+        //     if (!(typeof event.data === 'object' && event.data.giscus)) 
+        //         return;
+            
+        //     const giscusData = event.data.giscus;
+        //     console.log(giscusData)
+        //     // Do whatever you want with it, e.g. `console.log(giscusData)`. You'll need to
+        //     // make sure that `giscusData` contains the message you're expecting, e.g. by
+        //     // using `if ('discussion' in giscusData)`.
+        // }
 
-        tocsec.addEventListener('mouseleave', (e) => {
-            toc.style.opacity = '0'
-            toc.style.display = 'none'
-            faketoc2.style.display='none'
-        })
-
-        document.addEventListener('scroll', (e) => {
-            if (scrollY >= tocsecofsety) {
-                tocsec.style.position = 'fixed'
-                tocsec.style.top = 0
-                tocsec.style.zIndex = 999
-                faketoc.style.display = 'block'
-                tocsec.style.borderRadius = '0px'
-                tocsec.style.backdropFilter = 'blur(3px)'
-                tocsec.style.left = '0'
-                tocsec.setAttribute('class', 'tocsec fixedtoc')
-                header.style.display = 'none';
-            }
-            else {
-                tocsec.style.position = ''
-                tocsec.style.top = ''
-                tocsec.style.zIndex = ''
-                faketoc.style.display = 'none'
-                tocsec.style.borderRadius = ''
-                tocsec.style.backdropFilter = ''
-                tocsec.style.left = ''
-                tocsec.setAttribute('class', 'tocsec bg')
-                header.style.display = 'block';
-            }
-        })
+        // window.addEventListener('message', handleMessage);
+        
+        // window.removeEventListener('message', handleMessage);
     </script>
+    <script src="/asset/barba.js" defer></script>
 </body>
 </html>
