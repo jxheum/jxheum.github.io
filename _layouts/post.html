@@ -40,7 +40,7 @@
                     {% endif %}
                     {% if page.comments %}
                         <a href="#comments" aria-label="댓글로 이동">
-                            <div class="chip activechip">
+                            <div class="chip activechip" id="commentbtn">
                                 <i class="fa-solid fa-comments"></i>
                                 댓글</div>
                         </a>
@@ -85,6 +85,7 @@
         data-input-position="top"
         data-theme="https://www.jiheum.me/asset/comment.css"
         data-lang="ko"
+        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>
@@ -95,7 +96,7 @@
     <script>
         function github() {
             window.open(
-                'https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').slice(0, -1) +
+                'https://github.com/jxheum/jxheum.github.io/blob/main/_posts/' + window.location.pathname.replace(/\//g, '-').replace('-', '').replace('post-','').slice(-0, -1) +
                         '.md',
                 "fullscreen=yes"
             );
@@ -141,22 +142,25 @@
     
     <script>
 
-        // function handleMessage(event : MessageEvent) {
-        //     if (event.origin !== 'https://giscus.app') 
-        //         return;
-        //     if (!(typeof event.data === 'object' && event.data.giscus)) 
-        //         return;
-            
-        //     const giscusData = event.data.giscus;
-        //     console.log(giscusData)
-        //     // Do whatever you want with it, e.g. `console.log(giscusData)`. You'll need to
-        //     // make sure that `giscusData` contains the message you're expecting, e.g. by
-        //     // using `if ('discussion' in giscusData)`.
-        // }
+function handleMessage(event) {
+  if (event.origin !== "https://giscus.app") return
+  if (!(typeof event.data === "object" && event.data.giscus)) return
 
-        // window.addEventListener('message', handleMessage);
-        
-        // window.removeEventListener('message', handleMessage);
+  giscusData = event.data.giscus
+
+//   console.log(giscusData)
+  if ('discussion' in giscusData) {
+    console.log(giscusData.discussion.totalCommentCount)
+    document.getElementById('commentbtn').innerHTML = '<i class="fa-solid fa-comments"></i> 댓글 '+ giscusData.discussion.totalCommentCount
+  }
+  // Do whatever you want with it, e.g. `console.log(giscusData)`.
+  // You'll need to make sure that `giscusData` contains the message you're
+  // expecting, e.g. by using `if ('discussion' in giscusData)`.
+}
+
+window.addEventListener("message", handleMessage)
+setTimeout(() => window.removeEventListener("message", handleMessage), 10000);
+
     </script>
     <script src="/asset/barba.js" defer></script>
 </body>

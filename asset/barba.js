@@ -16,12 +16,15 @@ barba.init({
         data-input-position="top"
         data-theme="https://www.jiheum.me/asset/comment.css"
         data-lang="ko"
+        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>`
             }
+            
         },
         enter() {
+            if (menuopen) {menutoggle()}
         }
     }],
     views: [{

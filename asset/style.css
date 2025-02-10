@@ -747,16 +747,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gotoblog {
-	position:absolute;
-	bottom:calc(10px + env(safe-area-inset-bottom));
-	z-index: 10000;
-	text-align: center;
-	left:calc(50% - 50px);
-	font-size: 15px;
-	width: 100px;
-	background: none;
-	border: 0;
-	transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    position: absolute;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 10000;
+    text-align: center;
+    left: calc(50% - 30px);
+    font-size: 15px;
+    background: none;
+    border: 0;
+    transition: 0.6scubic-bezier(0.22, 1, 0.36, 1);
+    width: 60px;
 }
 .gotoblog i {
 	font-size: 20px;
