@@ -113,6 +113,7 @@ html {
 	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	min-height: 100vh;
 	font-size: 16px;
+	overflow-x: hidden;
 }
 
 * {
@@ -584,6 +585,16 @@ ul {margin:0;}
     max-height: calc(100vh - 20px);
     overflow-y: auto;
     border: 1px solid #eff6ff1a;
+}
+
+.fullmenu a {
+	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
+}
+.fullmenu a:hover {
+	font-size:30px
+}
+.fullmenu a:active {
+	font-size:25px
 }
 
 .fullmenu hr {

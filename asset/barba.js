@@ -52,5 +52,13 @@ barba.init({
                 easing: "cubic-bezier(.34,1.56,.68,1.06)"
             });
         }
+    }, {
+        namespace: 'post',
+        beforeEnter() {
+        },
+        afterEnter() {
+            timeupd()
+            console.log('post')
+        }
     }]
 });
