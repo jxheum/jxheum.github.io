@@ -36,13 +36,14 @@ barba.init({
 			header = document.querySelector('#header')
 			gotoblog = document.querySelector('#gotoblog')
 			window.addEventListener('scroll', () => { 
-				if (window.scrollY >= (window.scrollY + contentsec.getBoundingClientRect().top) / 2) {
+				if (window.scrollY >= 600) {
 					header.style.top = '0px';
-					gotoblog.style.bottom = '68px'
+                    gotoblog.style.display = 'none';
 				} else {
 					header.style.top = '-100px';
-					gotoblog.style.bottom = 'calc(10px + env(safe-area-inset-bottom))'
+                    gotoblog.style.display = 'block';
 				}
+                gotoblog.style.opacity = 1 - window.scrollY / 500;
 			});
             VanillaTilt.init(document.querySelector(".mycard"), {
                 glare: true,

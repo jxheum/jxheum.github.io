@@ -46,18 +46,5 @@
 
         <script src="https://unpkg.com/@barba/core"></script>
         <link href="/asset/style.css" rel="stylesheet">
-            <script>
-                if ('serviceWorker' in navigator) {
-                    navigator
-                        .serviceWorker
-                        .register('/asset/serviceworker.js')
-                        .then(function (registration) {
-                            console.log(
-                                'ServiceWorker registration successful with scope: ',
-                                registration.active
-                            );
-                        });
-                };
-            </script>
         </head>
         <!-- 헤더끝 -->

@@ -156,3 +156,17 @@ fmoverlay.addEventListener('click', (e) => {
                 easing: "cubic-bezier(.34,1.56,.68,1.06)"
             });
 	</script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator
+            .serviceWorker
+            .register('/asset/serviceworker.js')
+            .then(function (registration) {
+                console.log(
+                    'ServiceWorker registration successful with scope: ',
+                    registration.active
+                );
+            });
+    };
+</script>
