@@ -24,11 +24,6 @@
 		color: #eff6ff1a;
 	}
 
-	*:focus-visible {
-		outline: 3px #eff6ff solid;
-		outline-offset: 1px;
-	}
-
 	.topbtn, button {
 		color: #eff6ff;
 	}
@@ -77,10 +72,6 @@
 
 	.pagenpdis, .bgtxt {
 		color: #1010101a;
-	}
-
-	.postitm:focus {
-		border: 3px #101010 solid;
 	}
 
 	.topbtn, button {
@@ -672,13 +663,14 @@ ul {margin:0;}
 		font-size: 60px;
 	}
 
-	.commentsec {
-        width: 70vw;
-        margin-left: calc(15vw);
-    }
 
 	.fullmenu {
 		width: 40vw;
+	}
+
+	main {
+		width:70vw;
+		margin: 0 15vw;
 	}
 }
 

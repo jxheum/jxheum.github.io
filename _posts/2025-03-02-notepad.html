@@ -1,0 +1,185 @@
+---
+layout: default
+title: "메모장"
+excerpt: "그냥 평범한 NotePad"
+date: 2025-03-02 21:53
+---
+<style>
+    .textareadiv {
+        width:100%;
+        border-radius: 40px;
+        height: calc(100vh - 67.5px - 97px);
+    }
+
+    textarea {
+        font-size: 1.2em;
+        padding: 20px;
+        resize: none;
+        background: 0;
+        color: inherit;
+        font-family: inherit;
+        border: 0;
+        height: calc(100vh - 67.5px - 97px - 20px - 76.5px);
+        width: calc(100% - 40px);
+        padding-top: 76.5px;
+        border-radius: 40px;
+    }
+    textarea:focus {
+        outline: none;
+    }
+
+    #toolbar {
+        width: fit-content;
+        position:absolute;
+        width: calc(100% - 80px);
+        top: 77.5px;
+        left: 30px;
+        padding: 10px;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+        border-radius: 100px;
+    }
+
+    .redbtn {
+        background: #ff00001a;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .textareadiv {
+            border:2px solid #eff6ff1a;
+        }
+
+        #toolbar {
+            background: #eff6ff1a;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        .textareadiv {
+            border:2px solid #1010101a;
+        }
+
+        #toolbar {
+            background: #1010101a;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        #toolbar {
+            width: calc(70vw - 80px);
+            left: calc((100vw - (70vw - 65px)) / 2);
+        }
+    }
+
+</style>
+
+<div class="textareadiv">
+<div id="toolbar">
+    <span style="font-size:1.2em;vertical-align: -2px;margin-left:10px;font-weight: 600;text-overflow: ellipsis;-webkit-line-clamp:20;" id="titlespan">NotePad</span>
+    <button style="margin-left:10px;" onclick="newnote()" id="newbtn">New</button>
+    <button onclick="load()">Load</button>
+    <button onclick="save()">Save</button>
+    <button onclick="printit()">Print</button>
+</div>
+<textarea oninput="// changetitle()" placeholder="메모장">
+</textarea>
+</div>
+<div style="padding:10px;">
+<span id="filename">
+
+</span>
+</div>
+
+<script>
+    newbtn = document.querySelector('#newbtn');
+    titlespan = document.querySelector('#titlespan');
+    newclick = 0
+    function newnote() {
+        newclick++;
+        if (newclick == 1) {
+            newbtn.innerText = 'Really?';
+            newbtn.classList.add('redbtn');
+        } else {
+            document.querySelector('textarea').value = '';
+            resetnewbtn();
+            changetitle('');
+        }
+    }
+
+    function resetnewbtn() {
+        newclick = 0;
+        newbtn.innerText = 'New';
+        newbtn.classList.remove('redbtn');
+    }
+
+    textarea = document.querySelector('textarea');
+    document.addEventListener("keydown", function(e) {
+        if (e.ctrlKey && e.key == 's') {
+            e.preventDefault();
+            save();
+        }
+        else if (e.ctrlKey && e.key == 'o') {
+            e.preventDefault();
+            load();
+        }
+        else if (e.ctrlKey && e.key == 'n') {
+            e.preventDefault();
+            newnote();
+        }
+        else if (e.ctrlKey && e.key == 'p') {
+            e.preventDefault();
+            printit();
+        }
+        else {
+            textarea.focus();
+            resetnewbtn();
+            titlespan.innerText = 'NotePad*';
+        }
+    })
+
+    filename = document.querySelector('#filename');
+    function changetitle(name) {
+        filename.innerText = name;
+        titlespan.innerText = 'NotePad';
+    }
+
+    function save() {
+        var textToSave = textarea.value;
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+        hiddenElement.target = '_blank';
+        if (textToSave.replaceAll(' ', '') != '') {
+            hiddenElement.download = textToSave.split('\n')[0] + '.txt';
+        } else {
+            hiddenElement.download = '제목 없음.txt';
+        }
+        hiddenElement.click();
+        titlespan.innerText = 'NotePad';
+    }
+
+    function load() {
+        var fileToLoad = document.createElement("input");
+        fileToLoad.type = "file";
+        fileToLoad.accept = ".txt";
+        fileToLoad.click();
+        fileToLoad.addEventListener('change', function() {
+            file = fileToLoad.files[0];
+            reader = new FileReader();
+            reader.onload = function(e) {
+                textarea.value = e.target.result;
+                changetitle(file.name);
+            };
+            reader.readAsText(file);
+        });
+    }
+
+    function printit() {
+        var printWindow = window.open('', '', 'height=400,width=800');
+        printWindow.document.write('<html><head><title>Print</title>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write('<pre style="font-size: 1em;font-family: sans-serif;">' + textarea.value + '</pre>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>

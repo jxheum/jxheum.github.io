@@ -56,7 +56,7 @@
                 padding: 5px;
                 box-sizing: border-box;
                 overflow-y: scroll;
-                height: calc(100% - 40px);
+                height: calc(100%);
                 background: #0c0c0c;
                 padding-top: 45px;
             }
@@ -230,42 +230,45 @@
                 if (e.key === 'Enter') {
                     if (command.includes('<') || command.includes('>') || command.includes('|') || command.includes('&')) {
                         document.getElementById('output').innerText += 'J:' + window.location.pathname.replaceAll("/","\\") + '> ' + command + '\n';
-                        document.getElementById('output').innerText += command + " : Can't run it\n\n";
+                        document.getElementById('output').innerText += "명령 구문이 올바르지 않습니다.\n\n";
                         document.getElementById('cmdinput').value = '';
                     }
                     else {
                         document.getElementById('cmdinput').value = '';
                         document.getElementById('output').innerText += 'J:' + window.location.pathname.replaceAll("/","\\") + '> ' + command + '\n';
-                        if (command == 'main') {
-                            window.location.href = '/';
-                        }
-                        else if (command.replaceAll(' ', '') == '') {
+                        commando = command;
+                        command = command.toLowerCase();
+                        if (command.replaceAll(' ', '') == '') {
                             document.getElementById('output').innerText += '';
                         }
                         else if (command == 'help') {
-                            document.getElementById('output').innerText += 'Available commands:\n';
-                            document.getElementById('output').innerText += '  main - Go to main page\n';
-                            document.getElementById('output').innerText += '  help - Show this help\n';
-                            document.getElementById('output').innerText += '  clear - Clear the screen\n';
-                            document.getElementById('output').innerText += '  tree - Show the directory tree\n';
-                            document.getElementById('output').innerText += '  cd - Change the directory\n';
-                            document.getElementById('output').innerText += '  exit - Exit the terminal\n\n';
+                            document.getElementById('output').innerText += '  CD      현재 디렉터리 이름을 보여주거나 바꿉니다.\n';
+                            document.getElementById('output').innerText += '  CLS     화면을 지웁니다.\n';
+                            document.getElementById('output').innerText += '  EXIT    CMD.EXE 프로그램(명령 인터프리터)을 종료합니다.\n';
+                            document.getElementById('output').innerText += '  HELP    명령에 대한 도움말 정보를 제공합니다.\n';
+                            document.getElementById('output').innerText += '  TREE    드라이브의 디렉터리 구조를 그래픽으로 표시합니다.\n';
+                            document.getElementById('output').innerText += '  VER     터미널 버전을 표시합니다.\n\n';
                         }
-                        else if (command.includes('cd')) {
-                            if (command.replace('cd ', '') == 'cd' || command.replace('cd ', '') == '')
-                                document.getElementById('output').innerText += '\n';
-                            else {
+                        else if (command.startsWith('cd')) {
+                            if (command.replace('cd', '').replaceAll(' ', '') == '')
+                                document.getElementById('output').innerText += 'J:' + window.location.pathname.replaceAll("/","\\") + '' + '\n\n';
+                            else if (command.replaceAll('\\', '/').startsWith('cd /')) {
                                 document.location.pathname = command.replace('cd ', '');
-                                document.getElementById('output').innerText += 'Wait...\n\n';
+                                document.getElementById('output').innerText += '\n';
+                            }
+                            else {
+                                document.location.pathname += "/" + command.replace('cd ', '').replaceAll('\\'  , '/');
+                                document.getElementById('output').innerText += '\n';
                             }
                         }
                         else if (command == 'tree') {
+                            document.getElementById('output').innerText += '폴더 경로의 목록입니다.\n볼륨 일련 번호는 jiheum.me입니다.\n';
                             document.getElementById('output').innerText += 'J:\n';
                             document.getElementById('output').innerText += '└── /\n';
                             document.getElementById('output').innerText += '└── /update\n';
                             document.getElementById('output').innerText += '└── /design\n\n';
                         }
-                        else if (command == 'clear') {
+                        else if (command.startsWith('cls')) {
                             document.getElementById('output').innerText = '';
                             document.getElementById('start').innerText = '';
                         }
@@ -273,7 +276,7 @@
                             exit()
                         }
                         else {
-                            document.getElementById('output').innerText += command + ' : Command not found\n\n';
+                            document.getElementById('output').innerText += "'" + commando + '\'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.\n\n';
                         }
                     }
                     terminal.scrollTo(0, terminal.scrollHeight);
