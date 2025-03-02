@@ -597,25 +597,6 @@ ul {margin:0;}
 	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
 }
 
-.donateframe {
-	position: fixed;
-    margin: 0px;
-    border: 0px;
-	bottom:0;
-	left:0;
-	width: 100vw;
-	height:calc(100vh - 40px);
-    opacity: 1;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    box-shadow: rgba(13, 12, 34, 0.1) -6px 0px 30px;
-    background: url(https://cdn.buymeacoffee.com/assets/img/widget/loader.svg) center center / 64px no-repeat rgb(255, 255, 255);
-    z-index: 999999;
-    transition: 0.25s;
-    transform-origin: right bottom;
-    transform: scale(1);
-    user-select: none;
-}
 
 #donatediv {
 	position:fixed;
@@ -692,7 +673,11 @@ th {
     padding: 20px;
     margin: 0px 20px;
     transform-style: preserve-3d;
-    cursor: none;
+    cursor: default;
+}
+
+.mycard a {
+	cursor: pointer;
 }
 
 .mycard .myname {

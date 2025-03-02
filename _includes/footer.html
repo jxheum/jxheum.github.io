@@ -6,7 +6,7 @@
     <span><a href="/" class="a" aria-label="홈">Home</a></span><hR>
         <span><a href="/update" class="a" aria-label="업데이트 노트">Update</a></span><hR>
     <span><a href="/design" class="a" aria-label="jiheum.me 디자인 가이드">Design</a></span><hR>
-    <span><a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank" class="a" aria-label="Buy Me a Coffee">Buy Me a Coffee</a></span><hR id="installhr">
+    <span><a onclick="buymeacoffee()" class="a" aria-label="Buy Me a Coffee">Buy Me a Coffee</a></span><hR id="installhr">
     <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span><hR id="installhr" style="margin-bottom: 0;">
 </div>
 
@@ -29,7 +29,7 @@
         <a class="menuicons" href="/update" id="updatebtn"><div>
             <span><i class="fa-solid fa-wrench"></i></span><br>업데이트
         </div></a>
-        <a class="menuicons" href="https://buymeacoffee.com/69kfw8nf5xp" id="donatebtn"><div>
+        <a class="menuicons" onclick="buymeacoffee()" id="donatebtn"><div>
             <span><i class="fa-solid fa-heart fa-beat-fade"></i></span><br>후원하기
         </div></a>
     </div>
@@ -145,6 +145,10 @@ fmoverlay.addEventListener('click', (e) => {
             e.classList.add('selectedmenu')
         })
     });
+
+    function buymeacoffee() {
+        window.open('https://buymeacoffee.com/widget/page/69kfw8nf5xp?color=#eff6ff','_blank','width=500, height=600, toolbar=no, top=100, left=100')
+    }
 </script>
 <script src="/asset/vanilla-tilt.min.js" crossorigin="anonymous"></script>
 	<script>
