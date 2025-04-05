@@ -4,7 +4,7 @@ timezone: Asia/Seoul
 
 repository: jxheum/jxheum.github.io
 
-permalink: /:year/:month/:day/:title/
+permalink: /post/:year/:month/:day/:title/
 
 excerpt_separator: <!--more-->
 

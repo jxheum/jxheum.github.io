@@ -46,30 +46,5 @@
 
         <script src="https://unpkg.com/@barba/core"></script>
         <link href="/asset/style.css" rel="stylesheet">
-            <script>
-                if ('serviceWorker' in navigator) {
-                    navigator
-                        .serviceWorker
-                        .register('/asset/serviceworker.js')
-                        .then(function (registration) {
-                            console.log(
-                                'ServiceWorker registration successful with scope: ',
-                                registration.active
-                            );
-                        });
-                };
-
-                barba.init({
-                transitions: [{
-                    name: 'default-transition',
-                    leave() {
-                    // create your stunning leave animation here
-                    },
-                    enter() {
-                    
-                    }
-                }]
-                });
-            </script>
         </head>
         <!-- 헤더끝 -->

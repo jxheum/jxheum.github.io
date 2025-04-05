@@ -3,15 +3,15 @@
 <div class="fullmenu" id="fullmenu">
     <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
     <span>Jiheum</span><hR>
-    <span><a href="/" onclick="parent.gotopage('/')" class="a" aria-label="홈">Home</a></span><hR>
-        <span><a href="/update" onclick="parent.gotopage('/update')" class="a" aria-label="업데이트 노트">Update</a></span><hR>
-    <span><a href="/design" onclick="parent.gotopage('/design')" class="a" aria-label="jiheum.me 디자인 가이드">Design</a></span><hR>
-    <span><a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank" class="a" aria-label="Buy Me a Coffee">Buy Me a Coffee</a></span><hR id="installhr">
+    <span><a href="/" class="a" aria-label="홈">Home</a></span><hR>
+        <span><a href="/update" class="a" aria-label="업데이트 노트">Update</a></span><hR>
+    <span><a href="/design" class="a" aria-label="jiheum.me 디자인 가이드">Design</a></span><hR>
+    <span><a onclick="buymeacoffee()" class="a" aria-label="Buy Me a Coffee">Buy Me a Coffee</a></span><hR id="installhr">
     <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span><hR id="installhr" style="margin-bottom: 0;">
 </div>
 
 <div class="footer" id="footer">
-    <div class="clickevent menubtn"><a class="a" style="text-decoration: none;" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</a></div>
+    <div class="clickevent menubtn" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</div>
 </div>
 
 <div id="installoniOS" style="display:block;background:transparent;width:calc(100% - 40px);bottom: -100%;right:0;position:fixed;padding: 26.5px 20px;transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);backdrop-filter: blur(3px);z-index:99999999999999999999999999;">
@@ -29,13 +29,13 @@
         <a class="menuicons" href="/update" id="updatebtn"><div>
             <span><i class="fa-solid fa-wrench"></i></span><br>업데이트
         </div></a>
-        <a class="menuicons" href="https://buymeacoffee.com/69kfw8nf5xp" id="donatebtn"><div>
+        <a class="menuicons" onclick="buymeacoffee()" id="donatebtn"><div>
             <span><i class="fa-solid fa-heart fa-beat-fade"></i></span><br>후원하기
         </div></a>
     </div>
 </div>
 
-<div style="height:47px;" id="marginforfooter"></div>
+<div style="height:calc(47px + env(safe-area-inset-bottom));" id="marginforfooter"></div>
 
 <script>
     iosfooter = document.querySelector('#iosfooter')
@@ -128,10 +128,8 @@ fmoverlay.addEventListener('click', (e) => {
     }
 
     function menuupdate() {
-        if (path == '/')
+        if (path == '/' || path.includes('post'))
             btnid = 'homebtn'
-        else if (path == '/blog/' || path.includes('20'))
-            btnid = 'blogbtn'
         else if (path == '/design/')
             btnid = 'designbtn'
         else if (path == '/update/')
@@ -139,4 +137,40 @@ fmoverlay.addEventListener('click', (e) => {
         document.getElementById(btnid).classList.add('selectedmenu')
         
     }
+
+    const btns = document.getElementsByClassName('menuicons')
+    Array.from(btns).forEach((e) => {
+        e.addEventListener('click', (event) => {
+            document.getElementsByClassName('selectedmenu')[0].classList.remove('selectedmenu')
+            e.classList.add('selectedmenu')
+        })
+    });
+
+    function buymeacoffee() {
+        window.open('https://buymeacoffee.com/widget/page/69kfw8nf5xp?color=#eff6ff','_blank','width=500, height=600, toolbar=no, top=100, left=100')
+    }
+</script>
+<script src="/asset/vanilla-tilt.min.js" crossorigin="anonymous"></script>
+	<script>
+		VanillaTilt.init(document.querySelector(".mycard"), {
+                glare: true,
+                "max-glare": 0.5,
+                scale: 1.025,
+                gyroscope: true,
+                easing: "cubic-bezier(.34,1.56,.68,1.06)"
+            });
+	</script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator
+            .serviceWorker
+            .register('/asset/serviceworker.js')
+            .then(function (registration) {
+                console.log(
+                    'ServiceWorker registration successful with scope: ',
+                    registration.active
+                );
+            });
+    };
 </script>

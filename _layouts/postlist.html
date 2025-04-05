@@ -15,24 +15,18 @@
     <meta property="og:url" content="/">
 	{% include head.html %}
 	<title>Jxheum</title>
-	<style>
-		.headermargin{display:none;}
-		.header {top: -100px;}
-		@media (min-width: 1000px) {
-			main {
-				max-width: 40vw;
-				margin-left: calc(50vw - 20vw);
-			}
-		}
-	</style>
 </head>
 
 <body>
 	<div id="bodydiv" data-barba="wrapper">
 	{% include header.html %}
 	<main data-barba="container" data-barba-namespace="home">
+		<style>
+			.headermargin{display:none;}
+			.header {top: -100px;}
+		</style>
 	<div class="mycardsec">
-		<div class="bg mycard" id="mycard" data-tilt data-tilt-glare data-tilt-max-glare="0.5" data-tilt-scale="1.025" data-tilt-gyroscope data-tilt-easing="cubic-bezier(.34,1.56,.68,1.06)">
+		<div class="bg mycard" id="mycard">
 			<div class="myname"><i class="fa-solid fa-face-smile"></i> Jiheum Baek</div>
 			<div class="myinfo">
 				<i class="fa-solid fa-cake-candles"></i> 2009.12.12.<br>
@@ -42,52 +36,19 @@
 				<a href="https://github.com/jxheum" target="_blank"><i class="fa-brands fa-github"></i> jxheum</a><br>
 				<a href="https://instagram.com/jxheum" target="_blank"><i class="fa-brands fa-instagram"></i> jxheum</a><br>
 				<a href="mailto:jiheum@jiheum.me" target="_blank"><i class="fa-solid fa-at"></i> jiheum@jiheum.me</a><br>
-				<a href="https://buymeacoffee.com/69kfw8nf5xp" target="_blank"><i class="fa-solid fa-mug-saucer"></i> Buy Me a Coffee</a>
+				<a onclick="buymeacoffee()" target="_blank"><i class="fa-solid fa-mug-saucer"></i> Buy Me a Coffee</a>
 			</div>
 		</div>
 	</div>
+	<a href="#blog"><button class="gotoblog" id="gotoblog"><i class="fa-solid fa-chevron-down"></i><br>Blog</button></a>
 	<div class="content" id="blog">
 		{{ content }}
 
 	</div>
 	</main>
 </div>
-</div>
-	{% include footer.html %}
-	
-
-
-<script>
-	contentsec = document.querySelector('#blog')
-	header = document.querySelector('#header')
-	window.addEventListener('scroll', () => { 
-		if (window.scrollY >= (window.scrollY + contentsec.getBoundingClientRect().top) / 2) {
-			header.style.top = '0px';
-		} else {
-			header.style.top = '-100px';
-		}
-	});
-
-	card = document.getElementById('mycard')
-
-	document.addEventListener("mousemove", function (e) {
-		Xmove = document.body.clientWidth / 2 - e.pageX
-		Ymove = document.documentElement.clientHeight / 2 - e.pageY
-		// console.log(Xmove, Ymove)
-		card.style.transform = 'rotate3d(' + -Ymove / 100 + 'deg, ' + -Xmove / 100 + 'deg)'
-	})
-</script>
-<script src="/asset/vanilla-tilt.min.js" crossorigin="anonymous"></script>
-<!-- <script>
-	$('#mycard').tilt({
-		glare: true,
-		maxGlare: .5,
-		scale: 1.025,
-		maxTilt: 10,
-		speed: 300,
-		easing: "cubic-bezier(.34,1.56,.68,1.06)"
-	})
-</script> -->
+{% include footer.html %}
+	<script src="/asset/barba.js"></script>
 </body>
 
 </html>

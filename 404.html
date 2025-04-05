@@ -1,101 +1,430 @@
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta name="robots" content="noindex, nofollow" />
-    <script src="https://kit.fontawesome.com/e1582c160b.js" crossorigin="anonymous"></script>
-    <style>
-        * {
-            cursor: none;
-            user-select: none;
-        }
-
-        h1 {
-            position: fixed;
-            user-select: none;
-            color: white;
-            font-size: 50px;
-            cursor: none;
-            width: 90px;
-            height: 70px;
-            transition-duration: 100ms;
-        }
-
-        body,
-        html {
-            background: linear-gradient(141deg, #BDD3FA, #2e79fb);
-        }
-
-        .homebtn {
-            cursor: none;
-            user-select: none;
-            font-size: 60px;
-            text-decoration: double;
-            position: fixed;
-            top: calc(50% - 50px);
-            left: calc(50% - 50px);
-            width: 100px;
-            height: 100px;
-            border: none;
-            border-radius: 100px;
-            box-shadow: 5px 5px 5px #00000071;
-            transition-duration: 500ms;
-            border: 0.5px black solid;
-        }
-
-        .homebtn:hover {
-            font-size: 70px;
-            top: calc(50% - 52.5px);
-            left: calc(50% - 52.5px);
-            width: 105px;
-            height: 105px;
-            box-shadow: 7.5px 7.5px 7.5px #00000071;
-        }
-
-        .homebtn:active {
-            font-size: 50px;
-            top: calc(50% - 45px);
-            left: calc(50% - 45px);
-            width: 90px;
-            height: 90px;
-            box-shadow: 0px 0px 0px #00000071;
-        }
-    </style>
-</head>
-
-<body>
-    <h1 align="center" id="h1">404</h1>
-    <a href="/" aria-label="메인 페이지로 이동"><button class="homebtn" id="homebtn" aria-label="메인 페이지로 이동"><i class="fa-solid fa-house"></i></button></a>
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            let mouseX = e.pageX - 50; // document의 x좌표값
-            let mouseY = e.pageY - 60; // document의 y좌표값
-
-            if (mouseover == 0) {
-                let cursor = document.querySelector('h1');
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
+    <head>
+        <style>
+            @font-face {
+                font-family: "Cascadia Code";
+                src: url("/asset/CascadiaCode.woff2") format("woff2");
+                font-weight: normal;
+                font-style: normal;
             }
-        })
 
-        homebtn = document.getElementById('homebtn')
-        h1 = document.getElementById('h1')
-        mouseover = 0
+            html, body {
+                background: #0c0c0c;
+                color: #ccc;
+                font-family: "Cascadia Code", monospace;
+                font-size: 20px;
+                line-height: 1.2em;
+                padding:0;
+                margin:0;
+                overflow:hidden;
+            }
 
-        homebtn.addEventListener('mouseover', function () {
-            mouseover = 1
-            h1.style.transitionDuration = '500ms'
-            h1.style.fontSize = '30px'
-            h1.style.top = 'calc(50% - 55px)'
-            h1.style.left = 'calc(50% - 45px)'
-        })
-        homebtn.addEventListener('mouseout', function () {
-            mouseover = 0
-            h1.style.top = ''
-            h1.style.left = ''
-            h1.style.fontSize = ''
-            h1.style.transitionDuration = ''
-        })
-    </script>
-</body>
+            p {
+                margin:0;
+            }
 
+            input {
+                background: transparent;
+                color: #ccc;
+                border:0;
+                font-family: "Cascadia Code", monospace;
+                font-size: 20px;
+                line-height: 1.2em;
+                outline:none;
+                caret-color: #ccc;
+                width: max-content;
+            }
+
+            .topbar {
+                background: #2e2e2e;
+                width: 100%;
+                height: 40px;
+                cursor: default;
+                user-select: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                padding: 0 0px;
+                box-sizing: border-box;
+            }
+
+            .terminal {
+                width: 100%;
+                padding: 5px;
+                box-sizing: border-box;
+                overflow-y: scroll;
+                height: calc(100%);
+                background: #0c0c0c;
+                padding-top: 45px;
+            }
+
+            ::selection {
+                background: #ccc;
+                color: #0c0c0c;
+            }
+
+            .close-button {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                width: 45px;
+                height: 40px;
+                background: #2e2e2e;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                color: white;
+                font-weight: 900;
+            }
+
+            .close-button:hover {
+                background: #c42b1c;
+            }
+
+            .close-button:active {
+                color: #e8bfbb;
+            }
+
+            .min-button {
+                position: absolute;
+                right: 45px;
+                top: 0px;
+                width: 45px;
+                height: 40px;
+                background: #2e2e2e;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                color: white;
+                font-weight: 100;
+            }
+
+            .csh-button {
+                position: absolute;
+                right: 90px;
+                top: 0px;
+                width: 45px;
+                height: 40px;
+                background: #2e2e2e;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                color: white;
+                font-weight: 500;
+            }
+
+            .min-button:hover, .csh-button:hover {
+                background: #3a3a3a;
+            }
+
+            .min-button:active, .csh-button:active {
+                background: #363636;
+            }
+
+            #app {
+                transition: scale 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                text-align: left;
+                border: none;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            #appimagediv {
+                transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .resizer {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background: transparent;
+                z-index: 10;
+            }
+
+            .resizer-right {
+                right: 0;
+                top: 0;
+                bottom: 0;
+                cursor: ew-resize;
+                height:100%;
+            }
+
+            .resizer-bottom {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                cursor: ns-resize;
+                width:100%;
+            }
+
+            img {
+                -webkit-user-drag: none;
+                -khtml-user-drag: none;
+                -moz-user-drag: none;
+                -o-user-drag: none;
+                user-drag: none;
+            }
+            code {
+                font-family: "Cascadia Code", monospace;
+            }
+
+            #start a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div onclick='' style="left: calc(-20px + 50vw); top: calc(-20px + 50vh); cursor: default; position: absolute; translate: calc(20px - 50vw) calc(20px - 50vh);" id="appimagediv">
+            <img src="/asset/favicon.ico" style="height: 100vh; transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1); opacity: 0; width: 100vw;" id="appimage">
+        </div>
+        <div id="app">
+            <div class="topbar" ondblclick="min()">
+                <p style="color: #ccc; font-size: 15px; line-height: 1.2em; padding: 10px;">
+                    <img src="/asset/favicon.ico" style="height: 20px;vertical-align: -5px;"> 
+                    <span id="url"></span>
+                </p>
+                <div class="csh-button" onclick="csh()">⎯</div>
+                <div class="min-button" onclick="min()">▢</div>
+                <a onclick="exit()"><div class="close-button">✕</div></a>
+            </div>
+            <div class="terminal">
+                <p id="start">jiheum.me<br>404 Not Found<br><br>Type <a onclick="document.getElementById('cmdinput').value = 'cd /'" style="cursor:pointer;color: #f9f1a5;">"cd /"</a> to go to main page<br><br></p>
+                <p id="output"></p>
+                <p id="cmdinputp"><span id="pagepath"></span><input id="cmdinput"></p>
+            </div>
+            <div class="resizer resizer-right"></div>
+            <div class="resizer resizer-bottom"></div>
+        </div>
+
+        
+
+        <script>
+            document.getElementById("url").innerText = window.location;
+            if (document.location.pathname.endsWith('/')) {
+                document.location.pathname = document.location.pathname.slice(0, -1);
+            }
+            document.getElementById("pagepath").innerText = 'J:' + window.location.pathname.replaceAll("/","\\") + '> ';
+
+            terminal = document.querySelector('.terminal');
+
+            document.addEventListener('keydown', function(e) {
+                document.getElementById('cmdinput').focus();
+                command = document.getElementById('cmdinput').value;
+                if (e.key === 'Enter') {
+                    if (command.includes('<') || command.includes('>') || command.includes('|') || command.includes('&')) {
+                        document.getElementById('output').innerText += 'J:' + window.location.pathname.replaceAll("/","\\") + '> ' + command + '\n';
+                        document.getElementById('output').innerText += "명령 구문이 올바르지 않습니다.\n\n";
+                        document.getElementById('cmdinput').value = '';
+                    }
+                    else {
+                        document.getElementById('cmdinput').value = '';
+                        document.getElementById('output').innerText += 'J:' + window.location.pathname.replaceAll("/","\\") + '> ' + command + '\n';
+                        commando = command;
+                        command = command.toLowerCase();
+                        if (command.replaceAll(' ', '') == '') {
+                            document.getElementById('output').innerText += '';
+                        }
+                        else if (command == 'help') {
+                            document.getElementById('output').innerText += '  CD      현재 디렉터리 이름을 보여주거나 바꿉니다.\n';
+                            document.getElementById('output').innerText += '  CLS     화면을 지웁니다.\n';
+                            document.getElementById('output').innerText += '  EXIT    CMD.EXE 프로그램(명령 인터프리터)을 종료합니다.\n';
+                            document.getElementById('output').innerText += '  HELP    명령에 대한 도움말 정보를 제공합니다.\n';
+                            document.getElementById('output').innerText += '  TREE    드라이브의 디렉터리 구조를 그래픽으로 표시합니다.\n';
+                            document.getElementById('output').innerText += '  VER     터미널 버전을 표시합니다.\n\n';
+                        }
+                        else if (command.startsWith('cd')) {
+                            if (command.replace('cd', '').replaceAll(' ', '') == '')
+                                document.getElementById('output').innerText += 'J:' + window.location.pathname.replaceAll("/","\\") + '' + '\n\n';
+                            else if (command.replaceAll('\\', '/').startsWith('cd /')) {
+                                document.location.pathname = command.replace('cd ', '');
+                                document.getElementById('output').innerText += '\n';
+                            }
+                            else {
+                                document.location.pathname += "/" + command.replace('cd ', '').replaceAll('\\'  , '/');
+                                document.getElementById('output').innerText += '\n';
+                            }
+                        }
+                        else if (command == 'tree') {
+                            document.getElementById('output').innerText += '폴더 경로의 목록입니다.\n볼륨 일련 번호는 jiheum.me입니다.\n';
+                            document.getElementById('output').innerText += 'J:\n';
+                            document.getElementById('output').innerText += '└── /\n';
+                            document.getElementById('output').innerText += '└── /update\n';
+                            document.getElementById('output').innerText += '└── /design\n\n';
+                        }
+                        else if (command.startsWith('cls')) {
+                            document.getElementById('output').innerText = '';
+                            document.getElementById('start').innerText = '';
+                        }
+                        else if (command == 'exit') {
+                            exit()
+                        }
+                        else {
+                            document.getElementById('output').innerText += "'" + commando + '\'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.\n\n';
+                        }
+                    }
+                    terminal.scrollTo(0, terminal.scrollHeight);
+                }
+            });
+
+            function exit() {
+                csh();
+                document.getElementById('start').innerHTML = 'jiheum.me<br>404 Not Found<br><br>Type <a onclick="document.getElementById(\'cmdinput\').value = \'cd /\'" style="cursor:pointer;color: #f9f1a5;">"cd /"</a> to go to main page<br><br>';
+                document.getElementById('output').innerText = '';
+            }
+
+            app = document.getElementById('app');
+            appimage = document.getElementById('appimage');
+
+            function csh() {
+                appimagediv.style.display = 'block';
+                app.style.scale = '0.1';
+                app.style.opacity = '0';
+                app.style.scale = '0';
+                appimage.style.width = '40px';
+                appimage.style.height = '40px';
+                appimagediv.style.translate = '';
+                ismin = 1;
+                appimage.style.opacity = '1';
+                appimagediv.setAttribute('onclick', 'openapp()');
+            }
+
+            function openapp() {
+                app.style.scale = "0.1";
+                app.style.opacity = "1";
+                app.style.scale = "1";
+                appimage.style.width = '100vw';
+                appimage.style.height = '100vh';
+                appimage.style.opacity = '0';
+                appimagediv.style.translate = 'calc(20px - 50vw) calc(20px - 50vh)';
+                min()
+                appimagediv.setAttribute('onclick', '');
+            }
+
+            ismin = 0
+            topbar = document.querySelector('.topbar');
+            appimagediv = document.getElementById('appimagediv');
+            terminal = document.querySelector('.terminal');
+            closebtn = document.querySelector('.close-button');
+
+            function min() {
+                if (ismin == 0) {
+                    app.style.scale = '0.5';
+                    ismin = 1;
+                    topbar.style.borderTopRightRadius = '20px';
+                    topbar.style.borderTopLeftRadius = '20px';
+                    app.style.borderRadius = '20px';
+                    terminal.style.borderRadius = '20px';
+                    closebtn.style.borderTopRightRadius = '20px';
+                    app.style.border = '2px solid #2e2e2e'
+                }
+                else {
+                    app.style.scale = '1';
+                    ismin = 0;
+                    topbar.style.borderTopRightRadius = '';
+                    topbar.style.borderTopLeftRadius = '';
+                    app.style.borderRadius = '';
+                    terminal.style.borderRadius = '';
+                    closebtn.style.borderTopRightRadius = '';
+                    app.style.border = '';
+                    app.style.top = '0'
+                    app.style.left = '0'
+                    app.style.width = '100vw';
+                    app.style.height = '100vh';
+                }
+            }
+
+            // Dragging functionality
+            let isDragging = false;
+            let offsetX, offsetY;
+
+            topbar.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                offsetX = e.clientX - app.offsetLeft;
+                offsetY = e.clientY - app.offsetTop;
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+
+            function onMouseMove(e) {
+                if (isDragging && e.clientY >= 0) {
+                    if (ismin == 0) {min()}
+                    app.style.left = `${e.clientX - offsetX}px`;
+                    app.style.top = `${e.clientY - offsetY}px`;
+                }
+            }
+
+            function onMouseUp() {
+                isDragging = false;
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+
+            // Resizing functionality
+            const resizerRight = document.querySelector('.resizer-right');
+            const resizerBottom = document.querySelector('.resizer-bottom');
+            let isResizingRight = false;
+            let isResizingBottom = false;
+
+            resizerRight.addEventListener('mousedown', function(e) {
+                isResizingRight = true;
+                document.addEventListener('mousemove', onResizeRight);
+                document.addEventListener('mouseup', stopResizeRight);
+            });
+
+            resizerBottom.addEventListener('mousedown', function(e) {
+                isResizingBottom = true;
+                document.addEventListener('mousemove', onResizeBottom);
+                document.addEventListener('mouseup', stopResizeBottom);
+            });
+
+            function onResizeRight(e) {
+                if (isResizingRight) {
+                    if (ismin == 0) {min()}
+                    app.style.width = `${e.clientX - app.offsetLeft}px`;
+                }
+            }
+
+            function stopResizeRight() {
+                isResizingRight = false;
+                document.removeEventListener('mousemove', onResizeRight);
+                document.removeEventListener('mouseup', stopResizeRight);
+            }
+
+            function onResizeBottom(e) {
+                if (isResizingBottom) {
+                    if (ismin == 0) {min()}
+                    app.style.height = `${e.clientY - app.offsetTop}px`;
+                }
+            }
+
+            function stopResizeBottom() {
+                isResizingBottom = false;
+                document.removeEventListener('mousemove', onResizeBottom);
+                document.removeEventListener('mouseup', stopResizeBottom);
+            }
+
+            document.addEventListener('mouseout', function(e) {
+                if (isDragging && e.clientY <= 0) {
+                    if (ismin == 1) {min()}
+                }
+            });
+        </script>
+    </body>
 </html>

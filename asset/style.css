@@ -24,11 +24,6 @@
 		color: #eff6ff1a;
 	}
 
-	*:focus-visible {
-		outline: 3px #eff6ff solid;
-		outline-offset: 1px;
-	}
-
 	.topbtn, button {
 		color: #eff6ff;
 	}
@@ -42,6 +37,11 @@
 	.footer {background: linear-gradient(180deg, transparent, #101010);}
 	.bottombar {background: #101010bf;}
 	.selectedmenu {color: #007aff;}
+
+	body::-webkit-scrollbar-thumb {
+		background: #eff6ff1a;
+		border: 0.01px solid #f0f6ff26;
+	}
 }
 
 @media (prefers-color-scheme: light) {
@@ -74,10 +74,6 @@
 		color: #1010101a;
 	}
 
-	.postitm:focus {
-		border: 3px #101010 solid;
-	}
-
 	.topbtn, button {
 		color: #101010
 	}
@@ -92,6 +88,11 @@
 
 	.bottombar {background: #eff6ffbf;}
 	.selectedmenu {color: #007aff;}
+
+	body::-webkit-scrollbar-thumb {
+		background: #1010101a;
+		border: 0.01px solid #10101026;
+	}
 }
 
 
@@ -103,6 +104,7 @@ html {
 	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	min-height: 100vh;
 	font-size: 16px;
+	overflow-x: hidden;
 }
 
 * {
@@ -576,6 +578,16 @@ ul {margin:0;}
     border: 1px solid #eff6ff1a;
 }
 
+.fullmenu a {
+	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
+}
+.fullmenu a:hover {
+	font-size:30px
+}
+.fullmenu a:active {
+	font-size:25px
+}
+
 .fullmenu hr {
 	margin: 20px 0px;
 	height:1px;
@@ -585,25 +597,6 @@ ul {margin:0;}
 	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
 }
 
-.donateframe {
-	position: fixed;
-    margin: 0px;
-    border: 0px;
-	bottom:0;
-	left:0;
-	width: 100vw;
-	height:calc(100vh - 40px);
-    opacity: 1;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    box-shadow: rgba(13, 12, 34, 0.1) -6px 0px 30px;
-    background: url(https://cdn.buymeacoffee.com/assets/img/widget/loader.svg) center center / 64px no-repeat rgb(255, 255, 255);
-    z-index: 999999;
-    transition: 0.25s;
-    transform-origin: right bottom;
-    transform: scale(1);
-    user-select: none;
-}
 
 #donatediv {
 	position:fixed;
@@ -651,13 +644,14 @@ ul {margin:0;}
 		font-size: 60px;
 	}
 
-	.commentsec {
-        width: 70vw;
-        margin-left: calc(15vw);
-    }
 
 	.fullmenu {
 		width: 40vw;
+	}
+
+	main {
+		width:70vw;
+		margin: 0 15vw;
 	}
 }
 
@@ -679,7 +673,11 @@ th {
     padding: 20px;
     margin: 0px 20px;
     transform-style: preserve-3d;
-    cursor: none;
+    cursor: default;
+}
+
+.mycard a {
+	cursor: pointer;
 }
 
 .mycard .myname {
@@ -725,4 +723,29 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 .giscus {
     margin: 20px;
     width: calc(100% - 40px);
+}
+
+body::-webkit-scrollbar {
+	background: #00000000;
+	width:10px;
+}
+	
+body::-webkit-scrollbar-thumb {
+	border-radius: 30px;
+}
+
+.gotoblog {
+    position: absolute;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 10000;
+    text-align: center;
+    left: calc(50% - 30px);
+    font-size: 15px;
+    background: none;
+    border: 0;
+    transition: 0.6scubic-bezier(0.22, 1, 0.36, 1);
+    width: 60px;
+}
+.gotoblog i {
+	font-size: 20px;
 }

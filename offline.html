@@ -29,45 +29,43 @@
     }
 	</script>
 <!-- 헤더끝 -->
-	<title>Jxheum Blog</title>
+	<title>Jxheum</title>
 	<style>
-		.jiheumtext {
-			transition-duration: 500ms;
-		}
-		.jiheumtext:hover {
-			font-size: 50px;
-		}
-		.jiheumtext:active {
-			font-size: 45px;
+
+		.content {
+			width: calc(100vw - 40px);
+			text-align:center;
 		}
 
-		.blogtext {transition-duration: 500ms;}
+		button {
+			font-size: 20px;
+		}
 	</style>
 </head>
 
 <body>
 	<!-- <헤더>
 	-->
- <div id="header" class="header headermain" style="position:fixed;">Jiheum</div>
+	<!-- <헤더>
+   -->
+<div id="header" class="header headermain" style="position:fixed;"><a href="/">Jiheum</a></div>
+<div style="height: 67.5px;" class="headermargin"></div>
+
+<!-- <헤더끝> -->
  
  <!-- <헤더끝> -->
-	<div style="height: 58px;"></div>
 	<div class="content">
-        <div class="offlinecontent">인터넷 연결이 없습니다.</div>
-        <hr>
+        <h1 class="offlinecontent">인터넷 연결이 없습니다.</h1>
         <button onclick="reloadddi()" style="    display: inline-block;
         text-align: right;
         border:none;border-radius: 100px;padding:10px;
-        " aria-label="새로고침">새로고침</button>
-        <button href="/" style="display: inline-block;
+        " aria-label="새로고침">새로고침</button><br>
+        <a href="/"><button style="display: inline-block;
         text-align: right;
-        border:none;border-radius: 100px;padding:10px;
-        " aria-label="메인으로">메인으로</button>
+        border:none;border-radius: 100px;padding:10px;margin-top: 10px;
+        " aria-label="메인으로">메인으로</button></a>
 	</div>
 
-	<div style="height: 43px;"></div>
-	<div class="footer" id="footer">
-        ⓒBJH </div>
 </body>
 
 </html>
