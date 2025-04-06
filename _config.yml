@@ -16,6 +16,7 @@ krandown:
 
 plugins:
   - jekyll-paginate
+  - jekyll-sitemap
 
 paginate: 5
 paginate_path: '/:num/'
@@ -24,3 +25,10 @@ exclude: [README.md]
 
 github_url:
   username: jxheum
+
+defaults:
+  -
+    scope:
+      path: 'offline.html'
+    values:
+      sitemap: false
