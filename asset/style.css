@@ -749,3 +749,7 @@ body::-webkit-scrollbar-thumb {
 .gotoblog i {
 	font-size: 20px;
 }
+
+article img {
+	max-width: 100%;
+}
