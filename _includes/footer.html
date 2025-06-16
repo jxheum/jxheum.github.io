@@ -1,7 +1,6 @@
-
 <div id="fmoverlay"></div>
 <div class="fullmenu" id="fullmenu">
-    <a class="a" onclick="menutoggle()"><div style="width:calc(100% - 10px);padding-right: 10px;"><i class="fa-solid fa-angle-down"></i></div></a>
+    <span><a onclick="menutoggle()" class="a" style="padding: 0px 10px"><i class="fa-solid fa-angle-down"></i></a></span><br>
     <span>Jiheum</span><hR>
     <span><a href="/" class="a" aria-label="홈">Home</a></span><hR>
         <span><a href="/update" class="a" aria-label="업데이트 노트">Update</a></span><hR>
@@ -174,3 +173,4 @@ fmoverlay.addEventListener('click', (e) => {
             });
     };
 </script>
+{% include cursor.html %}
