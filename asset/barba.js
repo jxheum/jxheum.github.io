@@ -2,6 +2,7 @@ barba.init({
     transitions: [{
         name: 'default-transition',
         leave() {
+            
             window.scrollTo(0,0);
             if (document.location.pathname.includes('post')) {
                 document.getElementById('comments').innerHTML = `<script src="https://giscus.app/client.js"
@@ -25,6 +26,8 @@ barba.init({
         },
         enter() {
             if (menuopen) {menutoggle()}
+
+            cursorreset();
         }
     }],
     views: [{
@@ -37,10 +40,8 @@ barba.init({
 			gotoblog = document.querySelector('#gotoblog')
 			window.addEventListener('scroll', () => { 
 				if (window.scrollY >= 600) {
-					header.style.top = '0px';
                     gotoblog.style.display = 'none';
 				} else {
-					header.style.top = '-100px';
                     gotoblog.style.display = 'block';
 				}
                 gotoblog.style.opacity = 1 - window.scrollY / 500;

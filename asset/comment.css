@@ -50,6 +50,7 @@
     .gsc-reactions-popover.open {
         background: #eff6ff1a;
         backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
     }
 
     .color-border-primary {
@@ -109,6 +110,7 @@
     .gsc-reactions-popover.open {
         background: #1010101a;
         backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
     }
 
     .color-border-primary {
