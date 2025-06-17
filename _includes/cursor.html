@@ -1,8 +1,9 @@
 <div class="cursor"></div>
 
 <script>
+const cursor = document.querySelector('.cursor');
+
 function cursorreset() {
-    const cursor = document.querySelector('.cursor');
     cursorona = 0;
     document.addEventListener('mousemove', (e) => {
         if (cursorona == 0) {
@@ -11,7 +12,7 @@ function cursorreset() {
         }
     });
 
-    document.querySelectorAll('button, .clickevent, .activechip, .fullmenu a, .pagenow, .pagenp').forEach(button => {
+    document.querySelectorAll('button, .clickevent, .activechip, .fullmenu a, .pagenow, .pagenp, .header').forEach(button => {
         button.addEventListener('mouseover', () => {
             cursorona = 1;
             cursor.classList.add('hovercursor');
@@ -20,6 +21,7 @@ function cursorreset() {
             cursor.style.borderRadius = button.style.borderRadius;
             cursor.style.top = button.getBoundingClientRect().top + 'px';
             cursor.style.left = button.getBoundingClientRect().left + 'px';
+            cursor.innerText = '';
         });
 
         button.addEventListener('mouseout', () => {
@@ -41,4 +43,9 @@ function cursorreset() {
 }
 
 cursorreset();
+
+// document.addEventListener('keydown', (e) => {
+//     if (e.key.length <= 1 && cursorona == 0)
+//         cursor.innerText = e.key;
+// })
 </script>

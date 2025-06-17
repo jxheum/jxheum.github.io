@@ -17,7 +17,7 @@
     <img src="/asset/share.svg" style="vertical-align: -3px;" alt="iPhone 공유 버튼"> 누르고 홈 화면에 추가하기
 </div>
 
-<div class="bottombar" id="iosfooter" style="display:none;">
+<!-- <div class="bottombar" id="iosfooter" style="display:none;">
     <div class="bottommenus">
         <a href="/"><div class="menuicons selected" id="homebtn">
             <span><i class="fa-solid fa-house"></i></span><br>홈
@@ -32,7 +32,7 @@
             <span><i class="fa-solid fa-heart fa-beat-fade"></i></span><br>후원하기
         </div></a>
     </div>
-</div>
+</div> -->
 
 <div style="height:calc(47px + env(safe-area-inset-bottom));" id="marginforfooter"></div>
 
@@ -40,30 +40,30 @@
     iosfooter = document.querySelector('#iosfooter')
     path = document.location.pathname
     document.addEventListener('DOMContentLoaded', (e) => {
-        if (getPWADisplayMode() == 'standalone' && iOS()) {
-            iosfooter.style.display = 'block'
-            document.querySelector('#footer').style.display = 'none'
-        }
+        // if (getPWADisplayMode() == 'standalone' && iOS()) {
+        //     iosfooter.style.display = 'block'
+        //     document.querySelector('#footer').style.display = 'none'
+        // }
 
         if (getPWADisplayMode() == 'twa' || getPWADisplayMode() == 'standalone') {
             document.getElementById('installbtn').style.display = 'none';
             document.getElementById('installhr').style.display = 'none'
         }
-        menuupdate();
+        // menuupdate();
     })
 
-    function iOS() {
-        return [
-            'iPad Simulator',
-            'iPhone Simulator',
-            'iPod Simulator',
-            'iPad',
-            'iPhone',
-            'iPod'
-        ].includes(navigator.platform)
-        // iPad on iOS 13 detection
-        || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-    }
+    // function iOS() {
+    //     return [
+    //         'iPad Simulator',
+    //         'iPhone Simulator',
+    //         'iPod Simulator',
+    //         'iPad',
+    //         'iPhone',
+    //         'iPod'
+    //     ].includes(navigator.platform)
+    //     // iPad on iOS 13 detection
+    //     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    // }
 
     let deferredPrompt;
 
@@ -105,7 +105,7 @@
         return 'window-controls-overlay';
 
     return 'unknown';
-    menuupdate()
+    // menuupdate()
     }
 
     
@@ -119,31 +119,38 @@ fmoverlay.addEventListener('click', (e) => {
     menutoggle()
 })
 
+document.addEventListener('keydown', (e) => {
+    if (e.key == 'Escape' && menuopen == 1) {
+        menutoggle()
+    }
+});
+menubtn = document.querySelector('.menubtn');
+gotoblog = document.querySelector('.gotoblog');
     function menutoggle() {
         if (menuopen == 0)
-            menupage.style.bottom = 0, menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.8)', bodydiv.style.height = '50vh', fmoverlay.style.display = 'block';
+            menupage.style.bottom = '20px', menupage.style.left = '20px', menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', bodydiv.style.height = '50vh', fmoverlay.style.display = 'block', menubtn.style.opacity = 0, gotoblog.style.opacity = 0;
         else
-            menupage.style.bottom = 'calc(-500px)', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '';
+            menupage.style.bottom = '', menupage.style.left = '', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '', menubtn.style.opacity = '', gotoblog.style.opacity = '';
     }
 
-    function menuupdate() {
-        if (path == '/' || path.includes('post'))
-            btnid = 'homebtn'
-        else if (path == '/design/')
-            btnid = 'designbtn'
-        else if (path == '/update/')
-            btnid = 'updatebtn'
-        document.getElementById(btnid).classList.add('selectedmenu')
+    // function menuupdate() {
+    //     if (path == '/' || path.includes('post'))
+    //         btnid = 'homebtn'
+    //     else if (path == '/design/')
+    //         btnid = 'designbtn'
+    //     else if (path == '/update/')
+    //         btnid = 'updatebtn'
+    //     document.getElementById(btnid).classList.add('selectedmenu')
         
-    }
+    // }
 
-    const btns = document.getElementsByClassName('menuicons')
-    Array.from(btns).forEach((e) => {
-        e.addEventListener('click', (event) => {
-            document.getElementsByClassName('selectedmenu')[0].classList.remove('selectedmenu')
-            e.classList.add('selectedmenu')
-        })
-    });
+    // const btns = document.getElementsByClassName('menuicons')
+    // Array.from(btns).forEach((e) => {
+    //     e.addEventListener('click', (event) => {
+    //         document.getElementsByClassName('selectedmenu')[0].classList.remove('selectedmenu')
+    //         e.classList.add('selectedmenu')
+    //     })
+    // });
 
     function buymeacoffee() {
         window.open('https://buymeacoffee.com/widget/page/69kfw8nf5xp?color=#eff6ff','_blank','width=500, height=600, toolbar=no, top=100, left=100')

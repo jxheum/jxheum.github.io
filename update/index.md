@@ -16,6 +16,18 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 
 # 2025년
 
+## 6월
+
+### 25.06.18
+
+디자인이 섹시해짐
+
+### 25.06.17
+
+커서 업데이트
+CSS 최적화
+웹디자인 최적화
+
 ## 2월
 
 ### 25.02.07

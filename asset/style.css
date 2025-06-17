@@ -6,7 +6,10 @@
 	html {
 		background-color: #101010;
 		color: #eff6ff;
-		scroll-behavior: smooth;
+	}
+
+	.menubtn, .gotoblog, .header {
+		border: 1px solid #eff6ff1a;
 	}
 
 	.header,
@@ -28,19 +31,25 @@
 		color: #eff6ff;
 	}
 
-	.contentsec a:hover, .a:hover {color:#eff6ff;}
-
 	code .nf, .n {color:#d2a8ff;}
 
 	code .sh, code .s, .dl, .s2 {color:#a5d6ff;}
 
-	.footer {background: linear-gradient(180deg, transparent, #101010);}
+	/* .footer {background: linear-gradient(180deg, transparent, #101010);} */
 	.bottombar {background: #101010bf;}
 	.selectedmenu {color: #007aff;}
 
-	body::-webkit-scrollbar-thumb {
-		background: #eff6ff1a;
-		border: 0.01px solid #f0f6ff26;
+	
+	.cursor {
+		color: #101010;
+	}
+
+	.fullmenu {
+		border: 1px solid #eff6ff1a;
+	}
+
+	.contentsec a:hover, .mycard a:hover {
+		color: #007aff;
 	}
 }
 
@@ -52,10 +61,30 @@
 		color: #101010;
 	}
 
+	.menubtn, .gotoblog, .header {
+		border: 1px solid #1010101a;
+	}
+	
+	.cursor {
+		color: #eff6ff;
+	}
+
 	.header,
 	.header2,
 	.fixedtoc {
 		background: linear-gradient(to top, transparent, #eff6ff) !important;
+	}
+
+	.fullmenu {
+		border: 1px solid #1010101a;
+	}
+
+	.fullmenu hr {
+		background: #1010101a;
+	}
+
+	.contentsec a:hover, .mycard a:hover {
+		color: #007aff;
 	}
 
 	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr .tocsec {
@@ -71,22 +100,17 @@
 	.topbtn, button {
 		color: #101010
 	}
-	.contentsec a:hover, .a:hover {color:#007aff;}
 	
 
 	code .nf, .n {color:#6639ba;}
 
 	code .sh, code .s, .dl, .s2 {color:#0a3069;}
 
-	.footer {background: linear-gradient(180deg, transparent, #eff6ff);}
+	/* .footer {background: linear-gradient(180deg, transparent, #eff6ff);} */
 
 	.bottombar {background: #eff6ffbf;}
 	.selectedmenu {color: #007aff;}
 
-	body::-webkit-scrollbar-thumb {
-		background: #1010101a;
-		border: 0.01px solid #10101026;
-	}
 }
 
 
@@ -98,6 +122,7 @@ html {
 	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	min-height: 100vh;
 	font-size: 16px;
+	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
 
@@ -112,19 +137,22 @@ html {
 .header,
 .header2 {
 	font-size: 40px;
-    margin: 0px;
-    padding: 10px 20px;
+	padding: 0px 20px;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 10px;
+    left: 10px;
     z-index: 999;
-    width: calc(100% - 20px);
+	border-radius: 1000px;
     backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     user-select: none;
-    text-align: left;
+    text-align: center;
     font-weight: 900;
-    transition: top 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);
+}
+.header:active {
+	transform: scale(0.9);
+	
 }
 
 a {
@@ -187,8 +215,8 @@ a:link {
     left: 0px;
     width: 100%;
     z-index: 9999;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
+    /* -webkit-backdrop-filter: blur(3px); */
     height: 37px;
 }
 
@@ -197,6 +225,9 @@ a:link {
     padding: 10px;
     border-radius: 500px;
     margin-left: 8px;
+	background: transparent;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
 }
 
 .menubtn {
@@ -327,12 +358,22 @@ a:link {
 	cursor:pointer;
 }
 
-.postitm:hover, .pagenow:hover, .pagenp:hover, button:hover, .activechip:hover, .clickevent:hover {
+.pagenow:hover, .pagenp:hover, button:hover, .activechip:hover, .clickevent:hover {
 	transform:scale(1);
 	box-shadow:0px 0px 10px -2px rgba(255, 255, 255, 0.2);
 }
 
-.postitm:active, .pagenow:active, .pagenp:active, button:active, .activechip:active, .clickevent:active {
+.postitm:hover {
+	transform:scale(1.01);
+	box-shadow:0px 0px 10px -2px rgba(255, 255, 255, 0.2);
+}
+
+.postitm:active {
+	transform:scale(1);
+	box-shadow:0px 0px 5px -1px rgba(255, 255, 255, 0.2);
+}
+
+.pagenow:active, .pagenp:active, button:active, .activechip:active, .clickevent:active {
 	transform:scale(0.9);
 	box-shadow:0px 0px 5px -1px rgba(255, 255, 255, 0.2);
 }
@@ -447,10 +488,11 @@ ul {margin:0;}
     padding-top: 10px;
 } */
 
-.fullmenu {
+/* .fullmenu {
     position: fixed;
     width: calc(100vw - 4px);
-    left: 0;
+    left: 20px;
+	bottom: 20px;
     z-index: 999990;
     bottom: calc(-500px);
     backdrop-filter: blur(3px);
@@ -463,6 +505,22 @@ ul {margin:0;}
     max-height: calc(100vh - 20px);
     overflow-y: auto;
     border: 1px solid #eff6ff1a;
+} */
+
+.fullmenu {
+	position: fixed;
+	width: calc(100vw - 4px - 40px);
+	left: 20px;
+	bottom: -500px;
+	z-index: 999991;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	text-align: center;
+	font-size: 25px;
+	transition: bottom 0.6s cubic-bezier(0.87, 0, 0.13, 1), left 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+	border-radius: 30px;
+	max-height: calc(100vh - 20px);
+	overflow-y: auto;
 }
 
 .fullmenu a {
@@ -501,7 +559,7 @@ ul {margin:0;}
 }
 
 #bodydiv {
-	transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
 }
 
 #fmoverlay {
@@ -511,6 +569,7 @@ ul {margin:0;}
 	display:none;
 	top:0;
 	left:0;
+	z-index: 999990;
 }
 
 .contentsec ul {
@@ -535,12 +594,14 @@ ul {margin:0;}
 
 
 	.fullmenu {
-		width: 40vw;
+		max-width: 400px;
+		left: -500px;
+		bottom: -1000px;
 	}
 
 	main {
-		width:70vw;
-		margin: 0 15vw;
+		width:60vw;
+		margin: 0 20vw;
 	}
 }
 
@@ -557,7 +618,7 @@ th {
 }
 
 .mycard {
-    border-radius: 20px;
+    border-radius: 30px;
     vertical-align: top;
     padding: 20px;
     margin: 0px 20px;
@@ -613,27 +674,22 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
     margin: 20px;
     width: calc(100% - 40px);
 }
-
-body::-webkit-scrollbar {
-	background: #00000000;
-	width:10px;
-}
 	
-body::-webkit-scrollbar-thumb {
-	border-radius: 30px;
-}
 
 .gotoblog {
-    position: absolute;
+    position: fixed;
     bottom: calc(10px + env(safe-area-inset-bottom));
     z-index: 10000;
     text-align: center;
-    left: calc(50% - 30px);
+    right: 10px;
     font-size: 15px;
     background: none;
-    border: 0;
-    transition: 0.6scubic-bezier(0.22, 1, 0.36, 1);
+    transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     width: 60px;
+	height: 60px;
+	background: transparent;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
 }
 .gotoblog i {
 	font-size: 20px;
@@ -647,8 +703,9 @@ article img {
 	position: fixed;
 	top: -20px;
 	left:-20px;
-	width: 20px;
-	height: 20px;
+	min-width: 20px;
+	min-height: 20px;
+	text-align: center;
 	border-radius: 10000px;
 	pointer-events: none;
 	transition: width 0.3s  cubic-bezier(0.22, 1, 0.36, 1), height 0.3s  cubic-bezier(0.22, 1, 0.36, 1), opacity 0.1s ease;
@@ -668,3 +725,4 @@ article img {
 	}
 	
 }
+
