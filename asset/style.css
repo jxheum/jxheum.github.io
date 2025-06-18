@@ -45,9 +45,11 @@
         background: #101010bf
     }
 
-    .contentsec a:hover,.mycard a:hover,.selectedmenu {
+    .mycard a:hover,.selectedmenu {
         color: #007aff
     }
+
+	
 
     .cursor {
         color: #101010
@@ -117,6 +119,17 @@
         color: #007aff
     }
 }
+
+.contentsec a:hover {
+		color: #C97F00;
+	}
+
+*:focus-visible, .postitma:focus-visible .postitm, .menubtna:focus-visible .menubtn {
+	outline: 2px solid #007aff !important;
+	outline-offset: 2px !important;
+	border-radius: 30px;
+}
+
 
 body,html {
     width: 100%;
@@ -205,7 +218,6 @@ a,a:link {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
     z-index: 9999;
     height: 37px
 }
@@ -627,4 +639,8 @@ article img {
     .cursor {
         display: none
     }
+
+	.contentsec a:hover {
+		color: #007aff;
+	}
 }

@@ -5,7 +5,7 @@
     <span><a href="/" class="a" aria-label="홈">Home</a></span><hR>
         <span><a href="/update" class="a" aria-label="업데이트 노트">Update</a></span><hR>
     <span><a href="/design" class="a" aria-label="jiheum.me 디자인 가이드">Design</a></span><hR>
-    <span><a onclick="buymeacoffee()" class="a" aria-label="Buy Me a Coffee">Buy Me a Coffee</a></span><hR id="installhr">
+    <span><a href="javascript:buymeacoffee()" class="a" aria-label="Buy Me a Coffee" tabindex="0">Buy Me a Coffee</a></span><hR id="installhr">
     <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span><hR id="installhr" style="margin-bottom: 0;">
 </div>
 
@@ -128,9 +128,9 @@ menubtn = document.querySelector('.menubtn');
 gotoblog = document.querySelector('.gotoblog');
     function menutoggle() {
         if (menuopen == 0)
-            menupage.style.bottom = '20px', menupage.style.left = '20px', menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', bodydiv.style.height = '50vh', fmoverlay.style.display = 'block', menubtn.style.opacity = 0, gotoblog.style.opacity = 0;
+            menupage.style.bottom = '20px', menupage.style.left = '20px', menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', bodydiv.style.height = '50vh', fmoverlay.style.display = 'block', menubtn.style.opacity = 0, gotoblog.style.display = 'none', gotoblog.style.visibility = 'hidden';
         else
-            menupage.style.bottom = '', menupage.style.left = '', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '', menubtn.style.opacity = '', gotoblog.style.opacity = '';
+            menupage.style.bottom = '', menupage.style.left = '', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '', menubtn.style.opacity = '', gotoblog.style.display = '', gotoblog.style.visibility = '';
     }
 
     // function menuupdate() {

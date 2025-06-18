@@ -7,7 +7,7 @@
         {% endif %}
         {% endif %}
         {% if paginator.previous_page %}
-        <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagenpa" aria-label="이전 페이지">
+        <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}#blog" class="pagenpa" aria-label="이전 페이지">
             <div class="pagenp"><i class="fa-solid fa-arrow-left"></i></div>
         </a>
         {% else %}
@@ -19,7 +19,7 @@
         {% endif %}
         {% endfor %}
         {% if paginator.next_page %}
-        <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagenpa" aria-label="다음 페이지">
+        <a href="{{ site.baseurl }}{{ paginator.next_page_path }}#blog" class="pagenpa" aria-label="다음 페이지">
             <div class="pagenp"><i class="fa-solid fa-arrow-right"></i></div>
         </a>
         {% else %}

@@ -10,10 +10,6 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 # 개요
 [jiheum.me](/)의 업데이트 노트입니다.
 
-# To do
-
-~~후원 기능 업그레이드~~
-
 # 2025년
 
 ## 6월
@@ -21,6 +17,10 @@ githublink: "https://github.com/jxheum/jxheum.github.io/blob/main/update/index.m
 ### 25.06.18
 
 디자인이 섹시해짐
+CSS 최적화
+웹디자인 버그 수정
+접근성 개선
+커서 알고리즘 변경
 
 ### 25.06.17
 

@@ -13,6 +13,8 @@ toc: true
     ismoved2 = 0;
 </script>
 
+# 업데이트를갈길때가왔다.
+
 # 컬러
 
 ## 라이트모드
@@ -45,7 +47,7 @@ toc: true
 
 # 폰트
 
-## [<span style="font-weight: 100;">P</span><span style="font-weight: 200;">r</span><span style="font-weight: 300;">e</span><span style="font-weight: 400;">t</span><span style="font-weight: 500;">e</span><span style="font-weight: 600;">n</span><span style="font-weight: 700;">d</span><span style="font-weight: 800;">a</span><span style="font-weight: 900;">rd</span>](https://github.com/orioncactus/pretendard)
+## [<span style="font-weight: 50;">P</span><span style="font-weight: 100;">r</span><span style="font-weight: 150;">e</span><span style="font-weight: 200;">t</span><span style="font-weight: 300;">e</span><span style="font-weight: 400;">n</span><span style="font-weight: 500;">d</span><span style="font-weight: 600;">a</span><span style="font-weight: 800;">rd</span>](https://github.com/orioncactus/pretendard)
 
 ## [Font Awesome](https://fontawesome.com/)
 
