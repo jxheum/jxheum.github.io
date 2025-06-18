@@ -1,728 +1,630 @@
-@font-face{font-family:'Pretendard Variable';font-weight:45 920;font-style:normal;font-display:swap;src:url('./PretendardVariable.woff2') format('woff2-variations')}
-
-@media (prefers-color-scheme: dark) {
-
-	body,
-	html {
-		background-color: #101010;
-		color: #eff6ff;
-	}
-
-	.menubtn, .gotoblog, .header {
-		border: 1px solid #eff6ff1a;
-	}
-
-	.header,
-	.header2,
-	.fixedtoc {
-		background: linear-gradient(to top, transparent, #101010) !important;
-	}
-
-	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr, .tocsec {
-		background: #eff6ff1a;
-		border: 0.01px solid #f0f6ff26;
-	}
-
-	.pagenpdis, .bgtxt {
-		color: #eff6ff1a;
-	}
-
-	.topbtn, button {
-		color: #eff6ff;
-	}
-
-	code .nf, .n {color:#d2a8ff;}
-
-	code .sh, code .s, .dl, .s2 {color:#a5d6ff;}
-
-	/* .footer {background: linear-gradient(180deg, transparent, #101010);} */
-	.bottombar {background: #101010bf;}
-	.selectedmenu {color: #007aff;}
-
-	
-	.cursor {
-		color: #101010;
-	}
-
-	.fullmenu {
-		border: 1px solid #eff6ff1a;
-	}
-
-	.contentsec a:hover, .mycard a:hover {
-		color: #007aff;
-	}
+@font-face {
+    font-family: "Pretendard Variable";
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url(./PretendardVariable.woff2)format("woff2-variations")
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme:dark) {
+    body,html {
+        background-color: #101010;
+        color: #eff6ff
+    }
 
-	body,
-	html {
-		background-color: #eff6ff;
-		color: #101010;
-	}
+    .gotoblog,.header,.menubtn {
+        border: 1px solid #eff6ff1a
+    }
 
-	.menubtn, .gotoblog, .header {
-		border: 1px solid #1010101a;
-	}
-	
-	.cursor {
-		color: #eff6ff;
-	}
+    .fixedtoc,.header,.header2 {
+        background: linear-gradient(to top,transparent,#101010)!important
+    }
 
-	.header,
-	.header2,
-	.fixedtoc {
-		background: linear-gradient(to top, transparent, #eff6ff) !important;
-	}
+    .bg,.bottominfosec,.checkmark,.chip,.commentsec,.contentsec code,.iconbtn,.pagenow,.pagenp,.postitm,.tocsec,.topbtn,button,hr {
+        background: #eff6ff1a;
+        border: .01px solid #f0f6ff26
+    }
 
-	.fullmenu {
-		border: 1px solid #1010101a;
-	}
+    .bgtxt,.pagenpdis {
+        color: #eff6ff1a
+    }
 
-	.fullmenu hr {
-		background: #1010101a;
-	}
+    .topbtn,button {
+        color: #eff6ff
+    }
 
-	.contentsec a:hover, .mycard a:hover {
-		color: #007aff;
-	}
+    .n,code .nf {
+        color: #d2a8ff
+    }
 
-	.postitm, .pagenow, .pagenp, .chip, .commentsec, .bottominfosec, .contentsec code, .topbtn, button, .checkmark, .iconbtn, .bg, hr .tocsec {
-		background: #1010101a;
-		border: 0.01px solid #10101026;
-	}
+    .dl,.s2,code .s,code .sh {
+        color: #a5d6ff
+    }
 
+    .bottombar {
+        background: #101010bf
+    }
 
-	.pagenpdis, .bgtxt {
-		color: #1010101a;
-	}
+    .contentsec a:hover,.mycard a:hover,.selectedmenu {
+        color: #007aff
+    }
 
-	.topbtn, button {
-		color: #101010
-	}
-	
+    .cursor {
+        color: #101010
+    }
 
-	code .nf, .n {color:#6639ba;}
-
-	code .sh, code .s, .dl, .s2 {color:#0a3069;}
-
-	/* .footer {background: linear-gradient(180deg, transparent, #eff6ff);} */
-
-	.bottombar {background: #eff6ffbf;}
-	.selectedmenu {color: #007aff;}
-
+    .fullmenu {
+        border: 1px solid #eff6ff1a
+    }
 }
 
+@media (prefers-color-scheme:light) {
+    body,html {
+        background-color: #eff6ff;
+        color: #101010
+    }
 
+    .gotoblog,.header,.menubtn {
+        border: 1px solid #1010101a
+    }
 
-body,
-html {
-	width: 100%;
-	margin: 0px;
-	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-	min-height: 100vh;
-	font-size: 16px;
-	scroll-behavior: smooth;
-	overflow-x: hidden;
+    .cursor {
+        color: #eff6ff
+    }
+
+    .fixedtoc,.header,.header2 {
+        background: linear-gradient(to top,transparent,#eff6ff)!important
+    }
+
+    .fullmenu {
+        border: 1px solid #1010101a
+    }
+
+    .fullmenu hr {
+        background: #1010101a
+    }
+
+    .contentsec a:hover,.mycard a:hover {
+        color: #007aff
+    }
+
+    .bg,.bottominfosec,.checkmark,.chip,.commentsec,.contentsec code,.iconbtn,.pagenow,.pagenp,.postitm,.topbtn,button,hr .tocsec {
+        background: #1010101a;
+        border: .01px solid #10101026
+    }
+
+    .bgtxt,.pagenpdis {
+        color: #1010101a
+    }
+
+    .topbtn,button {
+        color: #101010
+    }
+
+    .n,code .nf {
+        color: #6639ba
+    }
+
+    .dl,.s2,code .s,code .sh {
+        color: #0a3069
+    }
+
+    .bottombar {
+        background: #eff6ffbf
+    }
+
+    .selectedmenu {
+        color: #007aff
+    }
+}
+
+body,html {
+    width: 100%;
+    margin: 0;
+    font-family: "Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,"Helvetica Neue","Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif;
+    min-height: 100vh;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden
 }
 
 * {
-	cursor: none !important;
-	white-space: normal;
-	word-wrap: break-word;
+    cursor: none!important;
+    white-space: normal;
+    word-wrap: break-word
 }
 
-
-
-.header,
-.header2 {
-	font-size: 40px;
-	padding: 0px 20px;
+.header,.header2 {
+    font-size: 40px;
+    padding: 0 20px;
     position: fixed;
     top: 10px;
     left: 10px;
     z-index: 999;
-	border-radius: 1000px;
+    border-radius: 1000px;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     user-select: none;
     text-align: center;
     font-weight: 900;
-	transition: 0.6s cubic-bezier(.34,1.56,.68,1.06);
+    transition: .6s cubic-bezier(.34,1.56,.68,1.06)
 }
+
 .header:active {
-	transform: scale(0.9);
-	
+    transform: scale(.9)
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
-	margin: 0;
+    color: inherit
 }
 
-a:link {
-	text-decoration: none;
+a,a:link {
+    text-decoration: none
 }
-
-
-
 
 .content {
     margin: 20px;
     margin-left: calc(env(safe-area-inset-left) + 20px);
     min-height: calc(100vh - env(safe-area-inset-bottom) - 47px - 68px);
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0
 }
 
 .comment {
-	margin: 10px;
-	border-radius: 30px;
+    margin: 10px;
+    border-radius: 30px
 }
 
-
-
 .postitm {
-	border-radius: 30px;
-	padding: 20px;
-    transition-duration: 500ms;
+    border-radius: 30px;
+    padding: 20px;
+    transition-duration: 500ms
 }
 
 .posttitle {
-	font-size: 20px;
+    font-size: 20px
 }
 
 .postspt {
-	font-size: 15px;
+    font-size: 15px
 }
 
 #pagination {
-	width: 100%;
-	text-align: center;
-	padding: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 0
 }
 
 #pagination>li {
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle
 }
 
 .footer {
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
     position: fixed;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     z-index: 9999;
-    /* backdrop-filter: blur(3px); */
-    /* -webkit-backdrop-filter: blur(3px); */
-    height: 37px;
+    height: 37px
 }
 
 .footer .menubtn {
-    width: fit-content;
-    padding: 10px;
-    border-radius: 500px;
     margin-left: 8px;
-	background: transparent;
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
+    background: 0 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px)
 }
 
-.menubtn {
+.footer .menubtn,.menubtn {
     width: fit-content;
     border-radius: 500px;
-    padding: 10px;
+    padding: 10px
 }
 
-.pointer {cursor:pointer;}
+.pointer {
+    cursor: pointer
+}
+
+.pagenow,.pagenp,.pagenpdis {
+    border-radius: 30px;
+    display: inline-block
+}
 
 .pagenow {
-	width: 60px;
+    width: 60px;
     height: 49px;
-    border-radius: 30px;
     font-size: 30px;
     font-weight: 100;
     padding-top: 11px;
-    display: inline-block;
-    margin: 0px;
+    margin: 0
 }
 
-.pagenp,
-.pagenpdis {
-	width: 30px;
-	height: 27.5px;
-	border-radius: 30px;
-	display: inline-block;
-	font-size: 12;
-	padding-top: 2.5px;
-	vertical-align: 3px;
-	margin-left: 10px;
-	margin-right: 10px;
+.pagenp,.pagenpdis {
+    width: 30px;
+    height: 27.5px;
+    font-size: 12;
+    padding-top: 2.5px;
+    vertical-align: 3px;
+    margin-left: 10px;
+    margin-right: 10px
 }
 
 .iconbtn {
-	width: 35px;
-    height: 35px !important;
+    width: 35px;
+    height: 35px!important;
     border-radius: 100%;
-    border: none;
+    border: 0;
     padding: 9px;
-	text-align: center;
+    text-align: center
 }
 
-/* .iconbtn i {width:17px;height:17px;} */
-
-
-
 #homebtn {
-	top: 14px;
-	left: 15px;
+    top: 14px;
+    left: 15px
 }
 
 #sharebtn {
-	top: 14px;
-	right: 15px;
+    top: 14px;
+    right: 15px
 }
 
 .infosect {
-	width: calc(100% - env(safe-area-inset-left));
-	margin-left: env(safe-area-inset-left);
+    width: calc(100% - env(safe-area-inset-left));
+    margin-left: env(safe-area-inset-left)
 }
 
+.posttags,.posttitle2 {
+    width: calc(100% - 40px)
+}
 
 .posttitle2 {
-	padding: 0 20px;
-    width: calc(100% - 40px);
-	font-size: 30px;
-	font-weight: 700;
+    padding: 0 20px;
+    font-size: 30px;
+    font-weight: 700
 }
 
 .posttags {
-	margin: 0px 20px;
-	margin-top: 10px;
-	overflow-x: auto;
-	width: calc(100% - 40px);
+    margin: 10px 20px 0;
+    overflow-x: auto
 }
 
 .chip {
-	width: fit-content;
-	margin-right: 5px;
-	border-radius: 500px;
-	padding: 5px 10px;
-	font-size: 14px;
-	display: inline-block;
-	margin-bottom: 5px;
-	cursor:auto;
+    width: fit-content;
+    margin-right: 5px;
+    border-radius: 500px;
+    padding: 5px 10px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 5px;
+    cursor: auto
 }
 
-.activechip {
-	cursor:pointer;
+.commentsec,.contentsec {
+    margin-left: calc(env(safe-area-inset-left) + 20px)
 }
 
 .contentsec {
-	width: calc(100% - 40px - env(safe-area-inset-left));
-	margin: 20px;
-	margin-left: calc(env(safe-area-inset-left) + 20px);
+    width: calc(100% - 40px - env(safe-area-inset-left));
+    margin: 20px
 }
 
 .commentsec {
     text-align: center;
     border-radius: 30px;
     cursor: auto;
-    margin: 0 20px;
-    margin-left: calc(env(safe-area-inset-left) + 20px);
+    margin: 0 20px
 }
 
-
-.contentsec a, .footer a {
-	text-decoration: underline;
+.contentsec a,.footer a {
+    text-decoration: underline
 }
 
 .contentsec code {
-	width: calc(100% - 40px);
-	display:block;
-	padding:20px;
-	white-space: pre-line;
-	font-family: D2Coding, 'D2 coding', monospace;
+    width: calc(100% - 40px);
+    display: block;
+    padding: 20px;
+    white-space: pre-line;
+    font-family: D2Coding,"D2 coding",monospace
 }
 
 .contentsec p code {
-	width: auto;
-	display:inline-block;
-	padding:0px;
+    width: auto;
+    display: inline-block;
+    padding: 0
 }
 
-.postitm, .pagenow, .pagenp, button, .activechip, .clickevent, .footer a {
-	transition: transform 0.6s cubic-bezier(.34,1.56,.68,1.06), box-shadow 0.6s cubic-bezier(.34,1.56,.68,1.06);
-	cursor:pointer;
+.activechip,.clickevent,.footer a,.pagenow,.pagenp,.postitm,button {
+    transition: transform .6s cubic-bezier(.34,1.56,.68,1.06),box-shadow .6s cubic-bezier(.34,1.56,.68,1.06);
+    cursor: pointer
 }
 
-.pagenow:hover, .pagenp:hover, button:hover, .activechip:hover, .clickevent:hover {
-	transform:scale(1);
-	box-shadow:0px 0px 10px -2px rgba(255, 255, 255, 0.2);
+.activechip:hover,.clickevent:hover,.pagenow:hover,.pagenp:hover,.postitm:hover,button:hover {
+    transform: scale(1);
+    box-shadow: 0 0 10px -2px rgba(255,255,255,.2)
 }
 
 .postitm:hover {
-	transform:scale(1.01);
-	box-shadow:0px 0px 10px -2px rgba(255, 255, 255, 0.2);
+    transform: scale(1.01)
 }
 
 .postitm:active {
-	transform:scale(1);
-	box-shadow:0px 0px 5px -1px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+    box-shadow: 0 0 5px -1px rgba(255,255,255,.2)
 }
 
-.pagenow:active, .pagenp:active, button:active, .activechip:active, .clickevent:active {
-	transform:scale(0.9);
-	box-shadow:0px 0px 5px -1px rgba(255, 255, 255, 0.2);
+.activechip:active,.clickevent:active,.pagenow:active,.pagenp:active,button:active {
+    transform: scale(.9);
+    box-shadow: 0 0 5px -1px rgba(255,255,255,.2)
 }
 
 button {
-	display: inline-block;
+    display: inline-block;
     text-align: right;
-    border-radius: 100px;
-	padding:10px;
+    border-radius: 100px
 }
+
 button i {
-	vertical-align: 0.5px;
+    vertical-align: .5px
 }
 
-/* .checkboxc {
-	display: block;
-	position: relative;
-	padding-left: 30px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	font-size: 22px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+a,hr,ul {
+    margin: 0
 }
-
-  .checkboxc input {
-	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
-	width: 0;
-  }
-  
-  .checkmark {
-	position: absolute;
-	top: 4.5px;
-	left: 0;
-	height: 25px;
-	width: 25px;
-	border-radius: 10px;
-  }
-  
-  .checkmark:after {
-	content: "";
-	position: absolute;
-	display: none;
-	border-radius: 1px;
-  }
-  
-  .checkboxc input:checked ~ .checkmark:after {
-	display: block;
-  }
-  
-  .checkboxc .checkmark:after {
-	left: 8.5px;
-	top: 5px;
-	width: 5px;
-	height: 10px;
-	border-width: 0 3px 3px 0;
-	-webkit-transform: rotate(30deg);
-	-ms-transform: rotate(30deg);
-	transform: rotate(30deg);
-  } */
 
 ul {
-	padding-left: 20px;
+    padding-left: 20px
 }
 
 hr {
-	border:0px;height:5px;margin:0px;border-radius: 10px;
+    border: 0;
+    height: 5px;
+    border-radius: 10px
 }
 
-.tocsec {width:calc(100% - 40px);padding: 24.25px;border-radius: 30px;}
-
-ul {margin:0;}
+.tocsec {
+    width: calc(100% - 40px);
+    padding: 24.25px;
+    border-radius: 30px
+}
 
 .bottombar {
     width: 100%;
-	padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
     position: fixed;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px)
 }
+
 .bottommenus {
-    width:100%;
-    height:40px;
-    margin-top: 7px;
+    width: 100%;
+    height: 40px;
+    margin-top: 7px
 }
+
 .menuicons {
-    display:inline-block;
+    display: inline-block;
     text-align: center;
-    width:calc(100% / 4 - 3.1px);
+    width: calc(100%/4 - 3.1px);
     font-weight: 600;
-    font-size: 10px;
-    cursor:pointer;
+    font-size: 10px
 }
+
 .menuicons span {
-    font-size: 18px;
+    font-size: 18px
 }
 
-.a {cursor:pointer;}
-
-/* #donatebtn {
-    position: fixed;
-    height: calc(20vw - 14px);
-    bottom: -40px;
-    border-radius: 100%;
-    padding-top: 10px;
-} */
-
-/* .fullmenu {
-    position: fixed;
-    width: calc(100vw - 4px);
-    left: 20px;
-	bottom: 20px;
-    z-index: 999990;
-    bottom: calc(-500px);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    text-align: center;
-    font-size: 25px;
-    transition: bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    max-height: calc(100vh - 20px);
-    overflow-y: auto;
-    border: 1px solid #eff6ff1a;
-} */
+.a,.menuicons {
+    cursor: pointer
+}
 
 .fullmenu {
-	position: fixed;
-	width: calc(100vw - 4px - 40px);
-	left: 20px;
-	bottom: -500px;
-	z-index: 999991;
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
-	text-align: center;
-	font-size: 25px;
-	transition: bottom 0.6s cubic-bezier(0.87, 0, 0.13, 1), left 0.6s cubic-bezier(0.87, 0, 0.13, 1);
-	border-radius: 30px;
-	max-height: calc(100vh - 40px);
-	overflow-y: auto;
+    position: fixed;
+    width: calc(100vw - 4px - 40px);
+    left: 20px;
+    bottom: -500px;
+    z-index: 999991;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    text-align: center;
+    transition: bottom .6s cubic-bezier(.87,0,.13,1),left .6s cubic-bezier(.87,0,.13,1);
+    border-radius: 30px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto
 }
 
-.fullmenu a {
-	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
-	padding: 10px;
+.fullmenu a,button {
+    padding: 10px
 }
-.fullmenu a:hover {
-	font-size:25px
+
+.fullmenu,.fullmenu a:hover {
+    font-size: 25px
 }
-.fullmenu a:active {
-	font-size:20px
+
+#donatediv,.fullmenu a:active,.gotoblog i {
+    font-size: 20px
 }
 
 .fullmenu hr {
-	margin: 20px 0px;
-	height:1px;
+    margin: 20px 0;
+    height: 1px
 }
 
-.fullmenu span {
-	transition: font-size 0.6s cubic-bezier(.34,1.56,.68,1.06);
+.fullmenu a,.fullmenu span {
+    transition: font-size .6s cubic-bezier(.34,1.56,.68,1.06)
 }
-
 
 #donatediv {
-	position:fixed;
-	bottom:calc(57px + env(safe-area-inset-bottom));
-	right:-300px;
-	text-align: center;
-	font-size: 20px;
-	padding: 20px;
-	transition: right 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	border-radius: 100px;
-	background:transparent;
-	backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    position: fixed;
+    bottom: calc(57px + env(safe-area-inset-bottom));
+    right: -300px;
+    text-align: center;
+    padding: 20px;
+    transition: right .6s cubic-bezier(.22,1,.36,1);
+    border-radius: 100px;
+    background: 0 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px)
 }
 
 #bodydiv {
-	transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+    transition: .6s cubic-bezier(.87,0,.13,1)
 }
 
 #fmoverlay {
-	width:100vw;
-	height:100vh;
-	position:fixed;
-	display:none;
-	top:0;
-	left:0;
-	z-index: 999990;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 999990
 }
 
 .contentsec ul {
-	margin-block-start: 1em;
+    margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 40px
 }
 
 .mycardsec {
-	width: 100vw;
+    width: 100vw;
     height: calc(100vh);
-	vertical-align: middle;
-    display: table-cell;
+    vertical-align: middle;
+    display: table-cell
 }
 
-@media (min-width: 1000px) {
-	.posttitle2 {
-		font-size: 60px;
-	}
+@media (min-width:1000px) {
+    .posttitle2 {
+        font-size: 60px
+    }
 
+    .fullmenu {
+        max-width: 400px;
+        left: -500px;
+        bottom: -1000px
+    }
 
-	.fullmenu {
-		max-width: 400px;
-		left: -500px;
-		bottom: -1000px;
-	}
-
-	main {
-		width:60vw;
-		margin: 0 20vw;
-	}
+    main {
+        width: 60vw;
+        margin: 0 20vw
+    }
 }
 
-/* .mycardsec tr:first-child, .mycardsec tr:last-child {
-	height: 135px;
-} */
-
-.mycardsec th:first-child, .mycardsec th:last-child {
-	width: 20px;
+.mycardsec th:first-child,.mycardsec th:last-child {
+    width: 20px
 }
 
 th {
-	padding:0px;
+    padding: 0
 }
 
 .mycard {
     border-radius: 30px;
     vertical-align: top;
     padding: 20px;
-    margin: 0px 20px;
+    margin: 0 20px;
     transform-style: preserve-3d;
-    cursor: default;
+    cursor: default
 }
 
 .mycard a {
-	cursor: pointer;
+    cursor: pointer
+}
+
+.mycard .myinfo,.mycard .myname,.mycard .mysns {
+    text-align: left;
+    transition: transform .3s cubic-bezier(.34,1.56,.68,1.06)
 }
 
 .mycard .myname {
-    text-align: left;
     font-weight: 900;
-    font-size: 40px;
-	transition: transform 0.3s cubic-bezier(.34,1.56,.68,1.06);
+    font-size: 40px
+}
+
+.mycard .myinfo,.mycard .mysns {
+    margin-top: 20px
 }
 
 .mycard .mysns {
-    text-align: left;
-    margin-top: 20px;
     font-weight: 500;
-    font-size: 20px;
-	transition: transform 0.3s cubic-bezier(.34,1.56,.68,1.06);
+    font-size: 20px
 }
 
 .mycard .myinfo {
-    text-align: left;
-    margin-top: 20px;
-    font-size: 25px;
-	transition: transform 0.3s cubic-bezier(.34,1.56,.68,1.06);
+    font-size: 25px
 }
 
-.mycard:hover .mysns, .mycard:hover .myname, .mycard:hover .myinfo {
-	transform: translateZ(20px);
-	text-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+.mycard:hover .myinfo,.mycard:hover .myname,.mycard:hover .mysns {
+    transform: translateZ(20px);
+    text-shadow: 0 0 10px rgba(0,0,0,.2)
 }
 
-.mycard:active .mysns, .mycard:active .myname, .mycard:active .myinfo {
-	transform: translateZ(0px);
-	text-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+.mycard:active .myinfo,.mycard:active .myname,.mycard:active .mysns {
+    transform: translateZ(0);
+    text-shadow: 0 0 10px rgba(0,0,0,.2)
 }
 
 article h1 {
-	font-size: 30px;
+    font-size: 30px
 }
 
-article h1, article h2, article h3, article h4, article h5, article h6 {
-	margin: 20px 0px;
+article h1,article h2,article h3,article h4,article h5,article h6 {
+    margin: 20px 0
 }
 
 .giscus {
     margin: 20px;
-    width: calc(100% - 40px);
+    width: calc(100% - 40px)
 }
-	
+
+.cursor,.gotoblog {
+    position: fixed;
+    text-align: center
+}
 
 .gotoblog {
-    position: fixed;
     bottom: calc(10px + env(safe-area-inset-bottom));
     z-index: 10000;
-    text-align: center;
     right: 10px;
     font-size: 15px;
-    background: none;
-    transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: .6s cubic-bezier(.22,1,.36,1);
     width: 60px;
-	height: 60px;
-	background: transparent;
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
-}
-.gotoblog i {
-	font-size: 20px;
+    height: 60px;
+    background: 0 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px)
 }
 
 article img {
-	max-width: 100%;
+    max-width: 100%
 }
 
 .cursor {
-	position: fixed;
-	top: -20px;
-	left:-20px;
-	min-width: 20px;
-	min-height: 20px;
-	text-align: center;
-	border-radius: 10000px;
-	pointer-events: none;
-	transition: width 0.3s  cubic-bezier(0.22, 1, 0.36, 1), height 0.3s  cubic-bezier(0.22, 1, 0.36, 1), opacity 0.1s ease;
-	z-index: 10000000;
-	opacity: 1;
-	backdrop-filter: invert(100%);
-	-webkit-backdrop-filter: invert(100%);
+    top: -20px;
+    left: -20px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 10000px;
+    pointer-events: none;
+    transition: width .3s cubic-bezier(.22,1,.36,1),height .3s cubic-bezier(.22,1,.36,1),opacity .1s ease;
+    z-index: 10000000;
+    opacity: 1;
+    backdrop-filter: invert(100%);
+    -webkit-backdrop-filter: invert(100%)
 }
 
 .hovercursor {
-	transition: 0.3s  cubic-bezier(0.22, 1, 0.36, 1);
+    transition: .3s cubic-bezier(.22,1,.36,1)
 }
 
 @media (pointer:coarse) {
     .cursor {
-		display: none;
-	}
-	
+        display: none
+    }
 }
-
