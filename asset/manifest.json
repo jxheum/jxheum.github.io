@@ -1,34 +1,20 @@
 {
-  "name": "Jiheum",
+  "name": "jiheum.me",
   "theme_color": "#eff6ff",
   "background_color": "#eff6ff",
-  "short_name": "Jiheum",
-  "id": "site.jxheum",
+  "short_name": "jiheum",
+  "id": "me.jiheum.jiheum",
   "description": "Jiheum's Page",
   "start_url": "/",
-  "display": "standalone",
+  "display": "window-controls-overlay",
   "launch_handler": {
     "client_mode": "focus-existing"
   },
   "orientation": "any",
-  "screenshots": [
-    {
-      "src": "/asset/screenshot.png",
-      "sizes": "1280x720",
-      "type": "image/webp"
-    }
-  ], 
   "dir": "ltr",
   "lang": "ko-KR",
   "prefer_related_applications": true,
   "scope": "/",
-  "shortcuts": [
-    {
-      "name": "Jiheum Blog",
-      "url": "https://www.jiheum.me/blog/",
-      "description": "Jiheum's Blog"
-    }
-  ],
   "categories": [
     "lifestyle"
   ],

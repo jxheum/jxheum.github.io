@@ -150,6 +150,7 @@ body,html {
 .header,.header2 {
     font-size: 40px;
     padding: 0 20px;
+    padding-left: 24px;
     position: fixed;
     top: 10px;
     left: 10px;
