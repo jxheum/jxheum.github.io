@@ -1,15 +1,12 @@
 {
-  "name": "jiheum.me",
+  "name": "jiheum",
   "theme_color": "#eff6ff",
   "background_color": "#eff6ff",
   "short_name": "jiheum",
   "id": "me.jiheum.jiheum",
-  "description": "Jiheum's Page",
+  "description": "지흐미안녕",
   "start_url": "/",
   "display": "window-controls-overlay",
-  "launch_handler": {
-    "client_mode": "focus-existing"
-  },
   "orientation": "any",
   "dir": "ltr",
   "lang": "ko-KR",
