@@ -1,9 +1,9 @@
 {
-  "name": "jiheum",
+  "name": "Jiheum",
   "theme_color": "#eff6ff",
   "background_color": "#eff6ff",
-  "short_name": "jiheum",
-  "id": "me.jiheum.jiheum",
+  "short_name": "Jiheum",
+  "id": "me.jiheum",
   "description": "지흐미안녕",
   "start_url": "/",
   "display": "window-controls-overlay",
