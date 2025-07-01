@@ -9,9 +9,8 @@
     <span id="installbtn"><a class="a" id="installbtn" style="cursor:pointer;" aria-label="PWA 설치하기" onclick="parent.installpwa()"><b><i class="fa-solid fa-download"></i> Install</b></a></span><hR id="installhr" style="margin-bottom: 0;">
 </div>
 
-<div class="footer" id="footer">
-    <div class="clickevent menubtn" onclick="menutoggle()"><i class="fa-solid fa-bars"></i> Menu</div>
-</div>
+    <div class="clickevent menubtn" onclick="menutoggle()"><i class="fa-solid fa-bars"></i></div>
+
 
 <div id="installoniOS" style="display:block;background:transparent;width:calc(100% - 40px);bottom: -100%;right:0;position:fixed;padding: 26.5px 20px;transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);backdrop-filter: blur(3px);z-index:99999999999999999999999999;">
     <img src="/asset/share.svg" style="vertical-align: -3px;" alt="iPhone 공유 버튼"> 누르고 홈 화면에 추가하기
@@ -128,9 +127,9 @@ menubtn = document.querySelector('.menubtn');
 gotoblog = document.querySelector('.gotoblog');
     function menutoggle() {
         if (menuopen == 0)
-            menupage.style.bottom = '20px', menupage.style.left = '20px', menuopen = 1, body.style.overflow = 'hidden', bodydiv.style.opacity = 0.3, bodydiv.style.transform = 'scale(0.9)', bodydiv.style.height = '50vh', fmoverlay.style.display = 'block', menubtn.style.opacity = 0, gotoblog.style.display = 'none', gotoblog.style.visibility = 'hidden';
+            menupage.style.bottom = '20px', menupage.style.left = '20px', menuopen = 1, body.style.overflow = '', bodydiv.style.opacity = 1, bodydiv.style.transform = '', bodydiv.style.height = '', fmoverlay.style.display = 'block', menubtn.style.opacity = 0, gotoblog.style.display = 'none', gotoblog.style.visibility = 'hidden', fmoverlay.style.opacity = 1;
         else
-            menupage.style.bottom = '', menupage.style.left = '', menuopen = 0, body.style.overflow = 'auto', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '', menubtn.style.opacity = '', gotoblog.style.display = '', gotoblog.style.visibility = '';
+            menupage.style.bottom = '', menupage.style.left = '', menuopen = 0, body.style.overflow = '', bodydiv.style.opacity = 1, bodydiv.style.transform = '', fmoverlay.style.display = '', bodydiv.style.height = '', menubtn.style.opacity = '', gotoblog.style.display = '', gotoblog.style.visibility = '', fmoverlay.style.opacity = 0;
     }
 
     // function menuupdate() {

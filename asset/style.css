@@ -149,7 +149,7 @@ body,html {
 
 .header,.header2 {
     font-size: 40px;
-    padding: 0 20px;
+    padding: 5px 20px;
     position: fixed;
     top: 10px;
     left: 10px;
@@ -222,17 +222,18 @@ a,a:link {
     height: 37px
 }
 
-.footer .menubtn {
-    margin-left: 8px;
-    background: 0 0;
+.menubtn  {
+    position: fixed;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 10px;
+    width: 50px;
+    height: 37px;
+    padding-top: 13px;
     backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px)
-}
-
-.footer .menubtn,.menubtn {
-    width: fit-content;
+    -webkit-backdrop-filter: blur(3px);
     border-radius: 500px;
-    padding: 10px
+    text-align: center;
+    font-size: 20px;
 }
 
 .pointer {
@@ -493,7 +494,10 @@ hr {
     display: none;
     top: 0;
     left: 0;
-    z-index: 999990
+    z-index: 999990;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity .6s cubic-bezier(.87,0,.13,1);
 }
 
 .contentsec ul {
@@ -606,8 +610,8 @@ article h1,article h2,article h3,article h4,article h5,article h6 {
     right: 10px;
     font-size: 15px;
     transition: .6s cubic-bezier(.22,1,.36,1);
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: 0 0;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px)
@@ -643,4 +647,19 @@ article img {
 	.contentsec a:hover {
 		color: #007aff;
 	}
+}
+
+.shadow, .menubtn, .gotoblog, .header {
+    box-shadow: inset 0px -4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(255,255,255,0.25), 0px 4px 10px rgba(0,0,0,0.25);
+    border: none !important;
+}
+
+.shadow:hover, .menubtn:hover, .gotoblog:hover, .header:hover {
+    box-shadow: inset 0px -4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(255,255,255,0.25), 0px 4px 10px rgba(0,0,0,0.25) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .shadow, .menubtn, .gotoblog, .header {
+        border: 1px solid #eff6ff1a !important;
+    }
 }
