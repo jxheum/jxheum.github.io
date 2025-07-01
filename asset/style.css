@@ -500,6 +500,10 @@ hr {
     transition: opacity .6s cubic-bezier(.87,0,.13,1);
 }
 
+.pagenp i {
+    margin-top: 4px;
+}
+
 .contentsec ul {
     margin-block-start: 1em;
     margin-block-end: 1em;

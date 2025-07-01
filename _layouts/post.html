@@ -11,10 +11,10 @@
     {% include head.html %}
     </head>
 
-<body data-barba="wrapper">
+<body>
         <div id="bodydiv">
             {% include header.html %}
-<main data-barba="container" data-barba-namespace="post">
+<main>
             {% for tag in page.tags %}
         <meta name="Keywords" content="{{ tag }}" />
         {% unless forloop.last %}{% endunless %}
@@ -159,6 +159,5 @@ window.addEventListener("message", handleMessage)
 setTimeout(() => window.removeEventListener("message", handleMessage), 10000);
 
     </script>
-    <script src="/asset/barba.js" defer></script>
 </body>
 </html>

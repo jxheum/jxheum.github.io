@@ -4,16 +4,29 @@
   "background_color": "#eff6ff",
   "short_name": "Jiheum",
   "id": "me.jiheum",
-  "description": "지흐미안녕",
+  "description": "안녕 난 백지흠이라고 해 헿",
   "start_url": "/",
-  "display": "window-controls-overlay",
+  "display": "standalone",
+  "display_override": [
+    "tabbed"
+  ],
+  "tab_strip": {
+    "new_tab_button": {
+      "url": "/"
+    },
+    "home_tab": {
+      "scope_patterns": [
+        {"pathname": "/"}
+      ]
+    }
+  },
   "orientation": "any",
   "dir": "ltr",
   "lang": "ko-KR",
   "prefer_related_applications": true,
   "scope": "/",
   "categories": [
-    "lifestyle"
+    "social"
   ],
   "icons": [
     {
@@ -463,6 +476,26 @@
     {
       "src": "/asset/AppImages/ios/1024.png",
       "sizes": "1024x1024"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/asset/screenshots/img1.png",
+      "form_factor": "wide",
+      "type": "image/png",
+      "label": "홈 화면"
+    },
+    {
+      "src": "/asset/screenshots/img2.png",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "메뉴"
+    },
+    {
+      "src": "/asset/screenshots/img3.png",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "메모장"
     }
   ]
 }
