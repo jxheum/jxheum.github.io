@@ -496,7 +496,8 @@ hr {
     left: 0;
     z-index: 999990;
     backdrop-filter: blur(3px);
-    opacity: 0;
+    -webkit-backdrop-filter: blur(3px);
+    opacity: 1;
     transition: opacity .6s cubic-bezier(.87,0,.13,1);
 }
 
