@@ -4,18 +4,31 @@ layout: index
 
 <div class="postlist">
 	{% for post in paginator.posts %}
+	{% if post.image %}
+
+	<a href="{{ post.url }}" class="postitma" aria-label="{{ post.title }} 읽기">
+		<div class="postitm">
+			<img src="{{ post.image }}" alt="{{ post.title }} 대표 이미지" height="60px" style="float: right;">
+			<div class="posttitle">{{ post.title }}</div>
+			<div class="postspt">{{ post.excerpt | strip_html | truncatewords: 5 }}</div>
+			<div class="postspt"><i class="fa-solid fa-calendar-days"></i> {{ post.date | date: '%Y-%m-%d %H:%M' }}
+		</div>
+		</div>
+	</a>
+
+	{% else %}
 
 	<a href="{{ post.url }}" class="postitma" aria-label="{{ post.title }} 읽기">
 		<div class="postitm">
 			<div class="posttitle">{{ post.title }}</div>
 			<div class="postspt">{{ post.excerpt | strip_html | truncatewords: 5 }}</div>
 			<div class="postspt"><i class="fa-solid fa-calendar-days"></i> {{ post.date | date: '%Y-%m-%d %H:%M' }}
-			</div>
+		</div>
 		</div>
 	</a>
+
+	{% endif %}
 	<div style="height:10px;"></div>
-
-
 	{% endfor %}
 </div>
 {% include pagination.html %}

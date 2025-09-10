@@ -358,6 +358,15 @@ a,a:link {
     box-shadow: 0 0 10px -2px rgba(255,255,255,.2)
 }
 
+.postitm img {
+    border-radius: 10px !important;
+    transition: transform .6s cubic-bezier(.34,1.56,.68,1.06)
+}
+
+.postitm img:hover {
+    transform: scale(3);
+}
+
 .postitm:hover {
     transform: scale(1.01)
 }
