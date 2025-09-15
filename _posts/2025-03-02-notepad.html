@@ -171,7 +171,6 @@ date: 2025-03-02 21:53
     function load() {
         var fileToLoad = document.createElement("input");
         fileToLoad.type = "file";
-        fileToLoad.accept = ".txt";
         fileToLoad.click();
         fileToLoad.addEventListener('change', function() {
             file = fileToLoad.files[0];
