@@ -250,15 +250,15 @@ image: "/asset/postasset/rpg.png"
 			// ===== 밸런스 상수 =====
 			const BAL = {
 				monster: {
-					perLevel: 0.18,               // 몬스터 레벨당 능력 증가율(선형)
-					defMitigationVsPlayer: 0.80,   // 적이 플레이어를 때릴 때 플레이어 방어 적용 비율
+					perLevel: 0.16,               // 몬스터 레벨당 능력 증가율(선형) (완화)
+					defMitigationVsPlayer: 0.95,   // 적이 플레이어를 때릴 때 플레이어 방어 적용 비율 (플레이어 방어 더 잘 먹히게)
 					defMitigationVsMonster: 1.00   // 플레이어가 적을 때릴 때 적 방어 적용 비율
 				},
 				boss: {
-					levelOffset: 0,                // 보스는 몬스터 레벨 + 오프셋
-					hpMul: 1.10,
-					atkMul: 1.05,
-					defMul: 1.03,
+					levelOffset: -1,               // 보스는 플레이어 체감 완화 위해 -1
+					hpMul: 0.92,                   // 체력 하향
+					atkMul: 0.90,                  // 공격력 하향
+					defMul: 0.90,                  // 방어력 하향
 					rewardMul: 1.15
 				},
 				player: {
@@ -267,15 +267,15 @@ image: "/asset/postasset/rpg.png"
 					atkPerLevelMin: 1,
 					atkPerLevelMax: 2,
 					defUpChance: 0.6,
-					xpGrowth: 1.48
+					xpGrowth: 1.44                  // 초반 성장 약간 완화해 레벨업 더 자주
 				},
 				combat: {
-					critChance: 0.07,
-					critMul: 2.5,
-					pVarMin: -3,  // 플레이어 공격 변동치
-					pVarMax: 3,
-					eVarMin: -3,  // 적 공격 변동치
-					eVarMax: 3,
+					critChance: 0.09,              // 치명타 소폭 상향
+					critMul: 2.4,                  // 배수 소폭 하향으로 안정화
+					pVarMin: -2,  // 플레이어 공격 변동치 완화
+					pVarMax: 2,
+					eVarMin: -2,  // 적 공격 변동치 완화
+					eVarMax: 2,
 					guardReduction: 0.5
 				},
 				mods: {
@@ -296,10 +296,10 @@ image: "/asset/postasset/rpg.png"
 					armorPerFloor: 0.35
 				},
 				encounter: {
-					bossChanceBase: 0.04,
-					bossChancePerFloor: 0.008,
-					bossChancePerLevel: 0.004,
-					bossChanceMax: 0.12
+					bossChanceBase: 0.03,          // 보스 조우 기본 확률 하향
+					bossChancePerFloor: 0.006,      // 증가 폭 감소
+					bossChancePerLevel: 0.003,
+					bossChanceMax: 0.09             // 상한 하향
 				}
 			};
 
@@ -332,8 +332,18 @@ image: "/asset/postasset/rpg.png"
 				return pickByWeight(base, (it)=> it.weight);
 			}
 
-			function makeName(kind, tier, rarity){
-				const base = kind==='weapon'? '검' : '갑옷';
+			// 무기 타입 정의
+			const WEAPON_TYPES = [
+				{key:'sword', label:'검', emoji:'⚔️', desc:'균형형'},
+				{key:'axe', label:'도끼', emoji:'🪓', desc:'높은 치명 배수'},
+				{key:'spear', label:'창', emoji:'🏹', desc:'방어 일부 관통'},
+				{key:'dagger', label:'단검', emoji:'🗡️', desc:'치명 확률↑'},
+				{key:'bow', label:'활', emoji:'🏹', desc:'변동 피해, 회피 무시 약간'},
+				{key:'staff', label:'지팡이', emoji:'🪄', desc:'마력 추가 피해'}
+			];
+
+			function makeName(kind, tier, rarity, wtype){
+				const base = kind==='weapon'? (wtype?.label||'무기') : '갑옷';
 				return `${rarity.label} ${tier.label} ${base}`;
 			}
 
@@ -343,7 +353,9 @@ image: "/asset/postasset/rpg.png"
 				const r = rarity ?? pickRarity();
 				const base = 1 + Math.floor((floor-1)*BAL.items.weaponPerFloor) + t.atkBase + rndInt(0,2);
 				const atk = Math.max(1, Math.round(base * r.mul));
-				let w = {id:uid(), name: makeName('weapon', t, r), kind:'weapon', atk, amount:1, tier:t.key, rarity:r.key};
+				// 무기 타입 선택
+				const wtype = choice(WEAPON_TYPES);
+				let w = {id:uid(), name: makeName('weapon', t, r, wtype), kind:'weapon', atk, amount:1, tier:t.key, rarity:r.key, wtype: wtype.key};
 				// 희귀도에 따른 모드 부여
 				if(r.key==='legendary'){
 					w = maybeModWeapon(w, 0.95);
@@ -434,7 +446,7 @@ image: "/asset/postasset/rpg.png"
 					stats: baseStats(),
 					quest: null,
 					buffs: { blessing: 0 }, // 행운 축복 스택
-					skills: { powerStrike: {cd:0}, guardStance: {cd:0} },
+					skills: { powerStrike: {cd:0}, guardStance: {cd:0}, doubleSlash:{cd:0}, firstAid:{cd:0} },
 					encounter: null,
 					lastChoices: [],
 				};
@@ -547,7 +559,10 @@ image: "/asset/postasset/rpg.png"
 				switch(it.kind){
 					case 'potion': return '🧪';
 					case 'bomb': return '💣';
-					case 'weapon': return '⚔️';
+					case 'weapon': {
+						const wt = WEAPON_TYPES.find(w=>w.key===it.wtype);
+						return wt?.emoji || '⚔️';
+					}
 					case 'armor': return '🛡️';
 					default: return '🎒';
 				}
@@ -556,7 +571,10 @@ image: "/asset/postasset/rpg.png"
 				switch(it.kind){
 					case 'potion': return `+${it.heal} HP`;
 					case 'bomb': return `${it.dmg} DMG`;
-					case 'weapon': return `+${it.atk} ATK${it.mods?' · ✨':''}`;
+					case 'weapon': {
+						const wt = WEAPON_TYPES.find(w=>w.key===it.wtype);
+						return `${wt?wt.label+' ':''}+${it.atk} ATK${it.mods?' · ✨':''}`;
+					}
 					case 'armor': return `+${it.def} DEF${it.mods?' · ✨':''}`;
 					default: return '';
 				}
@@ -814,9 +832,11 @@ image: "/asset/postasset/rpg.png"
 				Object.values(game.skills).forEach(s=>{ if(s.cd>0) s.cd--; });
 			}
 			function playerOptions(){
-				const s = game.skills || {powerStrike:{cd:0}, guardStance:{cd:0}};
+				const s = game.skills || {powerStrike:{cd:0}, guardStance:{cd:0}, doubleSlash:{cd:0}, firstAid:{cd:0}};
 				const psLabel = s.powerStrike.cd>0? `파워 스트라이크 (대기 ${s.powerStrike.cd})` : '파워 스트라이크';
 				const gsLabel = s.guardStance.cd>0? `가드 스탠스 (대기 ${s.guardStance.cd})` : '가드 스탠스';
+				const dsLabel = s.doubleSlash.cd>0? `연속 베기 (대기 ${s.doubleSlash.cd})` : '연속 베기';
+				const faLabel = s.firstAid.cd>0? `응급치료 (대기 ${s.firstAid.cd})` : '응급치료';
 				return [
 					{label:'공격한다', class:'primary', run: attack},
 					{label:psLabel, run: ()=>{
@@ -827,10 +847,46 @@ image: "/asset/postasset/rpg.png"
 						if(s.guardStance.cd>0){ log('아직 스킬이 준비되지 않았다.'); return; }
 						skillGuardStance();
 					}},
+					{label:dsLabel, run: ()=>{
+						if(s.doubleSlash.cd>0){ log('아직 스킬이 준비되지 않았다.'); return; }
+						skillDoubleSlash();
+					}},
+					{label:faLabel, run: ()=>{
+						if(s.firstAid.cd>0){ log('아직 스킬이 준비되지 않았다.'); return; }
+						skillFirstAid();
+					}},
 					{label:'방어한다', run: defend},
 					{label:'아이템 사용', run: openItems},
 					{label:'도망친다', class:'warn', run: flee},
 				];
+			}
+
+			function skillDoubleSlash(){
+				const p=game.player; const m=game.encounter.monster; const s=game.skills;
+				const base = getAtk(p);
+				const effDef = Math.round(m.def * BAL.monster.defMitigationVsMonster);
+				// 두 번 타격: 각 70% 계수, 최소 1 고정
+				let hit1 = Math.max(1, Math.round((base - effDef + rndInt(BAL.combat.pVarMin, BAL.combat.pVarMax)) * 0.7));
+				let hit2 = Math.max(1, Math.round((base - effDef + rndInt(BAL.combat.pVarMin, BAL.combat.pVarMax)) * 0.7));
+				let total = hit1 + hit2;
+				m.hp = Math.max(0, m.hp - total);
+				log(`<b>스킬!</b> 연속 베기: <span class="good">${hit1}</span> + <span class="good">${hit2}</span> = <span class="good">${total}</span> 피해`);
+				s.doubleSlash.cd = 3;
+				if(m.hp<=0){ winCombat(); return; }
+				enemyTurn();
+				draw(); syncHUD();
+			}
+
+			function skillFirstAid(){
+				const p=game.player; const s=game.skills;
+				const heal = Math.max(6, Math.round(p.maxHp*0.18));
+				healPlayer(heal);
+				flashHP(`❤️ +${heal}`);
+				log(`<b>스킬!</b> 응급치료: <span class="good">${heal} 회복</span>`);
+				s.firstAid.cd = 4;
+				// 치유 후 적 턴 진행
+				enemyTurn(0.9); // 약간의 방어 이점
+				draw(); syncHUD();
 			}
 
 			function skillPowerStrike(){
@@ -870,9 +926,26 @@ image: "/asset/postasset/rpg.png"
 				const p = game.player; const m = game.encounter.monster;
 				applyRegen();
 				const base = getAtk(p);
-				const effDef = Math.round(m.def * BAL.monster.defMitigationVsMonster);
-				let dmg = Math.max(1, base - effDef + rndInt(BAL.combat.pVarMin, BAL.combat.pVarMax));
-				if(rand() < BAL.combat.critChance) { dmg=Math.round(dmg*BAL.combat.critMul); log('<b>치명타!</b>'); }
+				const wtype = p.weapon?.wtype || 'sword';
+				let effDef = Math.round(m.def * BAL.monster.defMitigationVsMonster);
+				// 무기 타입: 방어 관통 등
+				if(wtype==='spear'){
+					// 창: 적 방어의 35% 무시
+					effDef = Math.max(0, Math.round(effDef * 0.65));
+				}
+				let varMin=BAL.combat.pVarMin, varMax=BAL.combat.pVarMax;
+				if(wtype==='bow'){
+					// 활: 변동 폭 증가
+					varMin -= 1; varMax += 2;
+				}
+				let dmg = Math.max(1, base - effDef + rndInt(varMin, varMax));
+				// 치명 설정: 단검 확률↑, 도끼 배수↑, 단검 배수↓
+				let cChance = BAL.combat.critChance; let cMul = BAL.combat.critMul;
+				if(wtype==='dagger'){ cChance += 0.08; cMul = Math.max(1.8, cMul-0.3); }
+				if(wtype==='axe'){ cChance -= 0.02; cMul = cMul + 0.4; }
+				if(rand() < cChance) { dmg=Math.round(dmg*cMul); log('<b>치명타!</b>'); }
+				// 지팡이: 마력 추가 고정 피해
+				if(wtype==='staff'){ dmg += 2 + Math.floor(game.floor*0.2); }
 				m.hp = Math.max(0, m.hp - dmg);
 				log(`당신은 ${m.name}을(를) 공격했다. <span class="good">${dmg} 피해</span>`);
 				// 생명흡수
@@ -885,6 +958,7 @@ image: "/asset/postasset/rpg.png"
 				if(m.hp<=0){
 					winCombat(); return;
 				}
+				// 활: 회피 무시 소폭(적 회피는 현재 없지만, 가드 효과 경감 조금 무시)
 				if(!stunned) enemyTurn(); else { tickCooldowns(); setChoices(playerOptions()); draw(); }
 				draw();
 				syncHUD();
@@ -1095,7 +1169,8 @@ image: "/asset/postasset/rpg.png"
 				if(it.kind==='weapon'){
 					const old = game.player.weapon; game.player.weapon = it; game.player.inventory.splice(idx,1);
 					if(old) { game.player.inventory.push(old); }
-					log(`<b>${it.name}</b> 장착. (공격 +${it.atk})`);
+					const wt = WEAPON_TYPES.find(w=>w.key===it.wtype);
+					log(`${wt?.emoji||'⚔️'} <b>${it.name}</b> 장착. (공격 +${it.atk})`);
 					floatPop(document.getElementById('atkWrap'), `⚔️ +${it.atk}`, 'buff');
 					syncHUD();
 					return;
@@ -1211,7 +1286,12 @@ image: "/asset/postasset/rpg.png"
 					if(typeof game.rngState !== 'number') game.rngState = Date.now()>>>0;
 					if(!game.stats) game.stats = baseStats(); // 하위호환: 구버전 저장엔 stats 없음
 					if(!game.buffs) game.buffs = { blessing: 0 };
-					if(!game.skills) game.skills = { powerStrike:{cd:0}, guardStance:{cd:0} };
+					if(!game.skills) game.skills = { powerStrike:{cd:0}, guardStance:{cd:0}, doubleSlash:{cd:0}, firstAid:{cd:0} };
+					// 누락된 신규 스킬 키 보강
+					game.skills.powerStrike ??= {cd:0};
+					game.skills.guardStance ??= {cd:0};
+					game.skills.doubleSlash ??= {cd:0};
+					game.skills.firstAid ??= {cd:0};
 					if(!game.quest) { ensureQuest(); } else { renderQuestLine?.(); }
 					log('저장 데이터를 불러왔다. 모험을 계속한다.');
 					draw(); syncHUD(); renderStats();
