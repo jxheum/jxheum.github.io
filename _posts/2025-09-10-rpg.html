@@ -97,6 +97,7 @@ image: "/asset/postasset/rpg.png"
 			button.btn:active{transform:translateY(0)}
 			button.primary{border-color:#2c6f88; background:#113449}
 			button.warn{border-color:#7a2a2a; background:#2a1418}
+			button.green{border-color:#2a7a31; background:#142a1a}
 
 			.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 			.toolbar > *{flex: none}
@@ -172,7 +173,7 @@ image: "/asset/postasset/rpg.png"
 					<button class="pill" id="saveBtn" title="현재 진행 저장 파일 다운로드 (S)">저장(다운로드)</button>
 					<button class="pill" id="loadBtn" title="저장 파일 불러오기 (L)">불러오기</button>
 					<button class="pill" id="statsBtn" title="통계 보기 (T)">통계</button>
-					<input class="file" id="loadInput" type="file" accept="application/json" />
+					<input class="file" id="loadInput" type="file" accept=".rpg,application/json,.json" />
 					<span class="spacer"></span>
 					<span class="muted">숫자키 <span class="kbd">1-9</span> 로 선택 · 이동 <span class="kbd">←</span><span class="kbd">↑</span><span class="kbd">→</span></span>
 				</div>
@@ -791,7 +792,7 @@ image: "/asset/postasset/rpg.png"
 					const opts=[];
 					stock.forEach((s,i)=>{
 						if(!s) return; opts.push({
-							label:`구매: ${s.it.name} - ${s.price}G`,
+							label:`구매: ${s.it.name} - ${s.price}G`, class:'green',
 							run: ()=>{
 								if(game.player.gold < s.price){ log('골드가 부족하다.'); return; }
 								game.player.gold -= s.price; if(game.stats) game.stats.goldSpent += s.price; addItem(s.it); stock[i]=null; syncHUD(); renderStats(); drawShop();
@@ -802,7 +803,7 @@ image: "/asset/postasset/rpg.png"
 					game.player.inventory.forEach((it,idx)=>{
 						const val = Math.max(1, Math.floor(itemValue(it)*0.7));
 						opts.push({
-							label:`판매: ${it.name}${it.amount>1?` x${it.amount}`:''} +${val}G`,
+							label:`판매: ${it.name}${it.amount>1?` x${it.amount}`:''} +${val}G`, class:'warn',
 							run: ()=>{
 								// 스택 처리: 한 개만 판매
 								if(it.amount && it.amount>1){ it.amount--; } else { game.player.inventory.splice(idx,1); }
@@ -811,7 +812,7 @@ image: "/asset/postasset/rpg.png"
 							}
 						});
 					});
-					opts.push({label:'떠난다', class:'warn', run: ()=>{ log('상점을 떠났다.'); presentExplore(); draw(); }});
+					opts.push({label:'떠난다', run: ()=>{ log('상점을 떠났다.'); presentExplore(); draw(); }});
 					setChoices(opts);
 				};
 				drawShop();
@@ -1243,9 +1244,9 @@ image: "/asset/postasset/rpg.png"
 				} else if(e.key==='ArrowRight'){
 					if(game.state==='explore') move('right');
 				} else if(e.key==='r' || e.key==='R'){
-					newGame();
+					requestNewGame();
 				} else if(e.key==='s' || e.key==='S'){
-					saveGame();
+						saveGame();
 				} else if(e.key==='l' || e.key==='L'){
 					document.getElementById('loadBtn').click();
 				} else if(e.key==='t' || e.key==='T'){
@@ -1254,6 +1255,31 @@ image: "/asset/postasset/rpg.png"
 					closeStats();
 				}
 			});
+
+			// 진행 확인 및 새 게임 요청
+			function hasProgress(){
+				try{
+					if(!game) return false;
+					if(game.state === 'gameover') return false;
+					const p = game.player || {};
+					if(game.steps && game.steps>0) return true;
+					if(game.floor && game.floor>1) return true;
+					if(p.level && p.level>1) return true;
+					if(p.xp && p.xp>0) return true;
+					if(Array.isArray(p.inventory) && p.inventory.length>0) return true;
+					if(p.weapon || p.armor) return true;
+					if(typeof p.gold === 'number' && p.gold !== 30) return true;
+					return false;
+				}catch(_){ return true; }
+			}
+
+			function requestNewGame(){
+				if(hasProgress()){
+					const ok = window.confirm('정말 새 게임을 시작할까요? 현재 진행이 사라집니다.');
+					if(!ok) return;
+				}
+				newGame();
+			}
 
 			// ===== 저장/불러오기 =====
 			function serialize(){
@@ -1266,13 +1292,19 @@ image: "/asset/postasset/rpg.png"
 			}
 
 			function saveGame(){
-				const blob = new Blob([serialize()], {type:'application/json'});
-				const a = document.createElement('a');
-				a.href = URL.createObjectURL(blob);
-				a.download = `dungeon-save-${nowStr()}.json`;
-				document.body.appendChild(a); a.click(); a.remove();
-				setTimeout(()=> URL.revokeObjectURL(a.href), 5000);
-				log('진행 상황을 파일로 저장했다.');
+				const data = serialize();
+				const saveAs = (filename)=>{
+					const blob = new Blob([data], {type:'application/json'});
+					const a = document.createElement('a');
+					a.href = URL.createObjectURL(blob);
+					a.download = filename;
+					document.body.appendChild(a); a.click(); a.remove();
+					setTimeout(()=> URL.revokeObjectURL(a.href), 5000);
+				};
+				const ts = nowStr();
+				// 항상 .rpg로 저장
+				saveAs(`dungeon-save-${ts}.rpg`);
+				log('진행 상황을 저장했다.');
 			}
 
 			function loadGameFromText(text){
@@ -1308,7 +1340,7 @@ image: "/asset/postasset/rpg.png"
 					}
 				}catch(err){
 					console.error(err);
-					log('<span class="bad">불러오기 실패:</span> 저장 파일이 손상되었을 수 있습니다.');
+					log('<span class="bad">불러오기 실패:</span> .rpg/.json 저장 파일이 손상되었을 수 있습니다.');
 				}
 			}
 
@@ -1392,8 +1424,8 @@ image: "/asset/postasset/rpg.png"
 			function drawSkull(cx,cy){ ctx.save(); ctx.translate(cx-8,cy-8); ctx.fillStyle='#ddd'; ctx.fillRect(3,2,10,8); ctx.fillStyle='#000'; ctx.fillRect(5,5,2,2); ctx.fillRect(9,5,2,2); ctx.fillRect(7,9,2,2); ctx.restore(); }
 
 			// ===== 버튼 바인딩 =====
-			document.getElementById('newGameBtn').addEventListener('click', ()=> newGame());
-			document.getElementById('saveBtn').addEventListener('click', saveGame);
+			document.getElementById('newGameBtn').addEventListener('click', ()=> requestNewGame());
+			document.getElementById('saveBtn').addEventListener('click', ()=> saveGame());
 			document.getElementById('loadBtn').addEventListener('click', ()=> document.getElementById('loadInput').click());
 			document.getElementById('loadInput').addEventListener('change', (e)=>{
 				const file = e.target.files?.[0]; if(!file) return;
