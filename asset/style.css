@@ -16,10 +16,6 @@
         border: 1px solid #eff6ff1a
     }
 
-    .fixedtoc,.header,.header2 {
-        background: linear-gradient(to top,transparent,#101010)!important
-    }
-
     .bg,.bottominfosec,.checkmark,.chip,.commentsec,.contentsec code,.iconbtn,.pagenow,.pagenp,.postitm,.tocsec,.topbtn,button,hr {
         background: #eff6ff1a;
         border: .01px solid #f0f6ff26
@@ -285,7 +281,7 @@ a,a:link {
 
 .infosect {
     width: calc(100% - env(safe-area-inset-left));
-    margin-left: env(safe-area-inset-left)
+    margin-left: env(safe-area-inset-left);
 }
 
 .posttags,.posttitle2 {
@@ -294,7 +290,7 @@ a,a:link {
 
 .posttitle2 {
     padding: 0 20px;
-    font-size: 30px;
+    font-size: 60px;
     font-weight: 700
 }
 

@@ -22,9 +22,10 @@
     <meta http-equiv="Title" content="{{ page.title }}" />
     <meta name="Date" content="{{ page.date | date: '%Y-%m-%dT%H:%M:%S' }}+09:00" />
     <meta property="og:title" content="Jiheum - {{ page.title }}">
-    <meta property="og:image" content="/asset/descimg.png">
+    <meta property="og:image" content="{{ page.image }}">
     <meta property="description" content="{{ page.excerpt | strip_html | escape }}">
-            <div class="infosect">
+            <div class="infosect" style="">
+                <img src="{{ page.image }}" style="width: 100%;">
                 <div class="posttitle2">{{ page.title }}</div>
                 <div class="posttags">
                     {% for tag in page.tags %}

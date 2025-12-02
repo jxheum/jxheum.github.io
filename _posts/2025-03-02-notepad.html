@@ -3,6 +3,7 @@ layout: default
 title: "메모장"
 excerpt: "그냥 평범한 NotePad"
 date: 2025-03-02 21:53
+image: "/asset/postasset/notepad.png"
 ---
 <style>
     .textareadiv {
@@ -34,11 +35,10 @@ date: 2025-03-02 21:53
     }
 
     .title {
-        box-shadow: inset 0px -4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(255,255,255,0.25), 0px 4px 10px rgba(0,0,0,0.25);
         position:absolute;
         top: 80px;
-        left: 30px;
         padding: 16px;
+        margin-left: 10px;
         z-index: 999;
         backdrop-filter: blur(3px);
         -webkit-backdrop-filter: blur(3px);
@@ -46,15 +46,14 @@ date: 2025-03-02 21:53
     }
 
     #toolbar {
-        width: fit-content;
         position:absolute;
         top: 80px;
-        right: 30px;
         padding: 10px;
         z-index: 999;
         backdrop-filter: blur(3px);
         -webkit-backdrop-filter: blur(3px);
         border-radius: 100px;
+        right: 30px
     }
 
     .redbtn {
@@ -75,8 +74,7 @@ date: 2025-03-02 21:53
 
     @media (min-width: 1000px) {
         #toolbar {
-            width: calc(70vw - 80px);
-            left: calc((100vw - (70vw - 65px)) / 2);
+            margin-left: calc(70vw - 40px - 242px) !important;
         }
     }
 
