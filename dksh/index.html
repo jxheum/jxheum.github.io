@@ -1,0 +1,300 @@
+---
+layout: default
+---
+
+<style>
+  /* Space Background & Container */
+  .portfolio-container {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh; /* Adjust height as needed */
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.7;
+  }
+
+  /* 3D Carousel */
+  .carousel-scene {
+    width: 260px;
+    height: 360px;
+    position: relative;
+    transform-style: preserve-3d;
+    user-select: none !important;
+    /* rotation will be driven by JS so no CSS animation here */
+  }
+
+  .card {
+    position: absolute;
+    width: 260px;
+    height: 360px;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px; /* 둥근 카드 */
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    /* Backface visibility ensures cards are seen from behind if desired, or hidden */
+    backface-visibility: visible; 
+    padding: 15px;
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
+  .card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
+    cursor: pointer;
+    transform: scale(1.05); /* Slight zoom on hover (might conflict with 3D transform, handled in JS if needed, but simple scale might break 3D context slightly or look cool) */
+  }
+  
+  /* Override hover transform to maintain 3D position */
+  .card:hover {
+      /* We can't easily scale without resetting the rotateY/translateZ. 
+         So we'll just change style, not transform. */
+      transform: none; 
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
+  .card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+  
+  .card p {
+      font-size: 0.9rem;
+      text-align: center;
+      color: #ddd;
+      margin: 0;
+  }
+</style>
+
+<div class="portfolio-container">
+  <div class="stars"></div>
+  <div class="carousel-scene" id="projectCarousel">
+    <!-- Cards will be injected here -->
+  </div>
+</div>
+
+<script>
+  // 프로젝트 데이터 설정 (JSON 형식)
+  // 여기에 프로젝트를 추가하세요.
+  const projects = [
+    {
+      title: "jiheum.me",
+      image: "/asset/descimg.png",
+      desc: "포트폴리오 사이트",
+      url: "/"
+    },
+    {
+      title: "NotePad",
+      image: "/asset/postasset/notepad.png",
+      url: "/dksh/post/2025/03/02/notepad/",
+      desc: "웹 기반 메모장"
+    }, 
+    {
+      title: "RiroSchool",
+      image: "/asset/postasset/riro1.png",
+      url: "/dksh/post/2025/04/06/riroschool/",
+      desc: "리로스쿨 데스크톱 앱"
+    },
+  ];
+
+  const carousel = document.getElementById('projectCarousel');
+  // 카드 개수에 따라 반지름 자동 계산 (약간의 여유 공간 포함)
+  // cardWidth = 260. Circumference ~= count * 280. Radius = C / 2pi
+  const cardWidth = 280; 
+  const radius = Math.round((projects.length * cardWidth) / (2 * Math.PI)) + 50; 
+
+  projects.forEach((project, index) => {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = project.url;
+    // card.target = "_blank"; // 필요시 새 탭 열기 주석 해제
+
+    const img = document.createElement('img');
+    img.src = project.image;
+    img.alt = project.title;
+
+    const title = document.createElement('h3');
+    title.textContent = project.title;
+    
+    const desc = document.createElement('p');
+    desc.textContent = project.desc;
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(desc);
+
+    // 3D 위치 계산
+    const angle = (index / projects.length) * 360;
+    // 중요: transform 순서 (rotateY -> translateZ)
+    card.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+    
+    // 호버 효과를 위해 원래 transform 값을 저장
+    card.dataset.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+
+    card.addEventListener('mouseenter', () => {
+        // 호버 시 애니메이션 멈춤은 CSS에서 처리됨 (.carousel-scene:hover)
+        // 개별 카드 확대 효과 (transform을 덮어쓰면 위치가 깨지므로 scale만 추가하고 싶지만, 
+        // rotateY/translateZ가 있는 상태에서 scale을 추가하려면 복잡함.
+        // 간단히 border 색상 변경 등으로 만족하거나, transform을 다시 계산해야 함.)
+        card.style.transform = `${card.dataset.transform} scale(1.1)`;
+        card.style.zIndex = 100; // 앞으로 가져오기
+        card.style.background = "rgba(255, 255, 255, 0.3)";
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = card.dataset.transform;
+        card.style.zIndex = 1;
+        card.style.background = "rgba(255, 255, 255, 0.1)";
+    });
+
+    carousel.appendChild(card);
+  });
+
+  // ---------------------------
+  // Interaction: drag + wheel
+  // ---------------------------
+  let isDragging = false;
+  let startX = 0;
+  let dragStartAngle = 0;
+  let spin = 0; // rotation applied to scene (deg)
+  let autoRotate = true;
+  const autoSpeed = 8; // deg per second
+  let lastTime = performance.now();
+  let resumeTimeout = null;
+
+  function setSceneRotation(angle) {
+    spin = angle;
+    carousel.style.transform = `rotateY(-${spin}deg)`;
+  }
+
+  // Auto rotate loop (requestAnimationFrame) so we can pause/resume
+  function raf(now) {
+    const dt = (now - lastTime) / 1000; // seconds
+    lastTime = now;
+    if (autoRotate && !isDragging) {
+      setSceneRotation(spin + autoSpeed * dt);
+    }
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Pause auto-rotate briefly after user interaction
+  function pauseAutoRotateTemporarily(ms = 2500) {
+    autoRotate = false;
+    if (resumeTimeout) clearTimeout(resumeTimeout);
+    resumeTimeout = setTimeout(() => {
+      autoRotate = true;
+    }, ms);
+  }
+
+  // Mouse events
+  carousel.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    dragStartAngle = spin;
+    pauseAutoRotateTemporarily();
+    carousel.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    // sensitivity factor (degrees per pixel)
+    const sensitivity = 0.35;
+    setSceneRotation(dragStartAngle + dx * sensitivity);
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    carousel.style.cursor = '';
+    pauseAutoRotateTemporarily();
+  });
+
+  // Touch events for mobile
+  carousel.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    dragStartAngle = spin;
+    pauseAutoRotateTemporarily();
+  }, {passive: true});
+
+  carousel.addEventListener('touchmove', (e) => {
+    if (!isDragging || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - startX;
+    const sensitivity = 0.35;
+    setSceneRotation(dragStartAngle + dx * sensitivity);
+  }, {passive: true});
+
+  carousel.addEventListener('touchend', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    pauseAutoRotateTemporarily();
+  });
+
+  // Wheel to rotate
+  carousel.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = e.deltaY || e.deltaX;
+    const wheelSensitivity = 0.8; // deg per wheel unit
+    setSceneRotation(spin + delta * wheelSensitivity);
+    pauseAutoRotateTemporarily();
+  }, {passive: false});
+
+  // Pause auto-rotate on hover
+  carousel.addEventListener('mouseenter', () => {
+    autoRotate = false;
+  });
+  carousel.addEventListener('mouseleave', () => {
+    autoRotate = true;
+  });
+</script>
+
