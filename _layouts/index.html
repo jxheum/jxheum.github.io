@@ -1,51 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+    <head>
+        <link rel="icon" type="image/webp" href="/asset/icon.webp" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/asset/favicon.ico"
+        />
+        <link rel="apple-touch-icon" href="/asset/icon.webp" />
+        <meta
+            name="Keywords"
+            content="Jiheum, Jxheum, jiheum, jxheum, jiheum baek, blog, Blog"
+        />
+        <meta name="Keywords" content="지흠, 백지흠, 블로그" />
+        <meta name="Description" content="안녕하세요" />
+        <meta property="og:title" content="Jiheum Blog" />
+        <meta property="og:description" content="My Blog" />
+        <meta property="og:image" content="/asset/descimg.png" />
+        <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script> -->
+        <meta property="og:url" content="/" />
+        {% include head.html %}
+        <title>Jxheum</title>
+    </head>
 
-<head>
-	<link rel="icon" type="image/webp" href="/asset/icon.webp" />
-	<link rel="shortcut icon" type="image/x-icon" href="/asset/favicon.ico" />
-	<link rel="apple-touch-icon" href="/asset/icon.webp">
-	<meta name="Keywords" content="Jiheum, Jxheum, jiheum, jxheum, jiheum baek, blog, Blog" />
-    <meta name="Keywords" content="지흠, 백지흠, 블로그" />
-    <meta name="Description" content="안녕하세요" />
-	<meta property="og:title" content="Jiheum Blog">
-    <meta property="og:description" content="My Blog">
-    <meta property="og:image" content="/asset/descimg.png">
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script> -->
-    <meta property="og:url" content="/">
-	{% include head.html %}
-	<title>Jxheum</title>
-</head>
-
-<body>
-	<div id="bodydiv">
-	{% include header.html %}
-	<main>
-		<style>
-			.headermargin{display:none;}
-		</style>
-	<div class="mycardsec">
-		<div class="shadow mycard" id="mycard">
-			<div class="myname"><i class="fa-solid fa-terminal"></i> Jiheum Baek</div>
-			<div class="myinfo">
-				<i class="fa-solid fa-cake-candles"></i> 2009.12.12.<br>
-				<i class="fa-solid fa-school-flag"></i> <a href="https://dankook.sen.hs.kr/" target="_blank">DKSH</a> 09
-			</div>
-			<div class="mysns">
-				<a href="https://github.com/jxheum" target="_blank"><i class="fa-brands fa-github"></i> jxheum</a><br>
-				<a href="https://instagram.com/jxheum" target="_blank"><i class="fa-brands fa-instagram"></i> jxheum</a><br>
-				<a href="mailto:jiheum@jiheum.me" target="_blank"><i class="fa-solid fa-at"></i> jiheum@jiheum.me</a><br>
-				<a href="javascript:buymeacoffee()"><i class="fa-solid fa-mug-saucer"></i> Buy Me a Coffee</a>
-			</div>
-		</div>
-	</div>
-	<div class="content" id="blog">
-		{{ content }}
-
-	</div>
-	</main>
-</div>
-{% include footer.html %}
-</body>
-
+    <body>
+        <div id="bodydiv">
+            {% include header.html %}
+            <main>
+                <style>
+                    .headermargin {
+                        display: none;
+                    }
+                </style>
+                <div class="mycardsec">
+                    <div class="shadow mycard" id="mycard">
+                        <div class="myname">
+                            <i class="fa-solid fa-terminal"></i> Jiheum Baek
+                        </div>
+                        <div class="myinfo">
+                            <!-- <i class="fa-solid fa-cake-candles"></i> 2009.12.12.<br>
+				<i class="fa-solid fa-school-flag"></i> <a href="https://dankook.sen.hs.kr/" target="_blank"></a> 09 -->
+                        </div>
+                        <div class="mysns">
+                            <a href="https://github.com/jxheum" target="_blank"
+                                ><i class="fa-brands fa-github"></i> jxheum</a
+                            ><br />
+                            <a
+                                href="https://instagram.com/jxheum"
+                                target="_blank"
+                                ><i class="fa-brands fa-instagram"></i>
+                                jxheum</a
+                            ><br />
+                            <a href="mailto:jiheum@jiheum.me" target="_blank"
+                                ><i class="fa-solid fa-at"></i>
+                                jiheum@jiheum.me</a
+                            ><br />
+                            <a href="javascript:buymeacoffee()"
+                                ><i class="fa-solid fa-mug-saucer"></i> Buy Me a
+                                Coffee</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="content" id="blog">{{ content }}</div>
+            </main>
+        </div>
+        {% include footer.html %}
+    </body>
 </html>
